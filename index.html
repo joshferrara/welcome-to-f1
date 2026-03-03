@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-units="imperial">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -173,6 +173,42 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 [data-theme="light"] .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); color: #1A1A1D; }
 
 /* ═══════════════════════════════════════════════════
+   UNIT TOGGLE
+   ═══════════════════════════════════════════════════ */
+.unit-toggle {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid var(--border-color-hover);
+  background: var(--bg-card);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.unit-toggle__btn {
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out-expo);
+  line-height: 1;
+}
+
+.unit-toggle__btn.active {
+  background: var(--f1-red);
+  color: #fff;
+}
+
+.unit-toggle__btn:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════
    NAV BAR (sticky)
    ═══════════════════════════════════════════════════ */
 .navbar {
@@ -336,8 +372,18 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   color: var(--f1-red);
 }
 
+.mobile-nav__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0 0;
+  margin-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
 @media (max-width: 768px) {
   .navbar__links { display: none; }
+  .navbar__actions > .unit-toggle { display: none; }
   .navbar__hamburger { display: flex; }
 }
 
@@ -1641,6 +1687,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   .container { padding: 0 16px; }
   .navbar { padding: 0 16px; }
   .theme-toggle { width: 36px; height: 36px; font-size: 16px; }
+  .unit-toggle__btn { padding: 5px 10px; font-size: 10px; }
   .navbar__hamburger { width: 36px; height: 36px; }
 }
 </style>
@@ -1665,6 +1712,10 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       <li><a href="#start">Get Started</a></li>
     </ul>
     <div class="navbar__actions">
+      <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
+        <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
+        <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
+      </div>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
         <span class="icon-sun">&#9728;</span>
         <span class="icon-moon">&#9790;</span>
@@ -1687,6 +1738,12 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
     <a href="#drivers" onclick="closeMobileNav()">The Drivers</a>
     <a href="#history" onclick="closeMobileNav()">History</a>
     <a href="#start" onclick="closeMobileNav()">Get Started</a>
+    <div class="mobile-nav__actions">
+      <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
+        <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
+        <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1718,7 +1775,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   </h1>
 
   <p class="hero__subtitle reveal reveal-delay-2">
-    New to F1? Not sure where to start? This guide covers everything you need to know about 22 drivers, 230 mph cars, and the sport that'll ruin your Sunday sleep schedule.
+    New to F1? Not sure where to start? This guide covers everything you need to know about 22 drivers, <span class="unit" data-imperial="230 mph" data-metric="370 km/h">230 mph</span> cars, and the sport that'll ruin your Sunday sleep schedule.
   </p>
 
   <div class="hero__scroll reveal reveal-delay-3">
@@ -1741,9 +1798,9 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
     <div class="stats-grid">
       <div class="stat-card reveal">
         <span class="stat-card__icon">&#9889;</span>
-        <div class="stat-card__value">230+ mph</div>
+        <div class="stat-card__value"><span class="unit" data-imperial="230+ mph" data-metric="370+ km/h">230+ mph</span></div>
         <div class="stat-card__label">Top Speed</div>
-        <p class="stat-card__desc">F1 cars hit speeds faster than a commercial airplane at takeoff. Mercedes predicts 2026 cars could reach 248 mph thanks to new active aerodynamics.</p>
+        <p class="stat-card__desc">F1 cars hit speeds faster than a commercial airplane at takeoff. Mercedes predicts 2026 cars could reach <span class="unit" data-imperial="248 mph" data-metric="399 km/h">248 mph</span> thanks to new active aerodynamics.</p>
       </div>
       <div class="stat-card reveal reveal-delay-1">
         <span class="stat-card__icon">&#128168;</span>
@@ -1765,7 +1822,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       </div>
       <div class="stat-card reveal reveal-delay-1">
         <span class="stat-card__icon">&#128293;</span>
-        <div class="stat-card__value">1,000&deg;C</div>
+        <div class="stat-card__value"><span class="unit" data-imperial="1,832&deg;F" data-metric="1,000&deg;C">1,832&deg;F</span></div>
         <div class="stat-card__label">Brake Temperature</div>
         <p class="stat-card__desc">Brake discs glow orange-white during night races. That's as hot as volcanic lava. They're made of carbon fibre because metal would simply melt.</p>
       </div>
@@ -1782,7 +1839,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
     </div>
 
     <div class="content-block reveal">
-      <p>Here's the thing about Formula 1: it sounds almost made up until you see it. <strong>Cars that go from 200 mph to 80 mph in two seconds.</strong> Drivers whose heart rates hit 200 bpm at the start and stay at marathon-runner levels for the entire race. Athletes who lose 4 kg of body weight through sweat in a single race while the cockpit reaches 60&deg;C.</p>
+      <p>Here's the thing about Formula 1: it sounds almost made up until you see it. <strong>Cars that go from <span class="unit" data-imperial="200 mph to 80 mph" data-metric="322 km/h to 129 km/h">200 mph to 80 mph</span> in two seconds.</strong> Drivers whose heart rates hit 200 bpm at the start and stay at marathon-runner levels for the entire race. Athletes who lose <span class="unit" data-imperial="8.8 lbs" data-metric="4 kg">8.8 lbs</span> of body weight through sweat in a single race while the cockpit reaches <span class="unit" data-imperial="140&deg;F" data-metric="60&deg;C">140&deg;F</span>.</p>
       <p>Each car generates <strong>1.5 terabytes of data per weekend</strong> from 300+ sensors. Each team brings its own weather station to every track. Drivers react in 100 milliseconds, less than half the time of a normal human. And the power units? 52% thermal efficiency, 1,000+ horsepower from just 1.6 litres. No production car engine comes close.</p>
       <p>Oh, and there are only <strong>11 teams, 22 drivers, and 24 races</strong>. That's it. Small enough to learn in a weekend, deep enough to obsess over for a lifetime.</p>
     </div>
@@ -1859,8 +1916,8 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       </div>
 
       <h3 class="reveal">Race day</h3>
-      <p class="reveal">Five red lights illuminate one by one... then all go out at once. That's the start. Twenty-two cars converge on Turn 1 at 200+ mph. The first lap is chaos: positions change, wings break, and the race order can completely flip. After that, strategy takes over.</p>
-      <p class="reveal">During the race, you'll hear live team radio between drivers and engineers. Frustration, celebration, arguments about strategy, all at 200 mph. It's like having a microphone inside an athlete's head during competition. No other sport does this.</p>
+      <p class="reveal">Five red lights illuminate one by one... then all go out at once. That's the start. Twenty-two cars converge on Turn 1 at <span class="unit" data-imperial="200+ mph" data-metric="322+ km/h">200+ mph</span>. The first lap is chaos: positions change, wings break, and the race order can completely flip. After that, strategy takes over.</p>
+      <p class="reveal">During the race, you'll hear live team radio between drivers and engineers. Frustration, celebration, arguments about strategy, all at <span class="unit" data-imperial="200 mph" data-metric="322 km/h">200 mph</span>. It's like having a microphone inside an athlete's head during competition. No other sport does this.</p>
 
       <div class="callout reveal">
         <p><strong>Sprint Weekends:</strong> Six races in 2026 use a compressed format with a bonus ~100km Sprint Race on Saturday morning. Top 8 score extra championship points. It's a quick, no-pit-stop sprint that adds an extra layer of action.</p>
@@ -1943,12 +2000,12 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       <div class="comparison reveal">
         <div class="comparison__item">
           <div class="comparison__item-title">2025 Cars</div>
-          <div class="comparison__item-value">800 kg</div>
+          <div class="comparison__item-value"><span class="unit" data-imperial="1,764 lbs" data-metric="800 kg">1,764 lbs</span></div>
           <div class="comparison__item-desc">Wider, heavier, ground-effect tunnels for downforce, DRS for overtaking</div>
         </div>
         <div class="comparison__item">
           <div class="comparison__item-title">2026 Cars</div>
-          <div class="comparison__item-value">768 kg</div>
+          <div class="comparison__item-value"><span class="unit" data-imperial="1,693 lbs" data-metric="768 kg">1,693 lbs</span></div>
           <div class="comparison__item-desc">Shorter, narrower, lighter. Active aerodynamics, no DRS, 50/50 hybrid power split</div>
         </div>
       </div>
@@ -2136,7 +2193,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
     </div>
 
     <div class="content-block">
-      <p class="reveal">Unlike most sports where athletes are distant figures, F1 gives you <strong>live team radio</strong> during every race. You hear drivers curse, celebrate, and argue strategy at 200 mph. It's unfiltered, and it regularly produces moments you'll want to rewatch immediately.</p>
+      <p class="reveal">Unlike most sports where athletes are distant figures, F1 gives you <strong>live team radio</strong> during every race. You hear drivers curse, celebrate, and argue strategy at <span class="unit" data-imperial="200 mph" data-metric="322 km/h">200 mph</span>. It's unfiltered, and it regularly produces moments you'll want to rewatch immediately.</p>
     </div>
 
     <div class="driver-grid reveal">
@@ -2595,7 +2652,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       <p class="reveal">Where it all started: the site of the very first World Championship race in 1950. High-speed corners like Maggotts-Becketts-Chapel are some of the best in racing. The British fans are loud, committed, and will cheer in the rain for three hours straight.</p>
 
       <h3 class="reveal">Spa-Francorchamps</h3>
-      <p class="reveal">Belgium's famous circuit through the Ardennes forest. Eau Rouge / Raidillon is a terrifying uphill corner complex taken at 180+ mph. The weather is so unpredictable that it can be dry on one part of the track and raining on another at the same time.</p>
+      <p class="reveal">Belgium's famous circuit through the Ardennes forest. Eau Rouge / Raidillon is a terrifying uphill corner complex taken at <span class="unit" data-imperial="180+ mph" data-metric="290+ km/h">180+ mph</span>. The weather is so unpredictable that it can be dry on one part of the track and raining on another at the same time.</p>
 
       <h3 class="reveal">Monza</h3>
       <p class="reveal">The "Temple of Speed." The fastest circuit on the calendar and Ferrari's home turf. After the race, the Tifosi (Ferrari's Italian fanbase) storm the track in a tide of red. It's absolute pandemonium.</p>
@@ -2967,6 +3024,24 @@ function toggleTheme() {
 (function() {
   const saved = localStorage.getItem('f1-guide-theme');
   if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+// ── Unit Toggle ──
+function setUnits(unit) {
+  document.documentElement.setAttribute('data-units', unit);
+  document.querySelectorAll('.unit').forEach(el => {
+    el.textContent = el.dataset[unit];
+  });
+  document.querySelectorAll('.unit-toggle__btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.unit === unit);
+  });
+  localStorage.setItem('f1-units', unit);
+}
+
+// Restore saved units
+(function() {
+  const saved = localStorage.getItem('f1-units');
+  if (saved) setUnits(saved);
 })();
 
 // ── Navbar scroll effect ──
