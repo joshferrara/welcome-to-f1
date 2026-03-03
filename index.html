@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Guide to Formula 1 — Everything You Need to Know</title>
 <meta name="description" content="A beginner's guide to Formula 1. The cars, the drivers, the teams, the rules, and why millions of people wake up early on Sundays.">
+<meta property="og:title" content="Your Guide to Formula 1 — Everything You Need to Know">
+<meta property="og:description" content="A beginner's guide to Formula 1. The cars, the drivers, the teams, the rules, and why millions of people wake up early on Sundays.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Guide to Formula 1 — Everything You Need to Know">
+<meta name="twitter:description" content="A beginner's guide to Formula 1. The cars, the drivers, the teams, the rules, and why millions of people wake up early on Sundays.">
+<meta name="twitter:image" content="og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet">
@@ -136,24 +144,19 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
    THEME TOGGLE
    ═══════════════════════════════════════════════════ */
 .theme-toggle {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  z-index: 1000;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid var(--border-color);
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color-hover);
+  background: var(--bg-card);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 18px;
   transition: all 0.3s var(--ease-out-expo);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  position: relative;
+  flex-shrink: 0;
 }
 
 .theme-toggle:hover {
@@ -164,10 +167,10 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
 .theme-toggle .icon-sun,
 .theme-toggle .icon-moon { position: absolute; transition: all 0.4s var(--ease-out-expo); }
-[data-theme="dark"] .theme-toggle .icon-sun { opacity: 1; transform: rotate(0deg) scale(1); }
+[data-theme="dark"] .theme-toggle .icon-sun { opacity: 1; transform: rotate(0deg) scale(1); color: #F5F5F7; }
 [data-theme="dark"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0); }
 [data-theme="light"] .theme-toggle .icon-sun { opacity: 0; transform: rotate(-90deg) scale(0); }
-[data-theme="light"] .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+[data-theme="light"] .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); color: #1A1A1D; }
 
 /* ═══════════════════════════════════════════════════
    NAV BAR (sticky)
@@ -245,8 +248,97 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
 .navbar__links a:hover { color: var(--f1-red); }
 
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar__hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color-hover);
+  background: var(--bg-card);
+  border-radius: 10px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.navbar__hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.navbar__hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Nav Drawer */
+.mobile-nav {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 899;
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--glass-border);
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.mobile-nav.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav__inner {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 24px;
+}
+
+.mobile-nav__inner a {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mobile-nav__inner a:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav__inner a:hover {
+  color: var(--f1-red);
+}
+
 @media (max-width: 768px) {
   .navbar__links { display: none; }
+  .navbar__hamburger { display: flex; }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -1291,7 +1383,46 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 .footer__sub {
   font-size: 14px;
   color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+
+.share-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
   margin-bottom: 32px;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.share-btn:hover {
+  border-color: var(--f1-red);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(225,6,0,0.15);
+}
+
+.share-btn__icon {
+  font-size: 16px;
+}
+
+.share-btn--copy.copied {
+  border-color: var(--inter-compound);
+  color: var(--inter-compound);
 }
 
 .footer__bottom {
@@ -1314,19 +1445,12 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   .pitstop-visual__steps { grid-template-columns: 1fr 1fr; }
   .container { padding: 0 16px; }
   .navbar { padding: 0 16px; }
-  .theme-toggle { top: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  .theme-toggle { width: 36px; height: 36px; font-size: 16px; }
+  .navbar__hamburger { width: 36px; height: 36px; }
 }
 </style>
 </head>
 <body>
-
-<!-- ══════════════════════════════════════════════════════
-     THEME TOGGLE
-     ══════════════════════════════════════════════════════ -->
-<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-  <span class="icon-sun">&#9728;</span>
-  <span class="icon-moon">&#9790;</span>
-</button>
 
 <!-- ══════════════════════════════════════════════════════
      NAVBAR
@@ -1339,14 +1463,37 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
     </div>
     <ul class="navbar__links">
       <li><a href="#basics">Basics</a></li>
+      <li><a href="#weekend">Race Day</a></li>
       <li><a href="#cars">Cars</a></li>
       <li><a href="#drivers">Drivers</a></li>
-      <li><a href="#weekend">Race Day</a></li>
       <li><a href="#history">History</a></li>
       <li><a href="#start">Get Started</a></li>
     </ul>
+    <div class="navbar__actions">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="icon-sun">&#9728;</span>
+        <span class="icon-moon">&#9790;</span>
+      </button>
+      <button class="navbar__hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 </nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__inner">
+    <a href="#basics" onclick="closeMobileNav()">The Basics</a>
+    <a href="#weekend" onclick="closeMobileNav()">Race Day</a>
+    <a href="#cars" onclick="closeMobileNav()">The Cars</a>
+    <a href="#drivers" onclick="closeMobileNav()">The Drivers</a>
+    <a href="#history" onclick="closeMobileNav()">History</a>
+    <a href="#start" onclick="closeMobileNav()">Get Started</a>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════════════
      HERO
@@ -2304,7 +2451,17 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 <footer class="footer">
   <div class="container">
     <p class="footer__tagline reveal">Lights out and away we go.</p>
-    <p class="footer__sub reveal">Share this guide with someone new to the sport.</p>
+    <p class="footer__sub reveal">Know someone who'd enjoy this? Pass it along.</p>
+    <div class="share-actions reveal">
+      <button class="share-btn share-btn--copy" onclick="copyPageUrl()" id="copyUrlBtn">
+        <span class="share-btn__icon">&#128279;</span>
+        <span class="share-btn__label" id="copyUrlLabel">Copy Link</span>
+      </button>
+      <button class="share-btn share-btn--native" onclick="nativeShare()" id="nativeShareBtn" style="display:none;">
+        <span class="share-btn__icon">&#8599;</span>
+        <span class="share-btn__label">Share</span>
+      </button>
+    </div>
     <p class="footer__bottom reveal">2026 Season Edition &bull; Made with obsession</p>
   </div>
 </footer>
@@ -2405,7 +2562,7 @@ function animatePitstop() {
 }
 
 // ── Smooth scroll for nav links ──
-document.querySelectorAll('.navbar__links a').forEach(link => {
+document.querySelectorAll('.navbar__links a, .mobile-nav__inner a').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
     const target = document.querySelector(link.getAttribute('href'));
@@ -2414,6 +2571,51 @@ document.querySelectorAll('.navbar__links a').forEach(link => {
     }
   });
 });
+
+// ── Mobile nav ──
+function toggleMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.getElementById('hamburgerBtn');
+  nav.classList.toggle('open');
+  btn.classList.toggle('active');
+}
+
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('active');
+}
+
+// Close mobile nav on resize to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) closeMobileNav();
+});
+
+// ── Share functionality ──
+function copyPageUrl() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const btn = document.getElementById('copyUrlBtn');
+    const label = document.getElementById('copyUrlLabel');
+    btn.classList.add('copied');
+    label.textContent = 'Copied!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      label.textContent = 'Copy Link';
+    }, 2000);
+  });
+}
+
+function nativeShare() {
+  navigator.share({
+    title: 'Your Guide to Formula 1',
+    text: 'Everything you need to know about Formula 1 — the cars, the drivers, the drama.',
+    url: window.location.href
+  });
+}
+
+// Show native share button if supported
+if (navigator.share) {
+  document.getElementById('nativeShareBtn').style.display = 'flex';
+}
 </script>
 
 </body>
