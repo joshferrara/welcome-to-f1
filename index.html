@@ -687,6 +687,56 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 }
 
 /* ═══════════════════════════════════════════════════
+   POWER UNIT SUPPLIERS
+   ═══════════════════════════════════════════════════ */
+.pu-suppliers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.pu-supplier {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px 20px;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.pu-supplier:hover {
+  border-color: var(--border-color-hover);
+}
+
+.pu-supplier__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.pu-supplier__teams {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .pu-supplier {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .pu-supplier__teams {
+    text-align: left;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
    COMPARISON LAYOUT
    ═══════════════════════════════════════════════════ */
 .comparison {
@@ -1668,7 +1718,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   </h1>
 
   <p class="hero__subtitle reveal reveal-delay-2">
-    Everything you need to know about 22 drivers, 230 mph cars, and the sport that'll ruin your Sunday sleep schedule.
+    New to F1? Not sure where to start? This guide covers everything you need to know about 22 drivers, 230 mph cars, and the sport that'll ruin your Sunday sleep schedule.
   </p>
 
   <div class="hero__scroll reveal reveal-delay-3">
@@ -1763,7 +1813,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="weekend-step__day">Saturday</div>
         <div class="weekend-step__icon">&#9201;</div>
         <div class="weekend-step__title">Qualifying</div>
-        <p class="weekend-step__desc">One final practice, then Qualifying: three knockout sessions (Q1, Q2, Q3) that determine the starting grid for Sunday. The fastest driver earns "pole position."</p>
+        <p class="weekend-step__desc">One final practice, then Qualifying: three knockout sessions (Q1, Q2, Q3) where lap times determine the starting order for Sunday's race. The fastest driver earns "pole position."</p>
       </div>
       <div class="weekend-step">
         <div class="weekend-step__day">Sunday</div>
@@ -1930,7 +1980,30 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       <p class="reveal">And here's the cool part: every drop of fuel is <strong>100% sustainable</strong>. Made from carbon capture, municipal waste, or non-food biomass. Not a drop of crude oil. F1 aims to be net-zero carbon by 2030.</p>
 
       <h3 class="reveal">Five engine manufacturers</h3>
-      <p class="reveal">Five companies build engines for all 11 teams: <strong>Ferrari, Mercedes, Honda, Red Bull Powertrains (with Ford), and Audi</strong>. Each supplies engines to their own team and customer teams. It's an arms race where hundredths of a second matter.</p>
+      <p class="reveal">Five companies build engines for all 11 teams. Each supplies engines to their own team and customer teams. It's an arms race where hundredths of a second matter.</p>
+
+      <div class="pu-suppliers reveal">
+        <div class="pu-supplier">
+          <div class="pu-supplier__name">Ferrari</div>
+          <div class="pu-supplier__teams">Ferrari, Haas, Cadillac</div>
+        </div>
+        <div class="pu-supplier">
+          <div class="pu-supplier__name">Mercedes</div>
+          <div class="pu-supplier__teams">Mercedes, McLaren, Williams, Alpine</div>
+        </div>
+        <div class="pu-supplier">
+          <div class="pu-supplier__name">Red Bull / Ford</div>
+          <div class="pu-supplier__teams">Red Bull Racing, Racing Bulls</div>
+        </div>
+        <div class="pu-supplier">
+          <div class="pu-supplier__name">Honda</div>
+          <div class="pu-supplier__teams">Aston Martin</div>
+        </div>
+        <div class="pu-supplier">
+          <div class="pu-supplier__name">Audi</div>
+          <div class="pu-supplier__teams">Audi (own works team)</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2275,7 +2348,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
     <div class="content-block" style="margin-top: 48px;">
       <h3 class="reveal">The ones to watch</h3>
-      <p class="reveal"><strong>Lando Norris</strong> wears the #1 as the reigning 2025 World Champion. Charismatic, streams on Twitch, generally impossible to dislike. He won the title by just 2 points over Verstappen in a three-way final-race battle, capping a journey from McLaren's midfield years to the top.</p>
+      <p class="reveal"><strong>Lando Norris</strong> wears the #1 as the reigning 2025 World Champion. Charismatic, quick-witted, and a Twitch streamer with a massive following. He won the title by just 2 points over Verstappen in a three-way final-race battle, capping a journey from McLaren's midfield years to the top.</p>
       <p class="reveal"><strong>Max Verstappen</strong> is a four-time champion (2021&ndash;2024) who won 19 of 22 races in 2023. He's aggressive and utterly relentless. Lost his title to Norris by 2 points but still won more races than anyone in 2025. Now runs #3 after losing the champion's #1.</p>
       <p class="reveal"><strong>Lewis Hamilton</strong> has 7 championships (tied with Michael Schumacher), more wins than anyone in history. In 2025, he moved to Ferrari, the winningest driver ever joining F1's most famous team. The results haven't quite matched the hype yet.</p>
       <p class="reveal"><strong>Charles Leclerc</strong> is Ferrari's homegrown star who grew up in Monaco and finally won his home Grand Prix in 2024. Brilliant on his day and plays concert piano in his spare time.</p>
@@ -2308,7 +2381,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Red Bull Racing</div>
           <div class="team-card__engine">Red Bull / Ford PU</div>
-          <div class="team-card__drivers">Verstappen &bull; Hadjar</div>
+          <div class="team-card__drivers">Max Verstappen &bull; Isack Hadjar</div>
           <div class="team-card__badge">2022 &amp; 2023 Constructors' Champs</div>
         </div>
       </div>
@@ -2317,7 +2390,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">McLaren</div>
           <div class="team-card__engine">Mercedes PU</div>
-          <div class="team-card__drivers">Norris &bull; Piastri</div>
+          <div class="team-card__drivers">Lando Norris &bull; Oscar Piastri</div>
           <div class="team-card__badge">2024 Constructors' Champs</div>
         </div>
       </div>
@@ -2326,7 +2399,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Scuderia Ferrari</div>
           <div class="team-card__engine">Ferrari PU</div>
-          <div class="team-card__drivers">Hamilton &bull; Leclerc</div>
+          <div class="team-card__drivers">Lewis Hamilton &bull; Charles Leclerc</div>
           <div class="team-card__badge">16 Constructors' Titles</div>
         </div>
       </div>
@@ -2335,7 +2408,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Mercedes-AMG</div>
           <div class="team-card__engine">Mercedes PU</div>
-          <div class="team-card__drivers">Russell &bull; Antonelli</div>
+          <div class="team-card__drivers">George Russell &bull; Kimi Antonelli</div>
         </div>
       </div>
       <div class="team-card">
@@ -2343,7 +2416,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Aston Martin</div>
           <div class="team-card__engine">Honda PU</div>
-          <div class="team-card__drivers">Alonso &bull; Stroll</div>
+          <div class="team-card__drivers">Fernando Alonso &bull; Lance Stroll</div>
           <div class="team-card__badge">Adrian Newey's new home</div>
         </div>
       </div>
@@ -2352,7 +2425,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Alpine</div>
           <div class="team-card__engine">Mercedes PU</div>
-          <div class="team-card__drivers">Gasly &bull; Colapinto</div>
+          <div class="team-card__drivers">Pierre Gasly &bull; Franco Colapinto</div>
         </div>
       </div>
       <div class="team-card">
@@ -2360,7 +2433,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Williams</div>
           <div class="team-card__engine">Mercedes PU</div>
-          <div class="team-card__drivers">Albon &bull; Sainz</div>
+          <div class="team-card__drivers">Alex Albon &bull; Carlos Sainz</div>
         </div>
       </div>
       <div class="team-card">
@@ -2368,7 +2441,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Racing Bulls</div>
           <div class="team-card__engine">Red Bull / Ford PU</div>
-          <div class="team-card__drivers">Lawson &bull; Lindblad</div>
+          <div class="team-card__drivers">Liam Lawson &bull; Arvid Lindblad</div>
         </div>
       </div>
       <div class="team-card">
@@ -2376,7 +2449,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Haas</div>
           <div class="team-card__engine">Ferrari PU</div>
-          <div class="team-card__drivers">Ocon &bull; Bearman</div>
+          <div class="team-card__drivers">Esteban Ocon &bull; Oliver Bearman</div>
         </div>
       </div>
       <div class="team-card">
@@ -2384,7 +2457,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Audi</div>
           <div class="team-card__engine">Audi PU (own)</div>
-          <div class="team-card__drivers">H&uuml;lkenberg &bull; Bortoleto</div>
+          <div class="team-card__drivers">Nico H&uuml;lkenberg &bull; Gabriel Bortoleto</div>
           <div class="team-card__badge">New works team</div>
         </div>
       </div>
@@ -2393,7 +2466,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="team-card__info">
           <div class="team-card__name">Cadillac</div>
           <div class="team-card__engine">Ferrari PU (customer)</div>
-          <div class="team-card__drivers">Bottas &bull; P&eacute;rez</div>
+          <div class="team-card__drivers">Valtteri Bottas &bull; Sergio P&eacute;rez</div>
           <div class="team-card__badge">NEW &mdash; 11th team</div>
         </div>
       </div>
@@ -2873,7 +2946,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <span class="share-btn__label">Share</span>
       </button>
     </div>
-    <p class="footer__bottom reveal">2026 Season Edition &bull; Made with obsession</p>
+    <p class="footer__bottom reveal">2026 Season Edition &bull; Made with love and Ferrari delusion by <a href="https://joshferrara.com" target="_blank" rel="noopener">Josh Ferrara</a></p>
   </div>
 </footer>
 
