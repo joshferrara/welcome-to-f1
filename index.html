@@ -1397,6 +1397,103 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 }
 
 /* ═══════════════════════════════════════════════════
+   SCHEDULE GRID
+   ═══════════════════════════════════════════════════ */
+.schedule-heading {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 900;
+  margin-top: 60px;
+  margin-bottom: 4px;
+}
+
+.schedule-subheading {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 28px;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  transition: background 0.2s;
+}
+
+.schedule-item:hover {
+  background: var(--bg-card-hover);
+}
+
+.schedule-item__round {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  min-width: 28px;
+  text-align: center;
+}
+
+.schedule-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.schedule-item__name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.schedule-item__detail {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.schedule-item__badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--f1-red);
+  background: rgba(225,6,0,0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.schedule-item--break {
+  background: var(--bg-secondary);
+}
+
+.schedule-item--break .schedule-item__name {
+  font-style: italic;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════ */
 .footer {
@@ -2354,6 +2451,187 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
       <div class="callout reveal">
         <p><strong>New for 2026:</strong> Madrid joins the calendar as a brand-new street circuit. The U.S. now has three races (Miami, Austin, Las Vegas), which tells you everything about how fast F1 has grown in America.</p>
+      </div>
+    </div>
+
+    <h3 class="schedule-heading reveal">The 2026 Calendar</h3>
+    <p class="schedule-subheading reveal">24 races. March to December. Five continents.</p>
+
+    <div class="schedule-grid reveal">
+      <div class="schedule-item">
+        <span class="schedule-item__round">R1</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Australian Grand Prix</span>
+          <span class="schedule-item__detail">Melbourne &bull; Mar 6&ndash;8</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R2</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Chinese Grand Prix</span>
+          <span class="schedule-item__detail">Shanghai &bull; Mar 13&ndash;15</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R3</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Japanese Grand Prix</span>
+          <span class="schedule-item__detail">Suzuka &bull; Mar 27&ndash;29</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R4</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Bahrain Grand Prix</span>
+          <span class="schedule-item__detail">Sakhir &bull; Apr 10&ndash;12</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R5</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Saudi Arabian Grand Prix</span>
+          <span class="schedule-item__detail">Jeddah &bull; Apr 17&ndash;19</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R6</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Miami Grand Prix</span>
+          <span class="schedule-item__detail">Miami &bull; May 1&ndash;3</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R7</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Canadian Grand Prix</span>
+          <span class="schedule-item__detail">Montreal &bull; May 22&ndash;24</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R8</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Monaco Grand Prix</span>
+          <span class="schedule-item__detail">Monte Carlo &bull; Jun 5&ndash;7</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R9</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Spanish Grand Prix</span>
+          <span class="schedule-item__detail">Barcelona &bull; Jun 12&ndash;14</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R10</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Austrian Grand Prix</span>
+          <span class="schedule-item__detail">Spielberg &bull; Jun 26&ndash;28</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R11</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">British Grand Prix</span>
+          <span class="schedule-item__detail">Silverstone &bull; Jul 3&ndash;5</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R12</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Belgian Grand Prix</span>
+          <span class="schedule-item__detail">Spa &bull; Jul 17&ndash;19</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R13</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Hungarian Grand Prix</span>
+          <span class="schedule-item__detail">Budapest &bull; Jul 24&ndash;26</span>
+        </div>
+      </div>
+      <div class="schedule-item schedule-item--break">
+        <span class="schedule-item__round">&mdash;</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Summer Break</span>
+          <span class="schedule-item__detail">Aug 1&ndash;20</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R14</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Dutch Grand Prix</span>
+          <span class="schedule-item__detail">Zandvoort &bull; Aug 21&ndash;23</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R15</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Italian Grand Prix</span>
+          <span class="schedule-item__detail">Monza &bull; Sep 4&ndash;6</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R16</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Madrid Grand Prix <span class="schedule-item__badge">NEW</span></span>
+          <span class="schedule-item__detail">Madrid &bull; Sep 11&ndash;13</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R17</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Azerbaijan Grand Prix</span>
+          <span class="schedule-item__detail">Baku &bull; Sep 25&ndash;27</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R18</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Singapore Grand Prix</span>
+          <span class="schedule-item__detail">Singapore &bull; Oct 9&ndash;11</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R19</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">United States Grand Prix</span>
+          <span class="schedule-item__detail">Austin &bull; Oct 23&ndash;25</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R20</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Mexico City Grand Prix</span>
+          <span class="schedule-item__detail">Mexico City &bull; Oct 30&ndash;Nov 1</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R21</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">S&atilde;o Paulo Grand Prix</span>
+          <span class="schedule-item__detail">S&atilde;o Paulo &bull; Nov 6&ndash;8</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R22</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Las Vegas Grand Prix</span>
+          <span class="schedule-item__detail">Las Vegas &bull; Nov 19&ndash;21</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R23</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Qatar Grand Prix</span>
+          <span class="schedule-item__detail">Lusail &bull; Nov 27&ndash;29</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-item__round">R24</span>
+        <div class="schedule-item__info">
+          <span class="schedule-item__name">Abu Dhabi Grand Prix</span>
+          <span class="schedule-item__detail">Abu Dhabi &bull; Dec 4&ndash;6</span>
+        </div>
       </div>
     </div>
   </div>
