@@ -288,6 +288,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 }
 
 .navbar__links a:hover { color: var(--f1-red); }
+.navbar__links a.active { color: var(--f1-red); }
 
 .navbar__actions {
   display: flex;
@@ -3367,6 +3368,23 @@ function closeMobileNav() {
 // Close mobile nav on resize to desktop
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) closeMobileNav();
+});
+
+// ── Active nav link on scroll ──
+const navLinks = document.querySelectorAll('.navbar__links a');
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0, rootMargin: '-50% 0px -50% 0px' });
+
+document.querySelectorAll('section[id]').forEach(section => {
+  sectionObserver.observe(section);
 });
 
 // ── Share functionality ──
