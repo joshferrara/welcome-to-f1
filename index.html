@@ -251,6 +251,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
 }
 
 .navbar__logo-mark {
@@ -1695,6 +1696,30 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   color: var(--inter-compound);
 }
 
+.footer__credit {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.footer__contribute {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+
+.footer__credit a,
+.footer__contribute a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer__credit a:hover,
+.footer__contribute a:hover {
+  color: var(--f1-red);
+}
+
 .footer__bottom {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1728,10 +1753,10 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
      ══════════════════════════════════════════════════════ -->
 <nav class="navbar" id="navbar">
   <div class="navbar__inner">
-    <div class="navbar__logo">
+    <a href="#top" class="navbar__logo">
       <span class="navbar__logo-mark">F1</span>
       Welcome to Formula 1
-    </div>
+    </a>
     <ul class="navbar__links">
       <li><a href="#basics">Basics</a></li>
       <li><a href="#weekend">Race Day</a></li>
@@ -3192,6 +3217,8 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <span class="share-btn__label">Share</span>
       </button>
     </div>
+    <p class="footer__credit reveal">Inspired by <a href="https://nonchalant-trawler-767.notion.site/A-Newbie-s-Guide-to-Formula-1-b8baef975f6d42e5963780ea70a4cdb5#main" target="_blank" rel="noopener">A Newbie's Guide to Formula 1</a>.</p>
+    <p class="footer__contribute reveal">Want to help make this guide even better? <a href="https://github.com/joshferrara/f1-guide" target="_blank" rel="noopener">Contribute on GitHub</a>.</p>
     <p class="footer__bottom">2026 Season Edition &bull; Made with love and Ferrari delusion by <a href="https://joshferrara.com" target="_blank" rel="noopener">Josh Ferrara</a></p>
   </div>
 </footer>
