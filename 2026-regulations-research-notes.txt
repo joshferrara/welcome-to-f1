@@ -1,0 +1,757 @@
+================================================================================
+F1 2026 REGULATIONS - COMPREHENSIVE RESEARCH NOTES
+================================================================================
+Researched: March 3, 2026
+Purpose: Educational guide for F1 newcomers
+
+================================================================================
+1. 2026 ENGINE / POWER UNIT REGULATIONS
+================================================================================
+
+OVERVIEW:
+The 2026 season introduces the biggest power unit overhaul since the turbo-hybrid
+era began in 2014. The goal is a near 50/50 split between internal combustion
+and electrical power, up from roughly 80/20 previously.
+
+CORE ARCHITECTURE:
+- Retains the 1.6-litre turbocharged V6 internal combustion engine (ICE)
+  introduced in 2014
+- Total combined output: over 1,000 bhp (approximately 750 kW)
+- ICE output: ~400 kW (~536 bhp)
+- Electrical (MGU-K) output: 350 kW (~469 bhp)
+- This represents a roughly 50/50 power split between ICE and electric
+
+MGU-H REMOVAL:
+- The Motor Generator Unit - Heat (MGU-H) has been deleted entirely
+- The MGU-H previously recovered waste heat energy from exhaust gases and
+  converted it to electrical energy
+- Reason for removal: In 18 years of F1 hybrids, the MGU-H technology was never
+  adopted by road car manufacturers. Removing it simplifies the power unit and
+  makes F1 more attractive to new manufacturers
+- Its removal is considered revolutionary - it lowers the barrier to entry for
+  new engine suppliers
+
+MGU-K UPGRADE:
+- The Motor Generator Unit - Kinetic (MGU-K) has been massively upgraded
+- Power output nearly tripled: from 120 kW to 350 kW
+- The MGU-K can now supply up to 8 megajoules (MJ) of energy per lap
+  (previously 4 MJ)
+- Harvests energy from braking and throttle lift-off (regenerative braking)
+- The battery/energy store has a maximum State of Charge (SOC) delta of 4 MJ,
+  with maximum energy during charging of 9 MJ
+
+FUEL FLOW REDUCTION:
+- Maximum fuel flow to the ICE reduced from 100 kg/hour to approximately
+  70-75 kg/hour
+- This reduction in ICE fueling is compensated by the increased electrical power
+
+SUSTAINABLE FUEL:
+- Cars must run on 100% advanced sustainable fuel (previously a 10% bio-component
+  blend)
+- The fuel is an "e-fuel" made from:
+  * Carbon capture (CO2 taken directly from air or industrial emissions)
+  * Municipal waste
+  * Non-food biomass (cannot be used for human consumption)
+  * Or a mix of the above
+- Must contain a minimum of 99% Advanced Sustainable Components (ASC)
+- Delivers a minimum of 65% greenhouse gas savings (per EU Renewable Energy
+  Directive standards)
+- This is "drop-in" fuel - designed to replace fossil fuels without engine
+  modifications; it could work in regular road cars
+- Nothing in the fuel comes from crude oil
+- Production must be powered by renewable energy sources
+- Independently certified to meet strict sustainability standards
+- Part of F1's commitment to becoming Net Zero carbon by 2030
+
+OVERTAKE MODE (REPLACES DRS AS OVERTAKING AID):
+- When a driver is within 1 second of the car ahead, they can deploy an extra
+  0.5 MJ of electrical energy from the MGU-K
+- This provides approximately 67 additional bhp
+- Available at predetermined points on the track
+- Proximity-based, similar to how DRS activation worked
+
+BOOST MODE:
+- Separate from Overtake Mode
+- A button on the steering wheel that triggers a change in power unit settings
+- Can be used by any driver at any point around the lap, regardless of proximity
+  to other cars
+- Can be used for both attacking AND defending
+- Energy can be deployed all at once or spread across the lap
+- Teams configure the power profile
+
+COMPONENT ALLOCATION PER SEASON (2026):
+- ICE: 4 allowed (3 standard + 1 bonus for the 2026 adaptation year)
+- MGU-K: 4 allowed (same bonus structure)
+- Turbocharger: 4 allowed
+- Energy Store (battery): 4 allowed
+- Control Electronics: 4 allowed
+- Exhaust systems: 4 per season (down from 8 previously)
+- The extra "bonus" component across the board is specific to 2026 as an
+  adaptation period; from 2027, limits become more restrictive
+
+COMPONENT PENALTY STRUCTURE:
+- First transgression (exceeding allocation): 10-place grid drop per component
+- Subsequent violations: 5-place grid penalty per component
+- Gearbox penalties have been removed (as of 2025) due to modern gearbox
+  reliability
+
+NEW ENGINE MANUFACTURERS / POWER UNIT SUPPLIERS FOR 2026:
+
+Five PU manufacturers supply the grid:
+
+1. FERRARI - Supplies: Ferrari, Haas, Cadillac (GM)
+2. MERCEDES - Supplies: Mercedes, McLaren, Williams, Alpine
+3. HONDA - Supplies: Aston Martin (exclusive works partnership)
+4. RED BULL POWERTRAINS (with Ford) - Supplies: Red Bull Racing, Racing Bulls
+   - Ford's first F1 involvement since 2004
+   - Ford supports Red Bull Powertrains in developing and building the PU
+5. AUDI - Supplies: Audi (formerly Sauber)
+   - Audi's first time as a full works F1 team
+   - Took majority ownership of the Sauber squad
+
+CADILLAC / GENERAL MOTORS:
+- GM's Cadillac brand enters as the 11th team on the 2026 grid
+- Initially uses Ferrari power units as a customer
+- GM plans to develop its own works engine, targeted for 2028-2029
+
+
+================================================================================
+2. 2026 AERODYNAMIC REGULATIONS
+================================================================================
+
+OVERVIEW:
+The 2026 aerodynamic rules represent a fundamental shift in how F1 cars generate
+and manage downforce, introducing active aerodynamics and eliminating DRS.
+
+ACTIVE AERODYNAMICS - THE BIG CHANGE:
+- Movable front AND rear wing elements replace the Drag Reduction System (DRS)
+- Two primary aerodynamic modes:
+
+  Z-MODE (High Downforce):
+  - Front and rear wing elements are angled to maximize downforce
+  - Used during cornering for maximum grip
+  - The default mode when the car needs maximum mechanical grip
+
+  X-MODE (Low Drag):
+  - Wing flap angles change on both front and rear wings to minimize drag
+  - Maximizes straight-line speed
+  - KEY DIFFERENCE FROM DRS: Any driver can activate X-mode on any designated
+    straight, regardless of the gap to the car ahead. DRS required being within
+    1 second of the car in front. X-mode is available to everyone.
+
+- The active aero system serves dual purposes:
+  1. Racing tool (speed on straights vs. grip in corners)
+  2. Energy management tool - reducing drag on straights is essential for
+     efficient energy use with the new power units that rely much more on
+     electrical energy
+
+GROUND EFFECT CHANGES:
+- The long ground-effect tunnels under the car (used from 2022-2025) are GONE
+- 2026 floor is flat across the central section - no tunnel geometry
+- The diffuser at the rear is longer with a larger exit opening
+- The larger diffuser compensates for some of the downforce lost from removing
+  the tunnels
+- This is designed to reduce the sensitivity to "dirty air" (turbulent air from
+  the car ahead)
+
+DOWNFORCE AND DRAG NUMBERS:
+- Total downforce is approximately 30% LOWER than 2025-spec cars
+- Total drag is approximately 55% LOWER than 2025-spec cars
+- The significantly lower drag explains why active aero and energy management
+  become so critical
+
+PHYSICAL CAR DIMENSIONS (2026 vs. 2025):
+- Minimum weight: 768 kg (down 32 kg from 800 kg in 2025)
+  * This reverses a trend of 200 kg added to F1 cars over the last 20 years
+- Maximum wheelbase: 3,400 mm (reduced 200 mm from 3,600 mm)
+- Maximum width: 1,900 mm (reduced 100 mm from 2,000 mm)
+- Floor width: reduced by 150 mm
+- Overall: Cars are shorter, narrower, lighter, and more nimble
+
+WING SIMPLIFICATION:
+- Both front and rear wings have fewer elements (simpler design)
+- Rear beam wings have been eliminated entirely
+- Simpler wings are designed to produce less turbulent wake, improving racing
+
+SAFETY ENHANCEMENTS:
+- Survival cell subjected to more rigorous crash tests
+- Roll hoop strengthened to handle 23% more load
+- Increased requirements for front impact structure
+- More stringent load tests on survival cell
+
+
+================================================================================
+3. BUDGET CAP
+================================================================================
+
+HISTORY AND EVOLUTION:
+
+2021 - INTRODUCTION:
+- F1's first-ever financial regulations/cost cap introduced
+- Original target was $175 million, later reduced to $145 million
+  (the reduction occurred in May 2020, partly due to COVID-19)
+- Goal: Level the playing field between wealthy and smaller teams
+
+2022:
+- Cap set at approximately $140 million (adjusted for inflation)
+- This is the year in which Red Bull's 2021 breach was discovered and penalized
+
+2023:
+- Cap adjusted slightly upward for inflation
+- Red Bull served their penalty of reduced aero testing (10% reduction)
+
+2024-2025:
+- Continued gradual inflation adjustments
+- Cap was approximately $135 million for 2025
+
+2026:
+- Cap raised significantly to $215 MILLION
+- However, this is NOT a genuine spending increase - it reflects:
+  * Accumulated inflation since 2021 rolled into the figure
+  * Items previously excluded from the cap now being counted inside it
+  * Sprint race costs now fully included (previously each sprint granted an
+    extra $300,000 outside the cap)
+  * Costs related to adapting to new engine and aero regulations absorbed
+- Geographic cost-of-living adjustments added (e.g., Swiss-based Audi/Sauber
+  can have 35-45% higher wages than UK/Italy-based teams)
+- FIA included a compensation mechanism based on wage differences for teams in
+  high-cost countries
+
+WHAT IS EXCLUDED FROM THE CAP:
+- Driver salaries (can be tens of millions per year for top drivers like
+  Verstappen and Hamilton)
+- Salaries of the three highest-paid personnel per team
+- Marketing and hospitality costs (must be genuinely marketing, not disguised
+  performance work)
+- Power unit/engine development costs (covered under separate PU cost cap)
+- Heritage/legacy car activities
+- Some facility costs
+
+WHAT IS INCLUDED:
+- Car design and development
+- Car construction and parts
+- Team operations and logistics
+- Most staff salaries (below top-3 exemption)
+- Testing costs
+- Sprint race costs (new for 2026)
+
+RED BULL BUDGET CAP BREACH (2021 SEASON):
+- The FIA found Red Bull guilty of a "minor" overspend of the 2021 budget cap
+- Red Bull's submission was GBP 114,293,000 but they had inaccurately excluded
+  and/or adjusted costs totaling GBP 5,607,000
+- The actual overspend was GBP 1,864,000 (approximately $2 million)
+- 13 areas were "incorrectly interpreted" by Red Bull, including staff catering
+- Penalty: $7 million fine + 10% reduction in aerodynamic testing for 2023
+- Settled via an "Accepted Breach Agreement" between FIA and Red Bull
+- Controversy: Rival teams (notably Ferrari boss Frederic Vasseur) called the
+  penalty "very light"
+- The FIA acknowledged the investigation and penalty took too long
+- Led to reforms: FIA committed to deciding breach penalties earlier in the year
+- The breach was announced in early October 2022, penalties issued later that
+  month
+
+
+================================================================================
+4. SPRINT RACE FORMAT
+================================================================================
+
+SPRINT SHOOTOUT (SPRINT QUALIFYING):
+- A condensed qualifying session held on FRIDAY afternoon
+- Determines the grid order for Saturday's Sprint Race
+- Three phases: SQ1, SQ2, SQ3
+- Session durations: 12 minutes, 10 minutes, 8 minutes respectively
+  (shorter than standard qualifying's 18, 15, 12 minutes)
+- Same elimination format as standard qualifying but compressed
+
+SPRINT RACE:
+- Held on SATURDAY morning (before Grand Prix qualifying)
+- Distance: approximately 100 km (~62 miles)
+- Duration: typically around 30 minutes, never exceeding 1 hour
+- No mandatory pit stops required
+- Sprint result does NOT set the grid for Sunday's Grand Prix
+- Sunday's grid is set by the full qualifying session held Saturday afternoon
+
+SPRINT RACE POINTS (Top 8 score):
+- 1st: 8 points
+- 2nd: 7 points
+- 3rd: 6 points
+- 4th: 5 points
+- 5th: 4 points
+- 6th: 3 points
+- 7th: 2 points
+- 8th: 1 point
+- Points count toward both Drivers' and Constructors' Championships
+
+SPRINT WEEKEND SCHEDULE:
+  Friday:
+  - Free Practice 1 (FP1) - the only practice session
+  - Sprint Qualifying (SQ1, SQ2, SQ3)
+
+  Saturday:
+  - Sprint Race (morning)
+  - Grand Prix Qualifying (Q1, Q2, Q3) (afternoon)
+
+  Sunday:
+  - Grand Prix Race
+
+2026 SPRINT VENUES (6 events):
+1. Chinese Grand Prix
+2. Miami Grand Prix
+3. Canadian Grand Prix
+4. British Grand Prix (Silverstone)
+5. Dutch Grand Prix (Zandvoort)
+6. Singapore Grand Prix
+
+NOTE: F1 has been considering doubling the number of sprint races in future
+seasons (currently 6 out of 24 races).
+
+
+================================================================================
+5. POINTS SYSTEM
+================================================================================
+
+GRAND PRIX RACE POINTS (Top 10 score):
+- 1st:  25 points
+- 2nd:  18 points
+- 3rd:  15 points
+- 4th:  12 points
+- 5th:  10 points
+- 6th:   8 points
+- 7th:   6 points
+- 8th:   4 points
+- 9th:   2 points
+- 10th:  1 point
+- 11th and below: 0 points
+
+This system has been in use since 2010. The F1 Commission has discussed
+potentially extending points to 11th and 12th places for 2026, but as of the
+start of the season, the standard top-10 system remains.
+
+FASTEST LAP POINT - ABOLISHED:
+- From 2019 to 2024, a bonus point was awarded for setting the fastest lap of
+  the race, provided the driver finished in the top 10
+- This was ABOLISHED starting in 2025
+- Reason: Controversy at the 2024 Singapore Grand Prix, where an RB (Racing
+  Bulls) driver made a late pit stop solely to steal the fastest lap point on
+  fresh tyres, despite running outside the top 10 and being ineligible to score
+  the point himself. The team was suspected of doing this to benefit a sister
+  team's driver by denying the point to a rival
+- Maximum points per race: 25 (driver), 43 (constructor, if both drivers finish
+  1st and 2nd)
+
+SPRINT RACE POINTS (Top 8 score):
+- 1st: 8, 2nd: 7, 3rd: 6, 4th: 5, 5th: 4, 6th: 3, 7th: 2, 8th: 1
+
+MAXIMUM THEORETICAL SEASON POINTS PER DRIVER:
+- 18 standard races x 25 = 450
+- 6 sprint weekends x (25 + 8) = 198
+- Total theoretical maximum: 648 points
+
+INCOMPLETE/SHORTENED RACE POINTS:
+If a race cannot complete full distance, reduced points are awarded based on
+percentage completed:
+- 2 laps to 25% distance: Only top 5 score (reduced scale)
+- 25% to 50%: Top 9 score, 13 points for winner
+- 50% to 75%: Top 10 score, 19 points for winner
+- 75% or more: Full points awarded
+
+
+================================================================================
+6. TYRE REGULATIONS
+================================================================================
+
+TYRE SUPPLIER: Pirelli (sole supplier)
+
+2026 COMPOUND RANGE (5 compounds, down from 6):
+- C1: Hardest compound (WHITE sidewall markings, with checkered flag pattern)
+- C2: Second hardest (WHITE sidewall markings, Pirelli/P Zero logos only)
+- C3: Medium (YELLOW sidewall markings, with checkered flag pattern)
+- C4: Medium-soft (YELLOW sidewall markings, Pirelli/P Zero logos only)
+- C5: Softest compound (RED sidewall markings)
+
+NOTE: The C6 ultra-soft compound used in 2025 has been REMOVED for 2026.
+Pirelli determined there was not enough performance difference (delta) between
+the C5 and C6 to justify keeping it.
+
+AT EACH RACE WEEKEND:
+- Pirelli selects THREE compounds from the C1-C5 range for each specific Grand
+  Prix, based on circuit characteristics
+- These are labeled simply as HARD, MEDIUM, and SOFT for that weekend
+  * The hardest of the three selected = HARD (white marking during race)
+  * The middle compound = MEDIUM (yellow marking during race)
+  * The softest of the three = SOFT (red marking during race)
+- Example: At a high-degradation circuit, Pirelli might choose C1, C2, C3.
+  At a street circuit, they might choose C3, C4, C5.
+
+TYRE ALLOCATION PER WEEKEND:
+  Standard weekend: 13 sets dry slicks + 4 sets intermediates + 3 sets full wets
+  Sprint weekend: 12 sets dry slicks + 5 sets intermediates + 2 sets full wets
+
+PHYSICAL TYRE CHANGES FOR 2026:
+- Wheel rim diameter remains at 18 inches (introduced in 2022)
+- Front tread width: reduced by 25 mm compared to 2025
+- Rear tread width: reduced by 30 mm compared to 2025
+- Narrower tyres correspond to the narrower, lighter 2026 cars
+- Intermediate and full wet tread patterns unchanged from 2025
+
+PERFORMANCE PHILOSOPHY:
+- Designed to have wider and more consistent performance gaps (deltas) between
+  compounds
+- This encourages varied race strategies (1-stop vs. 2-stop vs. 3-stop)
+- Developed specifically for the new active aerodynamic systems and lighter cars
+
+MANDATORY PIT STOP:
+- Drivers must use at least two different dry tyre compounds during a dry race
+- This effectively mandates at least one pit stop per race
+- In wet conditions, this requirement may be waived
+
+
+================================================================================
+7. DRS - REPLACED BY ACTIVE AERO AND OVERTAKE MODE
+================================================================================
+
+DRS IS GONE:
+- The Drag Reduction System (DRS), used since 2011, has been ELIMINATED for 2026
+- It has been replaced by two separate systems:
+
+REPLACEMENT #1 - ACTIVE AERODYNAMICS (X-MODE):
+- Movable front and rear wing elements
+- X-mode (low drag) can be activated on any designated straight by ANY driver
+- No proximity requirement - unlike DRS, you do NOT need to be within 1 second
+  of the car ahead
+- Z-mode (high downforce) is used in corners
+- Drivers manually switch between modes
+- This is available to ALL cars at ALL times on straights
+
+REPLACEMENT #2 - OVERTAKE MODE (Proximity-based, like DRS was):
+- Activated when a driver is within 1 SECOND of the car ahead
+- Provides an extra 0.5 MJ of electrical energy (~67 additional bhp)
+- Available at predetermined points on the track
+- This is the direct spiritual successor to DRS as an overtaking aid
+- Only the pursuing car gets the extra energy boost
+
+KEY DIFFERENCES FROM DRS:
+1. Active aero (X-mode) is available to everyone, not just the chasing car
+2. Overtake Mode provides extra POWER, not just reduced drag
+3. Defending drivers can use Boost Mode (separate from Overtake Mode) to deploy
+   extra energy in defense, adding a strategic dimension DRS never had
+4. The system manages both racing AND energy efficiency (dual purpose)
+
+WHY THE CHANGE:
+- DRS was always intended as a temporary fix for the difficulty of following
+  cars closely
+- The 2026 aero regulations (less downforce, less drag, less dirty air) are
+  designed to make following easier naturally
+- Active aero helps manage the increased reliance on electrical energy
+- Overtake Mode provides a targeted boost for actual passing attempts
+
+
+================================================================================
+8. SAFETY CAR AND VIRTUAL SAFETY CAR (VSC) RULES
+================================================================================
+
+SAFETY CAR (SC):
+
+Supplier Change for 2026:
+- Mercedes is now the SOLE supplier of Safety Car and Medical Car
+- Aston Martin stepped back after sharing the role since 2021
+
+When Deployed:
+- Major incidents, debris on track, or conditions too dangerous for racing at
+  full speed
+- The physical Safety Car (driven by Bernd Maylander) leads the field around
+  the circuit at reduced speed
+
+Procedure:
+1. "SAFETY CAR DEPLOYED" message sent to all teams
+2. All cars must slow down and form a queue behind the Safety Car
+3. Pit lane remains open (teams can pit for tyres/repairs)
+4. No overtaking allowed while the Safety Car is out
+5. Lapped cars may be instructed to unlap themselves (pass the Safety Car and
+   rejoin at the back of the queue)
+
+Unlapping Rules (Post-2021 Abu Dhabi reforms):
+- The word "any" was changed to "ALL" in the regulations
+- ALL lapped cars must unlap themselves (not just some - prevents a repeat
+  of the controversial 2021 Abu Dhabi GP partial unlapping)
+- The Safety Car returns to pits one lap AFTER the unlapping instruction
+- New for 2025/2026: The Race Director can close the pit lane entrance while
+  drivers are unlapping to prevent strategic exploitation
+
+Restart:
+- Once the Safety Car turns off its lights, the race leader controls the pace
+- Racing resumes when the Safety Car enters the pit lane
+- The lead driver can choose when to accelerate (within rules), creating
+  dramatic restarts
+
+VIRTUAL SAFETY CAR (VSC):
+
+History:
+- Introduced in 2015 following the tragic accident involving Jules Bianchi at
+  the 2014 Japanese Grand Prix
+- Based on the "slow zone" system used in Le Mans endurance racing
+
+When Used:
+- Situations requiring reduced speed but not severe enough for a full
+  Safety Car
+- Examples: minor debris, car stopped in a relatively safe position,
+  recovery vehicles needed briefly
+
+How It Works:
+1. "VSC DEPLOYED" message sent to all teams; FIA light panels display "VSC"
+2. All drivers must reduce speed by approximately 30%
+3. An automated timing system enforces the speed reduction
+4. Drivers see a VSC time delta on their steering wheels, updated every
+   50 meters
+5. Drivers must stay above the minimum time set by the FIA ECU at least once
+   in each marshalling sector
+
+Key Advantage Over Full Safety Car:
+- The VSC maintains the gaps between cars that existed before deployment
+- Cars are NOT bunched up together (unlike under a full Safety Car)
+- This preserves the race order and strategic positions more fairly
+
+Overtaking Under VSC:
+- No overtaking on track during VSC
+- Exception: cars entering/leaving the pit lane
+
+Ending the VSC:
+1. "VSC ENDING" message sent to all teams
+2. Between 10 and 15 seconds later, FIA panels change from "VSC" to green
+3. Drivers may immediately resume racing at full speed
+
+Penalty for VSC Violations:
+- 10-second stop/go penalty for running the red light at pit lane exit during
+  Safety Car periods (updated guideline as of 2025)
+
+
+================================================================================
+9. PENALTY SYSTEM
+================================================================================
+
+DURING-RACE PENALTIES (in order of severity):
+
+1. BLACK AND WHITE FLAG (Warning):
+   - Shown for unsportsmanlike behavior
+   - Serves as an official warning; no time penalty
+   - Essentially "one more infraction and you'll be penalized"
+
+2. 5-SECOND TIME PENALTY:
+   - For minor infractions (e.g., causing a minor collision, gaining a lasting
+     advantage by leaving the track, unsafe release from pit box)
+   - Served at the next pit stop (car sits stationary for 5 seconds before
+     mechanics can touch it)
+   - If driver doesn't pit again, 5 seconds added to finishing time
+
+3. 10-SECOND TIME PENALTY:
+   - For more serious infractions or repeated offenses
+   - Same serving mechanism as 5-second penalty
+   - If not served in pits, added to finishing time
+
+4. DRIVE-THROUGH PENALTY:
+   - Driver must pass through the entire pit lane at pit lane speed limit
+     without stopping
+   - Then rejoin the race
+   - Typically costs around 20-25 seconds depending on the circuit
+
+5. 10-SECOND STOP-AND-GO PENALTY:
+   - The most severe in-race penalty
+   - Driver must enter the pit box, stop for 10 seconds with NO work allowed
+     on the car, then rejoin
+   - Typically costs 30+ seconds
+
+6. BLACK FLAG (Disqualification):
+   - Shown for dangerous driving or extreme rule violations
+   - Driver must return to the pits and retire from the race immediately
+   - Very rarely used
+
+PRE-RACE / GRID PENALTIES:
+
+Grid Drops:
+- Penalties applied before a race, moving drivers down the starting order
+- Common causes:
+  * Exceeding power unit component allocations (see Section 1)
+  * Penalties carried over from a previous race
+  * Impeding another driver during qualifying
+  * Unsafe driving in previous events
+
+Engine/PU Component Penalties (2026):
+- First time exceeding allocation: 10-place grid drop per component
+- Subsequent times: 5-place grid drop per component
+- If total penalties exceed the number of grid positions, driver starts from
+  the back of the grid
+
+Gearbox Penalties:
+- REMOVED as of 2025 due to modern gearbox reliability
+
+PENALTY POINTS SYSTEM (Super License):
+- Drivers accumulate penalty points for infractions during races
+- Points are tracked over a rolling 12-month period
+- If a driver accumulates 12 penalty points within 12 months, they receive
+  a ONE-RACE BAN
+- Penalty points automatically expire 12 months after they were issued
+
+REPRIMAND SYSTEM:
+- Drivers can receive formal reprimands for infractions
+- If a driver receives 5 reprimands in a single season (all for driving
+  offenses), they receive a 10-place grid penalty for the next race
+
+TIME PENALTIES POST-RACE:
+- Stewards can also apply time penalties after the race has finished
+- These are added to the driver's total race time and can change the final
+  classification
+- Common for incidents that weren't fully adjudicated during the race
+
+TYPICAL INFRACTIONS AND THEIR PENALTIES:
+- Causing a collision: 5-10 second penalty + 2-3 penalty points
+- Track limits violation (repeated): 5-second penalty
+- Unsafe pit release: 5-second penalty or fine to team
+- Ignoring blue flags (not letting lapping car past): Drive-through or
+  time penalty
+- Speeding in pit lane: Drive-through penalty or fine
+- False start/jump start: Drive-through or 10-second stop-and-go
+- Forcing another driver off track: 5-10 second penalty
+
+
+================================================================================
+10. RACE WEEKEND FORMAT
+================================================================================
+
+2026 CALENDAR:
+- 24 Grand Prix races (a record number)
+- 6 Sprint weekends
+- New race: Madrid, Spain Grand Prix
+- 11 teams / 22 drivers (with Cadillac joining as the 11th team)
+
+---------- STANDARD RACE WEEKEND ----------
+
+FRIDAY:
+- Free Practice 1 (FP1): 60 minutes
+  * Teams test car setups, tyre behavior, and run programs
+  * Rookie/reserve drivers must participate in at least 2 FP1 sessions per
+    season (rule introduced 2022, enhanced 2025)
+- Free Practice 2 (FP2): 60 minutes
+  * Further setup work, race simulations, qualifying simulations
+
+SATURDAY:
+- Free Practice 3 (FP3): 60 minutes
+  * Final practice before qualifying
+  * Last chance to refine setups before parc ferme conditions begin
+- Qualifying: Three phases
+  * Q1: 18 minutes - all 22 cars participate; bottom 6 eliminated
+    (positions 17-22)
+  * 7-minute break
+  * Q2: 15 minutes - 16 remaining cars; bottom 6 eliminated
+    (positions 11-16)
+  * 8-minute break
+  * Q3: 12 minutes - top 10 shootout for pole position
+    (positions 1-10)
+
+  2026 CHANGE: With 22 cars (11 teams), 6 drivers are eliminated in Q1 and Q2
+  (previously 5 with 20 cars/10 teams). Q3 still features 10 cars.
+
+SUNDAY:
+- Grand Prix Race
+  * Typically 305 km distance (except Monaco at ~260 km)
+  * Usually 50-70 laps depending on circuit length
+  * Formation lap before race start
+  * Standing start from the grid (unless wet conditions dictate rolling start)
+  * Mandatory use of at least 2 different dry tyre compounds (dry races)
+  * Race must be completed within a 2-hour window (or 3-hour window including
+    any red flag stoppages)
+
+---------- SPRINT RACE WEEKEND ----------
+
+FRIDAY:
+- Free Practice 1 (FP1): 60 minutes
+  * The ONLY practice session of the weekend
+- Sprint Qualifying: Three phases
+  * SQ1: 12 minutes
+  * SQ2: 10 minutes
+  * SQ3: 8 minutes
+  * Sets the grid for Saturday's Sprint Race
+
+SATURDAY:
+- Sprint Race: ~100 km (~30 minutes)
+  * Top 8 score points (8-7-6-5-4-3-2-1)
+  * No mandatory pit stops
+  * Sprint result does NOT determine Sunday's grid
+- Grand Prix Qualifying (Q1, Q2, Q3): Same format as standard weekend
+  * Sets the grid for Sunday's Grand Prix
+
+SUNDAY:
+- Grand Prix Race: Same as standard weekend
+
+PARC FERME:
+- "Parc ferme" (closed park) conditions restrict what changes teams can make
+  to the car between qualifying and the race
+- Once qualifying begins, teams cannot make significant setup changes
+- This prevents teams from running one car configuration in qualifying and
+  switching to another for the race
+- Limited changes are allowed (front wing angle adjustments within a set range,
+  brake cooling, etc.)
+
+
+================================================================================
+SOURCES
+================================================================================
+
+Power Unit / Engine:
+- formula1.com - 2026 Regulations Explained: Power Units
+- formula1.com - Everything You Need to Know About F1 2026 Rules
+- mercedesamgf1.com - Power Unit Regulation Changes Facts and Stats
+- motorsport.tech - 2026 F1 Tech Regulations in Focus
+- mclaren.com - Explaining F1's New 2026 Regulations
+- the-race.com - What Engine Every F1 Team Is Using for 2026
+- redbull.com - Red Bull x Ford Future F1 Engines
+
+Aerodynamics:
+- formula1.com - 2026 Regulations Explained: Aerodynamics
+- formula1.com - 2026 Aerodynamic Regulations Explained (Z-mode, X-mode)
+- motorsportmagazine.com - How F1 2026's Active Aero Will Work Without DRS
+- motorsport.com - How F1's New Active Aero Will Work in 2026
+- silverstone.co.uk - F1 2026 Regulations: Lighter Cars, Active Aero
+- espn.com - Formula 1 New Terminology Explained
+- skysports.com - F1 2026 Rules Explaining New Cars, Engines, Modes
+
+Budget Cap:
+- coffeecornermotorsport.com - F1 Cost Cap 2026: $215 Million Explained
+- sportsorca.com - F1 Cost Cap 2026: What Counts and What's Excluded
+- motorsport.com - F1 Cost Cap: What Is It and How Does It Work
+- crash.net - How Red Bull Broke Budget Cap, Punishment
+- racefans.net - Red Bull Budget Cap Breach Penalty
+- formula1.com - FIA Cost Cap Timeline
+
+Sprint / Points:
+- motorsporttickets.com - 2026 F1 Sprint Races: Calendar & Format
+- formula1.com - 2026 Sprint Calendar Announcement
+- motorsportmagazine.com - How F1 Sprint Races Work
+- racefans.net - F1 Dropped Fastest Lap Bonus Point
+- racer.com - F1 Drops Fastest Lap Point
+- silverstone.co.uk - F1 Points System Explained
+
+Tyres:
+- formula1.com - Pirelli Confirm 2026 Tyre Compounds
+- press.pirelli.com - Complete F1 Tyre Range for 2026
+- press.pirelli.com - Pirelli Reveals 2026 F1 Tyres
+- coffeecornermotorsport.com - F1 2026 Tyre Compound Range: C6 Removal
+
+Safety Car / VSC:
+- gpfans.com - 2026 Safety Car Changes (Aston Martin withdrawal)
+- motorsport.com - F1 Safety Car: How Does It Work
+- total-motorsport.com - What is the F1 Virtual Safety Car
+- racefans.net - F1 Rules Update Stamps Out Abu Dhabi-Style Partial Unlapping
+- the-race.com - F1 Rules Update Stamps Out Partial Unlapping
+
+Penalties:
+- silverstone.co.uk - F1 Penalties Explained: Beginner's Guide
+- formula1.com - Beginner's Guide to F1 Penalties
+- racingnews365.com - F1 2026 Engine Rules and Penalties Explained
+- motorsport.com - F1 Penalties: What Can Drivers Receive
+
+Race Weekend / Qualifying:
+- formula1.com - Beginner's Guide to the F1 Weekend
+- crash.net - How F1 Qualifying Will Change for 2026
+- motorsport.com - 2026 F1 Qualifying Format Explained
+- f1i.com - FIA Confirms Minor Change to 2026 Qualifying Format
+- formula1.com - 2026 F1 Schedule

@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Guide to Formula 1 — Everything You Need to Know</title>
+<meta name="description" content="The ultimate beginner's guide to Formula 1. Learn about the cars, drivers, teams, rules, and why millions of fans wake up early on Sundays.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   CSS CUSTOM PROPERTIES
+   ═══════════════════════════════════════════════════ */
+:root {
+  --f1-red: #E10600;
+  --f1-red-dark: #B00500;
+  --f1-red-glow: rgba(225, 6, 0, 0.4);
+  --accent-gold: #FFD700;
+  --accent-cyan: #00D2FF;
+  --soft-compound: #FF3333;
+  --medium-compound: #FFC61E;
+  --hard-compound: #FFFFFF;
+  --inter-compound: #43B02A;
+  --wet-compound: #0071C5;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-editorial: 'Playfair Display', serif;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0A0A0B;
+  --bg-secondary: #111113;
+  --bg-card: #161618;
+  --bg-card-hover: #1C1C1F;
+  --bg-elevated: #1E1E21;
+  --text-primary: #F5F5F7;
+  --text-secondary: #A1A1A6;
+  --text-tertiary: #6E6E73;
+  --border-color: rgba(255,255,255,0.08);
+  --border-color-hover: rgba(255,255,255,0.15);
+  --glass-bg: rgba(22,22,24,0.85);
+  --glass-border: rgba(255,255,255,0.06);
+  --section-divider: linear-gradient(90deg, transparent, rgba(225,6,0,0.3), transparent);
+  --hero-gradient: radial-gradient(ellipse at 50% 0%, rgba(225,6,0,0.15) 0%, transparent 70%);
+  --noise-opacity: 0.03;
+}
+
+[data-theme="light"] {
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F0F0F2;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F7F7F9;
+  --bg-elevated: #FFFFFF;
+  --text-primary: #1A1A1D;
+  --text-secondary: #6B6B70;
+  --text-tertiary: #9A9A9F;
+  --border-color: rgba(0,0,0,0.08);
+  --border-color-hover: rgba(0,0,0,0.15);
+  --glass-bg: rgba(255,255,255,0.85);
+  --glass-border: rgba(0,0,0,0.06);
+  --section-divider: linear-gradient(90deg, transparent, rgba(225,6,0,0.2), transparent);
+  --hero-gradient: radial-gradient(ellipse at 50% 0%, rgba(225,6,0,0.08) 0%, transparent 70%);
+  --noise-opacity: 0.02;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 17px;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.4s ease;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: var(--noise-opacity);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+a { color: var(--f1-red); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-cyan); }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
+
+::selection {
+  background: var(--f1-red);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--f1-red); border-radius: 3px; }
+
+/* ═══════════════════════════════════════════════════
+   LAYOUT UTILITIES
+   ═══════════════════════════════════════════════════ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container--wide {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-space {
+  padding: 120px 0;
+}
+
+@media (max-width: 768px) {
+  .section-space { padding: 80px 0; }
+  body { font-size: 16px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   THEME TOGGLE
+   ═══════════════════════════════════════════════════ */
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.3s var(--ease-out-expo);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  border-color: var(--f1-red);
+  box-shadow: 0 4px 30px var(--f1-red-glow);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon { position: absolute; transition: all 0.4s var(--ease-out-expo); }
+[data-theme="dark"] .theme-toggle .icon-sun { opacity: 1; transform: rotate(0deg) scale(1); }
+[data-theme="dark"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="light"] .theme-toggle .icon-sun { opacity: 0; transform: rotate(-90deg) scale(0); }
+[data-theme="light"] .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+
+/* ═══════════════════════════════════════════════════
+   NAV BAR (sticky)
+   ═══════════════════════════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.navbar.scrolled {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 1px 30px rgba(0,0,0,0.1);
+}
+
+.navbar__inner {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__logo-mark {
+  width: 28px;
+  height: 28px;
+  background: var(--f1-red);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -1px;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.navbar__links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.2s;
+}
+
+.navbar__links a:hover { color: var(--f1-red); }
+
+@media (max-width: 768px) {
+  .navbar__links { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 24px 80px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-gradient);
+  z-index: 0;
+}
+
+/* Animated racing lines */
+.hero__lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0.12;
+}
+
+.hero__line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--f1-red), transparent);
+  animation: raceLine 3s linear infinite;
+}
+
+.hero__line:nth-child(1) { top: 20%; width: 200px; animation-delay: 0s; animation-duration: 2.5s; }
+.hero__line:nth-child(2) { top: 35%; width: 300px; animation-delay: 0.7s; animation-duration: 2s; }
+.hero__line:nth-child(3) { top: 55%; width: 150px; animation-delay: 1.2s; animation-duration: 3s; }
+.hero__line:nth-child(4) { top: 70%; width: 250px; animation-delay: 0.3s; animation-duration: 2.2s; }
+.hero__line:nth-child(5) { top: 85%; width: 180px; animation-delay: 1.8s; animation-duration: 2.8s; }
+.hero__line:nth-child(6) { top: 45%; width: 220px; animation-delay: 2.1s; animation-duration: 1.8s; }
+
+@keyframes raceLine {
+  0% { left: -300px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+/* Five red lights */
+.hero__lights {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+  z-index: 1;
+}
+
+.hero__light {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #333;
+  border: 2px solid #444;
+  transition: all 0.3s;
+}
+
+.hero__light.on {
+  background: var(--f1-red);
+  border-color: var(--f1-red);
+  box-shadow: 0 0 20px var(--f1-red-glow), 0 0 60px rgba(225,6,0,0.2);
+}
+
+.hero__badge {
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--f1-red);
+  background: rgba(225,6,0,0.08);
+  border: 1px solid rgba(225,6,0,0.2);
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+}
+
+.hero__title {
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 0.95;
+  margin-bottom: 24px;
+  max-width: 900px;
+}
+
+.hero__title em {
+  font-style: italic;
+  font-family: var(--font-editorial);
+  font-weight: 900;
+  color: var(--f1-red);
+}
+
+.hero__subtitle {
+  z-index: 1;
+  font-size: clamp(18px, 2.5vw, 22px);
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.hero__scroll {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: float 2s ease-in-out infinite;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--f1-red), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ═══════════════════════════════════════════════════
+   SECTION HEADERS
+   ═══════════════════════════════════════════════════ */
+.section-header {
+  margin-bottom: 64px;
+}
+
+.section-header__number {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--f1-red);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.section-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+
+.section-header__subtitle {
+  font-size: 19px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  font-weight: 300;
+}
+
+/* ═══════════════════════════════════════════════════
+   SECTION DIVIDER
+   ═══════════════════════════════════════════════════ */
+.section-divider {
+  height: 1px;
+  background: var(--section-divider);
+  margin: 0;
+  border: none;
+}
+
+/* ═══════════════════════════════════════════════════
+   STAT CARDS (Mind-blowing facts)
+   ═══════════════════════════════════════════════════ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 36px;
+  transition: all 0.4s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--f1-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.stat-card:hover {
+  border-color: var(--border-color-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-card__icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.stat-card__value {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 8px;
+  color: var(--f1-red);
+}
+
+.stat-card__label {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.stat-card__desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════
+   CONTENT BLOCKS
+   ═══════════════════════════════════════════════════ */
+.content-block {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.content-block p {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.content-block strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.content-block h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 48px;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+/* Big quote / callout */
+.big-quote {
+  font-family: var(--font-editorial);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--text-primary);
+  text-align: center;
+  max-width: 800px;
+  margin: 64px auto;
+  padding: 40px 0;
+  position: relative;
+}
+
+.big-quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--f1-red);
+}
+
+/* Inline highlight */
+.highlight {
+  color: var(--f1-red);
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════
+   CALLOUT BOX
+   ═══════════════════════════════════════════════════ */
+.callout {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--f1-red);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+
+.callout p {
+  margin-bottom: 0 !important;
+  color: var(--text-secondary);
+}
+
+.callout strong {
+  color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════
+   COMPARISON LAYOUT
+   ═══════════════════════════════════════════════════ */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 40px 0;
+}
+
+@media (max-width: 600px) {
+  .comparison { grid-template-columns: 1fr; }
+}
+
+.comparison__item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.comparison__item-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+
+.comparison__item-value {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.comparison__item-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* ═══════════════════════════════════════════════════
+   DRIVER GRID
+   ═══════════════════════════════════════════════════ */
+.driver-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.driver-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 24px;
+  transition: all 0.3s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.driver-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-color-hover);
+}
+
+.driver-card__number {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--border-color);
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.driver-card__flag {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.driver-card__name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.driver-card__team {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.driver-card__tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(225,6,0,0.1);
+  color: var(--f1-red);
+  border: 1px solid rgba(225,6,0,0.2);
+}
+
+/* Team color accents */
+.driver-card[data-team="red-bull"] { border-top: 3px solid #3671C6; }
+.driver-card[data-team="mclaren"] { border-top: 3px solid #FF8000; }
+.driver-card[data-team="ferrari"] { border-top: 3px solid #E8002D; }
+.driver-card[data-team="mercedes"] { border-top: 3px solid #27F4D2; }
+.driver-card[data-team="aston-martin"] { border-top: 3px solid #229971; }
+.driver-card[data-team="alpine"] { border-top: 3px solid #FF87BC; }
+.driver-card[data-team="williams"] { border-top: 3px solid #64C4FF; }
+.driver-card[data-team="racing-bulls"] { border-top: 3px solid #6692FF; }
+.driver-card[data-team="haas"] { border-top: 3px solid #B6BABD; }
+.driver-card[data-team="audi"] { border-top: 3px solid #FF5733; }
+.driver-card[data-team="cadillac"] { border-top: 3px solid #C0C0C0; }
+
+/* ═══════════════════════════════════════════════════
+   TEAM CARDS
+   ═══════════════════════════════════════════════════ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.team-card:hover {
+  border-color: var(--border-color-hover);
+  transform: translateY(-2px);
+}
+
+.team-card__color {
+  width: 6px;
+  min-height: 60px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.team-card__info { flex: 1; }
+
+.team-card__name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.team-card__engine {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  margin-bottom: 8px;
+}
+
+.team-card__drivers {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.team-card__badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(225,6,0,0.1);
+  color: var(--f1-red);
+}
+
+/* ═══════════════════════════════════════════════════
+   TYRE DIAGRAM
+   ═══════════════════════════════════════════════════ */
+.tyre-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.tyre-item {
+  text-align: center;
+  width: 100px;
+}
+
+.tyre-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 6px solid #333;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.tyre-circle:hover { transform: rotate(20deg) scale(1.1); }
+
+.tyre-circle--soft { border-color: var(--soft-compound); color: var(--soft-compound); }
+.tyre-circle--medium { border-color: var(--medium-compound); color: var(--medium-compound); }
+.tyre-circle--hard { border-color: var(--hard-compound); color: var(--hard-compound); }
+.tyre-circle--inter { border-color: var(--inter-compound); color: var(--inter-compound); }
+.tyre-circle--wet { border-color: var(--wet-compound); color: var(--wet-compound); }
+
+.tyre-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.tyre-desc {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════════════════
+   POINTS TABLE
+   ═══════════════════════════════════════════════════ */
+.points-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+}
+
+.points-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.points-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.points-table tr:hover td {
+  background: var(--bg-card);
+}
+
+.points-table .pos-1 td:first-child,
+.points-table .pos-2 td:first-child,
+.points-table .pos-3 td:first-child {
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.points-table .pos-1 .points-val { color: var(--accent-gold); font-weight: 800; }
+.points-table .pos-2 .points-val { color: #C0C0C0; font-weight: 700; }
+.points-table .pos-3 .points-val { color: #CD7F32; font-weight: 700; }
+
+/* ═══════════════════════════════════════════════════
+   TIMELINE (Recent History)
+   ═══════════════════════════════════════════════════ */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--f1-red), var(--border-color));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -34px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--f1-red);
+  border: 3px solid var(--bg-primary);
+}
+
+.timeline-item__year {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--f1-red);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.timeline-item__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.timeline-item__desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════
+   RACE WEEKEND STEPS
+   ═══════════════════════════════════════════════════ */
+.weekend-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 40px 0;
+}
+
+@media (max-width: 768px) {
+  .weekend-steps { grid-template-columns: 1fr; }
+}
+
+.weekend-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.weekend-step:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-color-hover);
+}
+
+.weekend-step__day {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--f1-red);
+  margin-bottom: 12px;
+}
+
+.weekend-step__icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.weekend-step__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.weekend-step__desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════
+   QUALIFYING BREAKDOWN
+   ═══════════════════════════════════════════════════ */
+.quali-phases {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.quali-phase {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s;
+}
+
+.quali-phase:hover {
+  border-color: var(--border-color-hover);
+}
+
+.quali-phase__badge {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--f1-red);
+  min-width: 50px;
+}
+
+.quali-phase__info { flex: 1; }
+
+.quali-phase__title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.quali-phase__desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.quali-phase__time {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════
+   PIT STOP ANIMATION
+   ═══════════════════════════════════════════════════ */
+.pitstop-visual {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 48px;
+  text-align: center;
+  margin: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.pitstop-visual__timer {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 12vw, 120px);
+  font-weight: 900;
+  letter-spacing: -4px;
+  color: var(--f1-red);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.pitstop-visual__label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+
+.pitstop-visual__crew {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.pitstop-visual__person {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.pitstop-visual:hover .pitstop-visual__person {
+  animation: crewBounce 0.4s var(--ease-out-back);
+}
+
+.pitstop-visual:hover .pitstop-visual__person:nth-child(odd) {
+  animation-delay: 0.05s;
+}
+.pitstop-visual:hover .pitstop-visual__person:nth-child(3n) {
+  animation-delay: 0.1s;
+}
+
+@keyframes crewBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.pitstop-visual__steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.pitstop-visual__step {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 12px;
+  background: var(--bg-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pitstop-visual__step-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--f1-red);
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESOURCE LINKS
+   ═══════════════════════════════════════════════════ */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.resource-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 24px;
+  transition: all 0.3s var(--ease-out-expo);
+  display: block;
+  color: var(--text-primary);
+}
+
+.resource-card:hover {
+  border-color: var(--f1-red);
+  transform: translateY(-3px);
+  color: var(--text-primary);
+  box-shadow: 0 8px 30px rgba(225,6,0,0.1);
+}
+
+.resource-card__icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.resource-card__title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.resource-card__desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.resource-card__tag {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--f1-red);
+}
+
+/* ═══════════════════════════════════════════════════
+   LIGHTS OUT ANIMATION (page load)
+   ═══════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ═══════════════════════════════════════════════════
+   TECH MODES (Active Aero)
+   ═══════════════════════════════════════════════════ */
+.aero-modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+@media (max-width: 600px) {
+  .aero-modes { grid-template-columns: 1fr; }
+}
+
+.aero-mode {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.aero-mode:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-color-hover);
+}
+
+.aero-mode__icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.aero-mode__name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  letter-spacing: 2px;
+}
+
+.aero-mode__subtitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--f1-red);
+  margin-bottom: 16px;
+}
+
+.aero-mode__desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════ */
+.footer {
+  padding: 80px 0 40px;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer__tagline {
+  font-family: var(--font-editorial);
+  font-size: clamp(24px, 4vw, 36px);
+  font-style: italic;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.footer__sub {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 32px;
+}
+
+.footer__bottom {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 1px;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE ADJUSTMENTS
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .driver-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .team-grid { grid-template-columns: 1fr; }
+  .hero__lights { gap: 10px; }
+  .hero__light { width: 24px; height: 24px; }
+  .pitstop-visual { padding: 32px 20px; }
+  .pitstop-visual__steps { grid-template-columns: 1fr 1fr; }
+  .container { padding: 0 16px; }
+  .navbar { padding: 0 16px; }
+  .theme-toggle { top: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     THEME TOGGLE
+     ══════════════════════════════════════════════════════ -->
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <span class="icon-sun">&#9728;</span>
+  <span class="icon-moon">&#9790;</span>
+</button>
+
+<!-- ══════════════════════════════════════════════════════
+     NAVBAR
+     ══════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <div class="navbar__logo">
+      <span class="navbar__logo-mark">F1</span>
+      Your Guide to Formula 1
+    </div>
+    <ul class="navbar__links">
+      <li><a href="#basics">Basics</a></li>
+      <li><a href="#cars">Cars</a></li>
+      <li><a href="#drivers">Drivers</a></li>
+      <li><a href="#weekend">Race Day</a></li>
+      <li><a href="#history">History</a></li>
+      <li><a href="#start">Get Started</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero__lines">
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+  </div>
+
+  <div class="hero__lights" id="heroLights">
+    <div class="hero__light"></div>
+    <div class="hero__light"></div>
+    <div class="hero__light"></div>
+    <div class="hero__light"></div>
+    <div class="hero__light"></div>
+  </div>
+
+  <div class="hero__badge reveal">2026 Season Edition</div>
+
+  <h1 class="hero__title reveal reveal-delay-1">
+    Your Guide to<br><em>Formula 1</em>
+  </h1>
+
+  <p class="hero__subtitle reveal reveal-delay-2">
+    Everything you need to know about the fastest, most technologically advanced, and most dramatic sport on the planet. Welcome to your new obsession.
+  </p>
+
+  <div class="hero__scroll reveal reveal-delay-3">
+    <div class="hero__scroll-line"></div>
+    <span>Scroll to begin</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 1: MIND-BLOWING FACTS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="basics">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">01 &mdash; The Basics</span>
+      <h2 class="section-header__title">Wait, seriously?</h2>
+      <p class="section-header__subtitle">A few facts about Formula 1 that tend to make people's jaws drop. Let's start here.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <span class="stat-card__icon">&#9889;</span>
+        <div class="stat-card__value">230+ mph</div>
+        <div class="stat-card__label">Top Speed</div>
+        <p class="stat-card__desc">F1 cars hit speeds faster than a commercial airplane at takeoff. Mercedes predicts 2026 cars could reach 248 mph thanks to new active aerodynamics.</p>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <span class="stat-card__icon">&#128168;</span>
+        <div class="stat-card__value">1.80s</div>
+        <div class="stat-card__label">Pit Stop Record</div>
+        <p class="stat-card__desc">McLaren changed all 4 tyres in 1.80 seconds. That's less time than it takes to say "Formula One" out loud. A crew of ~20 people. Choreographed perfection.</p>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <span class="stat-card__icon">&#127919;</span>
+        <div class="stat-card__value">6G</div>
+        <div class="stat-card__label">G-Force on Drivers</div>
+        <p class="stat-card__desc">Fighter pilots wear pressure suits for short bursts of 9G. F1 drivers endure 5&ndash;6G continuously for nearly two hours in a fireproof onesie. No G-suit.</p>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-card__icon">&#128176;</span>
+        <div class="stat-card__value">$15M</div>
+        <div class="stat-card__label">Cost Per Car</div>
+        <p class="stat-card__desc">Each car is a $12&ndash;15 million handmade machine with 14,500 individual components. The steering wheel alone costs up to $100,000 and has 25+ buttons.</p>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <span class="stat-card__icon">&#128293;</span>
+        <div class="stat-card__value">1,000&deg;C</div>
+        <div class="stat-card__label">Brake Temperature</div>
+        <p class="stat-card__desc">Brake discs glow orange-white during night races. That's as hot as volcanic lava. They're made of carbon fibre because metal would simply melt.</p>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <span class="stat-card__icon">&#127759;</span>
+        <div class="stat-card__value">827M</div>
+        <div class="stat-card__label">Global Fans</div>
+        <p class="stat-card__desc">F1 is the world's most-watched annual sport, broadcast in 188+ countries. 24 races across every continent. 70 million viewers per race weekend.</p>
+      </div>
+    </div>
+
+    <div class="big-quote reveal">
+      "They could theoretically drive upside-down on the ceiling of a tunnel. The downforce is greater than the car's own weight."
+    </div>
+
+    <div class="content-block reveal">
+      <p>Here's the thing about Formula 1 &mdash; it sounds almost made up until you see it. <strong>Cars that go from 200 mph to 80 mph in two seconds.</strong> Drivers whose heart rates hit 200 bpm at the start and stay at marathon-runner levels for the entire race. Athletes who lose 4 kg of body weight through sweat in a single race while the cockpit reaches 60&deg;C.</p>
+      <p>Each car generates <strong>1.5 terabytes of data per weekend</strong> from 300+ sensors. Each team brings its own weather station to every track. Drivers react in 100 milliseconds &mdash; less than half the time of a normal human. And the power units? They're the most thermally efficient internal combustion engines ever built at 52%, making 1,000+ horsepower from just 1.6 litres.</p>
+      <p>Oh, and there are only <strong>11 teams, 22 drivers, and 24 races</strong>. That's it. Small enough to learn in a weekend, deep enough to obsess over for a lifetime.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 2: RACE WEEKEND
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="weekend">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">02 &mdash; Race Weekend</span>
+      <h2 class="section-header__title">How It All Works</h2>
+      <p class="section-header__subtitle">A race weekend unfolds over three days. Here's what happens and why it matters.</p>
+    </div>
+
+    <div class="weekend-steps reveal">
+      <div class="weekend-step">
+        <div class="weekend-step__day">Friday</div>
+        <div class="weekend-step__icon">&#128203;</div>
+        <div class="weekend-step__title">Practice</div>
+        <p class="weekend-step__desc">Two 60-minute practice sessions (FP1 &amp; FP2). Teams test car setups, run tyre experiments, and simulate qualifying and race conditions. Data collection is everything.</p>
+      </div>
+      <div class="weekend-step">
+        <div class="weekend-step__day">Saturday</div>
+        <div class="weekend-step__icon">&#9201;</div>
+        <div class="weekend-step__title">Qualifying</div>
+        <p class="weekend-step__desc">One final practice, then Qualifying &mdash; three knockout sessions (Q1, Q2, Q3) that determine the starting grid for Sunday. The fastest driver earns "pole position."</p>
+      </div>
+      <div class="weekend-step">
+        <div class="weekend-step__day">Sunday</div>
+        <div class="weekend-step__icon">&#127937;</div>
+        <div class="weekend-step__title">Race Day</div>
+        <p class="weekend-step__desc">The main event. ~305 km of racing, usually 50&ndash;70 laps. Strategy, pit stops, overtakes, drama. Five red lights go out and everything changes.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="reveal">Qualifying: Where Legends Are Made</h3>
+      <p class="reveal">Qualifying is where drivers push themselves and their cars to the absolute limit for a single flying lap. It's three sessions, each eliminating the slowest drivers.</p>
+
+      <div class="quali-phases reveal">
+        <div class="quali-phase">
+          <div class="quali-phase__badge">Q1</div>
+          <div class="quali-phase__info">
+            <div class="quali-phase__title">All 22 drivers compete</div>
+            <div class="quali-phase__desc">Bottom 6 are eliminated and locked into positions 17&ndash;22 on the grid.</div>
+          </div>
+          <div class="quali-phase__time">18 min</div>
+        </div>
+        <div class="quali-phase">
+          <div class="quali-phase__badge">Q2</div>
+          <div class="quali-phase__info">
+            <div class="quali-phase__title">16 remaining drivers</div>
+            <div class="quali-phase__desc">Bottom 6 eliminated. Locked into positions 11&ndash;16.</div>
+          </div>
+          <div class="quali-phase__time">15 min</div>
+        </div>
+        <div class="quali-phase">
+          <div class="quali-phase__badge">Q3</div>
+          <div class="quali-phase__info">
+            <div class="quali-phase__title">Top 10 shootout</div>
+            <div class="quali-phase__desc">The fight for pole position. Lap times often separated by thousandths of a second.</div>
+          </div>
+          <div class="quali-phase__time">12 min</div>
+        </div>
+      </div>
+
+      <div class="callout reveal">
+        <p><strong>Pro tip:</strong> The final two minutes of Q3 are some of the most thrilling moments in sport. Drivers set their "safety" lap early, then go all-out at the end when the track has more rubber and grip. You'll see lead changes in the final seconds as drivers cross the line. Screaming at your TV is encouraged.</p>
+      </div>
+
+      <h3 class="reveal">Race Day</h3>
+      <p class="reveal">Five red lights illuminate one by one... then all go out at once. That's the start. Twenty-two cars converge on Turn 1 at 200+ mph. The first lap is chaos &mdash; positions change, wings break, and the race order can completely flip. After that, strategy takes over.</p>
+      <p class="reveal">During the race, you'll hear live team radio between drivers and engineers. You'll hear raw emotion at 200 mph &mdash; frustration, elation, fear, and joy. It's like having a microphone inside an athlete's head during competition. Nothing else in sport offers this.</p>
+
+      <div class="callout reveal">
+        <p><strong>Sprint Weekends:</strong> Six races in 2026 use a compressed format with a bonus ~100km Sprint Race on Saturday morning. Top 8 score extra championship points. It's a quick, no-pit-stop sprint that adds an extra layer of action.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 3: POINTS & CHAMPIONSHIPS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">03 &mdash; Championships</span>
+      <h2 class="section-header__title">How You Win</h2>
+      <p class="section-header__subtitle">Two championships run simultaneously: one for drivers, one for constructors (teams). Points make the world go round.</p>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">Points are awarded to the top 10 finishers in each Grand Prix. The driver and the team with the most points at the end of the season are World Champions. If a driver or team builds an unassailable mathematical lead before the final race, they clinch the title early.</p>
+
+      <table class="points-table reveal">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Points</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pos-1"><td>1st</td><td class="points-val">25</td><td>Winner</td></tr>
+          <tr class="pos-2"><td>2nd</td><td class="points-val">18</td><td>Podium</td></tr>
+          <tr class="pos-3"><td>3rd</td><td class="points-val">15</td><td>Podium</td></tr>
+          <tr><td>4th</td><td>12</td><td></td></tr>
+          <tr><td>5th</td><td>10</td><td></td></tr>
+          <tr><td>6th</td><td>8</td><td></td></tr>
+          <tr><td>7th</td><td>6</td><td></td></tr>
+          <tr><td>8th</td><td>4</td><td></td></tr>
+          <tr><td>9th</td><td>2</td><td></td></tr>
+          <tr><td>10th</td><td>1</td><td></td></tr>
+          <tr><td>11th&ndash;22nd</td><td>0</td><td>No points</td></tr>
+        </tbody>
+      </table>
+
+      <p class="reveal">The <strong>Constructors' Championship</strong> combines both drivers' points for each team. This is arguably more important than the Drivers' Championship because it determines how much prize money teams receive &mdash; directly impacting their budget for the next season. It's a virtuous cycle: win more &rarr; earn more &rarr; build a better car &rarr; win more.</p>
+
+      <div class="callout reveal">
+        <p><strong>Sprint points:</strong> The top 8 in Sprint Races earn bonus points (8&ndash;7&ndash;6&ndash;5&ndash;4&ndash;3&ndash;2&ndash;1). These count toward both championships, and across 6 sprint weekends, they can make a real difference in a tight title fight.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 4: THE CARS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="cars">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">04 &mdash; The Cars</span>
+      <h2 class="section-header__title">Engineering at the Limit</h2>
+      <p class="section-header__subtitle">Every team designs and builds an entirely new car each season. There are no off-the-shelf parts. Each machine is a rolling laboratory.</p>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">The car is the most important factor in Formula 1. A brilliant driver in a slow car will struggle. A mediocre driver in the fastest car can win. It sounds unfair, but it's what makes the engineering battle so intense &mdash; <strong>the car is the product of a thousand engineers' genius.</strong></p>
+
+      <p class="reveal">Different tracks demand different setups. Monza in Italy has incredibly long straights, so teams trim downforce for pure speed. Monaco is tight streets, so maximum downforce for cornering grip. Mexico City sits at high altitude where thin air reduces downforce naturally. <strong>Each car is a compromise, fine-tuned for every single race.</strong></p>
+
+      <p class="reveal">Teams update their cars throughout the season. A new front wing here, a reshaped floor there. Gaining even one-tenth of a second per lap might not sound like much, but over a 70-lap race, that's 7 seconds. Races are regularly won by less than that.</p>
+
+      <h3 class="reveal">2026: A Brand New Era</h3>
+      <p class="reveal">The 2026 regulations represent the <strong>biggest technical overhaul in F1 history</strong>. The cars are fundamentally different from what came before.</p>
+
+      <div class="comparison reveal">
+        <div class="comparison__item">
+          <div class="comparison__item-title">2025 Cars</div>
+          <div class="comparison__item-value">800 kg</div>
+          <div class="comparison__item-desc">Wider, heavier, ground-effect tunnels for downforce, DRS for overtaking</div>
+        </div>
+        <div class="comparison__item">
+          <div class="comparison__item-title">2026 Cars</div>
+          <div class="comparison__item-value">768 kg</div>
+          <div class="comparison__item-desc">Shorter, narrower, lighter. Active aerodynamics, no DRS, 50/50 hybrid power split</div>
+        </div>
+      </div>
+
+      <h3 class="reveal">Active Aerodynamics: The Game-Changer</h3>
+      <p class="reveal">For the first time in modern F1, the cars have <strong>movable front and rear wings</strong> that switch between two modes. This replaces DRS (Drag Reduction System), which was used since 2011.</p>
+
+      <div class="aero-modes reveal">
+        <div class="aero-mode">
+          <div class="aero-mode__icon">&#9968;</div>
+          <div class="aero-mode__name">Z-MODE</div>
+          <div class="aero-mode__subtitle">High Downforce</div>
+          <p class="aero-mode__desc">Wings angled for maximum grip. Used in corners. The car sticks to the road like glue, allowing drivers to carry incredible speed through turns.</p>
+        </div>
+        <div class="aero-mode">
+          <div class="aero-mode__icon">&#10132;</div>
+          <div class="aero-mode__name">X-MODE</div>
+          <div class="aero-mode__subtitle">Low Drag</div>
+          <p class="aero-mode__desc">Wings flatten out to cut through the air on straights. Available to ALL drivers &mdash; unlike old DRS, you don't need to be chasing someone to use it.</p>
+        </div>
+      </div>
+
+      <div class="callout reveal">
+        <p><strong>Overtake Mode:</strong> On top of active aero, drivers within 1 second of the car ahead can activate a special electrical boost &mdash; an extra 67 horsepower from the battery. The defending driver can fire back with their own "Boost Mode." It's attack and defence, adding a strategic chess match that DRS never had.</p>
+      </div>
+
+      <h3 class="reveal">The Power Unit: 1,000+ Horsepower</h3>
+      <p class="reveal">F1 cars use a 1.6-litre turbocharged V6 hybrid engine producing over 1,000 horsepower. For 2026, the split is roughly <strong>50% combustion / 50% electric</strong> &mdash; up from 80/20 previously. The electric motor (MGU-K) nearly tripled in power from 120 kW to 350 kW.</p>
+      <p class="reveal">And here's the cool part: every drop of fuel is <strong>100% sustainable</strong>. Made from carbon capture, municipal waste, or non-food biomass &mdash; not a drop of crude oil. F1 aims to be net-zero carbon by 2030.</p>
+
+      <h3 class="reveal">Five Engine Manufacturers</h3>
+      <p class="reveal">Five companies build engines for all 11 teams: <strong>Ferrari, Mercedes, Honda, Red Bull Powertrains (with Ford), and Audi</strong>. Each supplies engines to their own team and customer teams. It's an arms race where hundredths of a second matter.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 5: PIT STOPS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">05 &mdash; Pit Stops</span>
+      <h2 class="section-header__title">1.80 Seconds of Perfection</h2>
+      <p class="section-header__subtitle">The most choreographed two seconds in all of sport.</p>
+    </div>
+
+    <div class="pitstop-visual reveal">
+      <div class="pitstop-visual__timer" id="pitstopTimer">0.00</div>
+      <div class="pitstop-visual__label">World Record &mdash; McLaren, 2023 Qatar GP</div>
+      <div class="pitstop-visual__crew">
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+        <div class="pitstop-visual__person">&#128119;</div>
+      </div>
+      <div class="pitstop-visual__steps">
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">01</span> Front &amp; rear jacks lift car</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">02</span> Stabilisers grab both sides</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">03</span> Wheel guns loosen 4 nuts</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">04</span> Old tyres pulled off</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">05</span> New tyres pushed on</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">06</span> Wheel guns tighten</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">07</span> Jacks drop, car hits the ground</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">08</span> Green light &mdash; GO!</div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">While the car is stationary for under 2 seconds, the total time lost to pitting is around <strong>20&ndash;25 seconds</strong> per stop (driving through the pit lane at the speed limit, stopping, and rejoining). This means <strong>when</strong> you pit is a critical strategic decision. Pit one lap too early or late and it can cost you a race win.</p>
+      <p class="reveal">Every driver must use at least <strong>two different tyre compounds</strong> during a dry race, meaning at least one pit stop is mandatory. Some strategies call for two or even three stops &mdash; it all depends on tyre degradation, track conditions, and what your rivals are doing.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 6: TYRES
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">06 &mdash; Tyres</span>
+      <h2 class="section-header__title">The Secret Weapon</h2>
+      <p class="section-header__subtitle">Yes, the British spelling. Welcome to your new life as an F1 fan.</p>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">You might think tyres are boring. You'd be wrong. Tyre strategy is one of the most fascinating and unpredictable elements of an F1 race. <strong>Pirelli</strong>, the sole tyre supplier, makes five dry compounds ranging from ultra-grippy but fragile to durable but slow.</p>
+      <p class="reveal">At each race, Pirelli selects three compounds and labels them simply:</p>
+    </div>
+
+    <div class="tyre-row reveal">
+      <div class="tyre-item">
+        <div class="tyre-circle tyre-circle--soft">S</div>
+        <div class="tyre-label">Soft</div>
+        <div class="tyre-desc">Most grip, wears fastest</div>
+      </div>
+      <div class="tyre-item">
+        <div class="tyre-circle tyre-circle--medium">M</div>
+        <div class="tyre-label">Medium</div>
+        <div class="tyre-desc">Balanced performance</div>
+      </div>
+      <div class="tyre-item">
+        <div class="tyre-circle tyre-circle--hard">H</div>
+        <div class="tyre-label">Hard</div>
+        <div class="tyre-desc">Least grip, lasts longest</div>
+      </div>
+      <div class="tyre-item">
+        <div class="tyre-circle tyre-circle--inter">I</div>
+        <div class="tyre-label">Inter</div>
+        <div class="tyre-desc">Light rain / damp track</div>
+      </div>
+      <div class="tyre-item">
+        <div class="tyre-circle tyre-circle--wet">W</div>
+        <div class="tyre-label">Full Wet</div>
+        <div class="tyre-desc">Heavy rain</div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">Here's why it matters: <strong>soft tyres are faster but die quicker.</strong> A driver on fresh softs can be 1&ndash;2 seconds per lap faster than someone on worn hards. But those softs might only last 15 laps before the grip falls off a cliff, while hards can go 40+ laps.</p>
+      <p class="reveal">This creates a strategic puzzle. Do you start on softs, blast into the lead, and pit early? Or start on hards, run long, and hope to leap-frog rivals when they pit? Teams run thousands of simulations before each race to optimise their strategy &mdash; but weather, safety cars, and rivals' decisions can throw everything out the window.</p>
+
+      <div class="callout reveal">
+        <p><strong>What's an "undercut"?</strong> Pitting before your rival to get fresh, faster tyres. You do a blazing out-lap on new rubber while they're still on worn tyres. If the pace difference is big enough, you emerge ahead after they pit. It's one of the most satisfying strategic moves in racing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 7: THE DRIVERS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="drivers">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">07 &mdash; The Drivers</span>
+      <h2 class="section-header__title">Meet the Grid</h2>
+      <p class="section-header__subtitle">22 of the best racing drivers on the planet. Huge personalities, fierce rivals, and some of the most entertaining athletes in sport.</p>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">Unlike most sports where athletes are distant figures, F1 gives you <strong>live team radio</strong> during every race. You hear drivers curse, celebrate, argue strategy, and show raw emotion at 200 mph. It's unfiltered, it's real, and it creates unforgettable moments.</p>
+    </div>
+
+    <div class="driver-grid reveal">
+      <div class="driver-card" data-team="mclaren">
+        <div class="driver-card__number">1</div>
+        <div class="driver-card__flag">&#127468;&#127463;</div>
+        <div class="driver-card__name">Lando Norris</div>
+        <div class="driver-card__team">McLaren</div>
+        <span class="driver-card__tag">2025 Champion</span>
+      </div>
+      <div class="driver-card" data-team="red-bull">
+        <div class="driver-card__number">3</div>
+        <div class="driver-card__flag">&#127475;&#127473;</div>
+        <div class="driver-card__name">Max Verstappen</div>
+        <div class="driver-card__team">Red Bull Racing</div>
+        <span class="driver-card__tag">4x Champion</span>
+      </div>
+      <div class="driver-card" data-team="ferrari">
+        <div class="driver-card__number">44</div>
+        <div class="driver-card__flag">&#127468;&#127463;</div>
+        <div class="driver-card__name">Lewis Hamilton</div>
+        <div class="driver-card__team">Ferrari</div>
+        <span class="driver-card__tag">7x Champion</span>
+      </div>
+      <div class="driver-card" data-team="ferrari">
+        <div class="driver-card__number">16</div>
+        <div class="driver-card__flag">&#127474;&#127464;</div>
+        <div class="driver-card__name">Charles Leclerc</div>
+        <div class="driver-card__team">Ferrari</div>
+      </div>
+      <div class="driver-card" data-team="mclaren">
+        <div class="driver-card__number">81</div>
+        <div class="driver-card__flag">&#127462;&#127482;</div>
+        <div class="driver-card__name">Oscar Piastri</div>
+        <div class="driver-card__team">McLaren</div>
+      </div>
+      <div class="driver-card" data-team="mercedes">
+        <div class="driver-card__number">63</div>
+        <div class="driver-card__flag">&#127468;&#127463;</div>
+        <div class="driver-card__name">George Russell</div>
+        <div class="driver-card__team">Mercedes</div>
+      </div>
+      <div class="driver-card" data-team="red-bull">
+        <div class="driver-card__number">6</div>
+        <div class="driver-card__flag">&#127467;&#127479;</div>
+        <div class="driver-card__name">Isack Hadjar</div>
+        <div class="driver-card__team">Red Bull Racing</div>
+      </div>
+      <div class="driver-card" data-team="mercedes">
+        <div class="driver-card__number">12</div>
+        <div class="driver-card__flag">&#127470;&#127481;</div>
+        <div class="driver-card__name">Andrea Kimi Antonelli</div>
+        <div class="driver-card__team">Mercedes</div>
+        <span class="driver-card__tag">Rookie</span>
+      </div>
+      <div class="driver-card" data-team="aston-martin">
+        <div class="driver-card__number">14</div>
+        <div class="driver-card__flag">&#127466;&#127480;</div>
+        <div class="driver-card__name">Fernando Alonso</div>
+        <div class="driver-card__team">Aston Martin</div>
+      </div>
+      <div class="driver-card" data-team="aston-martin">
+        <div class="driver-card__number">18</div>
+        <div class="driver-card__flag">&#127464;&#127462;</div>
+        <div class="driver-card__name">Lance Stroll</div>
+        <div class="driver-card__team">Aston Martin</div>
+      </div>
+      <div class="driver-card" data-team="alpine">
+        <div class="driver-card__number">10</div>
+        <div class="driver-card__flag">&#127467;&#127479;</div>
+        <div class="driver-card__name">Pierre Gasly</div>
+        <div class="driver-card__team">Alpine</div>
+      </div>
+      <div class="driver-card" data-team="alpine">
+        <div class="driver-card__number">43</div>
+        <div class="driver-card__flag">&#127462;&#127479;</div>
+        <div class="driver-card__name">Franco Colapinto</div>
+        <div class="driver-card__team">Alpine</div>
+      </div>
+      <div class="driver-card" data-team="williams">
+        <div class="driver-card__number">23</div>
+        <div class="driver-card__flag">&#127481;&#127469;</div>
+        <div class="driver-card__name">Alex Albon</div>
+        <div class="driver-card__team">Williams</div>
+      </div>
+      <div class="driver-card" data-team="williams">
+        <div class="driver-card__number">55</div>
+        <div class="driver-card__flag">&#127466;&#127480;</div>
+        <div class="driver-card__name">Carlos Sainz</div>
+        <div class="driver-card__team">Williams</div>
+      </div>
+      <div class="driver-card" data-team="racing-bulls">
+        <div class="driver-card__number">30</div>
+        <div class="driver-card__flag">&#127475;&#127487;</div>
+        <div class="driver-card__name">Liam Lawson</div>
+        <div class="driver-card__team">Racing Bulls</div>
+      </div>
+      <div class="driver-card" data-team="racing-bulls">
+        <div class="driver-card__number">41</div>
+        <div class="driver-card__flag">&#127468;&#127463;</div>
+        <div class="driver-card__name">Arvid Lindblad</div>
+        <div class="driver-card__team">Racing Bulls</div>
+        <span class="driver-card__tag">Rookie</span>
+      </div>
+      <div class="driver-card" data-team="haas">
+        <div class="driver-card__number">31</div>
+        <div class="driver-card__flag">&#127466;&#127480;</div>
+        <div class="driver-card__name">Esteban Ocon</div>
+        <div class="driver-card__team">Haas</div>
+      </div>
+      <div class="driver-card" data-team="haas">
+        <div class="driver-card__number">87</div>
+        <div class="driver-card__flag">&#127463;&#127479;</div>
+        <div class="driver-card__name">Oliver Bearman</div>
+        <div class="driver-card__team">Haas</div>
+      </div>
+      <div class="driver-card" data-team="audi">
+        <div class="driver-card__number">27</div>
+        <div class="driver-card__flag">&#127465;&#127466;</div>
+        <div class="driver-card__name">Nico H&uuml;lkenberg</div>
+        <div class="driver-card__team">Audi</div>
+      </div>
+      <div class="driver-card" data-team="audi">
+        <div class="driver-card__number">5</div>
+        <div class="driver-card__flag">&#127463;&#127479;</div>
+        <div class="driver-card__name">Gabriel Bortoleto</div>
+        <div class="driver-card__team">Audi</div>
+        <span class="driver-card__tag">Rookie</span>
+      </div>
+      <div class="driver-card" data-team="cadillac">
+        <div class="driver-card__number">77</div>
+        <div class="driver-card__flag">&#127467;&#127470;</div>
+        <div class="driver-card__name">Valtteri Bottas</div>
+        <div class="driver-card__team">Cadillac</div>
+      </div>
+      <div class="driver-card" data-team="cadillac">
+        <div class="driver-card__number">11</div>
+        <div class="driver-card__flag">&#127474;&#127485;</div>
+        <div class="driver-card__name">Sergio P&eacute;rez</div>
+        <div class="driver-card__team">Cadillac</div>
+      </div>
+    </div>
+
+    <div class="content-block" style="margin-top: 48px;">
+      <h3 class="reveal">The Ones to Watch</h3>
+      <p class="reveal"><strong>Lando Norris</strong> wears the #1 as the reigning 2025 World Champion. F1's golden boy &mdash; charismatic, streams on Twitch, beloved by fans. He won the title by just 2 points over Verstappen in a dramatic three-way final-race battle, capping a journey from McLaren's midfield years to the top of the sport.</p>
+      <p class="reveal"><strong>Max Verstappen</strong> is a four-time champion (2021&ndash;2024) who won a staggering 19 of 22 races in 2023. He's aggressive, lightning-fast, and utterly relentless. Lost his title to Norris by 2 points but won the most races of any driver in 2025. Now runs #3 after losing the champion's #1.</p>
+      <p class="reveal"><strong>Lewis Hamilton</strong> is the most successful driver in F1 history with 7 championships (tied with Michael Schumacher). In 2025, he made the blockbuster move to Ferrari &mdash; the sport's most successful driver joining its most iconic team.</p>
+      <p class="reveal"><strong>Charles Leclerc</strong> is Ferrari's homegrown star who grew up in Monaco and finally won his home Grand Prix in 2024. Brilliant on his day, passionate, and plays concert piano in his spare time.</p>
+      <p class="reveal"><strong>Oscar Piastri</strong> is the cool, understated Australian at McLaren who lets his driving do the talking. Already a Grand Prix winner, he was part of the 2025 title fight.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 8: THE TEAMS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">08 &mdash; The Teams</span>
+      <h2 class="section-header__title">11 Constructors</h2>
+      <p class="section-header__subtitle">F1 is a team sport. The driver's only the closer. The teams lay all the groundwork with hundreds of engineers, designers, and strategists.</p>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">Think of F1 teams like tech companies. The best teams produce the best technology faster than the competition. They invest in next year's car early, make clever bets on design, and hire the best engineers in the world. Then they hand the keys to their drivers and hope they bring the magic on race day.</p>
+      <p class="reveal">In 2026, <strong>Cadillac joins as the 11th team</strong> &mdash; the first new team since 2016, backed by General Motors. That means 22 cars on the grid instead of 20.</p>
+    </div>
+
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-card__color" style="background: #3671C6;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Red Bull Racing</div>
+          <div class="team-card__engine">Red Bull / Ford PU</div>
+          <div class="team-card__drivers">Verstappen &bull; Hadjar</div>
+          <div class="team-card__badge">2022 &amp; 2023 Constructors' Champs</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #FF8000;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">McLaren</div>
+          <div class="team-card__engine">Mercedes PU</div>
+          <div class="team-card__drivers">Norris &bull; Piastri</div>
+          <div class="team-card__badge">2024 Constructors' Champs</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #E8002D;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Scuderia Ferrari</div>
+          <div class="team-card__engine">Ferrari PU</div>
+          <div class="team-card__drivers">Hamilton &bull; Leclerc</div>
+          <div class="team-card__badge">Most Iconic Team in F1</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #27F4D2;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Mercedes-AMG</div>
+          <div class="team-card__engine">Mercedes PU</div>
+          <div class="team-card__drivers">Russell &bull; Antonelli</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #229971;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Aston Martin</div>
+          <div class="team-card__engine">Honda PU</div>
+          <div class="team-card__drivers">Alonso &bull; Stroll</div>
+          <div class="team-card__badge">Adrian Newey's new home</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #FF87BC;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Alpine</div>
+          <div class="team-card__engine">Mercedes PU</div>
+          <div class="team-card__drivers">Gasly &bull; Colapinto</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #64C4FF;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Williams</div>
+          <div class="team-card__engine">Mercedes PU</div>
+          <div class="team-card__drivers">Albon &bull; Sainz</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #6692FF;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Racing Bulls</div>
+          <div class="team-card__engine">Red Bull / Ford PU</div>
+          <div class="team-card__drivers">Lawson &bull; Lindblad</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #B6BABD;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Haas</div>
+          <div class="team-card__engine">Ferrari PU</div>
+          <div class="team-card__drivers">Ocon &bull; Bearman</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #FF5733;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Audi</div>
+          <div class="team-card__engine">Audi PU (own)</div>
+          <div class="team-card__drivers">H&uuml;lkenberg &bull; Bortoleto</div>
+          <div class="team-card__badge">New works team</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #C0C0C0;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Cadillac</div>
+          <div class="team-card__engine">Ferrari PU (customer)</div>
+          <div class="team-card__drivers">Bottas &bull; P&eacute;rez</div>
+          <div class="team-card__badge">NEW &mdash; 11th team</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block" style="margin-top: 48px;">
+      <div class="callout reveal">
+        <p><strong>Budget Cap:</strong> Since 2021, F1 has a cost cap &mdash; currently $215 million per season (excluding driver salaries, top executive pay, and marketing). This levels the playing field. Before the cap, the richest teams spent $400&ndash;500 million while smaller teams had $125 million. The cap means smarter spending matters more than pure wealth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 9: RECENT HISTORY
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="history">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">09 &mdash; Recent History</span>
+      <h2 class="section-header__title">What You Missed</h2>
+      <p class="section-header__subtitle">The last few years of F1 have been some of the most dramatic in the sport's 75-year history. Here's the speed-run.</p>
+    </div>
+
+    <div class="content-block">
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-item__year">2020</div>
+          <div class="timeline-item__title">Hamilton Equals the Legend</div>
+          <p class="timeline-item__desc">A pandemic-shortened season saw Hamilton equal Michael Schumacher's record of 7 World Championships. Pierre Gasly won at Monza for AlphaTauri in one of the greatest underdog stories ever &mdash; just a year after being demoted from Red Bull.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2021</div>
+          <div class="timeline-item__title">The Greatest Season</div>
+          <p class="timeline-item__desc">Hamilton vs. Verstappen. The entire 22-race season came down to the final lap. They arrived at Abu Dhabi level on points. A controversial Safety Car decision allowed Verstappen to overtake Hamilton on the final lap to steal the title. The race director was removed. It remains the most debated moment in F1 history &mdash; a 51G crash at Silverstone, a car on top of another at Monza (saved by the Halo), and a Brazilian Grand Prix comeback for the ages.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2022</div>
+          <div class="timeline-item__title">New Rules, New Era</div>
+          <p class="timeline-item__desc">Major regulation changes introduced ground-effect aerodynamics. Ferrari led early but collapsed through strategy blunders and reliability failures. "Ferrari strategists" became a meme. Verstappen won 15 of 22 races.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2023</div>
+          <div class="timeline-item__title">Verstappen's Total Domination</div>
+          <p class="timeline-item__desc">Verstappen won 19 of 22 races &mdash; the most dominant single season in F1 history. Red Bull won 21 of 22. Only Carlos Sainz's Singapore win broke their streak. Brilliant but terrifying for competition.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2024</div>
+          <div class="timeline-item__title">The Balance Shifts</div>
+          <p class="timeline-item__desc">McLaren's resurgence saw Norris and Piastri become genuine title contenders. McLaren won its first Constructors' title in 26 years. Hamilton won an emotional home race at Silverstone &mdash; his first win in over two years, tears on the podium. Leclerc finally won at Monaco. Then the bombshell: Hamilton announced his move to Ferrari. Adrian Newey, F1's most legendary car designer, left Red Bull for Aston Martin.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2025</div>
+          <div class="timeline-item__title">Norris is Crowned Champion</div>
+          <p class="timeline-item__desc">A three-way title fight went to the final race &mdash; Norris, Verstappen, and Piastri all had a shot. Lando Norris won his maiden World Championship at Abu Dhabi, becoming the sport's 35th champion. Hamilton's first year at Ferrari was rocky, often outpaced by Leclerc.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-quote reveal">
+      "Abu Dhabi 2021 is the 'Hand of God' of Formula 1. Everyone has an opinion. No one has forgotten."
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 10: LEGENDARY RIVALRIES
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">10 &mdash; The Drama</span>
+      <h2 class="section-header__title">Why People Get Hooked</h2>
+      <p class="section-header__subtitle">F1 isn't just about speed. It's about the human stories, the rivalries, and the moments that make you leap off your couch.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="reveal">Drive to Survive Changed Everything</h3>
+      <p class="reveal">Netflix's <em>Drive to Survive</em> (2019&ndash;present) is arguably the most transformative piece of sports media ever made. U.S. viewership jumped 54%. Over half of current F1 fans say the show played a role in getting them into the sport. It turned F1 from a niche European passion into a global cultural phenomenon.</p>
+      <p class="reveal">The show humanized drivers who were previously faceless helmets. It revealed the drama, politics, and raw emotion behind the scenes. If you haven't seen it, it's the perfect on-ramp.</p>
+
+      <h3 class="reveal">Legendary Rivalries</h3>
+      <p class="reveal"><strong>Senna vs. Prost (1988&ndash;1993)</strong> &mdash; The greatest rivalry in motorsport. The passionate Brazilian vs. the calculated Frenchman. They deliberately crashed into each other at Suzuka in consecutive years. Senna's tragic death in 1994 cemented it as the defining story of F1's golden era.</p>
+      <p class="reveal"><strong>Hamilton vs. Rosberg (2013&ndash;2016)</strong> &mdash; Childhood karting friends who became bitter enemies as Mercedes teammates. Rosberg won the 2016 title by 5 points, then retired five days later. He walked away at the absolute peak.</p>
+      <p class="reveal"><strong>Hamilton vs. Verstappen (2021)</strong> &mdash; The seven-time champion vs. the fearless young challenger. They collided at Silverstone (51G crash), Monza (car on top of car, saved by the Halo), and battled at Saudi Arabia. It went to the final lap of the final race. Still debated to this day.</p>
+
+      <h3 class="reveal">Iconic Team Radio</h3>
+      <p class="reveal">You hear drivers talk to their engineers over the radio during every race. It's raw, unfiltered, and absolutely electric:</p>
+      <div class="callout reveal">
+        <p><strong>Kimi R&auml;ikk&ouml;nen:</strong> "Leave me alone, I know what I'm doing." (He won the race.)</p>
+      </div>
+      <div class="callout reveal">
+        <p><strong>Fernando Alonso:</strong> "GP2 engine! GP2!" (Peak frustration with McLaren-Honda's terrible engine.)</p>
+      </div>
+      <div class="callout reveal">
+        <p><strong>Mark Webber:</strong> "Not bad for a number two driver." (After Red Bull gave his teammate preferential treatment, then he won anyway.)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 11: ICONIC TRACKS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">11 &mdash; The Tracks</span>
+      <h2 class="section-header__title">Around the World</h2>
+      <p class="section-header__subtitle">24 races across every continent in 2026. From Monaco's glamorous streets to Spa's terrifying corners.</p>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">F1 races on permanent circuits, city streets, and everything in between. Each track has its own personality, its own challenges, and its own legendary moments. Here are the ones every fan should know:</p>
+
+      <h3 class="reveal">Monaco</h3>
+      <p class="reveal">The crown jewel. Cars race through the narrow streets of Monte Carlo, past luxury yachts and the famous Casino. Celebrities watch from balconies and superyachts. Overtaking is nearly impossible, so qualifying is everything. Every driver dreams of winning here.</p>
+
+      <h3 class="reveal">Silverstone</h3>
+      <p class="reveal">The home of Formula 1 &mdash; site of the very first World Championship race in 1950. High-speed corners like Maggotts-Becketts-Chapel are legendary. The British fans create an atmosphere like nothing else in sport.</p>
+
+      <h3 class="reveal">Spa-Francorchamps</h3>
+      <p class="reveal">Belgium's legendary circuit through the Ardennes forest. Eau Rouge / Raidillon is a terrifying uphill corner complex taken at 180+ mph. Unpredictable weather means it can be dry on one part of the track and raining on another &mdash; simultaneously.</p>
+
+      <h3 class="reveal">Monza</h3>
+      <p class="reveal">The "Temple of Speed." Italy's cathedral of racing and the spiritual home of Ferrari. The fastest circuit on the calendar. The Tifosi &mdash; Ferrari's passionate Italian fanbase &mdash; storm the track after the race in a tide of red.</p>
+
+      <h3 class="reveal">Suzuka</h3>
+      <p class="reveal">Japan's figure-eight circuit, beloved by every driver for its technical purity. The esses section and 130R corner are among the most celebrated in motorsport. Japanese fans are famous for their incredible dedication and hospitality.</p>
+
+      <div class="callout reveal">
+        <p><strong>New for 2026:</strong> Madrid joins the calendar as a brand-new street circuit. The U.S. now has three races (Miami, Austin, Las Vegas) &mdash; unprecedented and reflective of F1's explosive American growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 12: SAFETY & PENALTIES (Quick Hits)
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">12 &mdash; Good to Know</span>
+      <h2 class="section-header__title">Rules of the Road</h2>
+      <p class="section-header__subtitle">A few things that'll help you follow the action without getting lost.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="reveal">Safety Car &amp; Virtual Safety Car</h3>
+      <p class="reveal">When there's a crash or debris on track, a <strong>Safety Car</strong> leads the field at reduced speed while marshals clear the hazard. This bunches all the cars together, erasing any gaps &mdash; which can completely shake up the race. Teams scramble to decide whether to pit for tyres or stay out. Chaos often follows the restart.</p>
+      <p class="reveal">A <strong>Virtual Safety Car (VSC)</strong> is used for less severe situations. Drivers slow down by ~30%, but the gaps between cars are maintained. Less dramatic but still strategic.</p>
+
+      <h3 class="reveal">Common Penalties</h3>
+      <p class="reveal">You'll hear these regularly during broadcasts:</p>
+      <ul style="color: var(--text-secondary); margin: 16px 0 16px 24px; display: flex; flex-direction: column; gap: 8px;">
+        <li class="reveal"><strong>5-second penalty</strong> &mdash; Minor infraction (causing contact, track limits). Added to pit stop or final time.</li>
+        <li class="reveal"><strong>10-second penalty</strong> &mdash; More serious. Same application.</li>
+        <li class="reveal"><strong>Drive-through</strong> &mdash; Must drive through the entire pit lane without stopping. Costs ~20 seconds.</li>
+        <li class="reveal"><strong>Grid penalties</strong> &mdash; Applied before the race, usually for using too many engine components. Drivers start further back.</li>
+        <li class="reveal"><strong>Black &amp; white flag</strong> &mdash; A warning. "Do that again and you'll get a proper penalty."</li>
+      </ul>
+
+      <div class="callout reveal">
+        <p><strong>The 12-point ban:</strong> Drivers accumulate penalty points for infractions over a rolling 12-month period. Hit 12 points and you're banned for a race. It keeps things in check.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 13: HOW TO GET INTO IT
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="start">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">13 &mdash; Join the Party</span>
+      <h2 class="section-header__title">Your Next Steps</h2>
+      <p class="section-header__subtitle">Now that you have the basics, here's everything you need to go deeper. Welcome to the obsession.</p>
+    </div>
+
+    <div class="resources-grid">
+      <div class="resource-card reveal">
+        <div class="resource-card__icon">&#128250;</div>
+        <div class="resource-card__title">Watch on Apple TV</div>
+        <p class="resource-card__desc">Starting 2026, Apple TV is the exclusive U.S. broadcaster. 4K Dolby Vision, onboard cameras for every car, live team radio, and Multiview. Some sessions are free.</p>
+        <span class="resource-card__tag">Where to Watch &rarr;</span>
+      </div>
+      <div class="resource-card reveal reveal-delay-1">
+        <div class="resource-card__icon">&#127909;</div>
+        <div class="resource-card__title">Drive to Survive</div>
+        <p class="resource-card__desc">Netflix's behind-the-scenes docuseries. The reason millions of new fans discovered F1. Start with Season 1 and you'll be hooked by episode 3.</p>
+        <span class="resource-card__tag">Netflix &rarr;</span>
+      </div>
+      <div class="resource-card reveal reveal-delay-2">
+        <div class="resource-card__icon">&#127891;</div>
+        <div class="resource-card__title">Chain Bear on YouTube</div>
+        <p class="resource-card__desc">The gold standard for understanding F1. Beautifully animated videos explaining racing lines, tyre strategy, aerodynamics, and regulations. Start here.</p>
+        <span class="resource-card__tag">YouTube &rarr;</span>
+      </div>
+      <div class="resource-card reveal">
+        <div class="resource-card__icon">&#127911;</div>
+        <div class="resource-card__title">Podcasts</div>
+        <p class="resource-card__desc"><strong>Beyond the Grid</strong> (official F1, great interviews), <strong>The Race F1 Podcast</strong> (expert analysis), <strong>WTF1</strong> (casual fan fun). Listen during your commute.</p>
+        <span class="resource-card__tag">Listen &rarr;</span>
+      </div>
+      <div class="resource-card reveal reveal-delay-1">
+        <div class="resource-card__icon">&#127918;</div>
+        <div class="resource-card__title">F1 25 Video Game</div>
+        <p class="resource-card__desc">EA Sports' F1 game with a 2026 DLC coming. Time trial each track before real races to learn the circuits. Trust us, it transforms how you watch.</p>
+        <span class="resource-card__tag">Gaming &rarr;</span>
+      </div>
+      <div class="resource-card reveal reveal-delay-2">
+        <div class="resource-card__icon">&#9917;</div>
+        <div class="resource-card__title">F1 Fantasy</div>
+        <p class="resource-card__desc">Free to play. Build a team of 5 drivers and 2 constructors with a $100M virtual budget. Score points from real race results. The fastest way to care about every position.</p>
+        <span class="resource-card__tag">Free &rarr;</span>
+      </div>
+      <div class="resource-card reveal">
+        <div class="resource-card__icon">&#128241;</div>
+        <div class="resource-card__title">The F1 App</div>
+        <p class="resource-card__desc">Free download. Live timing during sessions, race results, standings, news, and push notifications. Your pocket pit wall.</p>
+        <span class="resource-card__tag">Download &rarr;</span>
+      </div>
+      <div class="resource-card reveal reveal-delay-1">
+        <div class="resource-card__icon">&#127903;</div>
+        <div class="resource-card__title">Attend a Race</div>
+        <p class="resource-card__desc">Best first races: Austin (spectator-friendly), Montreal (electric atmosphere), Melbourne (festival vibes), Silverstone (unmatched passion). Bring earplugs.</p>
+        <span class="resource-card__tag">Experience &rarr;</span>
+      </div>
+      <div class="resource-card reveal reveal-delay-2">
+        <div class="resource-card__icon">&#128242;</div>
+        <div class="resource-card__title">Follow on Social</div>
+        <p class="resource-card__desc">@F1 on everything. Drivers are incredibly active &mdash; Norris streams on Twitch, Leclerc posts piano covers. F1 TikTok is elite-tier sports content.</p>
+        <span class="resource-card__tag">Follow &rarr;</span>
+      </div>
+    </div>
+
+    <div class="big-quote reveal">
+      "Being a fan in this sport is fun. The sport's owners do a great job of creating media around it. Knowing the gossip and machinations is half the fun."
+    </div>
+
+    <div class="content-block">
+      <h3 class="reveal">Quick Tips for New Fans</h3>
+      <p class="reveal"><strong>Watch qualifying a few times.</strong> Saturday qualifying teaches you more about F1 faster than anything else. You'll learn the tracks, the competitive order, and the drama of thousandths of a second.</p>
+      <p class="reveal"><strong>Listen to the commentators.</strong> They're excellent at explaining what's happening and welcoming new viewers. They get properly excited, which makes everything more fun.</p>
+      <p class="reveal"><strong>Pick a driver.</strong> It doesn't matter who or why. Maybe you like their personality, their helmet design, or their nationality. Having someone to root for transforms the experience.</p>
+      <p class="reveal"><strong>Don't worry about understanding everything immediately.</strong> The beauty of F1 is that you can enjoy it on the surface (fast cars go vroom) and then gradually discover layers of strategy, engineering, politics, and history underneath. Every season you'll understand more, and it'll get more rewarding.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer__tagline reveal">Lights out and away we go.</p>
+    <p class="footer__sub reveal">Share this guide with someone new to the sport.</p>
+    <p class="footer__bottom reveal">2026 Season Edition &bull; Made with obsession</p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════
+     JAVASCRIPT
+     ══════════════════════════════════════════════════════ -->
+<script>
+// ── Theme Toggle ──
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('f1-guide-theme', next);
+}
+
+// Restore saved theme
+(function() {
+  const saved = localStorage.getItem('f1-guide-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+// ── Navbar scroll effect ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// ── Scroll reveal ──
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ── Hero lights animation ──
+(function animateLights() {
+  const lights = document.querySelectorAll('.hero__light');
+  let i = 0;
+
+  function lightUp() {
+    if (i < lights.length) {
+      lights[i].classList.add('on');
+      i++;
+      setTimeout(lightUp, 600);
+    } else {
+      setTimeout(() => {
+        lights.forEach(l => l.classList.remove('on'));
+        i = 0;
+        setTimeout(lightUp, 2000);
+      }, 1500);
+    }
+  }
+
+  setTimeout(lightUp, 800);
+})();
+
+// ── Pit stop timer animation ──
+const pitstopTimer = document.getElementById('pitstopTimer');
+const pitstopObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animatePitstop();
+      pitstopObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+pitstopObserver.observe(pitstopTimer);
+
+function animatePitstop() {
+  const target = 1.80;
+  const duration = 1800;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = (eased * target).toFixed(2);
+    pitstopTimer.textContent = current;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      pitstopTimer.textContent = '1.80';
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+// ── Smooth scroll for nav links ──
+document.querySelectorAll('.navbar__links a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
