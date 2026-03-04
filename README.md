@@ -10,7 +10,7 @@ Inspired by [A Newbie's Guide to Formula 1](https://nonchalant-trawler-767.notio
 
 ## Contributing
 
-Contributions are welcome! If you have ideas for improvements, corrections, or new content, feel free to open an issue or submit a pull request.
+Contributions are welcome! If you have ideas for improvements, corrections, or new content, feel free to [open an issue](https://github.com/joshferrara/welcome-to-f1/issues) or submit a pull request.
 
 ## License
 
