@@ -15,6 +15,9 @@
 <meta name="twitter:image" content="https://f1-guide.pages.dev/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://media.formula1.com">
+<link rel="preconnect" href="https://images.pexels.com">
+<link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════
@@ -414,6 +417,21 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   inset: 0;
   background: var(--hero-gradient);
   z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/fom-website/2026%20regulations/2026_Explainer_FIA_Front_3_4_1920x1080.webp') center 60% / cover no-repeat;
+  opacity: 0.12;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, transparent 10%, black 40%, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 10%, black 40%, black 70%, transparent 100%);
+}
+
+[data-theme="light"] .hero::after {
+  opacity: 0.08;
 }
 
 /* Animated racing lines */
@@ -1733,6 +1751,200 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 }
 
 /* ═══════════════════════════════════════════════════
+   IMAGERY & PHOTO COMPONENTS
+   ═══════════════════════════════════════════════════ */
+
+/* Hero car image */
+.hero__image {
+  display: block;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto 48px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 16px;
+  animation: fadeInUp 1s var(--ease-out-expo) 1.2s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Car showcase gallery */
+.car-showcase {
+  margin: 48px 0;
+}
+
+.car-showcase__featured-wrap {
+  width: 100%;
+  aspect-ratio: 3.5 / 1;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.car-showcase__featured {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.car-showcase__featured-wrap:hover .car-showcase__featured {
+  transform: scale(1.01);
+}
+
+.car-showcase__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.car-showcase__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 3 / 2;
+}
+
+.car-showcase__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.car-showcase__item:hover img {
+  transform: scale(1.05);
+}
+
+.car-showcase__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 12px 10px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Pit lane photos */
+.pitlane-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 48px 0;
+}
+
+.pitlane-photos__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.pitlane-photos__item img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.pitlane-photos__item:hover img {
+  transform: scale(1.03);
+}
+
+.pitlane-photos__item--full {
+  grid-column: 1 / -1;
+}
+
+.pitlane-photos__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 12px 10px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pitlane-photos__item:hover .pitlane-photos__caption {
+  opacity: 1;
+}
+
+/* Track cards */
+.track-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin: 32px 0 48px;
+}
+
+.track-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-color-hover);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.track-card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.track-card__body {
+  padding: 20px 24px 24px;
+}
+
+.track-card__name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.track-card__desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Section hero image (wide cinematic) */
+.section-hero-image {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 32px 0 48px;
+}
+
+/* Timeline item image */
+.timeline-item__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+/* ═══════════════════════════════════════════════════
    RESPONSIVE ADJUSTMENTS
    ═══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
@@ -1748,6 +1960,11 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   .theme-toggle { width: 36px; height: 36px; font-size: 16px; }
   .unit-toggle__btn { padding: 5px 10px; font-size: 10px; }
   .navbar__hamburger { width: 36px; height: 36px; }
+  .hero__image { max-width: 100%; border-radius: 12px; margin-bottom: 32px; }
+  .car-showcase__grid { grid-template-columns: 1fr 1fr; }
+  .pitlane-photos { grid-template-columns: 1fr; }
+  .track-cards { grid-template-columns: 1fr; }
+  .section-hero-image { aspect-ratio: 16 / 9; border-radius: 12px; }
 }
 </style>
 </head>
@@ -2052,7 +2269,33 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       <p class="reveal">Different tracks demand different setups. Monza in Italy has incredibly long straights, so teams trim downforce for pure speed. Monaco is tight streets, so maximum downforce for cornering grip. Mexico City sits at high altitude where thin air reduces downforce naturally. <strong>Each car is a compromise, fine-tuned for every single race.</strong></p>
 
       <p class="reveal">Teams update their cars throughout the season. A new front wing here, a reshaped floor there. Gaining even one-tenth of a second per lap might not sound like much, but over a 70-lap race, that's 7 seconds. Races are regularly won by less than that.</p>
+    </div>
 
+    <div class="car-showcase reveal">
+      <div class="car-showcase__featured-wrap">
+        <img class="car-showcase__featured" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/fom-website/2026%20regulations/2026_Explainer_FIA_Above_1920x1080.webp" alt="2026 F1 car overhead view" width="1440" height="810" loading="lazy">
+      </div>
+      <div class="car-showcase__grid">
+        <div class="car-showcase__item">
+          <img src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/fom-website/2026%20regulations/2026_Explainer_FIA_Rear_1920x1080.webp" alt="2026 F1 car rear view" width="1440" height="1080" loading="lazy">
+          <div class="car-showcase__caption">Rear wing with active aero flaps</div>
+        </div>
+        <div class="car-showcase__item">
+          <img src="https://images.pexels.com/photos/29252120/pexels-photo-29252120.jpeg?auto=compress&cs=tinysrgb&w=1440&h=1080&fit=crop" alt="F1 car close-up on track" width="1440" height="1080" loading="lazy">
+          <div class="car-showcase__caption">Engineering precision at speed</div>
+        </div>
+        <div class="car-showcase__item">
+          <img src="https://images.pexels.com/photos/29252113/pexels-photo-29252113.jpeg?auto=compress&cs=tinysrgb&w=1440&h=1080&fit=crop" alt="F1 car overhead view" width="1440" height="1080" loading="lazy">
+          <div class="car-showcase__caption">Aerodynamic body sculpting</div>
+        </div>
+        <div class="car-showcase__item">
+          <img src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/fom-website/2026%20regulations/2026_Explainer_FIA_Halo_1920x1080.webp" alt="2026 F1 car halo detail" width="1440" height="1080" loading="lazy">
+          <div class="car-showcase__caption">Halo cockpit protection device</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
       <h3 class="reveal">2026: A brand new era</h3>
       <p class="reveal">The 2026 regulations are the <strong>biggest rule change F1 has had in decades</strong>. The cars are fundamentally different from what came before.</p>
 
@@ -2177,6 +2420,12 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
     <div class="content-block">
       <p class="reveal">While the car is stationary for under 2 seconds, the total time lost to pitting is around <strong>20&ndash;25 seconds</strong> per stop (driving through the pit lane at the speed limit, stopping, and rejoining). So <strong>when</strong> you pit matters enormously. Pit one lap too early or late and it can cost you a race win.</p>
       <p class="reveal">Every driver must use at least <strong>two different tyre compounds</strong> during a dry race, meaning at least one pit stop is mandatory. Some strategies call for two or even three stops. It all depends on tyre wear, track conditions, and what your rivals are doing.</p>
+    </div>
+
+    <div class="pitlane-photos reveal">
+      <div class="pitlane-photos__item pitlane-photos__item--full">
+        <img src="https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_3392/q_auto/v1740000000/fom-website/2025/Miscellaneous/GettyImages-666401980.webp" alt="Overhead view of F1 pit stop crew changing tires" width="1200" height="800" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -2827,7 +3076,11 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       <h3 class="reveal">Drive to Survive changed everything</h3>
       <p class="reveal">Netflix's <em>Drive to Survive</em> (2019&ndash;present) probably did more for F1's popularity than anything since colour television. U.S. viewership jumped 54%. Over half of current F1 fans say the show played a role in getting them into the sport. It turned F1 from a niche European thing into something your coworkers talk about on Monday mornings.</p>
       <p class="reveal">The show turned drivers from faceless helmets into actual people you could root for (or against). If you haven't seen it, start there.</p>
+    </div>
 
+    <img class="section-hero-image reveal" src="https://imageio.forbes.com/specials-images/imageserve/670001b6b1fbb25c8189ebd4/Las-Vegas-Grand-Prix/1960x0.jpg?format=jpg&width=1440" alt="Las Vegas Grand Prix night race on the Strip" width="1440" height="617" loading="lazy">
+
+    <div class="content-block">
       <h3 class="reveal">The rivalries</h3>
       <p class="reveal"><strong>Senna vs. Prost (1988&ndash;1993)</strong> &mdash; The one that defined an era. The passionate Brazilian vs. the calculated Frenchman. They deliberately crashed into each other at Suzuka in consecutive years. Senna's death in 1994 turned it into something bigger than sport.</p>
       <p class="reveal"><strong>Hamilton vs. Rosberg (2013&ndash;2016)</strong> &mdash; Childhood karting friends who became bitter enemies as Mercedes teammates. Rosberg won the 2016 title by 5 points, then retired five days later. He walked away at the absolute peak.</p>
@@ -2863,22 +3116,47 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
     <div class="content-block">
       <p class="reveal">F1 races on permanent circuits, city streets, and everything in between. Here are the ones every fan should know:</p>
+    </div>
 
-      <h3 class="reveal">Monaco</h3>
-      <p class="reveal">The one everyone knows. Cars race through the narrow streets of Monte Carlo, past luxury yachts and the famous Casino. Overtaking is nearly impossible, so qualifying is everything. Winning at Monaco is still the thing every driver wants on their CV.</p>
+    <div class="track-cards reveal">
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_lfill,w_1440,q_auto/content/dam/fom-website/races/2024/race-listing/Monaco" alt="Monaco Grand Prix harbour" width="800" height="450" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Monaco</div>
+          <p class="track-card__desc">The one everyone knows. Cars race through the narrow streets of Monte Carlo, past luxury yachts and the famous Casino. Overtaking is nearly impossible, so qualifying is everything.</p>
+        </div>
+      </div>
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_lfill,w_1440,q_auto/content/dam/fom-website/races/2024/race-listing/Great_Britain" alt="Silverstone British Grand Prix" width="800" height="450" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Silverstone</div>
+          <p class="track-card__desc">Where it all started: the first World Championship race in 1950. Maggotts-Becketts-Chapel are some of the best corners in racing. The British fans will cheer in the rain for three hours straight.</p>
+        </div>
+      </div>
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_lfill,w_1440,q_auto/content/dam/fom-website/races/2024/race-listing/Belgium" alt="Spa-Francorchamps Eau Rouge" width="800" height="450" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Spa-Francorchamps</div>
+          <p class="track-card__desc">Belgium's famous circuit through the Ardennes forest. Eau Rouge / Raidillon is a terrifying uphill corner complex taken at <span class="unit" data-imperial="180+ mph" data-metric="290+ km/h">180+ mph</span>. The weather can be dry on one side and raining on the other.</p>
+        </div>
+      </div>
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_lfill,w_1440,q_auto/content/dam/fom-website/races/2025/race-listing/Italy" alt="Monza Italian Grand Prix" width="800" height="450" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Monza</div>
+          <p class="track-card__desc">The "Temple of Speed." The fastest circuit on the calendar and Ferrari's home turf. After the race, the Tifosi storm the track in a tide of red. Absolute pandemonium.</p>
+        </div>
+      </div>
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_lfill,w_1440,q_auto/content/dam/fom-website/races/2024/race-listing/Japan" alt="Suzuka Japanese Grand Prix" width="800" height="450" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Suzuka</div>
+          <p class="track-card__desc">Japan's figure-eight circuit. Half of all drivers call it their favourite. The esses and 130R separate good drivers from great ones. Japanese fans bring hand-drawn artwork of drivers' helmets.</p>
+        </div>
+      </div>
+    </div>
 
-      <h3 class="reveal">Silverstone</h3>
-      <p class="reveal">Where it all started: the site of the very first World Championship race in 1950. High-speed corners like Maggotts-Becketts-Chapel are some of the best in racing. The British fans are loud, committed, and will cheer in the rain for three hours straight.</p>
-
-      <h3 class="reveal">Spa-Francorchamps</h3>
-      <p class="reveal">Belgium's famous circuit through the Ardennes forest. Eau Rouge / Raidillon is a terrifying uphill corner complex taken at <span class="unit" data-imperial="180+ mph" data-metric="290+ km/h">180+ mph</span>. The weather is so unpredictable that it can be dry on one part of the track and raining on another at the same time.</p>
-
-      <h3 class="reveal">Monza</h3>
-      <p class="reveal">The "Temple of Speed." The fastest circuit on the calendar and Ferrari's home turf. After the race, the Tifosi (Ferrari's Italian fanbase) storm the track in a tide of red. It's absolute pandemonium.</p>
-
-      <h3 class="reveal">Suzuka</h3>
-      <p class="reveal">Japan's figure-eight circuit. Ask any driver their favourite track and half will say Suzuka. The esses section and 130R corner are the kind of corners that separate good drivers from great ones. Japanese fans show up with hand-drawn artwork of drivers' helmets. It's a whole thing.</p>
-
+    <div class="content-block">
       <div class="callout reveal">
         <p><strong>New for 2026:</strong> Madrid joins the calendar as a brand-new street circuit. The U.S. now has three races (Miami, Austin, Las Vegas), which tells you everything about how fast F1 has grown in America.</p>
       </div>
