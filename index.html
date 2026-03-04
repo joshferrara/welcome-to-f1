@@ -1251,6 +1251,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   transition: all 0.3s var(--ease-out-expo);
   display: block;
   color: var(--text-primary);
+  text-decoration: none;
 }
 
 .resource-card:hover {
@@ -1286,6 +1287,38 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--f1-red);
+}
+
+.resource-card--multi:hover {
+  transform: none;
+  border-color: var(--border-color-hover);
+  box-shadow: none;
+}
+
+.resource-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.resource-card__links a {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.2s var(--ease-out-expo);
+}
+
+.resource-card__links a:hover {
+  border-color: var(--f1-red);
+  color: var(--f1-red);
+  background: var(--bg-card-hover);
 }
 
 /* ═══════════════════════════════════════════════════
@@ -2375,60 +2408,72 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
     </div>
 
     <div class="resources-grid">
-      <div class="resource-card reveal">
+      <a href="https://tv.apple.com/us/channel/formula-1/tvs.sbd.241000" target="_blank" rel="noopener" class="resource-card reveal">
         <div class="resource-card__icon">&#128250;</div>
         <div class="resource-card__title">Watch on Apple TV</div>
         <p class="resource-card__desc">Starting 2026, Apple TV is the exclusive U.S. broadcaster. 4K Dolby Vision, onboard cameras for every car, live team radio, and Multiview. Some sessions are free.</p>
         <span class="resource-card__tag">Where to Watch &rarr;</span>
-      </div>
-      <div class="resource-card reveal reveal-delay-1">
+      </a>
+      <a href="https://www.netflix.com/title/80204890" target="_blank" rel="noopener" class="resource-card reveal reveal-delay-1">
         <div class="resource-card__icon">&#127909;</div>
         <div class="resource-card__title">Drive to Survive</div>
         <p class="resource-card__desc">Netflix's behind-the-scenes docuseries, and the reason millions of people got into F1. Start with Season 1. You'll be hooked by episode 3.</p>
         <span class="resource-card__tag">Netflix &rarr;</span>
-      </div>
-      <div class="resource-card reveal reveal-delay-2">
+      </a>
+      <div class="resource-card resource-card--multi reveal reveal-delay-2">
         <div class="resource-card__icon">&#127891;</div>
-        <div class="resource-card__title">Chain Bear on YouTube</div>
-        <p class="resource-card__desc">The best YouTube channel for learning how F1 actually works. Clear, well-animated videos on racing lines, tyre strategy, and aerodynamics.</p>
-        <span class="resource-card__tag">YouTube &rarr;</span>
+        <div class="resource-card__title">Learn on YouTube</div>
+        <p class="resource-card__desc">Some of the best ways to learn how F1 actually works. Pick a channel and fall down the rabbit hole.</p>
+        <div class="resource-card__links">
+          <a href="https://www.youtube.com/@chainbear" target="_blank" rel="noopener">Chain Bear</a>
+          <a href="https://www.youtube.com/@Driver61" target="_blank" rel="noopener">Driver61</a>
+          <a href="https://www.youtube.com/@wearetherace" target="_blank" rel="noopener">The Race</a>
+          <a href="https://www.youtube.com/@wtf1official" target="_blank" rel="noopener">WTF1</a>
+          <a href="https://www.youtube.com/@formulabone" target="_blank" rel="noopener">Formula Bone</a>
+          <a href="https://www.youtube.com/@kymillman" target="_blank" rel="noopener">Kym Illman</a>
+        </div>
       </div>
-      <div class="resource-card reveal">
+      <div class="resource-card resource-card--multi reveal">
         <div class="resource-card__icon">&#127911;</div>
         <div class="resource-card__title">Podcasts</div>
-        <p class="resource-card__desc"><strong>Beyond the Grid</strong> (official F1, great interviews), <strong>The Race F1 Podcast</strong> (expert analysis), <strong>WTF1</strong> (casual fan fun). Listen during your commute.</p>
-        <span class="resource-card__tag">Listen &rarr;</span>
+        <p class="resource-card__desc">Great for your commute. Interviews, expert breakdowns, and casual fan chat.</p>
+        <div class="resource-card__links">
+          <a href="https://open.spotify.com/show/44YvwJyqsCEEhNZBxuXZQ9" target="_blank" rel="noopener">Beyond the Grid</a>
+          <a href="https://open.spotify.com/show/7r6fWqgdkBIN5yhvAmGIzc" target="_blank" rel="noopener">Up To Speed</a>
+          <a href="https://open.spotify.com/show/5jYPRckNa9oSZAiuURm8WZ" target="_blank" rel="noopener">The Race F1 Podcast</a>
+          <a href="https://open.spotify.com/show/2ZIddcuuvhxiXwkeBj15yk" target="_blank" rel="noopener">WTF1 Podcast</a>
+        </div>
       </div>
-      <div class="resource-card reveal reveal-delay-1">
+      <a href="https://www.ea.com/en/games/f1/f1-25" target="_blank" rel="noopener" class="resource-card reveal reveal-delay-1">
         <div class="resource-card__icon">&#127918;</div>
         <div class="resource-card__title">F1 25 Video Game</div>
         <p class="resource-card__desc">EA Sports' F1 game with a 2026 DLC coming. Time trial each track before real races to learn the circuits. Trust us, it transforms how you watch.</p>
         <span class="resource-card__tag">Gaming &rarr;</span>
-      </div>
-      <div class="resource-card reveal reveal-delay-2">
+      </a>
+      <a href="https://fantasy.formula1.com/" target="_blank" rel="noopener" class="resource-card reveal reveal-delay-2">
         <div class="resource-card__icon">&#9917;</div>
         <div class="resource-card__title">F1 Fantasy</div>
         <p class="resource-card__desc">Free to play. Build a team of 5 drivers and 2 constructors with a $100M virtual budget. Score points from real race results. The fastest way to care about every position.</p>
         <span class="resource-card__tag">Free &rarr;</span>
-      </div>
-      <div class="resource-card reveal">
+      </a>
+      <a href="https://www.formula1.com/" target="_blank" rel="noopener" class="resource-card reveal">
         <div class="resource-card__icon">&#128241;</div>
         <div class="resource-card__title">The F1 App</div>
         <p class="resource-card__desc">Free download. Live timing during sessions, race results, standings, news, and push notifications. Your pocket pit wall.</p>
         <span class="resource-card__tag">Download &rarr;</span>
-      </div>
-      <div class="resource-card reveal reveal-delay-1">
+      </a>
+      <a href="https://tickets.formula1.com/en" target="_blank" rel="noopener" class="resource-card reveal reveal-delay-1">
         <div class="resource-card__icon">&#127903;</div>
         <div class="resource-card__title">Attend a Race</div>
         <p class="resource-card__desc">Best first races: Austin (great for newcomers), Montreal (the crowd goes hard), Melbourne (party atmosphere), Silverstone (British fans are a force of nature). Bring earplugs.</p>
         <span class="resource-card__tag">Experience &rarr;</span>
-      </div>
-      <div class="resource-card reveal reveal-delay-2">
+      </a>
+      <a href="https://www.formula1.com/" target="_blank" rel="noopener" class="resource-card reveal reveal-delay-2">
         <div class="resource-card__icon">&#128242;</div>
         <div class="resource-card__title">Follow on Social</div>
         <p class="resource-card__desc">@F1 on everything. Norris streams on Twitch, Leclerc posts piano covers. F1 TikTok is genuinely good.</p>
         <span class="resource-card__tag">Follow &rarr;</span>
-      </div>
+      </a>
     </div>
 
     <div class="big-quote reveal">
