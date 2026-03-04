@@ -742,7 +742,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 14px;
-  padding: 24px;
+  padding: 0;
   transition: all 0.3s var(--ease-out-expo);
   position: relative;
   overflow: hidden;
@@ -751,6 +751,19 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 .driver-card:hover {
   transform: translateY(-3px);
   border-color: var(--border-color-hover);
+}
+
+.driver-card__photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-secondary);
+}
+
+.driver-card__info {
+  padding: 16px;
+  position: relative;
 }
 
 .driver-card__number {
@@ -2055,142 +2068,207 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
     <div class="driver-grid reveal">
       <div class="driver-card" data-team="mclaren">
-        <div class="driver-card__number">1</div>
-        <div class="driver-card__flag">&#127468;&#127463;</div>
-        <div class="driver-card__name">Lando Norris</div>
-        <div class="driver-card__team">McLaren</div>
-        <span class="driver-card__tag">2025 Champion</span>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp" alt="Lando Norris" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">1</div>
+          <div class="driver-card__flag">&#127468;&#127463;</div>
+          <div class="driver-card__name">Lando Norris</div>
+          <div class="driver-card__team">McLaren</div>
+          <span class="driver-card__tag">2025 Champion</span>
+        </div>
       </div>
       <div class="driver-card" data-team="red-bull">
-        <div class="driver-card__number">3</div>
-        <div class="driver-card__flag">&#127475;&#127473;</div>
-        <div class="driver-card__name">Max Verstappen</div>
-        <div class="driver-card__team">Red Bull Racing</div>
-        <span class="driver-card__tag">4x Champion</span>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp" alt="Max Verstappen" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">3</div>
+          <div class="driver-card__flag">&#127475;&#127473;</div>
+          <div class="driver-card__name">Max Verstappen</div>
+          <div class="driver-card__team">Red Bull Racing</div>
+          <span class="driver-card__tag">4x Champion</span>
+        </div>
       </div>
       <div class="driver-card" data-team="ferrari">
-        <div class="driver-card__number">44</div>
-        <div class="driver-card__flag">&#127468;&#127463;</div>
-        <div class="driver-card__name">Lewis Hamilton</div>
-        <div class="driver-card__team">Ferrari</div>
-        <span class="driver-card__tag">7x Champion</span>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp" alt="Lewis Hamilton" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">44</div>
+          <div class="driver-card__flag">&#127468;&#127463;</div>
+          <div class="driver-card__name">Lewis Hamilton</div>
+          <div class="driver-card__team">Ferrari</div>
+          <span class="driver-card__tag">7x Champion</span>
+        </div>
       </div>
       <div class="driver-card" data-team="ferrari">
-        <div class="driver-card__number">16</div>
-        <div class="driver-card__flag">&#127474;&#127464;</div>
-        <div class="driver-card__name">Charles Leclerc</div>
-        <div class="driver-card__team">Ferrari</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp" alt="Charles Leclerc" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">16</div>
+          <div class="driver-card__flag">&#127474;&#127464;</div>
+          <div class="driver-card__name">Charles Leclerc</div>
+          <div class="driver-card__team">Ferrari</div>
+        </div>
       </div>
       <div class="driver-card" data-team="mclaren">
-        <div class="driver-card__number">81</div>
-        <div class="driver-card__flag">&#127462;&#127482;</div>
-        <div class="driver-card__name">Oscar Piastri</div>
-        <div class="driver-card__team">McLaren</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp" alt="Oscar Piastri" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">81</div>
+          <div class="driver-card__flag">&#127462;&#127482;</div>
+          <div class="driver-card__name">Oscar Piastri</div>
+          <div class="driver-card__team">McLaren</div>
+        </div>
       </div>
       <div class="driver-card" data-team="mercedes">
-        <div class="driver-card__number">63</div>
-        <div class="driver-card__flag">&#127468;&#127463;</div>
-        <div class="driver-card__name">George Russell</div>
-        <div class="driver-card__team">Mercedes</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp" alt="George Russell" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">63</div>
+          <div class="driver-card__flag">&#127468;&#127463;</div>
+          <div class="driver-card__name">George Russell</div>
+          <div class="driver-card__team">Mercedes</div>
+        </div>
       </div>
       <div class="driver-card" data-team="red-bull">
-        <div class="driver-card__number">6</div>
-        <div class="driver-card__flag">&#127467;&#127479;</div>
-        <div class="driver-card__name">Isack Hadjar</div>
-        <div class="driver-card__team">Red Bull Racing</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/redbullracing/isahad01/2026redbullracingisahad01right.webp" alt="Isack Hadjar" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">6</div>
+          <div class="driver-card__flag">&#127467;&#127479;</div>
+          <div class="driver-card__name">Isack Hadjar</div>
+          <div class="driver-card__team">Red Bull Racing</div>
+        </div>
       </div>
       <div class="driver-card" data-team="mercedes">
-        <div class="driver-card__number">12</div>
-        <div class="driver-card__flag">&#127470;&#127481;</div>
-        <div class="driver-card__name">Andrea Kimi Antonelli</div>
-        <div class="driver-card__team">Mercedes</div>
-        <span class="driver-card__tag">Rookie</span>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp" alt="Andrea Kimi Antonelli" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">12</div>
+          <div class="driver-card__flag">&#127470;&#127481;</div>
+          <div class="driver-card__name">Andrea Kimi Antonelli</div>
+          <div class="driver-card__team">Mercedes</div>
+          <span class="driver-card__tag">Rookie</span>
+        </div>
       </div>
       <div class="driver-card" data-team="aston-martin">
-        <div class="driver-card__number">14</div>
-        <div class="driver-card__flag">&#127466;&#127480;</div>
-        <div class="driver-card__name">Fernando Alonso</div>
-        <div class="driver-card__team">Aston Martin</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp" alt="Fernando Alonso" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">14</div>
+          <div class="driver-card__flag">&#127466;&#127480;</div>
+          <div class="driver-card__name">Fernando Alonso</div>
+          <div class="driver-card__team">Aston Martin</div>
+        </div>
       </div>
       <div class="driver-card" data-team="aston-martin">
-        <div class="driver-card__number">18</div>
-        <div class="driver-card__flag">&#127464;&#127462;</div>
-        <div class="driver-card__name">Lance Stroll</div>
-        <div class="driver-card__team">Aston Martin</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/astonmartin/lanstr01/2026astonmartinlanstr01right.webp" alt="Lance Stroll" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">18</div>
+          <div class="driver-card__flag">&#127464;&#127462;</div>
+          <div class="driver-card__name">Lance Stroll</div>
+          <div class="driver-card__team">Aston Martin</div>
+        </div>
       </div>
       <div class="driver-card" data-team="alpine">
-        <div class="driver-card__number">10</div>
-        <div class="driver-card__flag">&#127467;&#127479;</div>
-        <div class="driver-card__name">Pierre Gasly</div>
-        <div class="driver-card__team">Alpine</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/alpine/piegas01/2026alpinepiegas01right.webp" alt="Pierre Gasly" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">10</div>
+          <div class="driver-card__flag">&#127467;&#127479;</div>
+          <div class="driver-card__name">Pierre Gasly</div>
+          <div class="driver-card__team">Alpine</div>
+        </div>
       </div>
       <div class="driver-card" data-team="alpine">
-        <div class="driver-card__number">43</div>
-        <div class="driver-card__flag">&#127462;&#127479;</div>
-        <div class="driver-card__name">Franco Colapinto</div>
-        <div class="driver-card__team">Alpine</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/alpine/fracol01/2026alpinefracol01right.webp" alt="Franco Colapinto" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">43</div>
+          <div class="driver-card__flag">&#127462;&#127479;</div>
+          <div class="driver-card__name">Franco Colapinto</div>
+          <div class="driver-card__team">Alpine</div>
+        </div>
       </div>
       <div class="driver-card" data-team="williams">
-        <div class="driver-card__number">23</div>
-        <div class="driver-card__flag">&#127481;&#127469;</div>
-        <div class="driver-card__name">Alex Albon</div>
-        <div class="driver-card__team">Williams</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp" alt="Alex Albon" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">23</div>
+          <div class="driver-card__flag">&#127481;&#127469;</div>
+          <div class="driver-card__name">Alex Albon</div>
+          <div class="driver-card__team">Williams</div>
+        </div>
       </div>
       <div class="driver-card" data-team="williams">
-        <div class="driver-card__number">55</div>
-        <div class="driver-card__flag">&#127466;&#127480;</div>
-        <div class="driver-card__name">Carlos Sainz</div>
-        <div class="driver-card__team">Williams</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/williams/carsai01/2026williamscarsai01right.webp" alt="Carlos Sainz" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">55</div>
+          <div class="driver-card__flag">&#127466;&#127480;</div>
+          <div class="driver-card__name">Carlos Sainz</div>
+          <div class="driver-card__team">Williams</div>
+        </div>
       </div>
       <div class="driver-card" data-team="racing-bulls">
-        <div class="driver-card__number">30</div>
-        <div class="driver-card__flag">&#127475;&#127487;</div>
-        <div class="driver-card__name">Liam Lawson</div>
-        <div class="driver-card__team">Racing Bulls</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/racingbulls/lialaw01/2026racingbullslialaw01right.webp" alt="Liam Lawson" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">30</div>
+          <div class="driver-card__flag">&#127475;&#127487;</div>
+          <div class="driver-card__name">Liam Lawson</div>
+          <div class="driver-card__team">Racing Bulls</div>
+        </div>
       </div>
       <div class="driver-card" data-team="racing-bulls">
-        <div class="driver-card__number">41</div>
-        <div class="driver-card__flag">&#127468;&#127463;</div>
-        <div class="driver-card__name">Arvid Lindblad</div>
-        <div class="driver-card__team">Racing Bulls</div>
-        <span class="driver-card__tag">Rookie</span>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/racingbulls/arvlin01/2026racingbullsarvlin01right.webp" alt="Arvid Lindblad" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">41</div>
+          <div class="driver-card__flag">&#127468;&#127463;</div>
+          <div class="driver-card__name">Arvid Lindblad</div>
+          <div class="driver-card__team">Racing Bulls</div>
+          <span class="driver-card__tag">Rookie</span>
+        </div>
       </div>
       <div class="driver-card" data-team="haas">
-        <div class="driver-card__number">31</div>
-        <div class="driver-card__flag">&#127466;&#127480;</div>
-        <div class="driver-card__name">Esteban Ocon</div>
-        <div class="driver-card__team">Haas</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/haasf1team/estoco01/2026haasf1teamestoco01right.webp" alt="Esteban Ocon" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">31</div>
+          <div class="driver-card__flag">&#127466;&#127480;</div>
+          <div class="driver-card__name">Esteban Ocon</div>
+          <div class="driver-card__team">Haas</div>
+        </div>
       </div>
       <div class="driver-card" data-team="haas">
-        <div class="driver-card__number">87</div>
-        <div class="driver-card__flag">&#127463;&#127479;</div>
-        <div class="driver-card__name">Oliver Bearman</div>
-        <div class="driver-card__team">Haas</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/haasf1team/olibea01/2026haasf1teamolibea01right.webp" alt="Oliver Bearman" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">87</div>
+          <div class="driver-card__flag">&#127463;&#127479;</div>
+          <div class="driver-card__name">Oliver Bearman</div>
+          <div class="driver-card__team">Haas</div>
+        </div>
       </div>
       <div class="driver-card" data-team="audi">
-        <div class="driver-card__number">27</div>
-        <div class="driver-card__flag">&#127465;&#127466;</div>
-        <div class="driver-card__name">Nico H&uuml;lkenberg</div>
-        <div class="driver-card__team">Audi</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/audi/nichul01/2026audinichul01right.webp" alt="Nico Hülkenberg" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">27</div>
+          <div class="driver-card__flag">&#127465;&#127466;</div>
+          <div class="driver-card__name">Nico H&uuml;lkenberg</div>
+          <div class="driver-card__team">Audi</div>
+        </div>
       </div>
       <div class="driver-card" data-team="audi">
-        <div class="driver-card__number">5</div>
-        <div class="driver-card__flag">&#127463;&#127479;</div>
-        <div class="driver-card__name">Gabriel Bortoleto</div>
-        <div class="driver-card__team">Audi</div>
-        <span class="driver-card__tag">Rookie</span>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/audi/gabbor01/2026audigabbor01right.webp" alt="Gabriel Bortoleto" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">5</div>
+          <div class="driver-card__flag">&#127463;&#127479;</div>
+          <div class="driver-card__name">Gabriel Bortoleto</div>
+          <div class="driver-card__team">Audi</div>
+          <span class="driver-card__tag">Rookie</span>
+        </div>
       </div>
       <div class="driver-card" data-team="cadillac">
-        <div class="driver-card__number">77</div>
-        <div class="driver-card__flag">&#127467;&#127470;</div>
-        <div class="driver-card__name">Valtteri Bottas</div>
-        <div class="driver-card__team">Cadillac</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/cadillac/valbot01/2026cadillacvalbot01right.webp" alt="Valtteri Bottas" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">77</div>
+          <div class="driver-card__flag">&#127467;&#127470;</div>
+          <div class="driver-card__name">Valtteri Bottas</div>
+          <div class="driver-card__team">Cadillac</div>
+        </div>
       </div>
       <div class="driver-card" data-team="cadillac">
-        <div class="driver-card__number">11</div>
-        <div class="driver-card__flag">&#127474;&#127485;</div>
-        <div class="driver-card__name">Sergio P&eacute;rez</div>
-        <div class="driver-card__team">Cadillac</div>
+        <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp" alt="Sergio Pérez" loading="lazy">
+        <div class="driver-card__info">
+          <div class="driver-card__number">11</div>
+          <div class="driver-card__flag">&#127474;&#127485;</div>
+          <div class="driver-card__name">Sergio P&eacute;rez</div>
+          <div class="driver-card__team">Cadillac</div>
       </div>
     </div>
 
