@@ -783,6 +783,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -792,6 +793,47 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
 .pu-supplier:hover {
   border-color: var(--border-color-hover);
+}
+
+.pu-supplier--interactive {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pu-supplier--interactive:focus-visible {
+  outline: 2px solid var(--f1-red);
+  outline-offset: 2px;
+}
+
+.pu-supplier__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.pu-supplier__logo-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pu-supplier__logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  /* Force all logo assets into one red tone. */
+  filter: brightness(0) saturate(100%) invert(13%) sepia(95%) saturate(6356%) hue-rotate(359deg) brightness(92%) contrast(121%);
+  transition: transform 0.3s var(--ease-out-expo);
 }
 
 .pu-supplier__name {
@@ -808,14 +850,51 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   text-align: right;
 }
 
+.pu-supplier__playstate {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pu-supplier.is-active {
+  border-color: var(--f1-red);
+  background: var(--bg-card-hover);
+}
+
+.pu-supplier.is-active .pu-supplier__logo-wrap {
+  border-color: var(--f1-red);
+}
+
+.pu-supplier.is-active .pu-supplier__playstate {
+  color: var(--f1-red);
+}
+
+.pu-supplier.is-active .pu-supplier__logo {
+  transform: scale(1.04);
+}
+
+.pu-supplier.is-playing .pu-supplier__playstate {
+  color: var(--f1-red);
+}
+
 @media (max-width: 480px) {
   .pu-supplier {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
   }
+  .pu-supplier__left {
+    min-width: 0;
+  }
   .pu-supplier__teams {
     text-align: left;
+  }
+  .pu-supplier__playstate {
+    margin-top: 2px;
   }
 }
 
@@ -2355,27 +2434,48 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       <p class="reveal">Five companies build engines for all 11 teams. Each supplies engines to their own team and customer teams. It's an arms race where hundredths of a second matter.</p>
 
       <div class="pu-suppliers reveal">
-        <div class="pu-supplier">
-          <div class="pu-supplier__name">Ferrari</div>
-          <div class="pu-supplier__teams">Ferrari, Haas, Cadillac</div>
-        </div>
-        <div class="pu-supplier">
-          <div class="pu-supplier__name">Mercedes</div>
-          <div class="pu-supplier__teams">Mercedes, McLaren, Williams, Alpine</div>
-        </div>
-        <div class="pu-supplier">
-          <div class="pu-supplier__name">Red Bull / Ford</div>
-          <div class="pu-supplier__teams">Red Bull Racing, Racing Bulls</div>
-        </div>
-        <div class="pu-supplier">
-          <div class="pu-supplier__name">Honda</div>
-          <div class="pu-supplier__teams">Aston Martin</div>
-        </div>
-        <div class="pu-supplier">
-          <div class="pu-supplier__name">Audi</div>
-          <div class="pu-supplier__teams">Audi (own works team)</div>
-        </div>
+        <button class="pu-supplier pu-supplier--interactive" type="button" data-engine-id="audi" data-engine-name="Audi" data-audio-src="assets/audio/audi.mp3" aria-pressed="false" aria-label="Play Audi engine sound">
+          <span class="pu-supplier__left">
+            <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/audi.svg" alt="" loading="lazy"></span>
+            <span class="pu-supplier__name">Audi</span>
+          </span>
+          <span class="pu-supplier__teams">Audi (own works team)</span>
+          <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
+        </button>
+        <button class="pu-supplier pu-supplier--interactive" type="button" data-engine-id="honda" data-engine-name="Honda" data-audio-src="assets/audio/honda.mp3" aria-pressed="false" aria-label="Play Honda engine sound">
+          <span class="pu-supplier__left">
+            <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/honda.svg" alt="" loading="lazy"></span>
+            <span class="pu-supplier__name">Honda</span>
+          </span>
+          <span class="pu-supplier__teams">Aston Martin</span>
+          <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
+        </button>
+        <button class="pu-supplier pu-supplier--interactive" type="button" data-engine-id="mercedes" data-engine-name="Mercedes" data-audio-src="assets/audio/mercedes.mp3" aria-pressed="false" aria-label="Play Mercedes engine sound">
+          <span class="pu-supplier__left">
+            <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/mercedes.svg" alt="" loading="lazy"></span>
+            <span class="pu-supplier__name">Mercedes</span>
+          </span>
+          <span class="pu-supplier__teams">Mercedes, McLaren, Williams, Alpine</span>
+          <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
+        </button>
+        <button class="pu-supplier pu-supplier--interactive" type="button" data-engine-id="redbull-powertrains" data-engine-name="Red Bull Powertrains" data-audio-src="assets/audio/redbull-powertrains.mp3" aria-pressed="false" aria-label="Play Red Bull Powertrains engine sound">
+          <span class="pu-supplier__left">
+            <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/redbull.svg" alt="" loading="lazy"></span>
+            <span class="pu-supplier__name">Red Bull Powertrains</span>
+          </span>
+          <span class="pu-supplier__teams">Red Bull Racing, Racing Bulls</span>
+          <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
+        </button>
+        <button class="pu-supplier pu-supplier--interactive" type="button" data-engine-id="ferrari" data-engine-name="Ferrari" data-audio-src="assets/audio/ferrari.mp3" aria-pressed="false" aria-label="Play Ferrari engine sound">
+          <span class="pu-supplier__left">
+            <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/ferrari.svg" alt="" loading="lazy"></span>
+            <span class="pu-supplier__name">Ferrari</span>
+          </span>
+          <span class="pu-supplier__teams">Ferrari, Haas, Cadillac</span>
+          <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
+        </button>
       </div>
+      <audio id="engineAudioPlayer" preload="none"></audio>
     </div>
   </div>
 </section>
@@ -3631,6 +3731,89 @@ function animatePitstop() {
   }
 
   requestAnimationFrame(update);
+}
+
+// ── Engine audio player ──
+const engineRows = Array.from(document.querySelectorAll('.pu-supplier--interactive'));
+const engineAudioPlayer = document.getElementById('engineAudioPlayer');
+let activeEngineId = null;
+
+function updateEngineRows() {
+  const isPlaying = engineAudioPlayer ? !engineAudioPlayer.paused : false;
+  engineRows.forEach((row) => {
+    const rowEngineId = row.dataset.engineId;
+    const rowEngineName = row.dataset.engineName;
+    const rowIsActive = rowEngineId === activeEngineId;
+    const rowIsPlaying = rowIsActive && isPlaying;
+    const stateText = rowIsPlaying ? 'Playing' : rowIsActive ? 'Paused' : 'Play';
+    const labelAction = rowIsPlaying ? 'Pause' : 'Play';
+    const playState = row.querySelector('.pu-supplier__playstate');
+
+    row.classList.toggle('is-active', rowIsActive);
+    row.classList.toggle('is-playing', rowIsPlaying);
+    row.setAttribute('aria-pressed', String(rowIsActive));
+    row.setAttribute('aria-label', `${labelAction} ${rowEngineName} engine sound`);
+    if (playState) playState.textContent = stateText;
+  });
+}
+
+function toggleEnginePlayback(row) {
+  if (!engineAudioPlayer) return;
+  const engineId = row.dataset.engineId;
+  const engineName = row.dataset.engineName;
+  const audioSrc = row.dataset.audioSrc;
+
+  if (!engineId || !engineName || !audioSrc) return;
+
+  if (activeEngineId === engineId) {
+    if (engineAudioPlayer.paused) {
+      engineAudioPlayer.play().then(() => {
+        updateEngineRows();
+      }).catch(() => {
+        console.warn(`Couldn't play ${engineName} right now.`);
+        activeEngineId = null;
+        updateEngineRows();
+      });
+    } else {
+      engineAudioPlayer.pause();
+    }
+    updateEngineRows();
+    return;
+  }
+
+  activeEngineId = engineId;
+  engineAudioPlayer.src = audioSrc;
+  engineAudioPlayer.currentTime = 0;
+  engineAudioPlayer.play().then(() => {
+    updateEngineRows();
+  }).catch(() => {
+    console.warn(`Couldn't load ${engineName}.`);
+    activeEngineId = null;
+    updateEngineRows();
+  });
+  updateEngineRows();
+}
+
+if (engineRows.length && engineAudioPlayer) {
+  engineRows.forEach((row) => {
+    row.addEventListener('click', () => toggleEnginePlayback(row));
+  });
+
+  engineAudioPlayer.addEventListener('play', updateEngineRows);
+  engineAudioPlayer.addEventListener('pause', updateEngineRows);
+  engineAudioPlayer.addEventListener('ended', () => {
+    activeEngineId = null;
+    updateEngineRows();
+  });
+  engineAudioPlayer.addEventListener('error', () => {
+    const failedRow = engineRows.find((row) => row.dataset.engineId === activeEngineId);
+    const failedName = failedRow ? failedRow.dataset.engineName : 'this clip';
+    console.warn(`Audio unavailable for ${failedName}.`);
+    activeEngineId = null;
+    updateEngineRows();
+  });
+
+  updateEngineRows();
 }
 
 // ── Smooth scroll for nav links ──
