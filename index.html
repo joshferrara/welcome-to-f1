@@ -573,6 +573,120 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 }
 
 /* ═══════════════════════════════════════════════════
+   RACE WEEK BANNER
+   ═══════════════════════════════════════════════════ */
+.race-week-banner {
+  display: none;
+  max-width: 600px;
+  margin: 32px auto 0;
+  position: relative;
+  z-index: 2;
+}
+
+.race-week-banner.active {
+  display: block;
+}
+
+.race-week-banner__inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.race-week-banner__inner::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--f1-red);
+}
+
+.race-week-banner__indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.race-week-banner__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--f1-red);
+  animation: raceDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes raceDotPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--f1-red-glow); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 4px transparent; }
+}
+
+.race-week-banner__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--f1-red);
+  white-space: nowrap;
+}
+
+.race-week-banner__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.race-week-banner__race {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.race-week-banner__meta {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.race-week-banner__tz {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  background: var(--border-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .race-week-banner__inner {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .race-week-banner__race {
+    font-size: 14px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
    SECTION HEADERS
    ═══════════════════════════════════════════════════ */
 .section-header {
@@ -2066,6 +2180,20 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   <p class="hero__subtitle reveal reveal-delay-2">
     New to F1? Not sure where to start? This guide covers everything you need to know about 22 drivers, <span class="unit" data-imperial="230 mph" data-metric="370 km/h">230 mph</span> cars, and the sport that'll ruin your Sunday sleep schedule.
   </p>
+
+  <!-- Race Week Banner (dynamically shown via JS) -->
+  <div class="race-week-banner" id="raceWeekBanner">
+    <div class="race-week-banner__inner">
+      <div class="race-week-banner__indicator">
+        <span class="race-week-banner__dot"></span>
+        <span class="race-week-banner__label">Race Week</span>
+      </div>
+      <div class="race-week-banner__details">
+        <span class="race-week-banner__race" id="raceWeekName"></span>
+        <span class="race-week-banner__meta" id="raceWeekMeta"></span>
+      </div>
+    </div>
+  </div>
 
   <div class="hero__scroll reveal reveal-delay-3">
     <div class="hero__scroll-line"></div>
@@ -3705,6 +3833,78 @@ function nativeShare() {
 if (navigator.share) {
   document.getElementById('nativeShareBtn').style.display = 'flex';
 }
+
+// ── Race week banner ──
+// FP1 start and race start times in UTC, sourced from ESPN's 2026 F1 schedule.
+// Storing as UTC means the browser automatically converts to the visitor's local timezone.
+(function() {
+  const races = [
+    { round: 1,  name: 'Australian Grand Prix',     location: 'Melbourne',   fp1: '2026-03-06T01:30Z', race: '2026-03-08T04:00Z' },
+    { round: 2,  name: 'Chinese Grand Prix',         location: 'Shanghai',    fp1: '2026-03-13T04:30Z', race: '2026-03-15T08:00Z' },
+    { round: 3,  name: 'Japanese Grand Prix',        location: 'Suzuka',      fp1: '2026-03-27T02:30Z', race: '2026-03-29T05:00Z' },
+    { round: 4,  name: 'Bahrain Grand Prix',         location: 'Sakhir',      fp1: '2026-04-10T11:30Z', race: '2026-04-12T15:00Z' },
+    { round: 5,  name: 'Saudi Arabian Grand Prix',   location: 'Jeddah',      fp1: '2026-04-17T13:30Z', race: '2026-04-19T17:00Z' },
+    { round: 6,  name: 'Miami Grand Prix',           location: 'Miami',       fp1: '2026-05-01T16:30Z', race: '2026-05-03T20:00Z' },
+    { round: 7,  name: 'Canadian Grand Prix',        location: 'Montreal',    fp1: '2026-05-22T16:30Z', race: '2026-05-24T20:00Z' },
+    { round: 8,  name: 'Monaco Grand Prix',          location: 'Monte Carlo', fp1: '2026-06-05T11:30Z', race: '2026-06-07T13:00Z' },
+    { round: 9,  name: 'Spanish Grand Prix',         location: 'Barcelona',   fp1: '2026-06-12T11:30Z', race: '2026-06-14T13:00Z' },
+    { round: 10, name: 'Austrian Grand Prix',        location: 'Spielberg',   fp1: '2026-06-26T11:30Z', race: '2026-06-28T13:00Z' },
+    { round: 11, name: 'British Grand Prix',         location: 'Silverstone', fp1: '2026-07-03T11:30Z', race: '2026-07-05T14:00Z' },
+    { round: 12, name: 'Belgian Grand Prix',         location: 'Spa',         fp1: '2026-07-17T11:30Z', race: '2026-07-19T13:00Z' },
+    { round: 13, name: 'Hungarian Grand Prix',       location: 'Budapest',    fp1: '2026-07-24T11:30Z', race: '2026-07-26T13:00Z' },
+    { round: 14, name: 'Dutch Grand Prix',           location: 'Zandvoort',   fp1: '2026-08-21T10:30Z', race: '2026-08-23T13:00Z' },
+    { round: 15, name: 'Italian Grand Prix',         location: 'Monza',       fp1: '2026-09-04T10:30Z', race: '2026-09-06T13:00Z' },
+    { round: 16, name: 'Madrid Grand Prix',          location: 'Madrid',      fp1: '2026-09-11T11:30Z', race: '2026-09-13T13:00Z' },
+    { round: 17, name: 'Azerbaijan Grand Prix',      location: 'Baku',        fp1: '2026-09-24T08:30Z', race: '2026-09-26T11:00Z' },
+    { round: 18, name: 'Singapore Grand Prix',       location: 'Singapore',   fp1: '2026-10-09T08:30Z', race: '2026-10-11T12:00Z' },
+    { round: 19, name: 'United States Grand Prix',   location: 'Austin',      fp1: '2026-10-23T17:30Z', race: '2026-10-25T20:00Z' },
+    { round: 20, name: 'Mexico City Grand Prix',     location: 'Mexico City', fp1: '2026-10-30T18:30Z', race: '2026-11-01T20:00Z' },
+    { round: 21, name: 'São Paulo Grand Prix',       location: 'São Paulo',   fp1: '2026-11-06T15:30Z', race: '2026-11-08T17:00Z' },
+    { round: 22, name: 'Las Vegas Grand Prix',       location: 'Las Vegas',   fp1: '2026-11-20T00:30Z', race: '2026-11-22T04:00Z' },
+    { round: 23, name: 'Qatar Grand Prix',           location: 'Lusail',      fp1: '2026-11-27T13:30Z', race: '2026-11-29T16:00Z' },
+    { round: 24, name: 'Abu Dhabi Grand Prix',       location: 'Abu Dhabi',   fp1: '2026-12-04T09:30Z', race: '2026-12-06T13:00Z' },
+  ];
+
+  const now = new Date();
+
+  for (const r of races) {
+    const fp1 = new Date(r.fp1);
+    const race = new Date(r.race);
+    const raceEnd = new Date(race.getTime() + 3 * 3600000);
+
+    // Show banner from 4 days before FP1 through end of race
+    const windowStart = new Date(fp1);
+    windowStart.setDate(windowStart.getDate() - 4);
+    windowStart.setHours(0, 0, 0, 0);
+
+    if (now >= windowStart && now <= raceEnd) {
+      const banner = document.getElementById('raceWeekBanner');
+
+      // Derive the visitor's local calendar dates from the UTC session times
+      const startDay = new Date(fp1.getFullYear(), fp1.getMonth(), fp1.getDate());
+      const endDay = new Date(race.getFullYear(), race.getMonth(), race.getDate());
+
+      let dateStr;
+      if (startDay.getMonth() === endDay.getMonth()) {
+        dateStr = startDay.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) + '–' + endDay.getDate();
+      } else {
+        dateStr = startDay.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) + ' – ' + endDay.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+      }
+
+      // Detect visitor's timezone abbreviation (e.g. "EST", "CDT", "PST")
+      const tzAbbr = Intl.DateTimeFormat('en-US', { timeZoneName: 'short' })
+        .formatToParts(now).find(function(p) { return p.type === 'timeZoneName'; })?.value || '';
+
+      document.getElementById('raceWeekName').textContent = r.name;
+      document.getElementById('raceWeekMeta').innerHTML =
+        'Round ' + r.round + ' \u00B7 ' + r.location + ' \u00B7 ' + dateStr +
+        ' <span class="race-week-banner__tz">' + tzAbbr + '</span>';
+
+      banner.classList.add('active');
+      break;
+    }
+  }
+})();
 </script>
 
 </body>
