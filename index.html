@@ -147,7 +147,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   padding: 120px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .section-space { padding: 80px 0; }
   body { font-size: 16px; }
 }
@@ -399,7 +399,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   border-top: 1px solid var(--border-color);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navbar__links { display: none; }
   .navbar__actions > .unit-toggle { display: none; }
   .navbar__hamburger { display: flex; }
@@ -1212,7 +1212,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   margin: 40px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .weekend-steps { grid-template-columns: 1fr; }
 }
 
@@ -1660,7 +1660,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .schedule-grid {
     grid-template-columns: 1fr;
   }
@@ -1956,7 +1956,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 /* ═══════════════════════════════════════════════════
    RESPONSIVE ADJUSTMENTS
    ═══════════════════════════════════════════════════ */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .stats-grid { grid-template-columns: 1fr; }
   .driver-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
   .team-grid { grid-template-columns: 1fr; }
@@ -3654,7 +3654,7 @@ function closeMobileNav() {
 
 // Close mobile nav on resize to desktop
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) closeMobileNav();
+  if (window.innerWidth > 1024) closeMobileNav();
 });
 
 // ── Active nav link on scroll ──
