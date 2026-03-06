@@ -995,6 +995,24 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   color: var(--f1-red);
 }
 
+@keyframes engineVibrate {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-1.5px, 1px) rotate(-0.3deg); }
+  20% { transform: translate(1.2px, -1.5px) rotate(0.4deg); }
+  30% { transform: translate(-1px, -1.2px) rotate(-0.2deg); }
+  40% { transform: translate(1.5px, 0.8px) rotate(0.3deg); }
+  50% { transform: translate(-1.2px, -0.8px) rotate(-0.4deg); }
+  60% { transform: translate(0.8px, 1.5px) rotate(0.2deg); }
+  70% { transform: translate(-1.5px, 1.2px) rotate(-0.3deg); }
+  80% { transform: translate(1.2px, -1px) rotate(0.4deg); }
+  90% { transform: translate(-0.8px, 1.2px) rotate(-0.2deg); }
+}
+
+.pu-supplier.is-playing[data-engine-id="honda"] {
+  animation: engineVibrate 0.12s linear infinite;
+  box-shadow: 0 0 12px var(--f1-red-glow);
+}
+
 @media (max-width: 480px) {
   .pu-supplier {
     flex-direction: column;
@@ -3866,8 +3884,84 @@ const engineRows = Array.from(document.querySelectorAll('.pu-supplier--interacti
 const engineAudioPlayer = document.getElementById('engineAudioPlayer');
 let activeEngineId = null;
 
+// Haptic feedback for Honda engine sound
+// iOS: uses a hidden <input type="checkbox" switch> clicked every rAF frame.
+// Full 60fps clicking produces the smoothest sustained haptic buzz.
+// The element is recreated every ~1s (60 frames) to reset any iOS
+// throttling that causes the haptic to stop after a few seconds.
+// Android: uses navigator.vibrate() with a long repeating pattern.
+let hapticRunning = false;
+let hapticLabel = null;
+let hapticFrameCount = 0;
+
+function createHapticEl() {
+  if (hapticLabel) hapticLabel.remove();
+  const label = document.createElement('label');
+  label.ariaHidden = 'true';
+  label.style.position = 'fixed';
+  label.style.left = '-9999px';
+  label.style.top = '-9999px';
+  label.style.opacity = '0';
+  label.style.pointerEvents = 'none';
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.setAttribute('switch', '');
+  label.appendChild(input);
+  document.body.appendChild(label);
+  hapticLabel = label;
+  hapticFrameCount = 0;
+}
+
+function hapticLoop() {
+  if (!hapticRunning) return;
+  hapticFrameCount++;
+  // Recreate element every ~1s to reset any iOS throttling
+  if (hapticFrameCount >= 60) {
+    createHapticEl();
+  }
+  if (hapticLabel) hapticLabel.click();
+  requestAnimationFrame(hapticLoop);
+}
+
+function startHondaHaptic() {
+  if (hapticRunning) return;
+  hapticRunning = true;
+
+  // Android: long repeating vibration pattern covering up to 60s
+  if (typeof navigator.vibrate === 'function') {
+    const unit = [80, 60, 50, 80, 40];
+    const reps = Math.ceil(60000 / 310);
+    const pattern = [];
+    for (let i = 0; i < reps; i++) {
+      pattern.push(...unit);
+    }
+    navigator.vibrate(pattern);
+  }
+
+  // iOS: click hidden switch checkbox every frame for smooth haptic
+  createHapticEl();
+  requestAnimationFrame(hapticLoop);
+}
+
+function stopHondaHaptic() {
+  hapticRunning = false;
+  if (hapticLabel) {
+    hapticLabel.remove();
+    hapticLabel = null;
+  }
+  if (typeof navigator.vibrate === 'function') navigator.vibrate(0);
+}
+
 function updateEngineRows() {
   const isPlaying = engineAudioPlayer ? !engineAudioPlayer.paused : false;
+  const hondaIsPlaying = activeEngineId === 'honda' && isPlaying;
+
+  if (hondaIsPlaying) {
+    startHondaHaptic();
+  } else {
+    stopHondaHaptic();
+  }
+
   engineRows.forEach((row) => {
     const rowEngineId = row.dataset.engineId;
     const rowEngineName = row.dataset.engineName;
