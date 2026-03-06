@@ -958,6 +958,14 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   white-space: nowrap;
 }
 
+.pu-supplier__fullname {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
 .pu-supplier__teams {
   font-size: 14px;
   color: var(--text-secondary);
@@ -2338,7 +2346,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <span class="stat-card__icon">&#128293;</span>
         <div class="stat-card__value"><span class="unit" data-imperial="1,832&deg;F" data-metric="1,000&deg;C">1,832&deg;F</span></div>
         <div class="stat-card__label">Brake Temperature</div>
-        <p class="stat-card__desc">Brake discs glow orange-white during night races. That's as hot as volcanic lava. They're made of carbon fibre because metal would simply melt.</p>
+        <p class="stat-card__desc">Brake discs glow orange-white during night races. That's as hot as volcanic lava. They're made of carbon fiber because metal would simply melt.</p>
       </div>
       <div class="stat-card reveal reveal-delay-2">
         <span class="stat-card__icon">&#127759;</span>
@@ -2354,7 +2362,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
     <div class="content-block reveal">
       <p>Here's the thing about Formula 1: it sounds almost made up until you see it. <strong>Cars that go from <span class="unit" data-imperial="200 mph to 80 mph" data-metric="322 km/h to 129 km/h">200 mph to 80 mph</span> in two seconds.</strong> Drivers whose heart rates hit 200 bpm at the start and stay at marathon-runner levels for the entire race. Athletes who lose <span class="unit" data-imperial="8.8 lbs" data-metric="4 kg">8.8 lbs</span> of body weight through sweat in a single race while the cockpit reaches <span class="unit" data-imperial="140&deg;F" data-metric="60&deg;C">140&deg;F</span>.</p>
-      <p>Each car generates <strong>1.5 terabytes of data per weekend</strong> from 300+ sensors. Each team brings its own weather station to every track. Drivers react in 100 milliseconds, less than half the time of a normal human. And the power units? 52% thermal efficiency, 1,000+ horsepower from just 1.6 litres. No production car engine comes close.</p>
+      <p>Each car generates <strong>1.5 terabytes of data per weekend</strong> from 300+ sensors. Each team brings its own weather station to every track. Drivers react in 100 milliseconds, less than half the time of a normal human. And the power units? 52% thermal efficiency, 1,000+ horsepower from just 1.6 liters. No production car engine comes close.</p>
       <p>Oh, and there are only <strong>11 teams, 22 drivers, and 24 races</strong>. That's it. Small enough to learn in a weekend, deep enough to obsess over for a lifetime.</p>
     </div>
   </div>
@@ -2384,7 +2392,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <div class="weekend-step__day">Saturday</div>
         <div class="weekend-step__icon">&#9201;</div>
         <div class="weekend-step__title">Qualifying</div>
-        <p class="weekend-step__desc">One final practice, then Qualifying: three knockout sessions (Q1, Q2, Q3) where lap times determine the starting order for Sunday's race. The fastest driver earns "pole position."</p>
+        <p class="weekend-step__desc">One final practice (FP3), then Qualifying: three knockout sessions (Q1, Q2, Q3) where lap times determine the starting order for Sunday's race. The fastest driver earns "pole position."</p>
       </div>
       <div class="weekend-step">
         <div class="weekend-step__day">Sunday</div>
@@ -2569,11 +2577,11 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       </div>
 
       <div class="callout reveal">
-        <p><strong>Overtake Mode:</strong> On top of active aero, drivers within 1 second of the car ahead can activate a special electrical boost, an extra 67 horsepower from the battery. The defending driver can fire back with their own "Boost Mode." It's attack and defence in a way DRS never was.</p>
+        <p><strong>Overtake Mode:</strong> On top of active aero, drivers within 1 second of the car ahead can activate a special electrical boost, an extra 67 horsepower from the battery. The defending driver can fire back with their own "Boost Mode." It's attack and defense in a way DRS never was.</p>
       </div>
 
       <h3 class="reveal">The power unit: 1,000+ horsepower</h3>
-      <p class="reveal">F1 cars use a 1.6-litre turbocharged V6 hybrid engine producing over 1,000 horsepower. For 2026, the split is roughly <strong>50% combustion / 50% electric</strong>, up from 80/20 previously. The electric motor (MGU-K) nearly tripled in power from 120 kW to 350 kW.</p>
+      <p class="reveal">F1 cars use a 1.6-liter turbocharged V6 hybrid engine producing over 1,000 horsepower. For 2026, the split is roughly <strong>50% combustion / 50% electric</strong>, up from 80/20 previously. The electric motor (MGU-K) nearly tripled in power from 120 kW to 350 kW.</p>
       <p class="reveal">And here's the cool part: every drop of fuel is <strong>100% sustainable</strong>. Made from carbon capture, municipal waste, or non-food biomass. Not a drop of crude oil. F1 aims to be net-zero carbon by 2030.</p>
 
       <h3 class="reveal">Five engine manufacturers</h3>
@@ -2584,6 +2592,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
           <span class="pu-supplier__left">
             <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/audi.svg" alt="" loading="lazy"></span>
             <span class="pu-supplier__name">Audi</span>
+            <span class="pu-supplier__fullname">Audi Formula Racing GmbH</span>
           </span>
           <span class="pu-supplier__teams">Audi (own works team)</span>
           <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
@@ -2592,6 +2601,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
           <span class="pu-supplier__left">
             <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/honda.svg" alt="" loading="lazy"></span>
             <span class="pu-supplier__name">Honda</span>
+            <span class="pu-supplier__fullname">Honda Racing Corporation (HRC)</span>
           </span>
           <span class="pu-supplier__teams">Aston Martin</span>
           <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
@@ -2600,6 +2610,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
           <span class="pu-supplier__left">
             <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/mercedes.svg" alt="" loading="lazy"></span>
             <span class="pu-supplier__name">Mercedes</span>
+            <span class="pu-supplier__fullname">Mercedes-AMG High Performance Powertrains</span>
           </span>
           <span class="pu-supplier__teams">Mercedes, McLaren, Williams, Alpine</span>
           <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
@@ -2608,6 +2619,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
           <span class="pu-supplier__left">
             <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/redbull.svg" alt="" loading="lazy"></span>
             <span class="pu-supplier__name">Red Bull Powertrains</span>
+            <span class="pu-supplier__fullname">Red Bull Ford Powertrains</span>
           </span>
           <span class="pu-supplier__teams">Red Bull Racing, Racing Bulls</span>
           <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
@@ -2616,6 +2628,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
           <span class="pu-supplier__left">
             <span class="pu-supplier__logo-wrap"><img class="pu-supplier__logo" src="assets/icons/ferrari.svg" alt="" loading="lazy"></span>
             <span class="pu-supplier__name">Ferrari</span>
+            <span class="pu-supplier__fullname">Scuderia Ferrari (Gestione Sportiva)</span>
           </span>
           <span class="pu-supplier__teams">Ferrari, Haas, Cadillac</span>
           <span class="pu-supplier__playstate" aria-hidden="true">Play</span>
@@ -2666,7 +2679,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       </div>
       <div class="pitstop-visual__steps">
         <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">01</span> Front &amp; rear jacks lift car</div>
-        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">02</span> Stabilisers grab both sides</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">02</span> Stabilizers grab both sides</div>
         <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">03</span> Wheel guns loosen 4 nuts</div>
         <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">04</span> Old tyres pulled off</div>
         <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">05</span> New tyres pushed on</div>
@@ -2737,7 +2750,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
     <div class="content-block">
       <p class="reveal">Here's why it matters: <strong>soft tyres are faster but die quicker.</strong> A driver on fresh softs can be 1&ndash;2 seconds per lap faster than someone on worn hards. But those softs might only last 15 laps before the grip falls off a cliff, while hards can go 40+ laps.</p>
-      <p class="reveal">This creates a puzzle. Do you start on softs, blast into the lead, and pit early? Or start on hards, run long, and hope to leap-frog rivals when they pit? Teams run thousands of simulations before each race to optimise their strategy, but weather, safety cars, and rivals' decisions can throw everything out the window.</p>
+      <p class="reveal">This creates a puzzle. Do you start on softs, blast into the lead, and pit early? Or start on hards, run long, and hope to leap-frog rivals when they pit? Teams run thousands of simulations before each race to optimize their strategy, but weather, safety cars, and rivals' decisions can throw everything out the window.</p>
 
       <div class="callout reveal">
         <p><strong>What's an "undercut"?</strong> Pitting before your rival to get fresh, faster tyres. You do a blazing out-lap on new rubber while they're still on worn tyres. If the pace difference is big enough, you emerge ahead after they pit. Deeply satisfying when it works.</p>
@@ -3334,7 +3347,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
     <div class="content-block">
       <h3 class="reveal">Drive to Survive changed everything</h3>
-      <p class="reveal">Netflix's <em>Drive to Survive</em> (2019&ndash;present) probably did more for F1's popularity than anything since colour television. U.S. viewership jumped 54%. Over half of current F1 fans say the show played a role in getting them into the sport. It turned F1 from a niche European thing into something your coworkers talk about on Monday mornings.</p>
+      <p class="reveal">Netflix's <em>Drive to Survive</em> (2019&ndash;present) probably did more for F1's popularity than anything since color television. U.S. viewership jumped 54%. Over half of current F1 fans say the show played a role in getting them into the sport. It turned F1 from a niche European thing into something your coworkers talk about on Monday mornings.</p>
       <p class="reveal">The show turned drivers from faceless helmets into actual people you could root for (or against). If you haven't seen it, start there.</p>
     </div>
 
@@ -3411,7 +3424,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
         <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_lfill,w_1440,q_auto/content/dam/fom-website/races/2024/race-listing/Japan" alt="Suzuka Japanese Grand Prix" width="800" height="450" loading="lazy">
         <div class="track-card__body">
           <div class="track-card__name">Suzuka</div>
-          <p class="track-card__desc">Japan's figure-eight circuit. Half of all drivers call it their favourite. The esses and 130R separate good drivers from great ones. Japanese fans bring hand-drawn artwork of drivers' helmets.</p>
+          <p class="track-card__desc">Japan's figure-eight circuit. Half of all drivers call it their favorite. The esses and 130R separate good drivers from great ones. Japanese fans bring hand-drawn artwork of drivers' helmets.</p>
         </div>
       </div>
     </div>
