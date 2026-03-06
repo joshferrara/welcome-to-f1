@@ -3914,24 +3914,28 @@ function startHondaHaptic() {
   if (hondaHapticRafId) return;
   ensureHapticDOM();
 
-  // Also use navigator.vibrate for Android
+  // Android: fire a long repeating vibration pattern that covers the full clip.
+  // Pattern: [vibrate, pause, vibrate, pause, ...] — repeated enough to span
+  // the entire audio duration (up to 60s). navigator.vibrate() accepts the
+  // full pattern at once and runs it continuously until cancelled.
   if (typeof navigator.vibrate === 'function') {
-    navigator.vibrate([80, 60, 50, 80, 40]);
+    const unit = [80, 60, 50, 80, 40]; // one rumble cycle = 310ms
+    const reps = Math.ceil(60000 / 310); // enough cycles for up to 60s
+    const pattern = [];
+    for (let i = 0; i < reps; i++) {
+      pattern.push(...unit);
+    }
+    navigator.vibrate(pattern);
   }
 
-  // Rapid label clicks for iOS haptic via switch checkbox
+  // iOS: rapid label clicks on hidden switch checkbox via rAF
   let lastClickTime = 0;
-  const CLICK_INTERVAL = 16; // ~60fps, every frame at full intensity
+  const CLICK_INTERVAL = 16;
 
   function loop(now) {
     if (now - lastClickTime >= CLICK_INTERVAL) {
       hapticLabel.click();
       lastClickTime = now;
-
-      // Re-fire Android vibration pattern periodically
-      if (typeof navigator.vibrate === 'function' && Math.round(now) % 310 < CLICK_INTERVAL) {
-        navigator.vibrate([80, 60, 50, 80, 40]);
-      }
     }
     hondaHapticRafId = requestAnimationFrame(loop);
   }
