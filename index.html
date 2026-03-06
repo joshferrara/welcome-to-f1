@@ -3885,26 +3885,31 @@ const engineAudioPlayer = document.getElementById('engineAudioPlayer');
 let activeEngineId = null;
 
 // Haptic feedback for Honda engine sound
-// iOS: creates a fresh <input type="checkbox" switch> each tick, clicks its
-// label, then removes it — technique from ios-haptics / web-haptics.
-// Creating a fresh element each time avoids iOS throttling repeated clicks
-// on a persistent element, keeping the haptic alive for the full audio clip.
+// iOS: uses a hidden <input type="checkbox" switch> positioned off-screen
+// (NOT display:none — that blocks haptic). Clicked rapidly via setInterval.
+// Element is recreated every ~2s to prevent iOS from throttling a stale element.
 // Android: uses navigator.vibrate() with a long repeating pattern.
 let hondaHapticInterval = null;
+let hapticLabel = null;
+let hapticClickCount = 0;
 
-function iosHapticTick() {
-  try {
-    const label = document.createElement('label');
-    label.ariaHidden = 'true';
-    label.style.display = 'none';
-    const input = document.createElement('input');
-    input.type = 'checkbox';
-    input.setAttribute('switch', '');
-    label.appendChild(input);
-    document.head.appendChild(label);
-    label.click();
-    document.head.removeChild(label);
-  } catch (_) { /* no-op on unsupported browsers */ }
+function createHapticElement() {
+  if (hapticLabel) {
+    hapticLabel.remove();
+  }
+  hapticLabel = document.createElement('label');
+  hapticLabel.ariaHidden = 'true';
+  hapticLabel.style.position = 'fixed';
+  hapticLabel.style.left = '-9999px';
+  hapticLabel.style.top = '-9999px';
+  hapticLabel.style.opacity = '0';
+  hapticLabel.style.pointerEvents = 'none';
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.setAttribute('switch', '');
+  hapticLabel.appendChild(input);
+  document.body.appendChild(hapticLabel);
+  hapticClickCount = 0;
 }
 
 function startHondaHaptic() {
@@ -3921,11 +3926,19 @@ function startHondaHaptic() {
     navigator.vibrate(pattern);
   }
 
-  // iOS: fire a fresh switch-checkbox haptic tick every 80ms.
-  // Each tick creates and destroys its own element to avoid iOS
-  // throttling repeated clicks on a persistent element.
-  iosHapticTick();
-  hondaHapticInterval = setInterval(iosHapticTick, 80);
+  // iOS: click the hidden switch checkbox at ~80ms intervals.
+  // Recreate the element every ~25 clicks (~2s) to reset any
+  // iOS throttling on repeated clicks to the same element.
+  createHapticElement();
+  hapticLabel.click();
+
+  hondaHapticInterval = setInterval(() => {
+    hapticClickCount++;
+    if (hapticClickCount >= 25) {
+      createHapticElement();
+    }
+    if (hapticLabel) hapticLabel.click();
+  }, 80);
 }
 
 function stopHondaHaptic() {
@@ -3933,6 +3946,11 @@ function stopHondaHaptic() {
     clearInterval(hondaHapticInterval);
     hondaHapticInterval = null;
   }
+  if (hapticLabel) {
+    hapticLabel.remove();
+    hapticLabel = null;
+  }
+  hapticClickCount = 0;
   if (typeof navigator.vibrate === 'function') navigator.vibrate(0);
 }
 
