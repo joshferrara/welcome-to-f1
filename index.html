@@ -3885,42 +3885,35 @@ const engineAudioPlayer = document.getElementById('engineAudioPlayer');
 let activeEngineId = null;
 
 // Haptic feedback for Honda engine sound
-// Uses the hidden <input type="checkbox" switch> technique from web-haptics
-// (https://github.com/lochie/web-haptics) to trigger native haptic feedback
-// on iOS Safari. Falls back to navigator.vibrate() on Android.
-let hondaHapticRafId = null;
-let hapticLabel = null;
+// iOS: creates a fresh <input type="checkbox" switch> each tick, clicks its
+// label, then removes it — technique from ios-haptics / web-haptics.
+// Creating a fresh element each time avoids iOS throttling repeated clicks
+// on a persistent element, keeping the haptic alive for the full audio clip.
+// Android: uses navigator.vibrate() with a long repeating pattern.
+let hondaHapticInterval = null;
 
-function ensureHapticDOM() {
-  if (hapticLabel) return;
-  hapticLabel = document.createElement('label');
-  hapticLabel.setAttribute('for', 'haptic-toggle');
-  hapticLabel.style.position = 'fixed';
-  hapticLabel.style.left = '-9999px';
-  hapticLabel.style.opacity = '0';
-  hapticLabel.style.pointerEvents = 'none';
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  checkbox.setAttribute('switch', '');
-  checkbox.id = 'haptic-toggle';
-  checkbox.style.all = 'initial';
-  checkbox.style.appearance = 'auto';
-  checkbox.style.display = 'none';
-  hapticLabel.appendChild(checkbox);
-  document.body.appendChild(hapticLabel);
+function iosHapticTick() {
+  try {
+    const label = document.createElement('label');
+    label.ariaHidden = 'true';
+    label.style.display = 'none';
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.setAttribute('switch', '');
+    label.appendChild(input);
+    document.head.appendChild(label);
+    label.click();
+    document.head.removeChild(label);
+  } catch (_) { /* no-op on unsupported browsers */ }
 }
 
 function startHondaHaptic() {
-  if (hondaHapticRafId) return;
-  ensureHapticDOM();
+  if (hondaHapticInterval) return;
 
-  // Android: fire a long repeating vibration pattern that covers the full clip.
-  // Pattern: [vibrate, pause, vibrate, pause, ...] — repeated enough to span
-  // the entire audio duration (up to 60s). navigator.vibrate() accepts the
-  // full pattern at once and runs it continuously until cancelled.
+  // Android: long repeating vibration pattern covering up to 60s
   if (typeof navigator.vibrate === 'function') {
-    const unit = [80, 60, 50, 80, 40]; // one rumble cycle = 310ms
-    const reps = Math.ceil(60000 / 310); // enough cycles for up to 60s
+    const unit = [80, 60, 50, 80, 40];
+    const reps = Math.ceil(60000 / 310);
     const pattern = [];
     for (let i = 0; i < reps; i++) {
       pattern.push(...unit);
@@ -3928,24 +3921,17 @@ function startHondaHaptic() {
     navigator.vibrate(pattern);
   }
 
-  // iOS: rapid label clicks on hidden switch checkbox via rAF
-  let lastClickTime = 0;
-  const CLICK_INTERVAL = 16;
-
-  function loop(now) {
-    if (now - lastClickTime >= CLICK_INTERVAL) {
-      hapticLabel.click();
-      lastClickTime = now;
-    }
-    hondaHapticRafId = requestAnimationFrame(loop);
-  }
-  hondaHapticRafId = requestAnimationFrame(loop);
+  // iOS: fire a fresh switch-checkbox haptic tick every 80ms.
+  // Each tick creates and destroys its own element to avoid iOS
+  // throttling repeated clicks on a persistent element.
+  iosHapticTick();
+  hondaHapticInterval = setInterval(iosHapticTick, 80);
 }
 
 function stopHondaHaptic() {
-  if (hondaHapticRafId) {
-    cancelAnimationFrame(hondaHapticRafId);
-    hondaHapticRafId = null;
+  if (hondaHapticInterval) {
+    clearInterval(hondaHapticInterval);
+    hondaHapticInterval = null;
   }
   if (typeof navigator.vibrate === 'function') navigator.vibrate(0);
 }
