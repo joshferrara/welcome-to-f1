@@ -995,6 +995,23 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   color: var(--f1-red);
 }
 
+@keyframes engineVibrate {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-0.5px, 0.5px); }
+  20% { transform: translate(0.5px, -0.3px); }
+  30% { transform: translate(-0.3px, -0.5px); }
+  40% { transform: translate(0.5px, 0.3px); }
+  50% { transform: translate(-0.5px, -0.3px); }
+  60% { transform: translate(0.3px, 0.5px); }
+  70% { transform: translate(-0.3px, 0.3px); }
+  80% { transform: translate(0.5px, -0.5px); }
+  90% { transform: translate(-0.3px, 0.3px); }
+}
+
+.pu-supplier.is-playing[data-engine-id="honda"] {
+  animation: engineVibrate 0.15s linear infinite;
+}
+
 @media (max-width: 480px) {
   .pu-supplier {
     flex-direction: column;
@@ -3866,8 +3883,37 @@ const engineRows = Array.from(document.querySelectorAll('.pu-supplier--interacti
 const engineAudioPlayer = document.getElementById('engineAudioPlayer');
 let activeEngineId = null;
 
+// Haptic feedback for Honda engine sound
+const canVibrate = typeof navigator.vibrate === 'function';
+let hondaHapticTimer = null;
+
+function startHondaHaptic() {
+  if (!canVibrate || hondaHapticTimer) return;
+  // Repeating short bursts: 80ms vibrate, 60ms pause — mimics engine rumble
+  hondaHapticTimer = setInterval(() => {
+    navigator.vibrate([80, 60, 50, 80, 40]);
+  }, 310);
+  navigator.vibrate([80, 60, 50, 80, 40]); // kick off immediately
+}
+
+function stopHondaHaptic() {
+  if (hondaHapticTimer) {
+    clearInterval(hondaHapticTimer);
+    hondaHapticTimer = null;
+  }
+  if (canVibrate) navigator.vibrate(0); // cancel any in-progress vibration
+}
+
 function updateEngineRows() {
   const isPlaying = engineAudioPlayer ? !engineAudioPlayer.paused : false;
+  const hondaIsPlaying = activeEngineId === 'honda' && isPlaying;
+
+  if (hondaIsPlaying) {
+    startHondaHaptic();
+  } else {
+    stopHondaHaptic();
+  }
+
   engineRows.forEach((row) => {
     const rowEngineId = row.dataset.engineId;
     const rowEngineName = row.dataset.engineName;
