@@ -1,0 +1,3104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-units="imperial">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Formula 1 - Kids Edition</title>
+<meta name="description" content="A kids guide to Formula 1! Learn about the fastest cars, coolest drivers, and most exciting sport on the planet.">
+<meta property="og:title" content="Welcome to Formula 1 - Kids Edition">
+<meta property="og:description" content="A kids guide to Formula 1! Learn about the fastest cars, coolest drivers, and most exciting sport on the planet.">
+<meta property="og:image" content="https://welcometof1.com/og-image.png">
+<meta property="og:url" content="https://welcometof1.com/kids/">
+<meta property="og:site_name" content="Welcome to Formula 1">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Welcome to Formula 1 - Kids Edition">
+<meta name="twitter:description" content="A kids guide to Formula 1! Learn about the fastest cars, coolest drivers, and most exciting sport on the planet.">
+<meta name="twitter:image" content="https://welcometof1.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://media.formula1.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   CSS CUSTOM PROPERTIES
+   ═══════════════════════════════════════════════════ */
+:root {
+  --f1-red: #E10600;
+  --f1-red-dark: #B00500;
+  --f1-red-glow: rgba(225, 6, 0, 0.4);
+  --accent-gold: #FFD700;
+  --accent-cyan: #00D2FF;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-editorial: 'Playfair Display', serif;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0A0A0B;
+  --bg-secondary: #111113;
+  --bg-card: #161618;
+  --bg-card-hover: #1C1C1F;
+  --bg-elevated: #1E1E21;
+  --text-primary: #F5F5F7;
+  --text-secondary: #A1A1A6;
+  --text-tertiary: #6E6E73;
+  --border-color: rgba(255,255,255,0.08);
+  --border-color-hover: rgba(255,255,255,0.15);
+  --glass-bg: rgba(22,22,24,0.85);
+  --glass-border: rgba(255,255,255,0.06);
+  --section-divider: linear-gradient(90deg, transparent, rgba(225,6,0,0.3), transparent);
+  --hero-gradient: radial-gradient(ellipse at 50% 0%, rgba(225,6,0,0.15) 0%, transparent 70%);
+  --noise-opacity: 0.03;
+}
+
+[data-theme="light"] {
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F0F0F2;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F7F7F9;
+  --bg-elevated: #FFFFFF;
+  --text-primary: #1A1A1D;
+  --text-secondary: #6B6B70;
+  --text-tertiary: #9A9A9F;
+  --border-color: rgba(0,0,0,0.08);
+  --border-color-hover: rgba(0,0,0,0.15);
+  --glass-bg: rgba(255,255,255,0.85);
+  --glass-border: rgba(0,0,0,0.06);
+  --section-divider: linear-gradient(90deg, transparent, rgba(225,6,0,0.2), transparent);
+  --hero-gradient: radial-gradient(ellipse at 50% 0%, rgba(225,6,0,0.08) 0%, transparent 70%);
+  --noise-opacity: 0.02;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 18px;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.4s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: var(--noise-opacity);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+a { color: var(--f1-red); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-cyan); }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
+::selection { background: var(--f1-red); color: white; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--f1-red); border-radius: 3px; }
+
+/* ═══════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ═══════════════════════════════════════════════════ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--f1-red);
+  z-index: 1000;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px var(--f1-red-glow);
+}
+
+/* ═══════════════════════════════════════════════════
+   LAYOUT UTILITIES
+   ═══════════════════════════════════════════════════ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container--wide {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-space {
+  padding: 100px 0;
+}
+
+@media (max-width: 1024px) {
+  .section-space { padding: 70px 0; }
+  body { font-size: 17px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   THEME TOGGLE
+   ═══════════════════════════════════════════════════ */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color-hover);
+  background: var(--bg-card);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s var(--ease-out-expo);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  border-color: var(--f1-red);
+  box-shadow: 0 4px 30px var(--f1-red-glow);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon { position: absolute; transition: all 0.4s var(--ease-out-expo); }
+[data-theme="dark"] .theme-toggle .icon-sun { opacity: 1; transform: rotate(0deg) scale(1); color: #F5F5F7; }
+[data-theme="dark"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="light"] .theme-toggle .icon-sun { opacity: 0; transform: rotate(-90deg) scale(0); }
+[data-theme="light"] .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); color: #1A1A1D; }
+
+/* ═══════════════════════════════════════════════════
+   UNIT TOGGLE
+   ═══════════════════════════════════════════════════ */
+.unit-toggle {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid var(--border-color-hover);
+  background: var(--bg-card);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.unit-toggle__btn {
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out-expo);
+  line-height: 1;
+}
+
+.unit-toggle__btn.active {
+  background: var(--f1-red);
+  color: #fff;
+}
+
+.unit-toggle__btn:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════
+   NAV BAR
+   ═══════════════════════════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 3px;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.navbar.scrolled {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 1px 30px rgba(0,0,0,0.1);
+}
+
+.navbar__inner {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.navbar__logo:hover,
+.navbar__logo:active { color: var(--text-primary); }
+
+.navbar__logo-mark {
+  width: 28px;
+  height: 28px;
+  background: var(--f1-red);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -1px;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.navbar__links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.2s;
+}
+
+.navbar__links a:hover { color: var(--f1-red); }
+.navbar__links a.active { color: var(--f1-red); }
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar__hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color-hover);
+  background: var(--bg-card);
+  border-radius: 10px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.navbar__hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__hamburger.active span:nth-child(2) { opacity: 0; }
+.navbar__hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-nav {
+  position: fixed;
+  top: 63px;
+  left: 0;
+  right: 0;
+  z-index: 899;
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--glass-border);
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.mobile-nav.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav__inner {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 24px;
+}
+
+.mobile-nav__inner a {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mobile-nav__inner a:last-child { border-bottom: none; }
+.mobile-nav__inner a:hover { color: var(--f1-red); }
+
+.mobile-nav__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0 0;
+  margin-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 1024px) {
+  .navbar__links { display: none; }
+  .navbar__actions > .unit-toggle { display: none; }
+  .navbar__hamburger { display: flex; }
+}
+
+/* ═══════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 24px 80px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-gradient);
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/fom-website/2026%20regulations/2026_Explainer_FIA_Front_3_4_1920x1080.webp') center 60% / cover no-repeat;
+  opacity: 0.12;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, transparent 10%, black 40%, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 10%, black 40%, black 70%, transparent 100%);
+}
+
+[data-theme="light"] .hero::after { opacity: 0.08; }
+
+.hero__lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0.12;
+}
+
+.hero__line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--f1-red), transparent);
+  animation: raceLine 3s linear infinite;
+}
+
+.hero__line:nth-child(1) { top: 20%; width: 200px; animation-delay: 0s; animation-duration: 2.5s; }
+.hero__line:nth-child(2) { top: 35%; width: 300px; animation-delay: 0.7s; animation-duration: 2s; }
+.hero__line:nth-child(3) { top: 55%; width: 150px; animation-delay: 1.2s; animation-duration: 3s; }
+.hero__line:nth-child(4) { top: 70%; width: 250px; animation-delay: 0.3s; animation-duration: 2.2s; }
+.hero__line:nth-child(5) { top: 85%; width: 180px; animation-delay: 1.8s; animation-duration: 2.8s; }
+.hero__line:nth-child(6) { top: 45%; width: 220px; animation-delay: 2.1s; animation-duration: 1.8s; }
+
+@keyframes raceLine {
+  0% { left: -300px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+.hero__lights {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+  z-index: 1;
+}
+
+.hero__light {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #333;
+  border: 2px solid #444;
+  transition: all 0.3s;
+}
+
+.hero__light.on {
+  background: var(--f1-red);
+  border-color: var(--f1-red);
+  box-shadow: 0 0 20px var(--f1-red-glow), 0 0 60px rgba(225,6,0,0.2);
+}
+
+.hero__badge {
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--f1-red);
+  background: rgba(225,6,0,0.08);
+  border: 1px solid rgba(225,6,0,0.2);
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+}
+
+.hero__title {
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 0.95;
+  margin-bottom: 24px;
+  max-width: 900px;
+}
+
+.hero__title em {
+  font-style: italic;
+  font-family: var(--font-editorial);
+  font-weight: 900;
+  color: var(--f1-red);
+}
+
+.hero__subtitle {
+  z-index: 1;
+  font-size: clamp(18px, 2.5vw, 22px);
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.hero__scroll {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: float 2s ease-in-out infinite;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--f1-red), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ═══════════════════════════════════════════════════
+   SECTION HEADERS
+   ═══════════════════════════════════════════════════ */
+.section-header {
+  margin-bottom: 64px;
+}
+
+.section-header__number {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--f1-red);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-header__number::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--f1-red);
+}
+
+.section-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+
+.section-header__subtitle {
+  font-size: 19px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  font-weight: 300;
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--section-divider);
+  margin: 0;
+  border: none;
+}
+
+/* ═══════════════════════════════════════════════════
+   STAT CARDS
+   ═══════════════════════════════════════════════════ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 36px;
+  transition: all 0.4s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--f1-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.stat-card:hover {
+  border-color: var(--border-color-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+.stat-card:hover::before { transform: scaleX(1); }
+
+.stat-card__icon {
+  font-size: 36px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.stat-card__value {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 8px;
+  color: var(--f1-red);
+}
+
+.stat-card__label {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.stat-card__desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════
+   CONTENT BLOCKS
+   ═══════════════════════════════════════════════════ */
+.content-block {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.content-block p {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.content-block strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.content-block h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 48px;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.big-quote {
+  font-family: var(--font-editorial);
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--text-primary);
+  text-align: center;
+  max-width: 800px;
+  margin: 64px auto;
+  padding: 40px 0;
+  position: relative;
+}
+
+.big-quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--f1-red);
+}
+
+.highlight { color: var(--f1-red); font-weight: 700; }
+
+/* ═══════════════════════════════════════════════════
+   DID YOU KNOW CALLOUT
+   ═══════════════════════════════════════════════════ */
+.callout {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--f1-red);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+
+.callout p {
+  margin-bottom: 0 !important;
+  color: var(--text-secondary);
+}
+
+.callout strong {
+  color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════
+   DRIVER GRID (with flip cards)
+   ═══════════════════════════════════════════════════ */
+.driver-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.driver-card-wrapper {
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.driver-card {
+  position: relative;
+  transition: transform 0.6s var(--ease-out-expo);
+  transform-style: preserve-3d;
+  border-radius: 14px;
+}
+
+.driver-card-wrapper.flipped .driver-card {
+  transform: rotateY(180deg);
+}
+
+.driver-card__front,
+.driver-card__back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+}
+
+.driver-card__front {
+  position: relative;
+}
+
+.driver-card__back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.driver-card__back-number {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--f1-red);
+  line-height: 1;
+  opacity: 0.2;
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}
+
+.driver-card__back-flag {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.driver-card__back-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.driver-card__back-fact {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.driver-card__back-hint {
+  position: absolute;
+  bottom: 12px;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+}
+
+.driver-card__photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-secondary);
+}
+
+.driver-card__info {
+  padding: 16px;
+  position: relative;
+}
+
+.driver-card__number {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--border-color);
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.driver-card__flag { font-size: 22px; margin-bottom: 8px; }
+
+.driver-card__name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.driver-card__team {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.driver-card__tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(225,6,0,0.1);
+  color: var(--f1-red);
+  border: 1px solid rgba(225,6,0,0.2);
+}
+
+.driver-card__tap-hint {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+}
+
+.driver-card[data-team="red-bull"] .driver-card__front { border-top: 3px solid #3671C6; }
+.driver-card[data-team="mclaren"] .driver-card__front { border-top: 3px solid #FF8000; }
+.driver-card[data-team="ferrari"] .driver-card__front { border-top: 3px solid #E8002D; }
+.driver-card[data-team="mercedes"] .driver-card__front { border-top: 3px solid #27F4D2; }
+.driver-card[data-team="aston-martin"] .driver-card__front { border-top: 3px solid #229971; }
+.driver-card[data-team="alpine"] .driver-card__front { border-top: 3px solid #FF87BC; }
+.driver-card[data-team="williams"] .driver-card__front { border-top: 3px solid #64C4FF; }
+.driver-card[data-team="racing-bulls"] .driver-card__front { border-top: 3px solid #6692FF; }
+.driver-card[data-team="haas"] .driver-card__front { border-top: 3px solid #B6BABD; }
+.driver-card[data-team="audi"] .driver-card__front { border-top: 3px solid #FF5733; }
+.driver-card[data-team="cadillac"] .driver-card__front { border-top: 3px solid #C0C0C0; }
+
+/* ═══════════════════════════════════════════════════
+   TEAM CARDS
+   ═══════════════════════════════════════════════════ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.team-card:hover {
+  border-color: var(--border-color-hover);
+  transform: translateY(-2px);
+}
+
+.team-card__color {
+  width: 8px;
+  min-height: 60px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.team-card__info { flex: 1; }
+
+.team-card__name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+.team-card__drivers {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.team-card__vibe {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.team-card__badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(225,6,0,0.1);
+  color: var(--f1-red);
+}
+
+/* ═══════════════════════════════════════════════════
+   SPEED COMPARISON SLIDER
+   ═══════════════════════════════════════════════════ */
+.speed-slider {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 48px 40px;
+  text-align: center;
+  margin: 48px 0;
+}
+
+.speed-slider__value {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 10vw, 80px);
+  font-weight: 900;
+  color: var(--f1-red);
+  letter-spacing: -3px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.speed-slider__unit {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.speed-slider input[type="range"] {
+  width: 100%;
+  max-width: 500px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-bottom: 24px;
+}
+
+.speed-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--f1-red);
+  cursor: pointer;
+  box-shadow: 0 2px 10px var(--f1-red-glow);
+}
+
+.speed-slider input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--f1-red);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 10px var(--f1-red-glow);
+}
+
+.speed-slider__comparison {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speed-slider__comparison strong {
+  color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════
+   CAR SHOWCASE
+   ═══════════════════════════════════════════════════ */
+.car-showcase {
+  margin: 48px 0;
+}
+
+.car-showcase__featured-wrap {
+  width: 100%;
+  aspect-ratio: 3.5 / 1;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.car-showcase__featured {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-showcase__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.car-showcase__item {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.car-showcase__item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.car-showcase__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════
+   AERO MODES
+   ═══════════════════════════════════════════════════ */
+.aero-modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+@media (max-width: 600px) { .aero-modes { grid-template-columns: 1fr; } }
+
+.aero-mode {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.aero-mode:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-color-hover);
+}
+
+.aero-mode__icon { font-size: 48px; margin-bottom: 16px; }
+
+.aero-mode__name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  letter-spacing: 2px;
+}
+
+.aero-mode__subtitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--f1-red);
+  margin-bottom: 16px;
+}
+
+.aero-mode__desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════
+   PIT STOP VISUAL
+   ═══════════════════════════════════════════════════ */
+.pitstop-visual {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 48px;
+  text-align: center;
+  margin: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.pitstop-visual__timer {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 12vw, 120px);
+  font-weight: 900;
+  letter-spacing: -4px;
+  color: var(--f1-red);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.pitstop-visual__label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+
+.pitstop-visual__crew {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.pitstop-visual__person {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.pitstop-visual__steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.pitstop-visual__step {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 12px;
+  background: var(--bg-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pitstop-visual__step-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--f1-red);
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════
+   PIT STOP CHALLENGE GAME
+   ═══════════════════════════════════════════════════ */
+.pitstop-challenge {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin: 24px 0;
+}
+
+.pitstop-challenge__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.pitstop-challenge__desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.pitstop-challenge__timer {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--f1-red);
+  letter-spacing: -3px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.pitstop-challenge__btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: var(--f1-red);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out-expo);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pitstop-challenge__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--f1-red-glow);
+}
+
+.pitstop-challenge__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pitstop-challenge__result {
+  margin-top: 16px;
+  font-size: 16px;
+  color: var(--text-secondary);
+  min-height: 24px;
+}
+
+.pitstop-challenge__result strong {
+  color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════
+   WEEKEND STEPS
+   ═══════════════════════════════════════════════════ */
+.weekend-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 40px 0;
+}
+
+@media (max-width: 1024px) { .weekend-steps { grid-template-columns: 1fr; } }
+
+.weekend-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.weekend-step:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-color-hover);
+}
+
+.weekend-step__day {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--f1-red);
+  margin-bottom: 12px;
+}
+
+.weekend-step__icon { font-size: 36px; margin-bottom: 16px; }
+
+.weekend-step__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.weekend-step__desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════
+   COOL TRACKS
+   ═══════════════════════════════════════════════════ */
+.track-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.track-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-color-hover);
+}
+
+.track-card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.track-card__body {
+  padding: 20px 24px 24px;
+}
+
+.track-card__name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.track-card__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════
+   QUIZ BOXES
+   ═══════════════════════════════════════════════════ */
+.quiz-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  margin: 32px 0;
+  overflow: hidden;
+}
+
+.quiz-box__header {
+  padding: 20px 24px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  background: rgba(225,6,0,0.05);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quiz-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.quiz-item:last-child { border-bottom: none; }
+
+.quiz-item summary {
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-primary);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.2s;
+}
+
+.quiz-item summary::-webkit-details-marker { display: none; }
+
+.quiz-item summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--f1-red);
+  transition: transform 0.3s;
+}
+
+.quiz-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.quiz-item summary:hover {
+  background: var(--bg-card-hover);
+}
+
+.quiz-item__answer {
+  padding: 0 24px 16px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESOURCE CARDS
+   ═══════════════════════════════════════════════════ */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.resource-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 24px;
+  transition: all 0.3s var(--ease-out-expo);
+  display: block;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.resource-card:hover {
+  border-color: var(--f1-red);
+  transform: translateY(-3px);
+  color: var(--text-primary);
+  box-shadow: 0 8px 30px rgba(225,6,0,0.1);
+}
+
+.resource-card__icon { font-size: 28px; margin-bottom: 12px; }
+
+.resource-card__title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.resource-card__desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.resource-card__tag {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--f1-red);
+}
+
+/* ═══════════════════════════════════════════════════
+   POINTS TABLE
+   ═══════════════════════════════════════════════════ */
+.points-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+}
+
+.points-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.points-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.points-table tr:hover td { background: var(--bg-card); }
+
+.points-table .pos-1 td:first-child,
+.points-table .pos-2 td:first-child,
+.points-table .pos-3 td:first-child {
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.points-table .pos-1 .points-val { color: var(--accent-gold); font-weight: 800; }
+.points-table .pos-2 .points-val { color: #C0C0C0; font-weight: 700; }
+.points-table .pos-3 .points-val { color: #CD7F32; font-weight: 700; }
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════ */
+.footer {
+  padding: 80px 0 40px;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer__tagline {
+  font-family: var(--font-editorial);
+  font-size: clamp(24px, 4vw, 36px);
+  font-style: italic;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.footer__sub {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+
+.share-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.share-btn:hover {
+  border-color: var(--f1-red);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(225,6,0,0.15);
+}
+
+.share-btn__icon { font-size: 16px; }
+.share-btn--copy.copied { border-color: #43B02A; color: #43B02A; }
+
+.footer__credit {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.footer__contribute {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+
+.footer__credit a,
+.footer__contribute a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer__credit a:hover,
+.footer__contribute a:hover { color: var(--f1-red); }
+
+.footer__bottom {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 1px;
+}
+
+/* ═══════════════════════════════════════════════════
+   REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .driver-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .team-grid { grid-template-columns: 1fr; }
+  .hero__lights { gap: 10px; }
+  .hero__light { width: 24px; height: 24px; }
+  .pitstop-visual { padding: 32px 20px; }
+  .pitstop-visual__steps { grid-template-columns: 1fr 1fr; }
+  .container { padding: 0 16px; }
+  .navbar { padding: 0 16px; }
+  .theme-toggle { width: 36px; height: 36px; font-size: 16px; }
+  .unit-toggle__btn { padding: 5px 10px; font-size: 10px; }
+  .navbar__hamburger { width: 36px; height: 36px; }
+  .car-showcase__grid { grid-template-columns: 1fr 1fr; }
+  .track-cards { grid-template-columns: 1fr; }
+  .speed-slider { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#top" class="navbar__logo">
+      <span class="navbar__logo-mark">F1</span>
+      F1 for Kids
+    </a>
+    <ul class="navbar__links">
+      <li><a href="#speed">Speed</a></li>
+      <li><a href="#drivers">Drivers</a></li>
+      <li><a href="#teams">Teams</a></li>
+      <li><a href="#cars">Cars</a></li>
+      <li><a href="#pitstops">Pit Stops</a></li>
+      <li><a href="#raceday">Race Day</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
+        <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
+        <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="icon-sun">&#9728;</span>
+        <span class="icon-moon">&#9790;</span>
+      </button>
+      <button class="navbar__hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__inner">
+    <a href="#speed" onclick="closeMobileNav()">Speed</a>
+    <a href="#drivers" onclick="closeMobileNav()">Drivers</a>
+    <a href="#teams" onclick="closeMobileNav()">Teams</a>
+    <a href="#cars" onclick="closeMobileNav()">Cars</a>
+    <a href="#pitstops" onclick="closeMobileNav()">Pit Stops</a>
+    <a href="#raceday" onclick="closeMobileNav()">Race Day</a>
+    <div class="mobile-nav__actions">
+      <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
+        <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
+        <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__lines">
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+    <div class="hero__line"></div>
+  </div>
+
+  <div class="hero__lights" id="heroLights">
+    <div class="hero__light"></div>
+    <div class="hero__light"></div>
+    <div class="hero__light"></div>
+    <div class="hero__light"></div>
+    <div class="hero__light"></div>
+  </div>
+
+  <div class="hero__badge reveal">Kids Edition &bull; 2026 Season</div>
+
+  <h1 class="hero__title reveal reveal-delay-1">
+    Welcome to<br><em>Formula 1</em>
+  </h1>
+
+  <p class="hero__subtitle reveal reveal-delay-2">
+    Your guide to the fastest sport on the planet. <span class="unit" data-imperial="230 mph" data-metric="370 km/h">230 mph</span> cars, 22 drivers, and a whole lot of excitement.
+  </p>
+
+  <div class="hero__scroll reveal reveal-delay-3">
+    <div class="hero__scroll-line"></div>
+    <span>Let's go!</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 1: HOW FAST ARE THESE CARS?!
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="speed">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">01 &mdash; Speed</span>
+      <h2 class="section-header__title">How fast are these cars?!</h2>
+      <p class="section-header__subtitle">Buckle up. These numbers are going to blow your mind.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <span class="stat-card__icon">&#9889;</span>
+        <div class="stat-card__value"><span class="unit" data-imperial="230+ mph" data-metric="370+ km/h">230+ mph</span></div>
+        <div class="stat-card__label">Top Speed</div>
+        <p class="stat-card__desc">That's faster than a cheetah (the fastest animal on land), faster than most planes when they take off, and way faster than your parents drive on the highway.</p>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <span class="stat-card__icon">&#128168;</span>
+        <div class="stat-card__value">1.80s</div>
+        <div class="stat-card__label">Pit Stop Record</div>
+        <p class="stat-card__desc">McLaren changed all 4 tires in 1.80 seconds. Try counting to two &mdash; they'd already be done. Twenty people working at once, each with one job.</p>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <span class="stat-card__icon">&#127919;</span>
+        <div class="stat-card__value">6G</div>
+        <div class="stat-card__label">G-Force on Drivers</div>
+        <p class="stat-card__desc">That's 6 times the pull of gravity! Imagine 6 copies of yourself sitting on your chest. Fighter pilots wear special suits for this. F1 drivers don't.</p>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-card__icon">&#127759;</span>
+        <div class="stat-card__value">827M</div>
+        <div class="stat-card__label">Fans Worldwide</div>
+        <p class="stat-card__desc">827 million people watch F1 around the world. That's more than the entire population of Europe! Races happen in 24 countries across 5 continents.</p>
+      </div>
+    </div>
+
+    <div class="big-quote reveal">
+      "F1 cars make so much downforce they could literally drive upside-down on the ceiling of a tunnel."
+    </div>
+
+    <div class="content-block reveal">
+      <p>Here's the wildest part: <strong>F1 cars push themselves INTO the ground so hard they could drive upside-down on a ceiling.</strong> It's called downforce &mdash; the car's wings work like an upside-down airplane wing, pushing down instead of lifting up.</p>
+      <p>Drivers go from <strong><span class="unit" data-imperial="200 mph to 50 mph" data-metric="322 km/h to 80 km/h">200 mph to 50 mph</span> in about 2 seconds</strong>, while their hearts beat as fast as yours does when you sprint flat out. And they do this for nearly two hours straight!</p>
+    </div>
+
+    <!-- Speed Comparison Slider -->
+    <div class="speed-slider reveal">
+      <div class="speed-slider__value" id="speedValue">0</div>
+      <div class="speed-slider__unit" id="speedUnit">mph</div>
+      <input type="range" min="0" max="230" value="0" id="speedRange" oninput="updateSpeedComparison(this.value)">
+      <div class="speed-slider__comparison" id="speedComparison">Drag the slider to compare an F1 car's speed!</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box reveal">
+      <div class="quiz-box__header">&#129504; Test Your Knowledge!</div>
+      <details class="quiz-item">
+        <summary>How fast can an F1 car go?</summary>
+        <div class="quiz-item__answer">Over <span class="unit" data-imperial="230 mph" data-metric="370 km/h">230 mph</span>! That's faster than most airplanes when they take off.</div>
+      </details>
+      <details class="quiz-item">
+        <summary>Could an F1 car really drive upside-down?</summary>
+        <div class="quiz-item__answer">Yes! The downforce (the invisible push from the car's wings) is stronger than the car's own weight, so in theory it could stick to a ceiling.</div>
+      </details>
+      <details class="quiz-item">
+        <summary>How many people watch F1?</summary>
+        <div class="quiz-item__answer">About 827 million people worldwide &mdash; that's more than the population of Europe!</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 2: THE DRIVERS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="drivers">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">02 &mdash; The Drivers</span>
+      <h2 class="section-header__title">Meet the grid</h2>
+      <p class="section-header__subtitle">22 of the best racing drivers on Earth. Click any card to learn a fun fact!</p>
+    </div>
+
+    <div class="driver-grid reveal">
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="mclaren">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp" alt="Lando Norris" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">1</div>
+              <div class="driver-card__flag">&#127468;&#127463;</div>
+              <div class="driver-card__name">Lando Norris</div>
+              <div class="driver-card__team">McLaren</div>
+              <span class="driver-card__tag">2025 Champion</span>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">1</div>
+            <div class="driver-card__back-flag">&#127468;&#127463;</div>
+            <div class="driver-card__back-name">Lando Norris</div>
+            <div class="driver-card__back-fact">Started karting at age 7. He's also a Twitch streamer and loves playing video games! Won the championship by just 2 points.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="red-bull">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp" alt="Max Verstappen" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">3</div>
+              <div class="driver-card__flag">&#127475;&#127473;</div>
+              <div class="driver-card__name">Max Verstappen</div>
+              <div class="driver-card__team">Red Bull Racing</div>
+              <span class="driver-card__tag">4x Champion</span>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">3</div>
+            <div class="driver-card__back-flag">&#127475;&#127473;</div>
+            <div class="driver-card__back-name">Max Verstappen</div>
+            <div class="driver-card__back-fact">Started karting at age 4! He won 19 out of 22 races in 2023 &mdash; the most dominant season ever. He's also a serious sim racer.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="ferrari">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp" alt="Lewis Hamilton" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">44</div>
+              <div class="driver-card__flag">&#127468;&#127463;</div>
+              <div class="driver-card__name">Lewis Hamilton</div>
+              <div class="driver-card__team">Ferrari</div>
+              <span class="driver-card__tag">7x Champion</span>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">44</div>
+            <div class="driver-card__back-flag">&#127468;&#127463;</div>
+            <div class="driver-card__back-name">Lewis Hamilton</div>
+            <div class="driver-card__back-fact">The most successful F1 driver ever with 7 championships and 100+ wins. He also loves fashion and music, and has a bulldog named Roscoe.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="ferrari">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp" alt="Charles Leclerc" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">16</div>
+              <div class="driver-card__flag">&#127474;&#127464;</div>
+              <div class="driver-card__name">Charles Leclerc</div>
+              <div class="driver-card__team">Ferrari</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">16</div>
+            <div class="driver-card__back-flag">&#127474;&#127464;</div>
+            <div class="driver-card__back-name">Charles Leclerc</div>
+            <div class="driver-card__back-fact">Grew up in Monaco and finally won his home race in 2024! He plays concert piano in his spare time and learned to drive in the streets of Monte Carlo.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="mclaren">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp" alt="Oscar Piastri" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">81</div>
+              <div class="driver-card__flag">&#127462;&#127482;</div>
+              <div class="driver-card__name">Oscar Piastri</div>
+              <div class="driver-card__team">McLaren</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">81</div>
+            <div class="driver-card__back-flag">&#127462;&#127482;</div>
+            <div class="driver-card__back-name">Oscar Piastri</div>
+            <div class="driver-card__back-fact">This cool Australian lets his driving do the talking. He won every junior championship before reaching F1 and is already a Grand Prix winner!</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="mercedes">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp" alt="George Russell" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">63</div>
+              <div class="driver-card__flag">&#127468;&#127463;</div>
+              <div class="driver-card__name">George Russell</div>
+              <div class="driver-card__team">Mercedes</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">63</div>
+            <div class="driver-card__back-flag">&#127468;&#127463;</div>
+            <div class="driver-card__back-name">George Russell</div>
+            <div class="driver-card__back-fact">Known as "Mr. Saturday" because he's amazing at qualifying. He's also the director of the Grand Prix Drivers' Association &mdash; basically the class president of F1!</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="red-bull">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/redbullracing/isahad01/2026redbullracingisahad01right.webp" alt="Isack Hadjar" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">6</div>
+              <div class="driver-card__flag">&#127467;&#127479;</div>
+              <div class="driver-card__name">Isack Hadjar</div>
+              <div class="driver-card__team">Red Bull Racing</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">6</div>
+            <div class="driver-card__back-flag">&#127467;&#127479;</div>
+            <div class="driver-card__back-name">Isack Hadjar</div>
+            <div class="driver-card__back-fact">Born in Paris to a French-Algerian family. He's one of the youngest drivers on the grid and fought his way up through the Red Bull junior program!</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="mercedes">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp" alt="Andrea Kimi Antonelli" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">12</div>
+              <div class="driver-card__flag">&#127470;&#127481;</div>
+              <div class="driver-card__name">Kimi Antonelli</div>
+              <div class="driver-card__team">Mercedes</div>
+              <span class="driver-card__tag">Rookie</span>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">12</div>
+            <div class="driver-card__back-flag">&#127470;&#127481;</div>
+            <div class="driver-card__back-name">Kimi Antonelli</div>
+            <div class="driver-card__back-fact">Named after F1 legend Kimi R&auml;ikk&ouml;nen! He's from Bologna, Italy, and Mercedes signed him as a teenager because he was SO fast in junior racing.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="aston-martin">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp" alt="Fernando Alonso" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">14</div>
+              <div class="driver-card__flag">&#127466;&#127480;</div>
+              <div class="driver-card__name">Fernando Alonso</div>
+              <div class="driver-card__team">Aston Martin</div>
+              <span class="driver-card__tag">2x Champion</span>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">14</div>
+            <div class="driver-card__back-flag">&#127466;&#127480;</div>
+            <div class="driver-card__back-name">Fernando Alonso</div>
+            <div class="driver-card__back-fact">The oldest driver on the grid but still super competitive! He started karting at age 3. He's been racing in F1 for over 20 years and STILL loves it.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="aston-martin">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/astonmartin/lanstr01/2026astonmartinlanstr01right.webp" alt="Lance Stroll" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">18</div>
+              <div class="driver-card__flag">&#127464;&#127462;</div>
+              <div class="driver-card__name">Lance Stroll</div>
+              <div class="driver-card__team">Aston Martin</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">18</div>
+            <div class="driver-card__back-flag">&#127464;&#127462;</div>
+            <div class="driver-card__back-name">Lance Stroll</div>
+            <div class="driver-card__back-fact">Canadian racer whose dad owns the Aston Martin team! He scored his first podium at just 18 years old, making him one of the youngest to do it.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="alpine">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/alpine/piegas01/2026alpinepiegas01right.webp" alt="Pierre Gasly" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">10</div>
+              <div class="driver-card__flag">&#127467;&#127479;</div>
+              <div class="driver-card__name">Pierre Gasly</div>
+              <div class="driver-card__team">Alpine</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">10</div>
+            <div class="driver-card__back-flag">&#127467;&#127479;</div>
+            <div class="driver-card__back-name">Pierre Gasly</div>
+            <div class="driver-card__back-fact">Pierre is from Rouen, France and loves fashion. He once won a race that nobody expected him to win &mdash; the 2020 Italian Grand Prix was one of the biggest upsets ever!</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="alpine">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/alpine/fracol01/2026alpinefracol01right.webp" alt="Franco Colapinto" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">43</div>
+              <div class="driver-card__flag">&#127462;&#127479;</div>
+              <div class="driver-card__name">Franco Colapinto</div>
+              <div class="driver-card__team">Alpine</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">43</div>
+            <div class="driver-card__back-flag">&#127462;&#127479;</div>
+            <div class="driver-card__back-name">Franco Colapinto</div>
+            <div class="driver-card__back-fact">Argentina's newest racing hero! He impressed everyone so much when he got his chance in 2024 that Alpine signed him for a full-time seat.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="williams">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp" alt="Alex Albon" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">23</div>
+              <div class="driver-card__flag">&#127481;&#127469;</div>
+              <div class="driver-card__name">Alex Albon</div>
+              <div class="driver-card__team">Williams</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">23</div>
+            <div class="driver-card__back-flag">&#127481;&#127469;</div>
+            <div class="driver-card__back-name">Alex Albon</div>
+            <div class="driver-card__back-fact">Born in London, races under the Thai flag. Alex has a cat called Eddie and loves painting! He's known as one of the nicest people in F1.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="williams">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/williams/carsai01/2026williamscarsai01right.webp" alt="Carlos Sainz" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">55</div>
+              <div class="driver-card__flag">&#127466;&#127480;</div>
+              <div class="driver-card__name">Carlos Sainz</div>
+              <div class="driver-card__team">Williams</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">55</div>
+            <div class="driver-card__back-flag">&#127466;&#127480;</div>
+            <div class="driver-card__back-name">Carlos Sainz</div>
+            <div class="driver-card__back-fact">His dad (also Carlos Sainz) is a famous rally driver! Racing is in his family's blood. He once won a race just weeks after having his appendix removed.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="racing-bulls">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/racingbulls/lialaw01/2026racingbullslialaw01right.webp" alt="Liam Lawson" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">30</div>
+              <div class="driver-card__flag">&#127475;&#127487;</div>
+              <div class="driver-card__name">Liam Lawson</div>
+              <div class="driver-card__team">Racing Bulls</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">30</div>
+            <div class="driver-card__back-flag">&#127475;&#127487;</div>
+            <div class="driver-card__back-name">Liam Lawson</div>
+            <div class="driver-card__back-fact">This New Zealander moved to Europe as a teenager to chase his F1 dream. He's fearless on track and once scored points on his very first F1 weekend!</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="racing-bulls">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/racingbulls/arvlin01/2026racingbullsarvlin01right.webp" alt="Arvid Lindblad" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">41</div>
+              <div class="driver-card__flag">&#127468;&#127463;</div>
+              <div class="driver-card__name">Arvid Lindblad</div>
+              <div class="driver-card__team">Racing Bulls</div>
+              <span class="driver-card__tag">Rookie</span>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">41</div>
+            <div class="driver-card__back-flag">&#127468;&#127463;</div>
+            <div class="driver-card__back-name">Arvid Lindblad</div>
+            <div class="driver-card__back-fact">One of the youngest rookies ever in F1! He was born in London and has been a karting champion since he was a kid &mdash; maybe not much older than you!</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="haas">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/haasf1team/estoco01/2026haasf1teamestoco01right.webp" alt="Esteban Ocon" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">31</div>
+              <div class="driver-card__flag">&#127467;&#127479;</div>
+              <div class="driver-card__name">Esteban Ocon</div>
+              <div class="driver-card__team">Haas</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">31</div>
+            <div class="driver-card__back-flag">&#127467;&#127479;</div>
+            <div class="driver-card__back-name">Esteban Ocon</div>
+            <div class="driver-card__back-fact">Esteban's family didn't have much money when he started racing &mdash; they lived in a caravan to afford his karting! He never gave up and won his first F1 race in 2021.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="haas">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/haasf1team/olibea01/2026haasf1teamolibea01right.webp" alt="Oliver Bearman" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">87</div>
+              <div class="driver-card__flag">&#127468;&#127463;</div>
+              <div class="driver-card__name">Oliver Bearman</div>
+              <div class="driver-card__team">Haas</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">87</div>
+            <div class="driver-card__back-flag">&#127468;&#127463;</div>
+            <div class="driver-card__back-name">Oliver Bearman</div>
+            <div class="driver-card__back-fact">Got called up to drive for Ferrari with almost no warning in 2024 and finished an incredible 7th place! He was still a teenager at the time.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="audi">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/audi/nichul01/2026audinichul01right.webp" alt="Nico Hülkenberg" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">27</div>
+              <div class="driver-card__flag">&#127465;&#127466;</div>
+              <div class="driver-card__name">Nico H&uuml;lkenberg</div>
+              <div class="driver-card__team">Audi</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">27</div>
+            <div class="driver-card__back-flag">&#127465;&#127466;</div>
+            <div class="driver-card__back-name">Nico H&uuml;lkenberg</div>
+            <div class="driver-card__back-fact">Known as "The Hulk"! He holds the record for most F1 races without a podium finish, but he never stops trying. Fans love his never-give-up attitude.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="audi">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/audi/gabbor01/2026audigabbor01right.webp" alt="Gabriel Bortoleto" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">5</div>
+              <div class="driver-card__flag">&#127463;&#127479;</div>
+              <div class="driver-card__name">Gabriel Bortoleto</div>
+              <div class="driver-card__team">Audi</div>
+              <span class="driver-card__tag">Rookie</span>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">5</div>
+            <div class="driver-card__back-flag">&#127463;&#127479;</div>
+            <div class="driver-card__back-name">Gabriel Bortoleto</div>
+            <div class="driver-card__back-fact">This Brazilian won the F2 championship to earn his place in F1! Brazil has a huge racing tradition &mdash; the legendary Ayrton Senna was also from Brazil.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="cadillac">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/cadillac/valbot01/2026cadillacvalbot01right.webp" alt="Valtteri Bottas" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">77</div>
+              <div class="driver-card__flag">&#127467;&#127470;</div>
+              <div class="driver-card__name">Valtteri Bottas</div>
+              <div class="driver-card__team">Cadillac</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">77</div>
+            <div class="driver-card__back-flag">&#127467;&#127470;</div>
+            <div class="driver-card__back-name">Valtteri Bottas</div>
+            <div class="driver-card__back-fact">This Finnish driver was Lewis Hamilton's teammate at Mercedes for 5 years. He loves cycling and coffee &mdash; he even has his own coffee brand!</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-card-wrapper" onclick="this.classList.toggle('flipped')">
+        <div class="driver-card" data-team="cadillac">
+          <div class="driver-card__front">
+            <img class="driver-card__photo" src="https://media.formula1.com/image/upload/c_fill,w_400,h_400,g_face/f_auto/q_auto/v1740000000/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp" alt="Sergio Pérez" loading="lazy">
+            <div class="driver-card__info">
+              <div class="driver-card__number">11</div>
+              <div class="driver-card__flag">&#127474;&#127485;</div>
+              <div class="driver-card__name">Sergio P&eacute;rez</div>
+              <div class="driver-card__team">Cadillac</div>
+              <div class="driver-card__tap-hint">Tap to flip!</div>
+            </div>
+          </div>
+          <div class="driver-card__back">
+            <div class="driver-card__back-number">11</div>
+            <div class="driver-card__back-flag">&#127474;&#127485;</div>
+            <div class="driver-card__back-name">Sergio P&eacute;rez</div>
+            <div class="driver-card__back-fact">Nicknamed "Checo" &mdash; he's a hero in Mexico and has one of the biggest fanbases in all of F1! He moved to Europe from Mexico at age 15 to chase his dream.</div>
+            <div class="driver-card__back-hint">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 3: THE TEAMS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="teams">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">03 &mdash; The Teams</span>
+      <h2 class="section-header__title">11 teams</h2>
+      <p class="section-header__subtitle">Each team designs and builds its own car. It's like 11 rival science labs competing against each other.</p>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">F1 isn't just about the drivers &mdash; it's a <strong>team sport</strong>. Behind every driver are hundreds of engineers, designers, and mechanics who build and improve the car. The best team usually wins, no matter who's driving.</p>
+    </div>
+
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-card__color" style="background: #FF8000;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">McLaren</div>
+          <div class="team-card__drivers">Lando Norris &bull; Oscar Piastri</div>
+          <div class="team-card__vibe">The comeback kids &mdash; papaya orange and full of energy!</div>
+          <div class="team-card__badge">2024 Constructors' Champs</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #3671C6;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Red Bull Racing</div>
+          <div class="team-card__drivers">Max Verstappen &bull; Isack Hadjar</div>
+          <div class="team-card__vibe">The team that dominated 2022&ndash;2024. Fast, fierce, and fueled by energy drinks.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #E8002D;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Scuderia Ferrari</div>
+          <div class="team-card__drivers">Lewis Hamilton &bull; Charles Leclerc</div>
+          <div class="team-card__vibe">The most famous team in racing. They wear red, and their super-passionate fans are called the "Tifosi."</div>
+          <div class="team-card__badge">16 Constructors' Titles</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #27F4D2;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Mercedes</div>
+          <div class="team-card__drivers">George Russell &bull; Kimi Antonelli</div>
+          <div class="team-card__vibe">Won 8 championships in a row (2014&ndash;2021). They're engineering geniuses in silver and teal.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #229971;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Aston Martin</div>
+          <div class="team-card__drivers">Fernando Alonso &bull; Lance Stroll</div>
+          <div class="team-card__vibe">British racing green with a brand-new mega-factory. Building for the future.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #FF87BC;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Alpine</div>
+          <div class="team-card__drivers">Pierre Gasly &bull; Franco Colapinto</div>
+          <div class="team-card__vibe">The French team with pink vibes. Alpine also makes cool sports cars!</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #64C4FF;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Williams</div>
+          <div class="team-card__drivers">Alex Albon &bull; Carlos Sainz</div>
+          <div class="team-card__vibe">One of F1's oldest teams, started by Sir Frank Williams. A true underdog story.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #6692FF;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Racing Bulls</div>
+          <div class="team-card__drivers">Liam Lawson &bull; Arvid Lindblad</div>
+          <div class="team-card__vibe">Red Bull's sister team where young drivers get their first shot at F1.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #B6BABD;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Haas</div>
+          <div class="team-card__drivers">Esteban Ocon &bull; Oliver Bearman</div>
+          <div class="team-card__vibe">The only American-owned team (until now). Small but scrappy!</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #FF5733;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Audi</div>
+          <div class="team-card__drivers">Nico H&uuml;lkenberg &bull; Gabriel Bortoleto</div>
+          <div class="team-card__vibe">The famous German car brand is building their own F1 engine for the first time!</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__color" style="background: #C0C0C0;"></div>
+        <div class="team-card__info">
+          <div class="team-card__name">Cadillac</div>
+          <div class="team-card__drivers">Valtteri Bottas &bull; Sergio P&eacute;rez</div>
+          <div class="team-card__vibe">Brand new for 2026! The first new team since 2016, backed by General Motors.</div>
+          <div class="team-card__badge">New Team!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 4: THE CARS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="cars">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">04 &mdash; The Cars</span>
+      <h2 class="section-header__title">Incredible machines</h2>
+      <p class="section-header__subtitle">Every team builds a brand new car each year. No two are exactly alike.</p>
+    </div>
+
+    <div class="content-block">
+      <p class="reveal">Here's something cool: <strong>the car matters MORE than the driver in F1.</strong> A great driver in a slow car will struggle. That's why the engineering battle between teams is just as exciting as the racing itself.</p>
+      <p class="reveal">Each car has over <strong>14,500 individual parts</strong> and the steering wheel alone costs about $100,000 &mdash; it has more than 25 buttons and looks more like a video game controller than a regular steering wheel!</p>
+    </div>
+
+    <div class="car-showcase reveal">
+      <div class="car-showcase__featured-wrap">
+        <img class="car-showcase__featured" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/fom-website/2026%20regulations/2026_Explainer_FIA_Above_1920x1080.webp" alt="2026 F1 car overhead view" width="1440" height="810" loading="lazy">
+      </div>
+      <div class="car-showcase__grid">
+        <div class="car-showcase__item">
+          <img src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/fom-website/2026%20regulations/2026_Explainer_FIA_Rear_1920x1080.webp" alt="2026 F1 car rear view" width="1440" height="1080" loading="lazy">
+          <div class="car-showcase__caption">The rear wing with moving parts!</div>
+        </div>
+        <div class="car-showcase__item">
+          <img src="https://images.pexels.com/photos/29252120/pexels-photo-29252120.jpeg?auto=compress&cs=tinysrgb&w=1440&h=1080&fit=crop" alt="F1 car close-up on track" width="1440" height="1080" loading="lazy">
+          <div class="car-showcase__caption">Precision engineering at speed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="reveal">Wings that actually MOVE!</h3>
+      <p class="reveal">Starting in 2026, F1 cars have <strong>active aerodynamics</strong> &mdash; that means parts of the car's wings can change shape while the car is driving! Think of it like a bird adjusting its wings.</p>
+    </div>
+
+    <div class="aero-modes reveal">
+      <div class="aero-mode">
+        <div class="aero-mode__icon">&#128170;</div>
+        <div class="aero-mode__name">Z-Mode</div>
+        <div class="aero-mode__subtitle">Maximum Grip</div>
+        <div class="aero-mode__desc">The wings open up wide to push the car into the ground. This helps drivers go around corners at incredible speeds without flying off the track.</div>
+      </div>
+      <div class="aero-mode">
+        <div class="aero-mode__icon">&#128640;</div>
+        <div class="aero-mode__name">X-Mode</div>
+        <div class="aero-mode__subtitle">Maximum Speed</div>
+        <div class="aero-mode__desc">The wings flatten out to slice through the air. Less grip, but way more speed on the straights. Perfect for overtaking!</div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="reveal">The Halo &mdash; a life saver</h3>
+      <p class="reveal">See that curved bar above the driver's head? That's the <strong>Halo</strong>. It's made from titanium (the same stuff in spacecraft!) and can hold the weight of a double-decker bus. It's saved multiple drivers' lives since it was introduced in 2018.</p>
+
+      <div class="callout reveal">
+        <p><strong>Did you know?</strong> F1 cars are actually partly electric! They use a hybrid engine that captures energy from braking and the exhaust. In 2026, the electric motor will be even more powerful &mdash; the cars will be <strong>half electric and half fuel-powered</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box reveal">
+      <div class="quiz-box__header">&#129504; Test Your Knowledge!</div>
+      <details class="quiz-item">
+        <summary>How many parts does an F1 car have?</summary>
+        <div class="quiz-item__answer">Over 14,500 individual parts! Each one is carefully designed and handmade.</div>
+      </details>
+      <details class="quiz-item">
+        <summary>What does the Halo do?</summary>
+        <div class="quiz-item__answer">The Halo is a titanium safety device above the driver's head. It protects them from flying objects and has saved several lives.</div>
+      </details>
+      <details class="quiz-item">
+        <summary>What's the difference between Z-Mode and X-Mode?</summary>
+        <div class="quiz-item__answer">Z-Mode gives maximum downforce (grip) for corners. X-Mode reduces drag for maximum speed on straights. The wings physically change shape!</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 5: PIT STOPS
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="pitstops">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">05 &mdash; Pit Stops</span>
+      <h2 class="section-header__title">Blink and you'll miss it</h2>
+      <p class="section-header__subtitle">The world record for changing all 4 tires is under 2 seconds. Seriously.</p>
+    </div>
+
+    <div class="pitstop-visual reveal">
+      <div class="pitstop-visual__timer" id="pitstopTimer">0.00</div>
+      <div class="pitstop-visual__label">World Record Pit Stop</div>
+      <div class="pitstop-visual__crew">
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+        <span class="pitstop-visual__person">&#128119;</span>
+      </div>
+      <div class="pitstop-visual__steps">
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">01</span> Car arrives in pit box</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">02</span> Jacks lift the car up</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">03</span> Gun operators loosen wheels</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">04</span> Old tires pulled off</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">05</span> New tires pushed on</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">06</span> Wheels tightened</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">07</span> Car dropped back down</div>
+        <div class="pitstop-visual__step"><span class="pitstop-visual__step-num">08</span> Green light &mdash; GO!</div>
+      </div>
+    </div>
+
+    <div class="content-block reveal">
+      <p><strong>20 people work on the car at once</strong>, and each person has exactly one job. Three people per wheel (one to remove, one to put on, one with the wheel gun), plus jack operators, a lollipop person, and more. They practice hundreds of times to get it perfect.</p>
+    </div>
+
+    <!-- Pit Stop Challenge Game -->
+    <div class="pitstop-challenge reveal">
+      <div class="pitstop-challenge__title">Can you beat the record?</div>
+      <div class="pitstop-challenge__desc">Hit the button to start, then hit it again to stop at exactly 1.80 seconds!</div>
+      <div class="pitstop-challenge__timer" id="challengeTimer">0.00</div>
+      <button class="pitstop-challenge__btn" id="challengeBtn" onclick="handlePitstopChallenge()">Start!</button>
+      <div class="pitstop-challenge__result" id="challengeResult"></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 6: RACE WEEKEND
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="raceday">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">06 &mdash; Race Day</span>
+      <h2 class="section-header__title">How a race works</h2>
+      <p class="section-header__subtitle">Three days of action. Here's how it all goes down.</p>
+    </div>
+
+    <div class="weekend-steps reveal">
+      <div class="weekend-step">
+        <div class="weekend-step__day">Friday</div>
+        <div class="weekend-step__icon">&#128203;</div>
+        <div class="weekend-step__title">Practice</div>
+        <p class="weekend-step__desc">Teams test different setups and the drivers learn the track. It's like homework before the big test!</p>
+      </div>
+      <div class="weekend-step">
+        <div class="weekend-step__day">Saturday</div>
+        <div class="weekend-step__icon">&#9201;</div>
+        <div class="weekend-step__title">Qualifying</div>
+        <p class="weekend-step__desc">Drivers try to set the fastest single lap. The fastest driver starts at the front on Sunday &mdash; that's called "pole position."</p>
+      </div>
+      <div class="weekend-step">
+        <div class="weekend-step__day">Sunday</div>
+        <div class="weekend-step__icon">&#127937;</div>
+        <div class="weekend-step__title">Race Day!</div>
+        <p class="weekend-step__desc">Five red lights go out and it's GO! About 50&ndash;70 laps of racing, pit stops, overtakes, and drama. This is what it's all about.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="reveal">Points: how you become champion</h3>
+      <p class="reveal">The top 10 finishers in each race earn points. At the end of the season (24 races!), whoever has the most points wins the World Championship.</p>
+
+      <table class="points-table reveal">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pos-1"><td>1st (Winner!)</td><td class="points-val">25</td></tr>
+          <tr class="pos-2"><td>2nd</td><td class="points-val">18</td></tr>
+          <tr class="pos-3"><td>3rd</td><td class="points-val">15</td></tr>
+          <tr><td>4th</td><td>12</td></tr>
+          <tr><td>5th</td><td>10</td></tr>
+          <tr><td>6th &ndash; 10th</td><td>8 down to 1</td></tr>
+          <tr><td>11th &ndash; 22nd</td><td>0 (no points)</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="reveal">5 coolest tracks in the world</h3>
+      <p class="reveal">F1 races happen all around the world &mdash; 24 different countries in 2026! Here are some of the most famous ones:</p>
+    </div>
+
+    <div class="track-cards reveal">
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_960,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20702702702maps%2016702702702x9/Monaco_702702702702Circuit.png" alt="Monaco Circuit" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Monaco</div>
+          <div class="track-card__desc">Racing through the streets of Monte Carlo! So narrow that overtaking is nearly impossible. The most glamorous race on the calendar.</div>
+        </div>
+      </div>
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_960,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Great_702Britain_702Circuit.png" alt="Silverstone Circuit" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Silverstone (UK)</div>
+          <div class="track-card__desc">The home of F1! This is where the very first Grand Prix was held in 1950. Super-fast corners that test drivers' bravery.</div>
+        </div>
+      </div>
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_960,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Belgium_Circuit.png" alt="Spa-Francorchamps Circuit" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Spa (Belgium)</div>
+          <div class="track-card__desc">Famous for "Eau Rouge" &mdash; a scary uphill corner taken at full speed. The weather can be sunny on one side of the track and raining on the other!</div>
+        </div>
+      </div>
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_960,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Italy_Circuit.png" alt="Monza Circuit" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Monza (Italy)</div>
+          <div class="track-card__desc">Called the "Temple of Speed" because it's one of the fastest tracks ever. Ferrari's home race &mdash; the atmosphere is absolutely electric!</div>
+        </div>
+      </div>
+      <div class="track-card">
+        <img class="track-card__image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_960,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Japan_Circuit.png" alt="Suzuka Circuit" loading="lazy">
+        <div class="track-card__body">
+          <div class="track-card__name">Suzuka (Japan)</div>
+          <div class="track-card__desc">The only figure-eight shaped track in F1! The road actually crosses over itself. Japanese fans are some of the most dedicated in the world.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box reveal">
+      <div class="quiz-box__header">&#129504; Test Your Knowledge!</div>
+      <details class="quiz-item">
+        <summary>How many points does the winner of a race get?</summary>
+        <div class="quiz-item__answer">25 points! Second place gets 18 and third place gets 15.</div>
+      </details>
+      <details class="quiz-item">
+        <summary>What is "pole position"?</summary>
+        <div class="quiz-item__answer">Starting first on the grid! The driver who sets the fastest lap in qualifying earns pole position for the race.</div>
+      </details>
+      <details class="quiz-item">
+        <summary>Which track is shaped like a figure eight?</summary>
+        <div class="quiz-item__answer">Suzuka in Japan! The track crosses over itself, making it unique in all of motorsport.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 7: WHAT NOW?
+     ══════════════════════════════════════════════════════ -->
+<section class="section-space" id="start">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__number">07 &mdash; What Now?</span>
+      <h2 class="section-header__title">Jump in!</h2>
+      <p class="section-header__subtitle">Ready to become an F1 fan? Here's the best way to get started.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="reveal">Famous radio moments</h3>
+      <p class="reveal">One of the coolest things about F1 is <strong>team radio</strong> &mdash; you can actually hear drivers talking to their teams during the race! They shout, celebrate, complain, and sometimes say really funny things at <span class="unit" data-imperial="200 mph" data-metric="322 km/h">200 mph</span>. No other sport lets you hear what athletes are thinking in real time.</p>
+
+      <div class="callout reveal">
+        <p><strong>Classic moment:</strong> When a driver named Kimi R&auml;ikk&ouml;nen was told over the radio what his teammate was doing, he famously replied: "Leave me alone, I know what I'm doing." He won the race!</p>
+      </div>
+    </div>
+
+    <div class="resources-grid reveal">
+      <a class="resource-card" href="https://tv.apple.com/channel/tvs.sbd.7000" target="_blank" rel="noopener">
+        <div class="resource-card__icon">&#127909;</div>
+        <div class="resource-card__title">Watch on Apple TV</div>
+        <div class="resource-card__desc">Starting in 2026, you can watch all the races live on Apple TV in the US!</div>
+        <span class="resource-card__tag">Watch Live &rarr;</span>
+      </a>
+      <a class="resource-card" href="https://www.netflix.com/title/80204890" target="_blank" rel="noopener">
+        <div class="resource-card__icon">&#127916;</div>
+        <div class="resource-card__title">Drive to Survive</div>
+        <div class="resource-card__desc">This Netflix show follows the drama behind the scenes. It's how millions of people first got into F1!</div>
+        <span class="resource-card__tag">Netflix &rarr;</span>
+      </a>
+      <a class="resource-card" href="https://www.ea.com/games/f1/f1-25" target="_blank" rel="noopener">
+        <div class="resource-card__icon">&#127918;</div>
+        <div class="resource-card__title">F1 25 Video Game</div>
+        <div class="resource-card__desc">Race as any driver on any track! A great way to learn the circuits and feel what it's like to drive an F1 car.</div>
+        <span class="resource-card__tag">Play &rarr;</span>
+      </a>
+      <a class="resource-card" href="https://fantasy.formula1.com" target="_blank" rel="noopener">
+        <div class="resource-card__icon">&#127942;</div>
+        <div class="resource-card__title">F1 Fantasy (Free!)</div>
+        <div class="resource-card__desc">Pick your own team of drivers and compete against friends. It's free and a great way to learn who's fast!</div>
+        <span class="resource-card__tag">Free Game &rarr;</span>
+      </a>
+      <a class="resource-card" href="https://www.youtube.com/@chainbear" target="_blank" rel="noopener">
+        <div class="resource-card__icon">&#128250;</div>
+        <div class="resource-card__title">Chain Bear (YouTube)</div>
+        <div class="resource-card__desc">Amazing animated videos that explain F1 rules, strategy, and engineering in a really fun way.</div>
+        <span class="resource-card__tag">Learn More &rarr;</span>
+      </a>
+      <a class="resource-card" href="https://www.formula1.com/en/f1-75/app.html" target="_blank" rel="noopener">
+        <div class="resource-card__icon">&#128241;</div>
+        <div class="resource-card__title">Official F1 App</div>
+        <div class="resource-card__desc">Live timing, race results, driver standings, and more. Follow everything from your phone!</div>
+        <span class="resource-card__tag">Download &rarr;</span>
+      </a>
+    </div>
+
+    <div class="content-block" style="margin-top: 48px;">
+      <div class="callout reveal">
+        <p><strong>Top tip for new fans:</strong> Pick a driver you like and follow their journey through the season. It makes every race more exciting when you have someone to cheer for!</p>
+      </div>
+
+      <p class="reveal" style="text-align: center; margin-top: 32px;">
+        <strong>Want the complete guide with even more details?</strong><br>
+        Check out the <a href="/">full Welcome to Formula 1 guide</a> for grown-ups (and older teens)!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer__tagline reveal">Lights out and away we go!</p>
+    <p class="footer__sub reveal">Know someone who'd enjoy this? Share it!</p>
+    <div class="share-actions reveal">
+      <button class="share-btn share-btn--copy" onclick="copyPageUrl()" id="copyUrlBtn">
+        <span class="share-btn__icon">&#128279;</span>
+        <span class="share-btn__label" id="copyUrlLabel">Copy Link</span>
+      </button>
+      <button class="share-btn share-btn--native" onclick="nativeShare()" id="nativeShareBtn" style="display:none;">
+        <span class="share-btn__icon">&#8599;</span>
+        <span class="share-btn__label">Share</span>
+      </button>
+    </div>
+    <p class="footer__credit reveal">Part of <a href="/">Welcome to Formula 1</a> &mdash; the beginner's guide to F1.</p>
+    <p class="footer__contribute reveal">Want to help make this guide even better? <a href="https://github.com/joshferrara/welcome-to-f1" target="_blank" rel="noopener">Contribute on GitHub</a>.</p>
+    <p class="footer__bottom">2026 Season &bull; Kids Edition &bull; Made with love and Ferrari delusion by <a href="https://joshferrara.com" target="_blank" rel="noopener">Josh Ferrara</a></p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════
+     JAVASCRIPT
+     ══════════════════════════════════════════════════════ -->
+<script>
+// ── Theme Toggle ──
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('f1-kids-theme', next);
+}
+
+(function() {
+  const saved = localStorage.getItem('f1-kids-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+// ── Unit Toggle ──
+function setUnits(unit) {
+  document.documentElement.setAttribute('data-units', unit);
+  document.querySelectorAll('.unit').forEach(el => {
+    el.textContent = el.dataset[unit];
+  });
+  document.querySelectorAll('.unit-toggle__btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.unit === unit);
+  });
+  localStorage.setItem('f1-kids-units', unit);
+  // Update speed slider if visible
+  const slider = document.getElementById('speedRange');
+  if (slider) updateSpeedComparison(slider.value);
+}
+
+(function() {
+  const saved = localStorage.getItem('f1-kids-units');
+  if (saved) setUnits(saved);
+})();
+
+// ── Navbar scroll effect ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// ── Scroll Progress Bar ──
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  scrollProgress.style.width = progress + '%';
+});
+
+// ── Scroll reveal ──
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ── Hero lights animation ──
+(function animateLights() {
+  const lights = document.querySelectorAll('.hero__light');
+  let i = 0;
+
+  function lightUp() {
+    if (i < lights.length) {
+      lights[i].classList.add('on');
+      i++;
+      setTimeout(lightUp, 600);
+    } else {
+      setTimeout(() => {
+        lights.forEach(l => l.classList.remove('on'));
+        i = 0;
+        setTimeout(lightUp, 2000);
+      }, 1500);
+    }
+  }
+
+  setTimeout(lightUp, 800);
+})();
+
+// ── Pit stop timer animation ──
+const pitstopTimer = document.getElementById('pitstopTimer');
+const pitstopObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animatePitstop();
+      pitstopObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+if (pitstopTimer) pitstopObserver.observe(pitstopTimer);
+
+function animatePitstop() {
+  const target = 1.80;
+  const duration = 1800;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = (eased * target).toFixed(2);
+    pitstopTimer.textContent = current;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      pitstopTimer.textContent = '1.80';
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+// ── Speed Comparison Slider ──
+function updateSpeedComparison(value) {
+  const speed = parseInt(value);
+  const isMetric = document.documentElement.getAttribute('data-units') === 'metric';
+  const displaySpeed = isMetric ? Math.round(speed * 1.609) : speed;
+  const unitLabel = isMetric ? 'km/h' : 'mph';
+
+  document.getElementById('speedValue').textContent = displaySpeed;
+  document.getElementById('speedUnit').textContent = unitLabel;
+
+  let comparison = '';
+  if (speed === 0) {
+    comparison = 'Drag the slider to compare an F1 car\'s speed!';
+  } else if (speed <= 15) {
+    comparison = 'About as fast as <strong>Usain Bolt</strong> sprinting!';
+  } else if (speed <= 30) {
+    comparison = 'About as fast as a <strong>school zone speed limit</strong>.';
+  } else if (speed <= 50) {
+    comparison = 'Highway speed! This is how fast <strong>most cars</strong> go.';
+  } else if (speed <= 75) {
+    comparison = 'Faster than a <strong>cheetah</strong>, the fastest land animal!';
+  } else if (speed <= 120) {
+    comparison = 'As fast as a <strong>peregrine falcon</strong> in a dive &mdash; the fastest bird!';
+  } else if (speed <= 170) {
+    comparison = 'Faster than a <strong>bullet train</strong> in Japan!';
+  } else if (speed <= 200) {
+    comparison = 'As fast as a <strong>small airplane taking off</strong>!';
+  } else {
+    comparison = 'Full F1 speed! Faster than <strong>almost everything on Earth</strong>!';
+  }
+
+  document.getElementById('speedComparison').innerHTML = comparison;
+}
+
+// ── Pit Stop Challenge Game ──
+let challengeState = 'idle'; // idle, running, done
+let challengeStart = 0;
+let challengeRAF = null;
+
+function handlePitstopChallenge() {
+  const timer = document.getElementById('challengeTimer');
+  const btn = document.getElementById('challengeBtn');
+  const result = document.getElementById('challengeResult');
+
+  if (challengeState === 'idle' || challengeState === 'done') {
+    // Start the timer
+    challengeState = 'running';
+    challengeStart = performance.now();
+    btn.textContent = 'Stop!';
+    btn.style.background = '#43B02A';
+    result.innerHTML = '';
+
+    function tick() {
+      if (challengeState !== 'running') return;
+      const elapsed = ((performance.now() - challengeStart) / 1000).toFixed(2);
+      timer.textContent = elapsed;
+      if (parseFloat(elapsed) < 10) {
+        challengeRAF = requestAnimationFrame(tick);
+      } else {
+        // Auto-stop at 10 seconds
+        challengeState = 'done';
+        btn.textContent = 'Try Again!';
+        btn.style.background = '';
+        result.innerHTML = 'Too slow! The tires would have gone flat by now. Try again!';
+      }
+    }
+
+    challengeRAF = requestAnimationFrame(tick);
+  } else if (challengeState === 'running') {
+    // Stop the timer
+    cancelAnimationFrame(challengeRAF);
+    challengeState = 'done';
+    const elapsed = ((performance.now() - challengeStart) / 1000).toFixed(2);
+    timer.textContent = elapsed;
+    btn.textContent = 'Try Again!';
+    btn.style.background = '';
+
+    const diff = Math.abs(parseFloat(elapsed) - 1.80).toFixed(2);
+
+    if (diff <= 0.05) {
+      result.innerHTML = '<strong>INCREDIBLE!</strong> You were only ' + diff + 's off the world record! You could work in an F1 pit crew!';
+    } else if (diff <= 0.20) {
+      result.innerHTML = '<strong>So close!</strong> You were ' + diff + 's off. That\'s almost pit crew level!';
+    } else if (diff <= 0.50) {
+      result.innerHTML = '<strong>Nice try!</strong> You were ' + diff + 's off the record. Keep practicing!';
+    } else if (diff <= 1.00) {
+      result.innerHTML = 'You were ' + diff + 's off. Not bad, but a real pit crew would have been done by now!';
+    } else {
+      result.innerHTML = 'You were ' + diff + 's off. The pit crew changes tires faster than that! Try again!';
+    }
+  }
+}
+
+// ── Smooth scroll for nav links ──
+document.querySelectorAll('.navbar__links a, .mobile-nav__inner a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ── Mobile nav ──
+function toggleMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.getElementById('hamburgerBtn');
+  nav.classList.toggle('open');
+  btn.classList.toggle('active');
+}
+
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('active');
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1024) closeMobileNav();
+});
+
+// ── Active nav link on scroll ──
+const navLinks = document.querySelectorAll('.navbar__links a');
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0, rootMargin: '-50% 0px -50% 0px' });
+
+document.querySelectorAll('section[id]').forEach(section => {
+  sectionObserver.observe(section);
+});
+
+// ── Share functionality ──
+function copyPageUrl() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const btn = document.getElementById('copyUrlBtn');
+    const label = document.getElementById('copyUrlLabel');
+    btn.classList.add('copied');
+    label.textContent = 'Copied!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      label.textContent = 'Copy Link';
+    }, 2000);
+  });
+}
+
+function nativeShare() {
+  navigator.share({
+    title: 'Welcome to Formula 1 — Kids Edition',
+    text: 'Check out this awesome guide to Formula 1 for kids!',
+    url: window.location.href
+  });
+}
+
+if (navigator.share) {
+  document.getElementById('nativeShareBtn').style.display = 'flex';
+}
+</script>
+
+</body>
+</html>
