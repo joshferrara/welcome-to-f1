@@ -3885,47 +3885,41 @@ const engineAudioPlayer = document.getElementById('engineAudioPlayer');
 let activeEngineId = null;
 
 // Haptic feedback for Honda engine sound
-// iOS: uses a pool of hidden <input type="checkbox" switch> elements
-// positioned off-screen and rotates clicks between them via rAF.
-// Rotating across multiple elements + using rAF (not setInterval, which
-// iOS throttles during audio playback) keeps the Taptic Engine firing.
+// iOS: uses a hidden <input type="checkbox" switch> clicked every rAF frame.
+// Full 60fps clicking produces the smoothest sustained haptic buzz.
+// The element is recreated every ~1s (60 frames) to reset any iOS
+// throttling that causes the haptic to stop after a few seconds.
 // Android: uses navigator.vibrate() with a long repeating pattern.
 let hapticRunning = false;
-const HAPTIC_POOL_SIZE = 4;
-let hapticPool = [];
-let hapticPoolIndex = 0;
-let hapticLastTick = 0;
+let hapticLabel = null;
+let hapticFrameCount = 0;
 
-function createHapticPool() {
-  hapticPool.forEach(el => el.remove());
-  hapticPool = [];
-  for (let i = 0; i < HAPTIC_POOL_SIZE; i++) {
-    const label = document.createElement('label');
-    label.ariaHidden = 'true';
-    label.style.position = 'fixed';
-    label.style.left = '-9999px';
-    label.style.top = '-9999px';
-    label.style.opacity = '0';
-    label.style.pointerEvents = 'none';
-    const input = document.createElement('input');
-    input.type = 'checkbox';
-    input.setAttribute('switch', '');
-    label.appendChild(input);
-    document.body.appendChild(label);
-    hapticPool.push(label);
-  }
-  hapticPoolIndex = 0;
+function createHapticEl() {
+  if (hapticLabel) hapticLabel.remove();
+  const label = document.createElement('label');
+  label.ariaHidden = 'true';
+  label.style.position = 'fixed';
+  label.style.left = '-9999px';
+  label.style.top = '-9999px';
+  label.style.opacity = '0';
+  label.style.pointerEvents = 'none';
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.setAttribute('switch', '');
+  label.appendChild(input);
+  document.body.appendChild(label);
+  hapticLabel = label;
+  hapticFrameCount = 0;
 }
 
-function hapticLoop(ts) {
+function hapticLoop() {
   if (!hapticRunning) return;
-  // Throttle to ~50ms between ticks (~20 ticks/sec)
-  if (ts - hapticLastTick >= 50) {
-    hapticLastTick = ts;
-    const label = hapticPool[hapticPoolIndex];
-    if (label) label.click();
-    hapticPoolIndex = (hapticPoolIndex + 1) % HAPTIC_POOL_SIZE;
+  hapticFrameCount++;
+  // Recreate element every ~1s to reset any iOS throttling
+  if (hapticFrameCount >= 60) {
+    createHapticEl();
   }
+  if (hapticLabel) hapticLabel.click();
   requestAnimationFrame(hapticLoop);
 }
 
@@ -3944,16 +3938,17 @@ function startHondaHaptic() {
     navigator.vibrate(pattern);
   }
 
-  // iOS: create a pool of switch checkboxes and rotate clicks via rAF
-  createHapticPool();
-  hapticLastTick = 0;
+  // iOS: click hidden switch checkbox every frame for smooth haptic
+  createHapticEl();
   requestAnimationFrame(hapticLoop);
 }
 
 function stopHondaHaptic() {
   hapticRunning = false;
-  hapticPool.forEach(el => el.remove());
-  hapticPool = [];
+  if (hapticLabel) {
+    hapticLabel.remove();
+    hapticLabel = null;
+  }
   if (typeof navigator.vibrate === 'function') navigator.vibrate(0);
 }
 
