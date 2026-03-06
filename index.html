@@ -3885,24 +3885,65 @@ const engineAudioPlayer = document.getElementById('engineAudioPlayer');
 let activeEngineId = null;
 
 // Haptic feedback for Honda engine sound
-const canVibrate = typeof navigator.vibrate === 'function';
-let hondaHapticTimer = null;
+// Uses the hidden <input type="checkbox" switch> technique from web-haptics
+// (https://github.com/lochie/web-haptics) to trigger native haptic feedback
+// on iOS Safari. Falls back to navigator.vibrate() on Android.
+let hondaHapticRafId = null;
+let hapticLabel = null;
+
+function ensureHapticDOM() {
+  if (hapticLabel) return;
+  hapticLabel = document.createElement('label');
+  hapticLabel.setAttribute('for', 'haptic-toggle');
+  hapticLabel.style.position = 'fixed';
+  hapticLabel.style.left = '-9999px';
+  hapticLabel.style.opacity = '0';
+  hapticLabel.style.pointerEvents = 'none';
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.setAttribute('switch', '');
+  checkbox.id = 'haptic-toggle';
+  checkbox.style.all = 'initial';
+  checkbox.style.appearance = 'auto';
+  checkbox.style.display = 'none';
+  hapticLabel.appendChild(checkbox);
+  document.body.appendChild(hapticLabel);
+}
 
 function startHondaHaptic() {
-  if (!canVibrate || hondaHapticTimer) return;
-  // Repeating short bursts: 80ms vibrate, 60ms pause — mimics engine rumble
-  hondaHapticTimer = setInterval(() => {
+  if (hondaHapticRafId) return;
+  ensureHapticDOM();
+
+  // Also use navigator.vibrate for Android
+  if (typeof navigator.vibrate === 'function') {
     navigator.vibrate([80, 60, 50, 80, 40]);
-  }, 310);
-  navigator.vibrate([80, 60, 50, 80, 40]); // kick off immediately
+  }
+
+  // Rapid label clicks for iOS haptic via switch checkbox
+  let lastClickTime = 0;
+  const CLICK_INTERVAL = 16; // ~60fps, every frame at full intensity
+
+  function loop(now) {
+    if (now - lastClickTime >= CLICK_INTERVAL) {
+      hapticLabel.click();
+      lastClickTime = now;
+
+      // Re-fire Android vibration pattern periodically
+      if (typeof navigator.vibrate === 'function' && Math.round(now) % 310 < CLICK_INTERVAL) {
+        navigator.vibrate([80, 60, 50, 80, 40]);
+      }
+    }
+    hondaHapticRafId = requestAnimationFrame(loop);
+  }
+  hondaHapticRafId = requestAnimationFrame(loop);
 }
 
 function stopHondaHaptic() {
-  if (hondaHapticTimer) {
-    clearInterval(hondaHapticTimer);
-    hondaHapticTimer = null;
+  if (hondaHapticRafId) {
+    cancelAnimationFrame(hondaHapticRafId);
+    hondaHapticRafId = null;
   }
-  if (canVibrate) navigator.vibrate(0); // cancel any in-progress vibration
+  if (typeof navigator.vibrate === 'function') navigator.vibrate(0);
 }
 
 function updateEngineRows() {
