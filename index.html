@@ -1369,6 +1369,96 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 .points-table .pos-3 .points-val { color: #CD7F32; font-weight: 700; }
 
 /* ═══════════════════════════════════════════════════
+   CHAMPIONSHIP STANDINGS
+   ═══════════════════════════════════════════════════ */
+.standings-wrapper:empty { display: none; }
+
+.standings-wrapper {
+  margin-top: 40px;
+}
+
+.standings-wrapper h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+.standings-updated {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  margin-bottom: 16px;
+}
+
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.standings-table th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.standings-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.standings-table tr:hover td {
+  background: var(--bg-card);
+}
+
+.standings-table .pos-1 td:first-child,
+.standings-table .pos-2 td:first-child,
+.standings-table .pos-3 td:first-child {
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.standings-table .pos-1 td:nth-child(2) { color: var(--accent-gold); font-weight: 800; }
+.standings-table .pos-2 td:nth-child(2) { color: #C0C0C0; font-weight: 700; }
+.standings-table .pos-3 td:nth-child(2) { color: #CD7F32; font-weight: 700; }
+
+.standings-table td:nth-child(2) {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.standings-wrapper { overflow-x: auto; }
+
+.driver-card__points:empty,
+.team-card__points:empty { display: none; }
+
+.driver-card__points {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 0.5px;
+}
+
+.team-card__points {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════════════════════════════════════════════
    TIMELINE (Recent History)
    ═══════════════════════════════════════════════════ */
 .timeline {
@@ -2544,6 +2634,9 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       <div class="callout reveal">
         <p><strong>Sprint points:</strong> The top 8 in Sprint Races earn bonus points (8&ndash;7&ndash;6&ndash;5&ndash;4&ndash;3&ndash;2&ndash;1). These count toward both championships, and across 6 sprint weekends, they can make a real difference in a tight title fight.</p>
       </div>
+
+      <div class="standings-wrapper reveal" id="driverStandingsTable"></div>
+      <div class="standings-wrapper reveal" id="constructorStandingsTable"></div>
     </div>
   </div>
 </section>
@@ -3835,6 +3928,258 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
      JAVASCRIPT
      ══════════════════════════════════════════════════════ -->
 <script>
+// ── Championship Standings Data ──
+// (Updated at build time by scripts/update-standings.js)
+<!-- STANDINGS_DATA_START -->
+const driverStandings = [
+  {
+    "pos": 1,
+    "code": "RUS",
+    "name": "George Russell",
+    "team": "Mercedes-AMG",
+    "points": 25,
+    "wins": 1
+  },
+  {
+    "pos": 2,
+    "code": "ANT",
+    "name": "Andrea Kimi Antonelli",
+    "team": "Mercedes-AMG",
+    "points": 18,
+    "wins": 0
+  },
+  {
+    "pos": 3,
+    "code": "LEC",
+    "name": "Charles Leclerc",
+    "team": "Scuderia Ferrari",
+    "points": 15,
+    "wins": 0
+  },
+  {
+    "pos": 4,
+    "code": "HAM",
+    "name": "Lewis Hamilton",
+    "team": "Scuderia Ferrari",
+    "points": 12,
+    "wins": 0
+  },
+  {
+    "pos": 5,
+    "code": "NOR",
+    "name": "Lando Norris",
+    "team": "McLaren",
+    "points": 10,
+    "wins": 0
+  },
+  {
+    "pos": 6,
+    "code": "VER",
+    "name": "Max Verstappen",
+    "team": "Red Bull Racing",
+    "points": 8,
+    "wins": 0
+  },
+  {
+    "pos": 7,
+    "code": "BEA",
+    "name": "Oliver Bearman",
+    "team": "Haas",
+    "points": 6,
+    "wins": 0
+  },
+  {
+    "pos": 8,
+    "code": "LIN",
+    "name": "Arvid Lindblad",
+    "team": "Racing Bulls",
+    "points": 4,
+    "wins": 0
+  },
+  {
+    "pos": 9,
+    "code": "BOR",
+    "name": "Gabriel Bortoleto",
+    "team": "Audi",
+    "points": 2,
+    "wins": 0
+  },
+  {
+    "pos": 10,
+    "code": "GAS",
+    "name": "Pierre Gasly",
+    "team": "Alpine",
+    "points": 1,
+    "wins": 0
+  },
+  {
+    "pos": 11,
+    "code": "OCO",
+    "name": "Esteban Ocon",
+    "team": "Haas",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": 12,
+    "code": "ALB",
+    "name": "Alexander Albon",
+    "team": "Williams",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": 13,
+    "code": "LAW",
+    "name": "Liam Lawson",
+    "team": "Racing Bulls",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": 14,
+    "code": "COL",
+    "name": "Franco Colapinto",
+    "team": "Alpine",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": 15,
+    "code": "SAI",
+    "name": "Carlos Sainz",
+    "team": "Williams",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": 16,
+    "code": "PER",
+    "name": "Sergio Pérez",
+    "team": "Cadillac F1 Team",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": null,
+    "code": "STR",
+    "name": "Lance Stroll",
+    "team": "Aston Martin",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": null,
+    "code": "ALO",
+    "name": "Fernando Alonso",
+    "team": "Aston Martin",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": null,
+    "code": "BOT",
+    "name": "Valtteri Bottas",
+    "team": "Cadillac F1 Team",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": null,
+    "code": "HAD",
+    "name": "Isack Hadjar",
+    "team": "Red Bull Racing",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": null,
+    "code": "PIA",
+    "name": "Oscar Piastri",
+    "team": "McLaren",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": null,
+    "code": "HUL",
+    "name": "Nico Hülkenberg",
+    "team": "Audi",
+    "points": 0,
+    "wins": 0
+  }
+];
+const constructorStandings = [
+  {
+    "pos": 1,
+    "name": "Mercedes-AMG",
+    "points": 43,
+    "wins": 1
+  },
+  {
+    "pos": 2,
+    "name": "Scuderia Ferrari",
+    "points": 27,
+    "wins": 0
+  },
+  {
+    "pos": 3,
+    "name": "McLaren",
+    "points": 10,
+    "wins": 0
+  },
+  {
+    "pos": 4,
+    "name": "Red Bull Racing",
+    "points": 8,
+    "wins": 0
+  },
+  {
+    "pos": 5,
+    "name": "Haas",
+    "points": 6,
+    "wins": 0
+  },
+  {
+    "pos": 6,
+    "name": "Racing Bulls",
+    "points": 4,
+    "wins": 0
+  },
+  {
+    "pos": 7,
+    "name": "Audi",
+    "points": 2,
+    "wins": 0
+  },
+  {
+    "pos": 8,
+    "name": "Alpine",
+    "points": 1,
+    "wins": 0
+  },
+  {
+    "pos": 9,
+    "name": "Williams",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": 10,
+    "name": "Cadillac",
+    "points": 0,
+    "wins": 0
+  },
+  {
+    "pos": null,
+    "name": "Aston Martin",
+    "points": 0,
+    "wins": 0
+  }
+];
+const standingsLastUpdated = "2026-03-13T19:47:23.258Z";
+<!-- STANDINGS_DATA_END -->
+
 // ── Theme Toggle ──
 function toggleTheme() {
   const html = document.documentElement;
@@ -4279,6 +4624,86 @@ if (navigator.share) {
         }
       }
     }
+  }
+})();
+
+// ── Championship Standings Rendering ──
+(function() {
+  if (!driverStandings.length && !constructorStandings.length) return;
+
+  function posClass(pos) {
+    if (pos === 1) return 'pos-1';
+    if (pos === 2) return 'pos-2';
+    if (pos === 3) return 'pos-3';
+    return '';
+  }
+
+  function updatedLabel() {
+    if (!standingsLastUpdated) return '';
+    var d = new Date(standingsLastUpdated);
+    return '<div class="standings-updated">Updated ' + d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + '</div>';
+  }
+
+  // Driver standings table
+  if (driverStandings.length) {
+    var dEl = document.getElementById('driverStandingsTable');
+    if (dEl) {
+      var html = '<h3>2026 Driver Standings</h3>' + updatedLabel();
+      html += '<table class="standings-table"><thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th>Pts</th><th>Wins</th></tr></thead><tbody>';
+      driverStandings.forEach(function(d) {
+        html += '<tr class="' + posClass(d.pos) + '"><td>' + d.pos + '</td><td>' + d.name + '</td><td>' + d.team + '</td><td>' + d.points + '</td><td>' + d.wins + '</td></tr>';
+      });
+      html += '</tbody></table>';
+      dEl.innerHTML = html;
+    }
+  }
+
+  // Constructor standings table
+  if (constructorStandings.length) {
+    var cEl = document.getElementById('constructorStandingsTable');
+    if (cEl) {
+      var html = '<h3>2026 Constructor Standings</h3>';
+      html += '<table class="standings-table"><thead><tr><th>Pos</th><th>Team</th><th>Pts</th><th>Wins</th></tr></thead><tbody>';
+      constructorStandings.forEach(function(c) {
+        html += '<tr class="' + posClass(c.pos) + '"><td>' + c.pos + '</td><td>' + c.name + '</td><td>' + c.points + '</td><td>' + c.wins + '</td></tr>';
+      });
+      html += '</tbody></table>';
+      cEl.innerHTML = html;
+    }
+  }
+
+  // Inject points into driver cards
+  if (driverStandings.length) {
+    document.querySelectorAll('.driver-card__name').forEach(function(nameEl) {
+      var name = nameEl.textContent.trim();
+      var match = driverStandings.find(function(d) { return d.name === name; });
+      if (match) {
+        var ptsEl = document.createElement('div');
+        ptsEl.className = 'driver-card__points';
+        ptsEl.textContent = match.points + ' pts';
+        var info = nameEl.closest('.driver-card__info');
+        var social = info.querySelector('.social-links');
+        if (social) info.insertBefore(ptsEl, social);
+        else info.appendChild(ptsEl);
+      }
+    });
+  }
+
+  // Inject points into team cards
+  if (constructorStandings.length) {
+    document.querySelectorAll('.team-card__name').forEach(function(nameEl) {
+      var name = nameEl.textContent.trim();
+      var match = constructorStandings.find(function(c) { return c.name === name; });
+      if (match) {
+        var ptsEl = document.createElement('div');
+        ptsEl.className = 'team-card__points';
+        ptsEl.textContent = 'P' + match.pos + ' \u2014 ' + match.points + ' pts';
+        var info = nameEl.closest('.team-card__info');
+        var social = info.querySelector('.social-links');
+        if (social) info.insertBefore(ptsEl, social);
+        else info.appendChild(ptsEl);
+      }
+    });
   }
 })();
 </script>
