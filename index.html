@@ -2319,9 +2319,138 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 }
 
 /* ═══════════════════════════════════════════════════
+   FLOATING TABLE OF CONTENTS
+   ═══════════════════════════════════════════════════ */
+.toc {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 800;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out-expo);
+}
+
+.toc.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toc__inner {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 16px 12px;
+  max-height: 70vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.toc__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.toc__label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  padding: 0 8px 10px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 8px;
+}
+
+.toc__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toc__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s var(--ease-out-expo);
+  cursor: pointer;
+}
+
+.toc__link:hover {
+  background: var(--bg-card-hover);
+}
+
+.toc__number {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  min-width: 18px;
+  text-align: right;
+  transition: color 0.2s;
+}
+
+.toc__name {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.toc__link.active {
+  background: var(--bg-card-hover);
+}
+
+.toc__link.active .toc__number {
+  color: var(--f1-red);
+}
+
+.toc__link.active .toc__name {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.toc__progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--border-color);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.toc__progress-bar {
+  width: 100%;
+  background: var(--f1-red);
+  border-radius: 3px;
+  transition: height 0.3s var(--ease-out-expo);
+}
+
+/* ═══════════════════════════════════════════════════
    RESPONSIVE ADJUSTMENTS
    ═══════════════════════════════════════════════════ */
+@media (max-width: 1440px) {
+  .toc { left: 8px; }
+  .toc__name { display: none; }
+  .toc__link { padding: 6px; justify-content: center; }
+  .toc__number { min-width: auto; text-align: center; font-size: 10px; }
+  .toc__inner { padding: 14px 8px; }
+  .toc__label { display: none; }
+}
+
 @media (max-width: 1024px) {
+  .toc { display: none; }
   .stats-grid { grid-template-columns: 1fr; }
   .driver-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
   .team-grid { grid-template-columns: 1fr; }
@@ -2396,6 +2525,30 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
     </div>
   </div>
 </div>
+
+<!-- ══════════════════════════════════════════════════════
+     FLOATING TABLE OF CONTENTS
+     ══════════════════════════════════════════════════════ -->
+<nav class="toc" id="toc" aria-label="Table of contents">
+  <div class="toc__inner">
+    <div class="toc__label">Contents</div>
+    <ul class="toc__list">
+      <li><a href="#basics" class="toc__link" data-section="basics"><span class="toc__number">01</span><span class="toc__name">The Basics</span></a></li>
+      <li><a href="#weekend" class="toc__link" data-section="weekend"><span class="toc__number">02</span><span class="toc__name">Race Weekend</span></a></li>
+      <li><a href="#championships" class="toc__link" data-section="championships"><span class="toc__number">03</span><span class="toc__name">Championships</span></a></li>
+      <li><a href="#cars" class="toc__link" data-section="cars"><span class="toc__number">04</span><span class="toc__name">The Cars</span></a></li>
+      <li><a href="#pitstops" class="toc__link" data-section="pitstops"><span class="toc__number">05</span><span class="toc__name">Pit Stops</span></a></li>
+      <li><a href="#tyres" class="toc__link" data-section="tyres"><span class="toc__number">06</span><span class="toc__name">Tyres</span></a></li>
+      <li><a href="#drivers" class="toc__link" data-section="drivers"><span class="toc__number">07</span><span class="toc__name">The Drivers</span></a></li>
+      <li><a href="#teams" class="toc__link" data-section="teams"><span class="toc__number">08</span><span class="toc__name">The Teams</span></a></li>
+      <li><a href="#history" class="toc__link" data-section="history"><span class="toc__number">09</span><span class="toc__name">Recent History</span></a></li>
+      <li><a href="#drama" class="toc__link" data-section="drama"><span class="toc__number">10</span><span class="toc__name">The Drama</span></a></li>
+      <li><a href="#tracks" class="toc__link" data-section="tracks"><span class="toc__number">11</span><span class="toc__name">The Tracks</span></a></li>
+      <li><a href="#rules" class="toc__link" data-section="rules"><span class="toc__number">12</span><span class="toc__name">Good to Know</span></a></li>
+      <li><a href="#start" class="toc__link" data-section="start"><span class="toc__number">13</span><span class="toc__name">Get Started</span></a></li>
+    </ul>
+  </div>
+</nav>
 
 <!-- ══════════════════════════════════════════════════════
      HERO
@@ -2595,7 +2748,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 <!-- ══════════════════════════════════════════════════════
      SECTION 3: POINTS & CHAMPIONSHIPS
      ══════════════════════════════════════════════════════ -->
-<section class="section-space">
+<section class="section-space" id="championships">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-header__number">03 &mdash; Championships</span>
@@ -2789,7 +2942,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 <!-- ══════════════════════════════════════════════════════
      SECTION 5: PIT STOPS
      ══════════════════════════════════════════════════════ -->
-<section class="section-space">
+<section class="section-space" id="pitstops">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-header__number">05 &mdash; Pit Stops</span>
@@ -2852,7 +3005,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 <!-- ══════════════════════════════════════════════════════
      SECTION 6: TYRES
      ══════════════════════════════════════════════════════ -->
-<section class="section-space">
+<section class="section-space" id="tyres">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-header__number">06 &mdash; Tyres</span>
@@ -3250,7 +3403,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 <!-- ══════════════════════════════════════════════════════
      SECTION 8: THE TEAMS
      ══════════════════════════════════════════════════════ -->
-<section class="section-space">
+<section class="section-space" id="teams">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-header__number">08 &mdash; The Teams</span>
@@ -3482,7 +3635,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 <!-- ══════════════════════════════════════════════════════
      SECTION 10: LEGENDARY RIVALRIES
      ══════════════════════════════════════════════════════ -->
-<section class="section-space">
+<section class="section-space" id="drama">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-header__number">10 &mdash; The Drama</span>
@@ -3524,7 +3677,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 <!-- ══════════════════════════════════════════════════════
      SECTION 11: ICONIC TRACKS
      ══════════════════════════════════════════════════════ -->
-<section class="section-space">
+<section class="section-space" id="tracks">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-header__number">11 &mdash; The Tracks</span>
@@ -3775,7 +3928,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 <!-- ══════════════════════════════════════════════════════
      SECTION 12: SAFETY & PENALTIES (Quick Hits)
      ══════════════════════════════════════════════════════ -->
-<section class="section-space">
+<section class="section-space" id="rules">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-header__number">12 &mdash; Good to Know</span>
@@ -4449,7 +4602,7 @@ if (engineRows.length && engineAudioPlayer) {
 }
 
 // ── Smooth scroll for nav links ──
-document.querySelectorAll('.navbar__links a, .mobile-nav__inner a').forEach(link => {
+document.querySelectorAll('.navbar__links a, .mobile-nav__inner a, .toc__link').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
     const target = document.querySelector(link.getAttribute('href'));
@@ -4479,11 +4632,15 @@ window.addEventListener('resize', () => {
 
 // ── Active nav link on scroll ──
 const navLinks = document.querySelectorAll('.navbar__links a');
+const tocLinks = document.querySelectorAll('.toc__link');
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const id = entry.target.getAttribute('id');
       navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+      tocLinks.forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === '#' + id);
       });
     }
@@ -4493,6 +4650,21 @@ const sectionObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('section[id]').forEach(section => {
   sectionObserver.observe(section);
 });
+
+// ── TOC visibility ──
+(function() {
+  const toc = document.getElementById('toc');
+  const hero = document.querySelector('.hero');
+  if (!toc || !hero) return;
+
+  const tocObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      toc.classList.toggle('visible', !entry.isIntersecting);
+    });
+  }, { threshold: 0 });
+
+  tocObserver.observe(hero);
+})();
 
 // ── Share functionality ──
 function copyPageUrl() {
