@@ -4848,7 +4848,9 @@ if (navigator.share) {
   if (driverStandings.length) {
     document.querySelectorAll('.driver-card__name').forEach(function(nameEl) {
       var name = nameEl.textContent.trim();
-      var match = driverStandings.find(function(d) { return d.name === name; });
+      var lastName = name.split(' ').slice(-1)[0];
+      var match = driverStandings.find(function(d) { return d.name === name; })
+        || driverStandings.find(function(d) { return d.name.split(' ').slice(-1)[0] === lastName && d.name[0] === name[0]; });
       if (match) {
         var ptsEl = document.createElement('div');
         ptsEl.className = 'driver-card__points';
