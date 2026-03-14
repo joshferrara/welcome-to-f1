@@ -4363,7 +4363,7 @@ const constructorStandings = [
     "wins": 0
   }
 ];
-const standingsLastUpdated = "2026-03-14T14:58:27.558Z";
+const standingsLastUpdated = "2026-03-14T15:45:24.261Z";
 <!-- STANDINGS_DATA_END -->
 
 // ── Theme Toggle ──
@@ -4894,7 +4894,9 @@ if (navigator.share) {
   if (driverStandings.length) {
     document.querySelectorAll('.driver-card__name').forEach(function(nameEl) {
       var name = nameEl.textContent.trim();
-      var match = driverStandings.find(function(d) { return d.name === name; });
+      var lastName = name.split(' ').slice(-1)[0];
+      var match = driverStandings.find(function(d) { return d.name === name; })
+        || driverStandings.find(function(d) { return d.name.split(' ').slice(-1)[0] === lastName && d.name[0] === name[0]; });
       if (match) {
         var ptsEl = document.createElement('div');
         ptsEl.className = 'driver-card__points';
