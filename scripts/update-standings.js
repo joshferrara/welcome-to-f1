@@ -74,13 +74,19 @@ async function main() {
     const driverList = driverData?.MRData?.StandingsTable?.StandingsLists?.[0]?.DriverStandings || [];
 
     driverStandings = driverList.map(d => ({
-      pos: parseInt(d.position, 10),
+      pos: parseInt(d.position, 10) || null,
       code: d.Driver.code,
       name: `${d.Driver.givenName} ${d.Driver.familyName}`,
       team: mapTeamName(d.Constructors?.[0]?.name || ''),
       points: parseFloat(d.points),
       wins: parseInt(d.wins, 10),
     }));
+
+    // Assign positions to unclassified drivers (API returns "-" for those without a position)
+    let nextDriverPos = driverStandings.filter(d => d.pos !== null).length + 1;
+    driverStandings.forEach(d => {
+      if (d.pos === null) d.pos = nextDriverPos++;
+    });
 
     console.log(`  Found ${driverStandings.length} drivers`);
   } catch (err) {
@@ -94,11 +100,17 @@ async function main() {
     const constructorList = constructorData?.MRData?.StandingsTable?.StandingsLists?.[0]?.ConstructorStandings || [];
 
     constructorStandings = constructorList.map(c => ({
-      pos: parseInt(c.position, 10),
+      pos: parseInt(c.position, 10) || null,
       name: mapConstructorName(c.Constructor.constructorId, c.Constructor.name),
       points: parseFloat(c.points),
       wins: parseInt(c.wins, 10),
     }));
+
+    // Assign positions to unclassified constructors (API returns "-" for those without a position)
+    let nextConstructorPos = constructorStandings.filter(c => c.pos !== null).length + 1;
+    constructorStandings.forEach(c => {
+      if (c.pos === null) c.pos = nextConstructorPos++;
+    });
 
     console.log(`  Found ${constructorStandings.length} constructors`);
   } catch (err) {
