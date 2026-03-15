@@ -353,9 +353,6 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   left: 0;
   right: 0;
   max-height: calc(100vh - 60px);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
   z-index: 899;
   background: var(--glass-bg);
   backdrop-filter: blur(24px);
@@ -365,6 +362,8 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s var(--ease-out-expo);
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-nav.open {
@@ -376,7 +375,11 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 .mobile-nav__inner {
   display: flex;
   flex-direction: column;
-  padding: 16px 24px 24px;
+  padding: 16px 24px 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  min-height: 0;
 }
 
 .mobile-nav__toc-label {
@@ -393,22 +396,32 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
 }
 
 .mobile-nav__toc-link {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 8px;
+  gap: 8px;
+  padding: 10px 6px;
   text-decoration: none;
   border-bottom: 1px solid var(--border-color);
   transition: all 0.2s;
 }
 
-.mobile-nav__toc-list li:last-child .mobile-nav__toc-link {
+.mobile-nav__toc-list li:nth-last-child(-n+2) .mobile-nav__toc-link {
   border-bottom: none;
+}
+
+.mobile-nav__toc-list li:nth-child(odd) .mobile-nav__toc-link {
+  padding-right: 12px;
+  border-right: 1px solid var(--border-color);
+}
+
+.mobile-nav__toc-list li:nth-child(even) .mobile-nav__toc-link {
+  padding-left: 12px;
 }
 
 .mobile-nav__toc-number {
@@ -422,7 +435,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 
 .mobile-nav__toc-name {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-primary);
   transition: color 0.2s;
@@ -446,9 +459,10 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 0 0;
-  margin-top: 8px;
+  flex-shrink: 0;
+  padding: 12px 24px 16px;
   border-top: 1px solid var(--border-color);
+  background: var(--glass-bg);
 }
 
 @media (max-width: 1024px) {
@@ -2608,11 +2622,11 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
       <li><a href="#rules" class="mobile-nav__toc-link" data-section="rules" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">12</span><span class="mobile-nav__toc-name">Good to Know</span></a></li>
       <li><a href="#start" class="mobile-nav__toc-link" data-section="start" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">13</span><span class="mobile-nav__toc-name">Get Started</span></a></li>
     </ul>
-    <div class="mobile-nav__actions">
-      <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
-        <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
-        <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
-      </div>
+  </div>
+  <div class="mobile-nav__actions">
+    <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
+      <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
+      <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
     </div>
   </div>
 </div>
