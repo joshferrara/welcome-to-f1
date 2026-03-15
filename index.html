@@ -352,6 +352,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   top: 60px;
   left: 0;
   right: 0;
+  max-height: calc(100vh - 60px);
   z-index: 899;
   background: var(--glass-bg);
   backdrop-filter: blur(24px);
@@ -361,6 +362,8 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s var(--ease-out-expo);
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-nav.open {
@@ -372,35 +375,94 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 .mobile-nav__inner {
   display: flex;
   flex-direction: column;
-  padding: 16px 24px 24px;
+  padding: 16px 24px 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  min-height: 0;
 }
 
-.mobile-nav__inner a {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-primary);
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border-color);
+.mobile-nav__toc-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  padding: 0 0 12px;
+}
+
+.mobile-nav__toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.mobile-nav__toc-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 6px;
   text-decoration: none;
-  transition: color 0.2s;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s;
 }
 
-.mobile-nav__inner a:last-child {
+.mobile-nav__toc-list li:last-child .mobile-nav__toc-link {
   border-bottom: none;
 }
 
-.mobile-nav__inner a:hover {
+.mobile-nav__toc-list li:nth-child(odd) .mobile-nav__toc-link {
+  padding-right: 12px;
+  border-right: 1px solid var(--border-color);
+}
+
+.mobile-nav__toc-list li:nth-child(even) .mobile-nav__toc-link {
+  padding-left: 12px;
+}
+
+.mobile-nav__toc-number {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 18px;
+  text-align: right;
+}
+
+.mobile-nav__toc-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.2s;
+}
+
+.mobile-nav__toc-link:hover .mobile-nav__toc-name,
+.mobile-nav__toc-link:hover .mobile-nav__toc-number {
   color: var(--f1-red);
+}
+
+.mobile-nav__toc-link.active .mobile-nav__toc-number {
+  color: var(--f1-red);
+  font-weight: 700;
+}
+
+.mobile-nav__toc-link.active .mobile-nav__toc-name {
+  font-weight: 700;
 }
 
 .mobile-nav__actions {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 0 0;
-  margin-top: 8px;
+  flex-shrink: 0;
+  padding: 12px 24px 16px;
   border-top: 1px solid var(--border-color);
+  background: var(--glass-bg);
 }
 
 @media (max-width: 1024px) {
@@ -2544,17 +2606,27 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 <!-- Mobile Nav Drawer -->
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav__inner">
-    <a href="#basics" onclick="closeMobileNav()">The Basics</a>
-    <a href="#weekend" onclick="closeMobileNav()">Race Day</a>
-    <a href="#cars" onclick="closeMobileNav()">The Cars</a>
-    <a href="#drivers" onclick="closeMobileNav()">The Drivers</a>
-    <a href="#history" onclick="closeMobileNav()">History</a>
-    <a href="#start" onclick="closeMobileNav()">Get Started</a>
-    <div class="mobile-nav__actions">
-      <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
-        <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
-        <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
-      </div>
+    <div class="mobile-nav__toc-label">Contents</div>
+    <ul class="mobile-nav__toc-list">
+      <li><a href="#basics" class="mobile-nav__toc-link" data-section="basics" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">01</span><span class="mobile-nav__toc-name">The Basics</span></a></li>
+      <li><a href="#weekend" class="mobile-nav__toc-link" data-section="weekend" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">02</span><span class="mobile-nav__toc-name">Race Weekend</span></a></li>
+      <li><a href="#championships" class="mobile-nav__toc-link" data-section="championships" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">03</span><span class="mobile-nav__toc-name">Championships</span></a></li>
+      <li><a href="#cars" class="mobile-nav__toc-link" data-section="cars" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">04</span><span class="mobile-nav__toc-name">The Cars</span></a></li>
+      <li><a href="#pitstops" class="mobile-nav__toc-link" data-section="pitstops" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">05</span><span class="mobile-nav__toc-name">Pit Stops</span></a></li>
+      <li><a href="#tyres" class="mobile-nav__toc-link" data-section="tyres" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">06</span><span class="mobile-nav__toc-name">Tyres</span></a></li>
+      <li><a href="#drivers" class="mobile-nav__toc-link" data-section="drivers" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">07</span><span class="mobile-nav__toc-name">The Drivers</span></a></li>
+      <li><a href="#teams" class="mobile-nav__toc-link" data-section="teams" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">08</span><span class="mobile-nav__toc-name">The Teams</span></a></li>
+      <li><a href="#history" class="mobile-nav__toc-link" data-section="history" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">09</span><span class="mobile-nav__toc-name">Recent History</span></a></li>
+      <li><a href="#drama" class="mobile-nav__toc-link" data-section="drama" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">10</span><span class="mobile-nav__toc-name">The Drama</span></a></li>
+      <li><a href="#tracks" class="mobile-nav__toc-link" data-section="tracks" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">11</span><span class="mobile-nav__toc-name">The Tracks</span></a></li>
+      <li><a href="#rules" class="mobile-nav__toc-link" data-section="rules" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">12</span><span class="mobile-nav__toc-name">Good to Know</span></a></li>
+      <li><a href="#start" class="mobile-nav__toc-link" data-section="start" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">13</span><span class="mobile-nav__toc-name">Get Started</span></a></li>
+    </ul>
+  </div>
+  <div class="mobile-nav__actions">
+    <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
+      <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
+      <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
     </div>
   </div>
 </div>
@@ -4635,7 +4707,7 @@ if (engineRows.length && engineAudioPlayer) {
 }
 
 // ── Smooth scroll for nav links ──
-document.querySelectorAll('.navbar__links a, .mobile-nav__inner a, .toc__link').forEach(link => {
+document.querySelectorAll('.navbar__links a, .mobile-nav__toc-link, .toc__link').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
     const target = document.querySelector(link.getAttribute('href'));
@@ -4666,6 +4738,7 @@ window.addEventListener('resize', () => {
 // ── Active nav link on scroll ──
 const navLinks = document.querySelectorAll('.navbar__links a');
 const tocLinks = document.querySelectorAll('.toc__link');
+const mobileTocLinks = document.querySelectorAll('.mobile-nav__toc-link');
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -4674,6 +4747,9 @@ const sectionObserver = new IntersectionObserver((entries) => {
         link.classList.toggle('active', link.getAttribute('href') === '#' + id);
       });
       tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+      mobileTocLinks.forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === '#' + id);
       });
     }
