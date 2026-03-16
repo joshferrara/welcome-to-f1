@@ -10,12 +10,14 @@ Inspired by [A Newbie's Guide to Formula 1](https://nonchalant-trawler-767.notio
 
 ## Architecture
 
-The site is a single HTML file (`index.html`) with all CSS and JavaScript inline — no build tools, no frameworks, no external dependencies. Data lives directly in the HTML and is version-controlled via git.
+The site is a single-page app built from static files — no build tools, no frameworks, no external dependencies. Data lives directly in the HTML and is version-controlled via git.
 
 Key files:
 
 ```
-index.html                       # The entire site (~5000 lines)
+index.html                       # Page structure and data (~1900 lines)
+styles.css                       # All styles (~2650 lines)
+script.js                        # All client-side logic (~800 lines)
 scripts/update-standings.js      # Automated standings import from Ergast API
 screenshot.js                    # Playwright script for OG image generation
 research/                        # F1 research notes and 2026 grid info
