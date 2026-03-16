@@ -460,7 +460,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/fom-website/2026%20regulations/2026_Explainer_FIA_Front_3_4_1920x1080.webp') center 60% / cover no-repeat;
+  background: url('images/cars/2026-car-front.webp') center 60% / cover no-repeat;
   opacity: 0.12;
   z-index: 0;
   mask-image: linear-gradient(to bottom, transparent 10%, black 40%, black 70%, transparent 100%);
