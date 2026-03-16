@@ -54,14 +54,14 @@ function mapConstructorName(constructorId, apiFallback) {
 }
 
 async function main() {
-  const htmlPath = path.join(__dirname, '..', 'index.html');
-  let html = fs.readFileSync(htmlPath, 'utf-8');
+  const jsPath = path.join(__dirname, '..', 'script.js');
+  let js = fs.readFileSync(jsPath, 'utf-8');
 
-  const startMarker = '<!-- STANDINGS_DATA_START -->';
-  const endMarker = '<!-- STANDINGS_DATA_END -->';
+  const startMarker = '// STANDINGS_DATA_START';
+  const endMarker = '// STANDINGS_DATA_END';
 
-  if (!html.includes(startMarker) || !html.includes(endMarker)) {
-    console.error('Could not find STANDINGS_DATA markers in index.html');
+  if (!js.includes(startMarker) || !js.includes(endMarker)) {
+    console.error('Could not find STANDINGS_DATA markers in script.js');
     process.exit(1);
   }
 
@@ -119,7 +119,7 @@ async function main() {
   }
 
   if (driverStandings.length === 0 && constructorStandings.length === 0) {
-    console.log('No data fetched. Leaving index.html unchanged.');
+    console.log('No data fetched. Leaving script.js unchanged.');
     return;
   }
 
@@ -130,12 +130,12 @@ const constructorStandings = ${JSON.stringify(constructorStandings, null, 2)};
 const standingsLastUpdated = "${now}";
 ${endMarker}`;
 
-  const startIdx = html.indexOf(startMarker);
-  const endIdx = html.indexOf(endMarker) + endMarker.length;
-  html = html.slice(0, startIdx) + dataBlock + html.slice(endIdx);
+  const startIdx = js.indexOf(startMarker);
+  const endIdx = js.indexOf(endMarker) + endMarker.length;
+  js = js.slice(0, startIdx) + dataBlock + js.slice(endIdx);
 
-  fs.writeFileSync(htmlPath, html, 'utf-8');
-  console.log('Successfully updated standings in index.html');
+  fs.writeFileSync(jsPath, js, 'utf-8');
+  console.log('Successfully updated standings in script.js');
 }
 
 main();
