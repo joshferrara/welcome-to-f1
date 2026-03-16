@@ -81,17 +81,17 @@ Add `cancelled: true` to the race object:
 
 Driver and constructor standings are stored in `index.html` between `<!-- STANDINGS_DATA_START -->` and `<!-- STANDINGS_DATA_END -->` markers. This data populates the standings tables and injects points into individual driver and team cards throughout the page.
 
-### Automated Import
+### Automated Import (at Deploy Time)
 
-Run the update script to fetch current standings from the Ergast API:
+The standings update script runs automatically during Cloudflare deploys, which are triggered when `main` receives a push. The script fetches driver and constructor standings from `api.jolpi.ca/ergast`, maps team names to match the site's canonical names (e.g., `"Kick Sauber"` → `"Audi"`), and writes the data into `index.html` between the markers. A `standingsLastUpdated` timestamp is also set.
+
+If the API is unavailable, the script warns and leaves existing data untouched.
+
+For local testing, you can run it manually:
 
 ```bash
 node scripts/update-standings.js
 ```
-
-This fetches driver and constructor standings from `api.jolpi.ca/ergast`, maps team names to match the site's canonical names (e.g., `"Kick Sauber"` → `"Audi"`), and writes the data back into `index.html` between the markers. A `standingsLastUpdated` timestamp is also set.
-
-If the API is unavailable, the script warns and leaves existing data untouched.
 
 ### Manual Update
 
@@ -120,8 +120,7 @@ The update script maps API team names to the canonical names used on the site. B
 After each race:
 
 1. Add the top 3 results to the race's `results` array in `index.html`
-2. Update standings — either run `node scripts/update-standings.js` or edit manually
-3. Commit and push
+2. Commit and push to `main` — the standings update script runs automatically during the Cloudflare deploy
 
 ## Contributing
 
