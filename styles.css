@@ -732,7 +732,25 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 16px;
-  display: block;
+  display: inline-block;
+  position: relative;
+}
+
+.section-header__number::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--f1-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.reveal.visible .section-header__number::after {
+  transform: scaleX(1);
 }
 
 .section-header__title {
@@ -890,10 +908,15 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleX(0);
   width: 60px;
   height: 3px;
   background: var(--f1-red);
+  transition: transform 0.8s var(--ease-out-expo) 0.2s;
+}
+
+.big-quote.visible::before {
+  transform: translateX(-50%) scaleX(1);
 }
 
 /* Inline highlight */
@@ -1181,6 +1204,19 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   border-color: var(--border-color-hover);
 }
 
+/* Team-color glow on hover */
+.driver-card[data-team="mclaren"]:hover { box-shadow: 0 8px 24px rgba(255, 128, 0, 0.15); }
+.driver-card[data-team="red-bull"]:hover { box-shadow: 0 8px 24px rgba(54, 113, 198, 0.18); }
+.driver-card[data-team="ferrari"]:hover { box-shadow: 0 8px 24px rgba(232, 0, 45, 0.15); }
+.driver-card[data-team="mercedes"]:hover { box-shadow: 0 8px 24px rgba(39, 244, 210, 0.15); }
+.driver-card[data-team="aston-martin"]:hover { box-shadow: 0 8px 24px rgba(34, 153, 113, 0.18); }
+.driver-card[data-team="alpine"]:hover { box-shadow: 0 8px 24px rgba(255, 135, 188, 0.15); }
+.driver-card[data-team="williams"]:hover { box-shadow: 0 8px 24px rgba(100, 196, 255, 0.15); }
+.driver-card[data-team="racing-bulls"]:hover { box-shadow: 0 8px 24px rgba(102, 146, 255, 0.15); }
+.driver-card[data-team="haas"]:hover { box-shadow: 0 8px 24px rgba(182, 186, 189, 0.18); }
+.driver-card[data-team="audi"]:hover { box-shadow: 0 8px 24px rgba(255, 87, 51, 0.15); }
+.driver-card[data-team="cadillac"]:hover { box-shadow: 0 8px 24px rgba(192, 192, 192, 0.18); }
+
 .driver-card__photo {
   width: 100%;
   aspect-ratio: 1;
@@ -1380,7 +1416,14 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   position: relative;
 }
 
-.tyre-circle:hover { transform: rotate(20deg) scale(1.1); }
+.tyre-circle:hover { transform: rotate(180deg) scale(1.08); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tyre-circle:hover { transform: scale(1.08); }
+  .section-header__number::after { transition: none; }
+  .big-quote::before { transition: none; }
+  .pitstop-visual:hover .pitstop-visual__person { animation: none; }
+}
 
 [data-theme="light"] .tyre-circle { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12)); }
 
@@ -1621,6 +1664,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 .weekend-step:hover {
   transform: translateY(-4px);
   border-color: var(--border-color-hover);
+  box-shadow: 0 12px 32px rgba(225, 6, 0, 0.08);
 }
 
 .weekend-step__day {
@@ -1725,6 +1769,32 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   color: var(--f1-red);
   line-height: 1;
   margin-bottom: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s var(--ease-out-expo);
+}
+
+.pitstop-visual__timer:hover {
+  transform: scale(1.02);
+}
+
+.pitstop-visual__timer:active {
+  transform: scale(0.98);
+}
+
+.pitstop-visual__replay-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-top: 4px;
+}
+
+.pitstop-visual:hover .pitstop-visual__replay-hint {
+  opacity: 1;
 }
 
 .pitstop-visual__label {
@@ -1761,12 +1831,10 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   animation: crewBounce 0.4s var(--ease-out-back);
 }
 
-.pitstop-visual:hover .pitstop-visual__person:nth-child(odd) {
-  animation-delay: 0.05s;
-}
-.pitstop-visual:hover .pitstop-visual__person:nth-child(3n) {
-  animation-delay: 0.1s;
-}
+.pitstop-visual:hover .pitstop-visual__person:nth-child(2n)   { animation-delay: 0.03s; }
+.pitstop-visual:hover .pitstop-visual__person:nth-child(3n)   { animation-delay: 0.06s; }
+.pitstop-visual:hover .pitstop-visual__person:nth-child(4n+1) { animation-delay: 0.09s; }
+.pitstop-visual:hover .pitstop-visual__person:nth-child(5n)   { animation-delay: 0.12s; }
 
 @keyframes crewBounce {
   0% { transform: scale(1); }

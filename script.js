@@ -814,3 +814,67 @@ if (navigator.share) {
     });
   }
 })();
+
+// ── Delight: Stat card value count-up on reveal ──
+(function() {
+  var statValues = document.querySelectorAll('.stat-card__value');
+  if (!statValues.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var countObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      countObserver.unobserve(entry.target);
+      var el = entry.target;
+      // Skip values with child elements (e.g. unit toggle spans) to avoid destroying their HTML
+      if (el.querySelector('.unit')) return;
+      var text = el.textContent.trim();
+      // Extract leading number for count-up (e.g. "1.80s" → 1.80, "$15M" → 15, "6G" → 6)
+      var match = text.match(/^([^0-9]*)([0-9][0-9,]*\.?[0-9]*)(.*)$/);
+      if (!match) return;
+      var prefix = match[1];
+      var numStr = match[2].replace(/,/g, '');
+      var suffix = match[3];
+      var target = parseFloat(numStr);
+      if (isNaN(target) || target === 0) return;
+      var hasComma = match[2].indexOf(',') > -1;
+      var decimals = numStr.indexOf('.') > -1 ? numStr.split('.')[1].length : 0;
+      var duration = 800;
+      var start = performance.now();
+      el.textContent = prefix + '0' + suffix;
+
+      function update(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = eased * target;
+        var formatted = current.toFixed(decimals);
+        if (hasComma) formatted = Number(formatted).toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+        el.textContent = prefix + formatted + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = text; // restore exact original
+      }
+      requestAnimationFrame(update);
+    });
+  }, { threshold: 0.5 });
+
+  statValues.forEach(function(el) { countObserver.observe(el); });
+})();
+
+// ── Delight: Pitstop timer click-to-replay ──
+(function() {
+  var timer = document.getElementById('pitstopTimer');
+  if (!timer) return;
+  timer.addEventListener('click', function() {
+    animatePitstop();
+  });
+})();
+
+// ── Delight: Console easter egg ──
+console.log(
+  '%c\ud83c\udfc1 Welcome to Formula 1 %c\n' +
+  'Like what you see? This guide is open source.\n' +
+  'Contribute: https://github.com/joshferrara/welcome-to-f1\n',
+  'font-size: 20px; font-weight: bold; color: #E10600; padding: 8px 0;',
+  'font-size: 13px; color: #888;'
+);
