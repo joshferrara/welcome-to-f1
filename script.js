@@ -396,7 +396,7 @@ function renderChampionsTable(decade) {
   }
 
   var html = '<table class="champions-table">';
-  html += '<thead><tr><th>Year</th><th>Driver</th><th>Constructors\' Champion</th></tr></thead>';
+  html += '<thead><tr><th>Year</th><th>Driver</th><th>Constructor</th></tr></thead>';
   html += '<tbody>';
 
   rows.forEach(function(row) {
