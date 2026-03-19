@@ -1781,6 +1781,41 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   white-space: nowrap;
 }
 
+/* Formation lap highlights */
+.formation-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.formation-highlight {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--f1-red);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  transition: border-color 0.3s;
+}
+
+.formation-highlight:hover {
+  border-color: var(--border-color-hover);
+}
+
+.formation-highlight__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.formation-highlight__desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
 /* ═══════════════════════════════════════════════════
    PIT STOP ANIMATION
    ═══════════════════════════════════════════════════ */
