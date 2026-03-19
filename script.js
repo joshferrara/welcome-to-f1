@@ -250,6 +250,247 @@ const constructorStandings = [
 const standingsLastUpdated = "2026-03-14T15:45:24.261Z";
 // STANDINGS_DATA_END
 
+// ── World Champions Data ──
+const championsData = [
+  // 1950s
+  { year: 1950, driver: 'Giuseppe Farina', nationality: 'IT', team: 'Alfa Romeo', constructor: null },
+  { year: 1951, driver: 'Juan Manuel Fangio', nationality: 'AR', team: 'Alfa Romeo', constructor: null },
+  { year: 1952, driver: 'Alberto Ascari', nationality: 'IT', team: 'Ferrari', constructor: null },
+  { year: 1953, driver: 'Alberto Ascari', nationality: 'IT', team: 'Ferrari', constructor: null },
+  { year: 1954, driver: 'Juan Manuel Fangio', nationality: 'AR', team: 'Mercedes', constructor: null },
+  { year: 1955, driver: 'Juan Manuel Fangio', nationality: 'AR', team: 'Mercedes', constructor: null },
+  { year: 1956, driver: 'Juan Manuel Fangio', nationality: 'AR', team: 'Ferrari', constructor: null },
+  { year: 1957, driver: 'Juan Manuel Fangio', nationality: 'AR', team: 'Maserati', constructor: null },
+  { year: 1958, driver: 'Mike Hawthorn', nationality: 'GB', team: 'Ferrari', constructor: 'Vanwall' },
+  { year: 1959, driver: 'Jack Brabham', nationality: 'AU', team: 'Cooper', constructor: 'Cooper' },
+  // 1960s
+  { year: 1960, driver: 'Jack Brabham', nationality: 'AU', team: 'Cooper', constructor: 'Cooper' },
+  { year: 1961, driver: 'Phil Hill', nationality: 'US', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 1962, driver: 'Graham Hill', nationality: 'GB', team: 'BRM', constructor: 'BRM' },
+  { year: 1963, driver: 'Jim Clark', nationality: 'GB', team: 'Lotus', constructor: 'Lotus' },
+  { year: 1964, driver: 'John Surtees', nationality: 'GB', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 1965, driver: 'Jim Clark', nationality: 'GB', team: 'Lotus', constructor: 'Lotus' },
+  { year: 1966, driver: 'Jack Brabham', nationality: 'AU', team: 'Brabham', constructor: 'Brabham' },
+  { year: 1967, driver: 'Denny Hulme', nationality: 'NZ', team: 'Brabham', constructor: 'Brabham' },
+  { year: 1968, driver: 'Graham Hill', nationality: 'GB', team: 'Lotus', constructor: 'Lotus' },
+  { year: 1969, driver: 'Jackie Stewart', nationality: 'GB', team: 'Matra', constructor: 'Matra' },
+  // 1970s
+  { year: 1970, driver: 'Jochen Rindt', nationality: 'AT', team: 'Lotus', constructor: 'Lotus' },
+  { year: 1971, driver: 'Jackie Stewart', nationality: 'GB', team: 'Tyrrell', constructor: 'Tyrrell' },
+  { year: 1972, driver: 'Emerson Fittipaldi', nationality: 'BR', team: 'Lotus', constructor: 'Lotus' },
+  { year: 1973, driver: 'Jackie Stewart', nationality: 'GB', team: 'Tyrrell', constructor: 'Lotus' },
+  { year: 1974, driver: 'Emerson Fittipaldi', nationality: 'BR', team: 'McLaren', constructor: 'McLaren' },
+  { year: 1975, driver: 'Niki Lauda', nationality: 'AT', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 1976, driver: 'James Hunt', nationality: 'GB', team: 'McLaren', constructor: 'Ferrari' },
+  { year: 1977, driver: 'Niki Lauda', nationality: 'AT', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 1978, driver: 'Mario Andretti', nationality: 'US', team: 'Lotus', constructor: 'Lotus' },
+  { year: 1979, driver: 'Jody Scheckter', nationality: 'ZA', team: 'Ferrari', constructor: 'Ferrari' },
+  // 1980s
+  { year: 1980, driver: 'Alan Jones', nationality: 'AU', team: 'Williams', constructor: 'Williams' },
+  { year: 1981, driver: 'Nelson Piquet', nationality: 'BR', team: 'Brabham', constructor: 'Williams' },
+  { year: 1982, driver: 'Keke Rosberg', nationality: 'FI', team: 'Williams', constructor: 'Ferrari' },
+  { year: 1983, driver: 'Nelson Piquet', nationality: 'BR', team: 'Brabham', constructor: 'Ferrari' },
+  { year: 1984, driver: 'Niki Lauda', nationality: 'AT', team: 'McLaren', constructor: 'McLaren' },
+  { year: 1985, driver: 'Alain Prost', nationality: 'FR', team: 'McLaren', constructor: 'McLaren' },
+  { year: 1986, driver: 'Alain Prost', nationality: 'FR', team: 'McLaren', constructor: 'Williams' },
+  { year: 1987, driver: 'Nelson Piquet', nationality: 'BR', team: 'Williams', constructor: 'Williams' },
+  { year: 1988, driver: 'Ayrton Senna', nationality: 'BR', team: 'McLaren', constructor: 'McLaren' },
+  { year: 1989, driver: 'Alain Prost', nationality: 'FR', team: 'McLaren', constructor: 'McLaren' },
+  // 1990s
+  { year: 1990, driver: 'Ayrton Senna', nationality: 'BR', team: 'McLaren', constructor: 'McLaren' },
+  { year: 1991, driver: 'Ayrton Senna', nationality: 'BR', team: 'McLaren', constructor: 'McLaren' },
+  { year: 1992, driver: 'Nigel Mansell', nationality: 'GB', team: 'Williams', constructor: 'Williams' },
+  { year: 1993, driver: 'Alain Prost', nationality: 'FR', team: 'Williams', constructor: 'Williams' },
+  { year: 1994, driver: 'Michael Schumacher', nationality: 'DE', team: 'Benetton', constructor: 'Williams' },
+  { year: 1995, driver: 'Michael Schumacher', nationality: 'DE', team: 'Benetton', constructor: 'Benetton' },
+  { year: 1996, driver: 'Damon Hill', nationality: 'GB', team: 'Williams', constructor: 'Williams' },
+  { year: 1997, driver: 'Jacques Villeneuve', nationality: 'CA', team: 'Williams', constructor: 'Williams' },
+  { year: 1998, driver: 'Mika Häkkinen', nationality: 'FI', team: 'McLaren', constructor: 'McLaren' },
+  { year: 1999, driver: 'Mika Häkkinen', nationality: 'FI', team: 'McLaren', constructor: 'Ferrari' },
+  // 2000s
+  { year: 2000, driver: 'Michael Schumacher', nationality: 'DE', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 2001, driver: 'Michael Schumacher', nationality: 'DE', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 2002, driver: 'Michael Schumacher', nationality: 'DE', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 2003, driver: 'Michael Schumacher', nationality: 'DE', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 2004, driver: 'Michael Schumacher', nationality: 'DE', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 2005, driver: 'Fernando Alonso', nationality: 'ES', team: 'Renault', constructor: 'Renault' },
+  { year: 2006, driver: 'Fernando Alonso', nationality: 'ES', team: 'Renault', constructor: 'Renault' },
+  { year: 2007, driver: 'Kimi Räikkönen', nationality: 'FI', team: 'Ferrari', constructor: 'Ferrari' },
+  { year: 2008, driver: 'Lewis Hamilton', nationality: 'GB', team: 'McLaren', constructor: 'Ferrari' },
+  { year: 2009, driver: 'Jenson Button', nationality: 'GB', team: 'Brawn', constructor: 'Brawn' },
+  // 2010s
+  { year: 2010, driver: 'Sebastian Vettel', nationality: 'DE', team: 'Red Bull', constructor: 'Red Bull' },
+  { year: 2011, driver: 'Sebastian Vettel', nationality: 'DE', team: 'Red Bull', constructor: 'Red Bull' },
+  { year: 2012, driver: 'Sebastian Vettel', nationality: 'DE', team: 'Red Bull', constructor: 'Red Bull' },
+  { year: 2013, driver: 'Sebastian Vettel', nationality: 'DE', team: 'Red Bull', constructor: 'Red Bull' },
+  { year: 2014, driver: 'Lewis Hamilton', nationality: 'GB', team: 'Mercedes', constructor: 'Mercedes' },
+  { year: 2015, driver: 'Lewis Hamilton', nationality: 'GB', team: 'Mercedes', constructor: 'Mercedes' },
+  { year: 2016, driver: 'Nico Rosberg', nationality: 'DE', team: 'Mercedes', constructor: 'Mercedes' },
+  { year: 2017, driver: 'Lewis Hamilton', nationality: 'GB', team: 'Mercedes', constructor: 'Mercedes' },
+  { year: 2018, driver: 'Lewis Hamilton', nationality: 'GB', team: 'Mercedes', constructor: 'Mercedes' },
+  { year: 2019, driver: 'Lewis Hamilton', nationality: 'GB', team: 'Mercedes', constructor: 'Mercedes' },
+  // 2020s
+  { year: 2020, driver: 'Lewis Hamilton', nationality: 'GB', team: 'Mercedes', constructor: 'Mercedes' },
+  { year: 2021, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'Mercedes' },
+  { year: 2022, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'Red Bull' },
+  { year: 2023, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'Red Bull' },
+  { year: 2024, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'McLaren' },
+];
+
+const championFlagMap = {
+  'IT': '🇮🇹', 'AR': '🇦🇷', 'GB': '🇬🇧',
+  'AU': '🇦🇺', 'US': '🇺🇸', 'NZ': '🇳🇿',
+  'AT': '🇦🇹', 'BR': '🇧🇷', 'ZA': '🇿🇦',
+  'FI': '🇫🇮', 'FR': '🇫🇷', 'DE': '🇩🇪',
+  'CA': '🇨🇦', 'ES': '🇪🇸', 'NL': '🇳🇱',
+};
+
+const championTeamColors = {
+  'Ferrari': '#E8002D', 'McLaren': '#FF8000', 'Mercedes': '#27F4D2',
+  'Red Bull': '#3671C6', 'Williams': '#64C4FF', 'Renault': '#FFD700',
+  'Alfa Romeo': '#900000', 'Maserati': '#1C3A72', 'Cooper': '#004225',
+  'Vanwall': '#004D40', 'BRM': '#1B5E20', 'Lotus': '#DAA520',
+  'Brabham': '#006A4E', 'Matra': '#002FA7', 'Tyrrell': '#00529C',
+  'Benetton': '#00A651', 'Brawn': '#C8E600',
+};
+
+const constructorDrivers = {
+  1958: ['Moss', 'Brooks'], 1959: ['Brabham', 'McLaren'], 1960: ['Brabham', 'McLaren'],
+  1961: ['P. Hill', 'von Trips'], 1962: ['G. Hill', 'Ginther'], 1963: ['Clark', 'Taylor'],
+  1964: ['Surtees', 'Bandini'], 1965: ['Clark', 'Spence'], 1966: ['Brabham', 'Hulme'],
+  1967: ['Hulme', 'Brabham'], 1968: ['G. Hill', 'Oliver'], 1969: ['Stewart', 'Beltoise'],
+  1970: ['Rindt', 'Fittipaldi'], 1971: ['Stewart', 'Cevert'], 1972: ['Fittipaldi', 'Walker'],
+  1973: ['Fittipaldi', 'Peterson'], 1974: ['Fittipaldi', 'Hulme'], 1975: ['Lauda', 'Regazzoni'],
+  1976: ['Lauda', 'Regazzoni'], 1977: ['Lauda', 'Reutemann'], 1978: ['Andretti', 'Peterson'],
+  1979: ['Scheckter', 'Villeneuve'], 1980: ['Jones', 'Reutemann'], 1981: ['Reutemann', 'Jones'],
+  1982: ['Pironi', 'Tambay'], 1983: ['Arnoux', 'Tambay'], 1984: ['Lauda', 'Prost'],
+  1985: ['Prost', 'Lauda'], 1986: ['Mansell', 'Piquet'], 1987: ['Piquet', 'Mansell'],
+  1988: ['Senna', 'Prost'], 1989: ['Prost', 'Senna'], 1990: ['Senna', 'Berger'],
+  1991: ['Senna', 'Berger'], 1992: ['Mansell', 'Patrese'], 1993: ['Prost', 'Hill'],
+  1994: ['Hill', 'Coulthard'], 1995: ['Schumacher', 'Herbert'], 1996: ['Hill', 'Villeneuve'],
+  1997: ['Villeneuve', 'Frentzen'], 1998: ['Häkkinen', 'Coulthard'], 1999: ['Irvine', 'M. Schumacher'],
+  2000: ['M. Schumacher', 'Barrichello'], 2001: ['M. Schumacher', 'Barrichello'],
+  2002: ['M. Schumacher', 'Barrichello'], 2003: ['M. Schumacher', 'Barrichello'],
+  2004: ['M. Schumacher', 'Barrichello'], 2005: ['Alonso', 'Fisichella'],
+  2006: ['Alonso', 'Fisichella'], 2007: ['Räikkönen', 'Massa'], 2008: ['Massa', 'Räikkönen'],
+  2009: ['Button', 'Barrichello'], 2010: ['Vettel', 'Webber'], 2011: ['Vettel', 'Webber'],
+  2012: ['Vettel', 'Webber'], 2013: ['Vettel', 'Webber'], 2014: ['Hamilton', 'Rosberg'],
+  2015: ['Hamilton', 'Rosberg'], 2016: ['Rosberg', 'Hamilton'], 2017: ['Hamilton', 'Bottas'],
+  2018: ['Hamilton', 'Bottas'], 2019: ['Hamilton', 'Bottas'], 2020: ['Hamilton', 'Bottas'],
+  2021: ['Hamilton', 'Bottas'], 2022: ['Verstappen', 'Pérez'], 2023: ['Verstappen', 'Pérez'],
+  2024: ['Norris', 'Piastri'],
+};
+
+// ── World Champions Rendering ──
+function renderChampionsTable(decade) {
+  var container = document.getElementById('championsTable');
+  if (!container) return;
+
+  var startYear = parseInt(decade, 10);
+  var endYear = startYear + 9;
+  var rows = championsData.filter(function(d) { return d.year >= startYear && d.year <= endYear; });
+
+  function getTeamColor(teamName) {
+    if (!teamName) return '';
+    return championTeamColors[teamName] || '';
+  }
+
+  var html = '<table class="champions-table">';
+  html += '<thead><tr><th>Year</th><th>Driver</th><th>Constructors\' Champion</th></tr></thead>';
+  html += '<tbody>';
+
+  rows.forEach(function(row) {
+    var flag = championFlagMap[row.nationality] || '';
+    var teamColor = getTeamColor(row.team);
+    var constructorColor = getTeamColor(row.constructor);
+    var styleProps = [];
+    if (teamColor) styleProps.push('--row-team-color: ' + teamColor);
+    if (constructorColor) styleProps.push('--row-constructor-color: ' + constructorColor);
+    var style = styleProps.length ? ' style="' + styleProps.join('; ') + '"' : '';
+    var teamColorAttr = teamColor ? ' data-team-color' : '';
+    var constructorColorAttr = constructorColor ? ' data-constructor-color' : '';
+
+    html += '<tr' + style + teamColorAttr + constructorColorAttr + '>';
+    html += '<td class="champions-year">' + row.year + '</td>';
+    html += '<td class="champions-driver"><span class="champions-flag">' + flag + '</span>' + row.driver + '<span class="champions-driver-team">';
+    if (teamColor) html += '<span class="champions-team-color" style="background:' + teamColor + '"></span>';
+    html += row.team + '</span></td>';
+
+    if (row.constructor) {
+      var drivers = constructorDrivers[row.year];
+      html += '<td class="champions-constructor">';
+      if (constructorColor) html += '<span class="champions-team-color" style="background:' + constructorColor + '"></span>';
+      html += row.constructor;
+      if (drivers) html += '<span class="champions-constructor-drivers">' + drivers[0] + ' &middot; ' + drivers[1] + '</span>';
+      html += '</td>';
+    } else {
+      html += '<td class="champions-na">&mdash;</td>';
+    }
+
+    html += '</tr>';
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+(function initChampionsTabs() {
+  var tabs = document.querySelectorAll('.champions-tab');
+  if (!tabs.length) return;
+
+  function activateTab(tab) {
+    tabs.forEach(function(t) {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
+    tab.focus();
+
+    // Fade transition: fade out, swap content, fade in
+    var wrapper = document.getElementById('championsTable');
+    if (wrapper && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      wrapper.classList.add('is-switching');
+      setTimeout(function() {
+        renderChampionsTable(tab.dataset.decade);
+        wrapper.classList.remove('is-switching');
+      }, 150);
+    } else {
+      renderChampionsTable(tab.dataset.decade);
+    }
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      activateTab(tab);
+    });
+  });
+
+  // Keyboard navigation: left/right arrows
+  var tabContainer = document.querySelector('.champions-tabs');
+  if (tabContainer) {
+    tabContainer.addEventListener('keydown', function(e) {
+      var tabArray = Array.from(tabs);
+      var currentIndex = tabArray.findIndex(function(t) { return t.classList.contains('active'); });
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        var newIndex;
+        if (e.key === 'ArrowRight') {
+          newIndex = (currentIndex + 1) % tabArray.length;
+        } else {
+          newIndex = (currentIndex - 1 + tabArray.length) % tabArray.length;
+        }
+        activateTab(tabArray[newIndex]);
+      }
+    });
+  }
+
+  // Render default tab (2020s)
+  renderChampionsTable('2020');
+})();
+
 // ── Theme Toggle ──
 function toggleTheme() {
   const html = document.documentElement;

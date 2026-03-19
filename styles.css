@@ -2799,6 +2799,153 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 }
 
 /* ═══════════════════════════════════════════════════
+   WORLD CHAMPIONS
+   ═══════════════════════════════════════════════════ */
+.champions-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.champions-tabs::-webkit-scrollbar { display: none; }
+
+.champions-tab {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.champions-tab:hover {
+  color: var(--text-primary);
+  border-color: var(--text-tertiary);
+}
+
+.champions-tab.active {
+  background: var(--f1-red);
+  color: #fff;
+  border-color: var(--f1-red);
+}
+
+.champions-tab:focus-visible {
+  outline: 2px solid var(--f1-red);
+  outline-offset: 2px;
+}
+
+.champions-table-wrapper {
+  overflow-x: auto;
+  transition: opacity 0.15s ease;
+}
+
+.champions-table-wrapper.is-switching {
+  opacity: 0;
+}
+
+.champions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.champions-table th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.champions-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.champions-table tr:hover td {
+  background: var(--bg-card);
+}
+
+.champions-table .champions-year {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.champions-table .champions-driver {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.champions-driver-team {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.champions-driver-team .champions-team-color {
+  width: 8px;
+  height: 8px;
+}
+
+.champions-table .champions-flag {
+  margin-right: 6px;
+}
+
+.champions-table .champions-team-color {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.champions-table .champions-constructor {
+  color: var(--text-secondary);
+}
+
+.champions-constructor-drivers {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.champions-table .champions-na {
+  color: var(--text-tertiary);
+}
+
+.champions-table tr[data-team-color] td:first-child {
+  border-left: 3px solid var(--row-team-color, transparent);
+}
+
+.champions-table tr[data-constructor-color] td:last-child {
+  border-right: 3px solid var(--row-constructor-color, transparent);
+}
+
+
+
+/* ═══════════════════════════════════════════════════
    RESPONSIVE ADJUSTMENTS
    ═══════════════════════════════════════════════════ */
 @media (max-width: 1440px) {
@@ -2829,4 +2976,8 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   .pitlane-photos { grid-template-columns: 1fr; }
   .track-cards { grid-template-columns: 1fr; }
   .section-hero-image { aspect-ratio: 16 / 9; border-radius: 12px; }
+  .champions-table { font-size: 13px; }
+  .champions-table th { padding: 8px 10px; font-size: 9px; }
+  .champions-table td { padding: 8px 10px; }
+  .champions-tab { font-size: 11px; padding: 6px 12px; }
 }
