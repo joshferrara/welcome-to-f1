@@ -335,7 +335,7 @@ const championsData = [
   { year: 2022, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'Red Bull' },
   { year: 2023, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'Red Bull' },
   { year: 2024, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'McLaren' },
-  { year: 2025, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'McLaren' },
+  { year: 2025, driver: 'Lando Norris', nationality: 'GB', team: 'McLaren', constructor: 'McLaren' },
 ];
 
 const championFlagMap = {
