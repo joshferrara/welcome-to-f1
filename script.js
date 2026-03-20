@@ -335,6 +335,7 @@ const championsData = [
   { year: 2022, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'Red Bull' },
   { year: 2023, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'Red Bull' },
   { year: 2024, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'McLaren' },
+  { year: 2025, driver: 'Max Verstappen', nationality: 'NL', team: 'Red Bull', constructor: 'McLaren' },
 ];
 
 const championFlagMap = {
@@ -379,6 +380,7 @@ const constructorDrivers = {
   2018: ['Hamilton', 'Bottas'], 2019: ['Hamilton', 'Bottas'], 2020: ['Hamilton', 'Bottas'],
   2021: ['Hamilton', 'Bottas'], 2022: ['Verstappen', 'Pérez'], 2023: ['Verstappen', 'Pérez'],
   2024: ['Norris', 'Piastri'],
+  2025: ['Norris', 'Piastri'],
 };
 
 // ── World Champions Rendering ──
