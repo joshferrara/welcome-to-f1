@@ -58,14 +58,14 @@
     </ul>
     <div class="navbar__actions">
       <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
-        <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
-        <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
+        <button class="unit-toggle__btn active" data-action="set-units" data-unit="imperial">mph</button>
+        <button class="unit-toggle__btn" data-action="set-units" data-unit="metric">km/h</button>
       </div>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <button class="theme-toggle" data-action="toggle-theme" aria-label="Toggle theme">
         <span class="icon-sun">&#9728;</span>
         <span class="icon-moon">&#9790;</span>
       </button>
-      <button class="navbar__hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Open menu">
+      <button class="navbar__hamburger" id="hamburgerBtn" data-action="toggle-mobile-nav" aria-label="Open menu">
         <span></span>
         <span></span>
         <span></span>
@@ -79,28 +79,28 @@
   <div class="mobile-nav__inner">
     <div class="mobile-nav__toc-label">Contents</div>
     <ul class="mobile-nav__toc-list">
-      <li><a href="#basics" class="mobile-nav__toc-link" data-section="basics" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">01</span><span class="mobile-nav__toc-name">The Basics</span></a></li>
-      <li><a href="#weekend" class="mobile-nav__toc-link" data-section="weekend" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">02</span><span class="mobile-nav__toc-name">Race Weekend</span></a></li>
-      <li><a href="#championships" class="mobile-nav__toc-link" data-section="championships" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">03</span><span class="mobile-nav__toc-name">Championships</span></a></li>
-      <li><a href="#cars" class="mobile-nav__toc-link" data-section="cars" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">04</span><span class="mobile-nav__toc-name">The Cars</span></a></li>
-      <li><a href="#pitstops" class="mobile-nav__toc-link" data-section="pitstops" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">05</span><span class="mobile-nav__toc-name">Pit Stops</span></a></li>
-      <li><a href="#tyres" class="mobile-nav__toc-link" data-section="tyres" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">06</span><span class="mobile-nav__toc-name">Tyres</span></a></li>
-      <li><a href="#drivers" class="mobile-nav__toc-link" data-section="drivers" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">07</span><span class="mobile-nav__toc-name">The Drivers</span></a></li>
-      <li><a href="#teams" class="mobile-nav__toc-link" data-section="teams" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">08</span><span class="mobile-nav__toc-name">The Teams</span></a></li>
-      <li><a href="#champions" class="mobile-nav__toc-link" data-section="champions" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">09</span><span class="mobile-nav__toc-name">World Champions</span></a></li>
-      <li><a href="#history" class="mobile-nav__toc-link" data-section="history" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">10</span><span class="mobile-nav__toc-name">Recent History</span></a></li>
-      <li><a href="#drama" class="mobile-nav__toc-link" data-section="drama" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">11</span><span class="mobile-nav__toc-name">The Drama</span></a></li>
-      <li><a href="#tracks" class="mobile-nav__toc-link" data-section="tracks" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">12</span><span class="mobile-nav__toc-name">The Tracks</span></a></li>
-      <li><a href="#schedule" class="mobile-nav__toc-link" data-section="schedule" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">13</span><span class="mobile-nav__toc-name">The Calendar</span></a></li>
-      <li><a href="#rules" class="mobile-nav__toc-link" data-section="rules" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">14</span><span class="mobile-nav__toc-name">Good to Know</span></a></li>
-      <li><a href="#faq" class="mobile-nav__toc-link" data-section="faq" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">15</span><span class="mobile-nav__toc-name">FAQ</span></a></li>
-      <li><a href="#start" class="mobile-nav__toc-link" data-section="start" onclick="closeMobileNav()"><span class="mobile-nav__toc-number">16</span><span class="mobile-nav__toc-name">Get Started</span></a></li>
+      <li><a href="#basics" class="mobile-nav__toc-link" data-section="basics" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">01</span><span class="mobile-nav__toc-name">The Basics</span></a></li>
+      <li><a href="#weekend" class="mobile-nav__toc-link" data-section="weekend" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">02</span><span class="mobile-nav__toc-name">Race Weekend</span></a></li>
+      <li><a href="#championships" class="mobile-nav__toc-link" data-section="championships" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">03</span><span class="mobile-nav__toc-name">Championships</span></a></li>
+      <li><a href="#cars" class="mobile-nav__toc-link" data-section="cars" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">04</span><span class="mobile-nav__toc-name">The Cars</span></a></li>
+      <li><a href="#pitstops" class="mobile-nav__toc-link" data-section="pitstops" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">05</span><span class="mobile-nav__toc-name">Pit Stops</span></a></li>
+      <li><a href="#tyres" class="mobile-nav__toc-link" data-section="tyres" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">06</span><span class="mobile-nav__toc-name">Tyres</span></a></li>
+      <li><a href="#drivers" class="mobile-nav__toc-link" data-section="drivers" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">07</span><span class="mobile-nav__toc-name">The Drivers</span></a></li>
+      <li><a href="#teams" class="mobile-nav__toc-link" data-section="teams" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">08</span><span class="mobile-nav__toc-name">The Teams</span></a></li>
+      <li><a href="#champions" class="mobile-nav__toc-link" data-section="champions" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">09</span><span class="mobile-nav__toc-name">World Champions</span></a></li>
+      <li><a href="#history" class="mobile-nav__toc-link" data-section="history" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">10</span><span class="mobile-nav__toc-name">Recent History</span></a></li>
+      <li><a href="#drama" class="mobile-nav__toc-link" data-section="drama" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">11</span><span class="mobile-nav__toc-name">The Drama</span></a></li>
+      <li><a href="#tracks" class="mobile-nav__toc-link" data-section="tracks" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">12</span><span class="mobile-nav__toc-name">The Tracks</span></a></li>
+      <li><a href="#schedule" class="mobile-nav__toc-link" data-section="schedule" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">13</span><span class="mobile-nav__toc-name">The Calendar</span></a></li>
+      <li><a href="#rules" class="mobile-nav__toc-link" data-section="rules" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">14</span><span class="mobile-nav__toc-name">Good to Know</span></a></li>
+      <li><a href="#faq" class="mobile-nav__toc-link" data-section="faq" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">15</span><span class="mobile-nav__toc-name">FAQ</span></a></li>
+      <li><a href="#start" class="mobile-nav__toc-link" data-section="start" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">16</span><span class="mobile-nav__toc-name">Get Started</span></a></li>
     </ul>
   </div>
   <div class="mobile-nav__actions">
     <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
-      <button class="unit-toggle__btn active" data-unit="imperial" onclick="setUnits('imperial')">mph</button>
-      <button class="unit-toggle__btn" data-unit="metric" onclick="setUnits('metric')">km/h</button>
+      <button class="unit-toggle__btn active" data-action="set-units" data-unit="imperial">mph</button>
+      <button class="unit-toggle__btn" data-action="set-units" data-unit="metric">km/h</button>
     </div>
   </div>
 </div>
@@ -347,7 +347,6 @@
       <div class="callout reveal">
         <p><strong>Sprint Weekends:</strong> Six races in 2026 use a compressed format that reshuffles the usual schedule. Friday has just one practice session followed by Sprint Qualifying (which sets the grid for the Sprint). Saturday morning is the Sprint Race, a quick, no-pit-stop <span class="unit" data-imperial="~62 mile" data-metric="~100 km">~62 mile</span> dash where the top 8 score extra championship points. Regular Qualifying follows in the afternoon to set the grid for Sunday's full Grand Prix.</p>
       </div>
-    </div>
   </div>
 </section>
 
@@ -1383,188 +1382,19 @@
       <p class="section-header__subtitle">24 races. March to December. Five continents.</p>
     </div>
 
-    <div class="schedule-grid reveal">
-      <div class="schedule-item" data-round="1">
-        <span class="schedule-item__round">R1</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Australian Grand Prix</span>
-          <span class="schedule-item__detail">Melbourne &bull; Mar 6&ndash;8</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="2">
-        <span class="schedule-item__round">R2</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Chinese Grand Prix</span>
-          <span class="schedule-item__detail">Shanghai &bull; Mar 13&ndash;15</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="3">
-        <span class="schedule-item__round">R3</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Japanese Grand Prix</span>
-          <span class="schedule-item__detail">Suzuka &bull; Mar 27&ndash;29</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="4">
-        <span class="schedule-item__round">R4</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Bahrain Grand Prix</span>
-          <span class="schedule-item__detail">Sakhir &bull; Apr 10&ndash;12</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="5">
-        <span class="schedule-item__round">R5</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Saudi Arabian Grand Prix</span>
-          <span class="schedule-item__detail">Jeddah &bull; Apr 17&ndash;19</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="6">
-        <span class="schedule-item__round">R6</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Miami Grand Prix</span>
-          <span class="schedule-item__detail">Miami &bull; May 1&ndash;3</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="7">
-        <span class="schedule-item__round">R7</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Canadian Grand Prix</span>
-          <span class="schedule-item__detail">Montreal &bull; May 22&ndash;24</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="8">
-        <span class="schedule-item__round">R8</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Monaco Grand Prix</span>
-          <span class="schedule-item__detail">Monte Carlo &bull; Jun 5&ndash;7</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="9">
-        <span class="schedule-item__round">R9</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Spanish Grand Prix</span>
-          <span class="schedule-item__detail">Barcelona &bull; Jun 12&ndash;14</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="10">
-        <span class="schedule-item__round">R10</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Austrian Grand Prix</span>
-          <span class="schedule-item__detail">Spielberg &bull; Jun 26&ndash;28</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="11">
-        <span class="schedule-item__round">R11</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">British Grand Prix</span>
-          <span class="schedule-item__detail">Silverstone &bull; Jul 3&ndash;5</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="12">
-        <span class="schedule-item__round">R12</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Belgian Grand Prix</span>
-          <span class="schedule-item__detail">Spa &bull; Jul 17&ndash;19</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="13">
-        <span class="schedule-item__round">R13</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Hungarian Grand Prix</span>
-          <span class="schedule-item__detail">Budapest &bull; Jul 24&ndash;26</span>
-        </div>
-      </div>
-      <div class="schedule-item schedule-item--break">
-        <span class="schedule-item__round">&mdash;</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Summer Break</span>
-          <span class="schedule-item__detail">Aug 1&ndash;20</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="14">
-        <span class="schedule-item__round">R14</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Dutch Grand Prix</span>
-          <span class="schedule-item__detail">Zandvoort &bull; Aug 21&ndash;23</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="15">
-        <span class="schedule-item__round">R15</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Italian Grand Prix</span>
-          <span class="schedule-item__detail">Monza &bull; Sep 4&ndash;6</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="16">
-        <span class="schedule-item__round">R16</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Madrid Grand Prix <span class="schedule-item__badge">NEW</span></span>
-          <span class="schedule-item__detail">Madrid &bull; Sep 11&ndash;13</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="17">
-        <span class="schedule-item__round">R17</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Azerbaijan Grand Prix</span>
-          <span class="schedule-item__detail">Baku &bull; Sep 25&ndash;27</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="18">
-        <span class="schedule-item__round">R18</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Singapore Grand Prix</span>
-          <span class="schedule-item__detail">Singapore &bull; Oct 9&ndash;11</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="19">
-        <span class="schedule-item__round">R19</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">United States Grand Prix</span>
-          <span class="schedule-item__detail">Austin &bull; Oct 23&ndash;25</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="20">
-        <span class="schedule-item__round">R20</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Mexico City Grand Prix</span>
-          <span class="schedule-item__detail">Mexico City &bull; Oct 30&ndash;Nov 1</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="21">
-        <span class="schedule-item__round">R21</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">S&atilde;o Paulo Grand Prix</span>
-          <span class="schedule-item__detail">S&atilde;o Paulo &bull; Nov 6&ndash;8</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="22">
-        <span class="schedule-item__round">R22</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Las Vegas Grand Prix</span>
-          <span class="schedule-item__detail">Las Vegas &bull; Nov 19&ndash;21</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="23">
-        <span class="schedule-item__round">R23</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Qatar Grand Prix</span>
-          <span class="schedule-item__detail">Lusail &bull; Nov 27&ndash;29</span>
-        </div>
-      </div>
-      <div class="schedule-item" data-round="24">
-        <span class="schedule-item__round">R24</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Abu Dhabi Grand Prix</span>
-          <span class="schedule-item__detail">Abu Dhabi &bull; Dec 4&ndash;6</span>
-        </div>
-      </div>
-      <div class="schedule-item schedule-item--break">
-        <span class="schedule-item__round">&mdash;</span>
-        <div class="schedule-item__info">
-          <span class="schedule-item__name">Winter Break</span>
-          <span class="schedule-item__detail">Dec 7&ndash;Feb 2027</span>
-        </div>
+    <div class="section-meta reveal">Last updated: <span id="calendarLastUpdated">Loading…</span></div>
+
+    <div class="schedule-grid reveal" id="scheduleGrid"></div>
+
+    <div class="content-block reveal">
+      <h3>This weekend in your local time</h3>
+      <p class="helper-copy">Pick any race to see its weekend sessions converted into your local timezone.</p>
+      <div class="tool-grid">
+        <label class="tool-field">
+          <span class="tool-label">Grand Prix</span>
+          <select id="timelineRaceSelect" class="tool-select"></select>
+        </label>
+        <div class="tool-panel" id="timelinePanel"></div>
       </div>
     </div>
   </div>
@@ -1601,6 +1431,29 @@
       <div class="callout reveal">
         <p><strong>The 12-point ban:</strong> Drivers accumulate penalty points for infractions over a rolling 12-month period. Hit 12 points and you're banned for a race. It keeps things in check.</p>
       </div>
+
+      <div class="content-block reveal">
+        <h3>Points calculator</h3>
+        <p class="helper-copy">Select a finishing position to see how many championship points are awarded on Sunday and in Sprint races.</p>
+        <div class="tool-grid tool-grid--2">
+          <label class="tool-field">
+            <span class="tool-label">Grand Prix finish</span>
+            <select id="gpPositionSelect" class="tool-select"></select>
+          </label>
+          <div class="tool-panel" id="pointsPanel"></div>
+        </div>
+      </div>
+
+      <div class="content-block reveal">
+        <h3>Driver compare</h3>
+        <p class="helper-copy">Compare two drivers from the live standings to quickly understand title context.</p>
+        <div class="tool-grid tool-grid--2">
+          <label class="tool-field"><span class="tool-label">Driver A</span><select id="compareDriverA" class="tool-select"></select></label>
+          <label class="tool-field"><span class="tool-label">Driver B</span><select id="compareDriverB" class="tool-select"></select></label>
+        </div>
+        <div class="tool-panel" id="driverComparePanel"></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1775,11 +1628,11 @@
     <p class="footer__tagline reveal">Lights out and away we go.</p>
     <p class="footer__sub reveal">Know someone who'd enjoy this? Pass it along.</p>
     <div class="share-actions reveal">
-      <button class="share-btn share-btn--copy" onclick="copyPageUrl()" id="copyUrlBtn">
+      <button class="share-btn share-btn--copy" data-action="copy-url" id="copyUrlBtn">
         <span class="share-btn__icon">&#128279;</span>
         <span class="share-btn__label" id="copyUrlLabel">Copy Link</span>
       </button>
-      <button class="share-btn share-btn--native" onclick="nativeShare()" id="nativeShareBtn" style="display:none;">
+      <button class="share-btn share-btn--native" data-action="native-share" id="nativeShareBtn" style="display:none;">
         <span class="share-btn__icon">&#8599;</span>
         <span class="share-btn__label">Share</span>
       </button>
@@ -1793,6 +1646,7 @@
 <!-- ══════════════════════════════════════════════════════
      JAVASCRIPT
      ══════════════════════════════════════════════════════ -->
+<script src="races-data.js"></script>
 <script src="script.js"></script>
 
 <script type="application/ld+json">

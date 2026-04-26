@@ -10,14 +10,15 @@ Inspired by [A Newbie's Guide to Formula 1](https://nonchalant-trawler-767.notio
 
 ## Architecture
 
-The site is a single-page app built from static files — no build tools, no frameworks, no external dependencies. Data lives directly in the HTML and is version-controlled via git.
+The site is a single-page app built from static files — no build tools, no frameworks, no external dependencies. Structured data lives in small JS data files and is version-controlled via git.
 
 Key files:
 
 ```
-index.html                       # Page structure and data (~1900 lines)
-styles.css                       # All styles (~2650 lines)
-script.js                        # All client-side logic (~800 lines)
+index.html                       # Page structure and content
+styles.css                       # Global styles and component styles
+races-data.js                    # Canonical race calendar/session data
+script.js                        # Client-side behavior and rendering
 scripts/update-standings.js      # Automated standings import from Ergast API
 screenshot.js                    # Playwright script for OG image generation
 research/                        # F1 research notes and 2026 grid info
@@ -81,11 +82,11 @@ Add `cancelled: true` to the race object:
 
 ## Standings & Points
 
-Driver and constructor standings are stored in `index.html` between `<!-- STANDINGS_DATA_START -->` and `<!-- STANDINGS_DATA_END -->` markers. This data populates the standings tables and injects points into individual driver and team cards throughout the page.
+Driver and constructor standings are stored in `script.js` between `// STANDINGS_DATA_START` and `// STANDINGS_DATA_END` markers. This data populates the standings tables and injects points into individual driver and team cards throughout the page.
 
 ### Automated Import (at Deploy Time)
 
-The standings update script runs automatically during Cloudflare deploys, which are triggered when `main` receives a push. The script fetches driver and constructor standings from `api.jolpi.ca/ergast`, maps team names to match the site's canonical names (e.g., `"Kick Sauber"` → `"Audi"`), and writes the data into `index.html` between the markers. A `standingsLastUpdated` timestamp is also set.
+The standings update script runs automatically during Cloudflare deploys, which are triggered when `main` receives a push. The script fetches driver and constructor standings from `api.jolpi.ca/ergast`, maps team names to match the site's canonical names (e.g., `"Kick Sauber"` → `"Audi"`), and writes the data into `script.js` between the markers. A `standingsLastUpdated` timestamp is also set.
 
 If the API is unavailable, the script warns and leaves existing data untouched.
 
@@ -97,7 +98,7 @@ node scripts/update-standings.js
 
 ### Manual Update
 
-You can also edit the standings data directly in `index.html`. The data structures look like:
+You can also edit the standings data directly in `script.js`. The data structures look like:
 
 ```javascript
 const driverStandings = [

@@ -761,6 +761,32 @@ if (engineRows.length && engineAudioPlayer) {
   updateEngineRows();
 }
 
+// ── Action bindings (replaces inline onclick handlers) ──
+document.addEventListener('click', function(e) {
+  const trigger = e.target.closest('[data-action]');
+  if (!trigger) return;
+  const action = trigger.dataset.action;
+
+  if (action === 'set-units') {
+    e.preventDefault();
+    setUnits(trigger.dataset.unit || 'imperial');
+  } else if (action === 'toggle-theme') {
+    e.preventDefault();
+    toggleTheme();
+  } else if (action === 'toggle-mobile-nav') {
+    e.preventDefault();
+    toggleMobileNav();
+  } else if (action === 'close-mobile-nav') {
+    closeMobileNav();
+  } else if (action === 'copy-url') {
+    e.preventDefault();
+    copyPageUrl();
+  } else if (action === 'native-share') {
+    e.preventDefault();
+    nativeShare();
+  }
+});
+
 // ── Smooth scroll for nav links ──
 document.querySelectorAll('.navbar__links a, .mobile-nav__toc-link, .toc__link').forEach(link => {
   link.addEventListener('click', (e) => {
@@ -831,24 +857,40 @@ document.querySelectorAll('section[id]').forEach(section => {
 })();
 
 // ── Share functionality ──
+function announceShareResult(message) {
+  const label = document.getElementById('copyUrlLabel');
+  if (label) label.textContent = message;
+  setTimeout(() => {
+    if (label) label.textContent = 'Copy Link';
+  }, 2000);
+}
+
 function copyPageUrl() {
+  if (!navigator.clipboard || !navigator.clipboard.writeText) {
+    announceShareResult('Clipboard blocked');
+    return;
+  }
+
   navigator.clipboard.writeText(window.location.href).then(() => {
     const btn = document.getElementById('copyUrlBtn');
-    const label = document.getElementById('copyUrlLabel');
-    btn.classList.add('copied');
-    label.textContent = 'Copied!';
+    if (btn) btn.classList.add('copied');
+    announceShareResult('Copied!');
     setTimeout(() => {
-      btn.classList.remove('copied');
-      label.textContent = 'Copy Link';
+      if (btn) btn.classList.remove('copied');
     }, 2000);
+  }).catch(() => {
+    announceShareResult('Copy failed');
   });
 }
 
 function nativeShare() {
+  if (!navigator.share) return;
   navigator.share({
     title: 'Welcome to Formula 1',
     text: 'Everything you need to know about Formula 1 — the cars, the drivers, the drama.',
     url: window.location.href
+  }).catch(() => {
+    announceShareResult('Use copy link');
   });
 }
 
@@ -857,36 +899,70 @@ if (navigator.share) {
   document.getElementById('nativeShareBtn').style.display = 'flex';
 }
 
-// ── Race week banner ──
-// FP1 start and race start times in UTC, sourced from ESPN's 2026 F1 schedule.
-// Storing as UTC means the browser automatically converts to the visitor's local timezone.
+// ── Race week banner + schedule rendering ──
 (function() {
-  const races = [
-    { round: 1,  name: 'Australian Grand Prix',     location: 'Melbourne',   fp1: '2026-03-06T01:30Z', race: '2026-03-08T04:00Z', results: ['RUS', 'ANT', 'LEC'] },
-    { round: 2,  name: 'Chinese Grand Prix',         location: 'Shanghai',    fp1: '2026-03-13T04:30Z', race: '2026-03-15T08:00Z', results: ['ANT', 'RUS', 'HAM'] },
-    { round: 3,  name: 'Japanese Grand Prix',        location: 'Suzuka',      fp1: '2026-03-27T02:30Z', race: '2026-03-29T05:00Z', results: ['ANT', 'PIA', 'LEC'] },
-    { round: 4,  name: 'Bahrain Grand Prix',         location: 'Sakhir',      fp1: '2026-04-10T11:30Z', race: '2026-04-12T15:00Z', results: null, cancelled: true },
-    { round: 5,  name: 'Saudi Arabian Grand Prix',   location: 'Jeddah',      fp1: '2026-04-17T13:30Z', race: '2026-04-19T17:00Z', results: null, cancelled: true },
-    { round: 6,  name: 'Miami Grand Prix',           location: 'Miami',       fp1: '2026-05-01T16:30Z', race: '2026-05-03T20:00Z', results: null },
-    { round: 7,  name: 'Canadian Grand Prix',        location: 'Montreal',    fp1: '2026-05-22T16:30Z', race: '2026-05-24T20:00Z', results: null },
-    { round: 8,  name: 'Monaco Grand Prix',          location: 'Monte Carlo', fp1: '2026-06-05T11:30Z', race: '2026-06-07T13:00Z', results: null },
-    { round: 9,  name: 'Spanish Grand Prix',         location: 'Barcelona',   fp1: '2026-06-12T11:30Z', race: '2026-06-14T13:00Z', results: null },
-    { round: 10, name: 'Austrian Grand Prix',        location: 'Spielberg',   fp1: '2026-06-26T11:30Z', race: '2026-06-28T13:00Z', results: null },
-    { round: 11, name: 'British Grand Prix',         location: 'Silverstone', fp1: '2026-07-03T11:30Z', race: '2026-07-05T14:00Z', results: null },
-    { round: 12, name: 'Belgian Grand Prix',         location: 'Spa',         fp1: '2026-07-17T11:30Z', race: '2026-07-19T13:00Z', results: null },
-    { round: 13, name: 'Hungarian Grand Prix',       location: 'Budapest',    fp1: '2026-07-24T11:30Z', race: '2026-07-26T13:00Z', results: null },
-    { round: 14, name: 'Dutch Grand Prix',           location: 'Zandvoort',   fp1: '2026-08-21T10:30Z', race: '2026-08-23T13:00Z', results: null },
-    { round: 15, name: 'Italian Grand Prix',         location: 'Monza',       fp1: '2026-09-04T10:30Z', race: '2026-09-06T13:00Z', results: null },
-    { round: 16, name: 'Madrid Grand Prix',          location: 'Madrid',      fp1: '2026-09-11T11:30Z', race: '2026-09-13T13:00Z', results: null },
-    { round: 17, name: 'Azerbaijan Grand Prix',      location: 'Baku',        fp1: '2026-09-24T08:30Z', race: '2026-09-26T11:00Z', results: null },
-    { round: 18, name: 'Singapore Grand Prix',       location: 'Singapore',   fp1: '2026-10-09T08:30Z', race: '2026-10-11T12:00Z', results: null },
-    { round: 19, name: 'United States Grand Prix',   location: 'Austin',      fp1: '2026-10-23T17:30Z', race: '2026-10-25T20:00Z', results: null },
-    { round: 20, name: 'Mexico City Grand Prix',     location: 'Mexico City', fp1: '2026-10-30T18:30Z', race: '2026-11-01T20:00Z', results: null },
-    { round: 21, name: 'São Paulo Grand Prix',       location: 'São Paulo',   fp1: '2026-11-06T15:30Z', race: '2026-11-08T17:00Z', results: null },
-    { round: 22, name: 'Las Vegas Grand Prix',       location: 'Las Vegas',   fp1: '2026-11-20T00:30Z', race: '2026-11-22T04:00Z', results: null },
-    { round: 23, name: 'Qatar Grand Prix',           location: 'Lusail',      fp1: '2026-11-27T13:30Z', race: '2026-11-29T16:00Z', results: null },
-    { round: 24, name: 'Abu Dhabi Grand Prix',       location: 'Abu Dhabi',   fp1: '2026-12-04T09:30Z', race: '2026-12-06T13:00Z', results: null },
-  ];
+  const races = Array.isArray(window.racesData) ? window.racesData : [];
+  const raceRows = races.filter(function(r) { return !r.type; });
+  const scheduleGrid = document.getElementById('scheduleGrid');
+  const timelineRaceSelect = document.getElementById('timelineRaceSelect');
+  const timelinePanel = document.getElementById('timelinePanel');
+  const calendarLastUpdated = document.getElementById('calendarLastUpdated');
+
+  function formatRaceDetail(r) {
+    const fp1 = new Date(r.fp1);
+    const race = new Date(r.race);
+    const start = fp1.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const end = race.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    return r.location + ' \u2022 ' + start + '\u2013' + end;
+  }
+
+  function renderSchedule() {
+    if (!scheduleGrid) return;
+    scheduleGrid.innerHTML = '';
+
+    races.forEach(function(item) {
+      const card = document.createElement('div');
+      card.className = 'schedule-item';
+
+      if (item.type === 'break') {
+        card.classList.add('schedule-item--break');
+        card.innerHTML = '<span class="schedule-item__round">\u2014</span><div class="schedule-item__info"><span class="schedule-item__name">' + item.label + '</span><span class="schedule-item__detail">' + item.detail + '</span></div>';
+        scheduleGrid.appendChild(card);
+        return;
+      }
+
+      card.dataset.round = item.round;
+      card.innerHTML = '<span class="schedule-item__round">R' + item.round + '</span><div class="schedule-item__info"><span class="schedule-item__name">' + item.name + (item.isNew ? ' <span class="schedule-item__badge">NEW</span>' : '') + '</span><span class="schedule-item__detail">' + formatRaceDetail(item) + '</span></div>';
+      scheduleGrid.appendChild(card);
+    });
+  }
+
+  function renderTimelineOptions() {
+    if (!timelineRaceSelect) return;
+    timelineRaceSelect.innerHTML = raceRows.map(function(r) {
+      return '<option value="' + r.round + '">R' + r.round + ' \u00b7 ' + r.name + '</option>';
+    }).join('');
+  }
+
+  function formatSessionLine(label, iso) {
+    const d = new Date(iso);
+    const when = d.toLocaleString([], { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    return '<div class="timeline-row"><span>' + label + '</span><strong>' + when + '</strong></div>';
+  }
+
+  function renderTimeline(round) {
+    if (!timelinePanel) return;
+    const race = raceRows.find(function(r) { return String(r.round) === String(round); }) || raceRows[0];
+    if (!race) return;
+
+    timelinePanel.innerHTML =
+      '<div class="timeline-header"><strong>' + race.name + '</strong><span>' + race.location + '</span></div>' +
+      formatSessionLine('FP1', race.fp1) +
+      formatSessionLine('FP2', race.fp2) +
+      formatSessionLine('FP3', race.fp3) +
+      formatSessionLine('Qualifying', race.qualifying) +
+      formatSessionLine('Race', race.race);
+  }
 
   const params = new URLSearchParams(window.location.search);
   const dateParam = params.get('date');
@@ -894,7 +970,11 @@ if (navigator.share) {
     ? new Date(dateParam.slice(0,4) + '-' + dateParam.slice(4,6) + '-' + dateParam.slice(6,8) + 'T12:00:00')
     : new Date();
 
-  for (const r of races) {
+  renderSchedule();
+  renderTimelineOptions();
+  renderTimeline(raceRows[0] && raceRows[0].round);
+
+  for (const r of raceRows) {
     const fp1 = new Date(r.fp1);
     const race = new Date(r.race);
     const raceEnd = new Date(race.getTime() + 3 * 3600000);
@@ -938,7 +1018,7 @@ if (navigator.share) {
   }
 
   // Mark cancelled races
-  for (const r of races) {
+  for (const r of raceRows) {
     if (r.cancelled) {
       var calItem = document.querySelector('.schedule-item[data-round="' + r.round + '"]');
       if (calItem) {
@@ -950,7 +1030,7 @@ if (navigator.share) {
   }
 
   // Mark completed races
-  for (const r of races) {
+  for (const r of raceRows) {
     if (r.cancelled) continue;
     const race = new Date(r.race);
     const raceEnd = new Date(race.getTime() + 3 * 3600000);
@@ -973,6 +1053,14 @@ if (navigator.share) {
         }
       }
     }
+  }
+  if (timelineRaceSelect) {
+    timelineRaceSelect.addEventListener('change', function() {
+      renderTimeline(timelineRaceSelect.value);
+    });
+  }
+  if (calendarLastUpdated) {
+    calendarLastUpdated.textContent = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   }
 })();
 
@@ -1056,6 +1144,72 @@ if (navigator.share) {
       }
     });
   }
+})();
+
+// ── Beginner tools: points calculator + driver compare ──
+(function() {
+  const gpPoints = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
+  const sprintPoints = [8, 7, 6, 5, 4, 3, 2, 1];
+  const gpPositionSelect = document.getElementById('gpPositionSelect');
+  const pointsPanel = document.getElementById('pointsPanel');
+  const compareA = document.getElementById('compareDriverA');
+  const compareB = document.getElementById('compareDriverB');
+  const comparePanel = document.getElementById('driverComparePanel');
+
+  function fillPositionSelect() {
+    if (!gpPositionSelect) return;
+    gpPositionSelect.innerHTML = Array.from({ length: 20 }, function(_, i) {
+      return '<option value="' + (i + 1) + '">P' + (i + 1) + '</option>';
+    }).join('');
+  }
+
+  function renderPoints(position) {
+    if (!pointsPanel) return;
+    const pos = Number(position || 1);
+    const sunday = gpPoints[pos - 1] || 0;
+    const sprint = sprintPoints[pos - 1] || 0;
+    pointsPanel.innerHTML =
+      '<div class="compare-row"><span>Sunday Grand Prix</span><strong>' + sunday + ' pts</strong></div>' +
+      '<div class="compare-row"><span>Sprint race</span><strong>' + sprint + ' pts</strong></div>' +
+      '<div class="compare-row"><span>Total (Sprint weekend max)</span><strong>' + (sunday + sprint) + ' pts</strong></div>';
+  }
+
+  function fillDriverCompare() {
+    if (!compareA || !compareB || !driverStandings.length) return;
+    const options = driverStandings.map(function(d) {
+      return '<option value="' + d.code + '">' + d.name + '</option>';
+    }).join('');
+    compareA.innerHTML = options;
+    compareB.innerHTML = options;
+    compareB.value = driverStandings[Math.min(1, driverStandings.length - 1)].code;
+  }
+
+  function renderDriverCompare() {
+    if (!comparePanel || !compareA || !compareB) return;
+    const a = driverStandings.find(function(d) { return d.code === compareA.value; });
+    const b = driverStandings.find(function(d) { return d.code === compareB.value; });
+    if (!a || !b) return;
+    const delta = a.points - b.points;
+    const leadText = delta === 0 ? 'Tied on points' : (delta > 0 ? a.name + ' leads by ' + delta : b.name + ' leads by ' + Math.abs(delta));
+
+    comparePanel.innerHTML =
+      '<div class="compare-grid">' +
+      '<div><h4>' + a.name + '</h4><p>P' + a.pos + ' \u2022 ' + a.points + ' pts \u2022 ' + a.wins + ' wins</p></div>' +
+      '<div><h4>' + b.name + '</h4><p>P' + b.pos + ' \u2022 ' + b.points + ' pts \u2022 ' + b.wins + ' wins</p></div>' +
+      '</div>' +
+      '<div class="compare-summary">' + leadText + '</div>';
+  }
+
+  fillPositionSelect();
+  renderPoints(1);
+  if (gpPositionSelect) gpPositionSelect.addEventListener('change', function() {
+    renderPoints(gpPositionSelect.value);
+  });
+
+  fillDriverCompare();
+  renderDriverCompare();
+  if (compareA) compareA.addEventListener('change', renderDriverCompare);
+  if (compareB) compareB.addEventListener('change', renderDriverCompare);
 })();
 
 // ── Delight: Stat card value count-up on reveal ──
