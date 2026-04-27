@@ -986,8 +986,10 @@ if (navigator.share) {
     : new Date();
 
   if (userTimezoneLabel) {
-    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    userTimezoneLabel.textContent = zone || 'your time zone';
+    const zoneCode = Intl.DateTimeFormat('en-US', { timeZoneName: 'short' })
+      .formatToParts(now)
+      .find(function(part) { return part.type === 'timeZoneName'; })?.value;
+    userTimezoneLabel.textContent = zoneCode || 'your time zone';
   }
 
   renderSchedule();
