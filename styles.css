@@ -2994,16 +2994,14 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
 .helper-copy {
   color: var(--text-secondary);
   margin-bottom: 14px;
+  max-width: 70ch;
 }
 
 .tool-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(240px, 360px) 1fr;
+  align-items: start;
   gap: 16px;
-}
-
-.tool-grid--2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .tool-field {
@@ -3026,23 +3024,45 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   border: 1px solid var(--border-color-hover);
   border-radius: 10px;
   padding: 10px 12px;
+  min-height: 42px;
 }
 
 .tool-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 14px;
+  background: linear-gradient(180deg, var(--bg-card), var(--bg-elevated));
+  border: 1px solid var(--border-color-hover);
+  border-radius: 14px;
+  padding: 16px;
   display: grid;
   gap: 10px;
 }
 
-.timeline-header,
-.compare-row {
+.timeline-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+}
+
+.timeline-header strong {
+  display: block;
+}
+
+.timeline-header span {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.timeline-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--accent-amber-soft);
+  color: var(--accent-amber);
 }
 
 .timeline-row {
@@ -3050,26 +3070,18 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   justify-content: space-between;
   gap: 12px;
   color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
 }
 
-.compare-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.compare-grid h4 {
-  margin-bottom: 4px;
-}
-
-.compare-grid p,
-.compare-summary {
-  color: var(--text-secondary);
+.timeline-row strong {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
 }
 
 @media (max-width: 768px) {
-  .tool-grid--2,
-  .compare-grid {
+  .tool-grid {
     grid-template-columns: 1fr;
   }
 }

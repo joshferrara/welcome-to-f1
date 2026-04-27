@@ -954,14 +954,28 @@ if (navigator.share) {
     if (!timelinePanel) return;
     const race = raceRows.find(function(r) { return String(r.round) === String(round); }) || raceRows[0];
     if (!race) return;
+    const isSprint = Boolean(race.sprintWeekend);
+    const sprintTag = isSprint ? '<span class="timeline-badge">Sprint weekend</span>' : '';
+    const sessions = isSprint
+      ? [
+        ['FP1', race.fp1],
+        ['Sprint Qualifying', race.sprintQualifying],
+        ['Sprint', race.sprint],
+        ['Qualifying', race.qualifying],
+        ['Race', race.race]
+      ]
+      : [
+        ['FP1', race.fp1],
+        ['FP2', race.fp2],
+        ['FP3', race.fp3],
+        ['Qualifying', race.qualifying],
+        ['Race', race.race]
+      ];
 
-    timelinePanel.innerHTML =
-      '<div class="timeline-header"><strong>' + race.name + '</strong><span>' + race.location + '</span></div>' +
-      formatSessionLine('FP1', race.fp1) +
-      formatSessionLine('FP2', race.fp2) +
-      formatSessionLine('FP3', race.fp3) +
-      formatSessionLine('Qualifying', race.qualifying) +
-      formatSessionLine('Race', race.race);
+    timelinePanel.innerHTML = '<div class="timeline-header"><div><strong>' + race.name + '</strong><span>' + race.location + '</span></div>' + sprintTag + '</div>' +
+      sessions.map(function(session) {
+        return formatSessionLine(session[0], session[1]);
+      }).join('');
   }
 
   const params = new URLSearchParams(window.location.search);
@@ -1144,72 +1158,6 @@ if (navigator.share) {
       }
     });
   }
-})();
-
-// ── Beginner tools: points calculator + driver compare ──
-(function() {
-  const gpPoints = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
-  const sprintPoints = [8, 7, 6, 5, 4, 3, 2, 1];
-  const gpPositionSelect = document.getElementById('gpPositionSelect');
-  const pointsPanel = document.getElementById('pointsPanel');
-  const compareA = document.getElementById('compareDriverA');
-  const compareB = document.getElementById('compareDriverB');
-  const comparePanel = document.getElementById('driverComparePanel');
-
-  function fillPositionSelect() {
-    if (!gpPositionSelect) return;
-    gpPositionSelect.innerHTML = Array.from({ length: 20 }, function(_, i) {
-      return '<option value="' + (i + 1) + '">P' + (i + 1) + '</option>';
-    }).join('');
-  }
-
-  function renderPoints(position) {
-    if (!pointsPanel) return;
-    const pos = Number(position || 1);
-    const sunday = gpPoints[pos - 1] || 0;
-    const sprint = sprintPoints[pos - 1] || 0;
-    pointsPanel.innerHTML =
-      '<div class="compare-row"><span>Sunday Grand Prix</span><strong>' + sunday + ' pts</strong></div>' +
-      '<div class="compare-row"><span>Sprint race</span><strong>' + sprint + ' pts</strong></div>' +
-      '<div class="compare-row"><span>Total (Sprint weekend max)</span><strong>' + (sunday + sprint) + ' pts</strong></div>';
-  }
-
-  function fillDriverCompare() {
-    if (!compareA || !compareB || !driverStandings.length) return;
-    const options = driverStandings.map(function(d) {
-      return '<option value="' + d.code + '">' + d.name + '</option>';
-    }).join('');
-    compareA.innerHTML = options;
-    compareB.innerHTML = options;
-    compareB.value = driverStandings[Math.min(1, driverStandings.length - 1)].code;
-  }
-
-  function renderDriverCompare() {
-    if (!comparePanel || !compareA || !compareB) return;
-    const a = driverStandings.find(function(d) { return d.code === compareA.value; });
-    const b = driverStandings.find(function(d) { return d.code === compareB.value; });
-    if (!a || !b) return;
-    const delta = a.points - b.points;
-    const leadText = delta === 0 ? 'Tied on points' : (delta > 0 ? a.name + ' leads by ' + delta : b.name + ' leads by ' + Math.abs(delta));
-
-    comparePanel.innerHTML =
-      '<div class="compare-grid">' +
-      '<div><h4>' + a.name + '</h4><p>P' + a.pos + ' \u2022 ' + a.points + ' pts \u2022 ' + a.wins + ' wins</p></div>' +
-      '<div><h4>' + b.name + '</h4><p>P' + b.pos + ' \u2022 ' + b.points + ' pts \u2022 ' + b.wins + ' wins</p></div>' +
-      '</div>' +
-      '<div class="compare-summary">' + leadText + '</div>';
-  }
-
-  fillPositionSelect();
-  renderPoints(1);
-  if (gpPositionSelect) gpPositionSelect.addEventListener('change', function() {
-    renderPoints(gpPositionSelect.value);
-  });
-
-  fillDriverCompare();
-  renderDriverCompare();
-  if (compareA) compareA.addEventListener('change', renderDriverCompare);
-  if (compareB) compareB.addEventListener('change', renderDriverCompare);
 })();
 
 // ── Delight: Stat card value count-up on reveal ──
