@@ -906,6 +906,7 @@ if (navigator.share) {
   const scheduleGrid = document.getElementById('scheduleGrid');
   const timelineRaceSelect = document.getElementById('timelineRaceSelect');
   const timelinePanel = document.getElementById('timelinePanel');
+  const timelineTimezoneCode = document.getElementById('timelineTimezoneCode');
   const calendarLastUpdated = document.getElementById('calendarLastUpdated');
 
   function formatRaceDetail(r) {
@@ -948,6 +949,18 @@ if (navigator.share) {
     const d = new Date(iso);
     const when = d.toLocaleString([], { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
     return '<div class="timeline-row"><span>' + label + '</span><strong>' + when + '</strong></div>';
+  }
+
+  function getUserTimeZoneCode() {
+    try {
+      const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const januaryDate = new Date(Date.UTC(new Date().getUTCFullYear(), 0, 1));
+      const formatter = new Intl.DateTimeFormat('en-US', { timeZone: userTimeZone, timeZoneName: 'short' });
+      const tzPart = formatter.formatToParts(januaryDate).find(function(part) { return part.type === 'timeZoneName'; });
+      return tzPart && tzPart.value ? tzPart.value : 'local time';
+    } catch (error) {
+      return 'local time';
+    }
   }
 
   function renderTimeline(round) {
@@ -1012,6 +1025,9 @@ if (navigator.share) {
 
   renderSchedule();
   renderTimelineOptions();
+  if (timelineTimezoneCode) {
+    timelineTimezoneCode.textContent = getUserTimeZoneCode();
+  }
   const defaultTimelineRound = getDefaultTimelineRound(now);
   if (timelineRaceSelect && defaultTimelineRound) {
     timelineRaceSelect.value = String(defaultTimelineRound);
