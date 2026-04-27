@@ -907,7 +907,6 @@ if (navigator.share) {
   const timelineRaceSelect = document.getElementById('timelineRaceSelect');
   const timelinePanel = document.getElementById('timelinePanel');
   const calendarLastUpdated = document.getElementById('calendarLastUpdated');
-  const userTimezoneLabel = document.getElementById('userTimezoneLabel');
 
   function formatRaceDetail(r) {
     const fp1 = new Date(r.fp1);
@@ -1010,11 +1009,6 @@ if (navigator.share) {
   const now = dateParam && /^\d{8}$/.test(dateParam)
     ? new Date(dateParam.slice(0,4) + '-' + dateParam.slice(4,6) + '-' + dateParam.slice(6,8) + 'T12:00:00')
     : new Date();
-
-  if (userTimezoneLabel) {
-    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    userTimezoneLabel.textContent = zone || 'your time zone';
-  }
 
   renderSchedule();
   renderTimelineOptions();
