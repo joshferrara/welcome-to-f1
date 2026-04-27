@@ -2997,6 +2997,10 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   max-width: 70ch;
 }
 
+.content-block--timeline {
+  margin-top: 28px;
+}
+
 .tool-grid {
   display: grid;
   grid-template-columns: minmax(240px, 360px) 1fr;
