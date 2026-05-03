@@ -146,16 +146,17 @@ node scripts/update-races.js
 To call out a one-off schedule change on a single session row in the race-week timeline (e.g. an early race start due to forecasted rain), add a `raceNote` to that race in `races-data.js`:
 
 ```javascript
-{ round: 6, name: 'Miami Grand Prix', /* ...session times... */, raceNote: { session: 'race', text: 'Moved earlier', title: 'Race start moved earlier due to forecasted rain' } }
+{ round: 6, name: 'Miami Grand Prix', /* ...session times... */, raceNote: { session: 'race', offsetMinutes: -180, text: 'Moved earlier', title: 'Race start moved 3 hours earlier due to forecasted rain' } }
 ```
 
 | Field | Required | Notes |
 |-------|----------|-------|
-| `session` | Optional | Which row the badge attaches to: `'fp1'`, `'fp2'`, `'fp3'`, `'sprintQualifying'`, `'sprint'`, `'qualifying'`, or `'race'`. Defaults to `'race'`. If the key doesn't exist for that weekend (e.g. `'fp2'` on a sprint weekend), the badge silently doesn't render. |
+| `session` | Optional | Which row the badge attaches to and which session `offsetMinutes` applies to: `'fp1'`, `'fp2'`, `'fp3'`, `'sprintQualifying'`, `'sprint'`, `'qualifying'`, or `'race'`. Defaults to `'race'`. If the key doesn't exist for that weekend (e.g. `'fp2'` on a sprint weekend), the badge silently doesn't render. |
+| `offsetMinutes` | Optional | Minutes to add to the API-published time for the chosen `session` when `update-races.js` runs (e.g. `-180` for "3 hours earlier", `60` for "1 hour later"). Use this when the FIA has changed a session but Ergast hasn't published the new time yet. Remove it once Ergast catches up so the data file becomes the source of truth again. |
 | `text` | Required | Short label shown as a small inline badge next to the session label (e.g. `Moved earlier`, `Curfew shift`). |
-| `title` | Optional | Tooltip shown on hover (e.g. `Race start moved earlier due to forecasted rain`). |
+| `title` | Optional | Tooltip shown on hover (e.g. `Race start moved 3 hours earlier due to forecasted rain`). |
 
-The actual session time is updated by `update-races.js` on the next deploy once the new time is published to Ergast — the `raceNote` flag persists separately, so the badge stays put through the time refresh. Remove the `raceNote` field once the change is no longer noteworthy.
+The badge persists through `update-races.js` rewrites, so the visual marker stays put across deploys. Remove the `raceNote` field once the change is no longer noteworthy.
 
 ## Post-Race Update Workflow
 

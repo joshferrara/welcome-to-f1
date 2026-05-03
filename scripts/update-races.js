@@ -73,6 +73,32 @@ function replaceFieldInLine(line, field, newValue) {
   return { line: updated, oldValue, changed: oldValue !== null && oldValue !== newValue };
 }
 
+// Extracts `session` and `offsetMinutes` from a `raceNote: { ... }` block on
+// the line, if present. Used to apply a manual offset on top of the API time
+// when the FIA has changed a session but Ergast hasn't published it yet.
+function extractRaceNote(line) {
+  const block = line.match(/raceNote:\s*\{([^}]*)\}/);
+  if (!block) return null;
+  const inner = block[1];
+  const sessionMatch = inner.match(/\bsession:\s*'([^']*)'/);
+  const offsetMatch = inner.match(/\boffsetMinutes:\s*(-?\d+)/);
+  return {
+    session: sessionMatch ? sessionMatch[1] : 'race',
+    offsetMinutes: offsetMatch ? parseInt(offsetMatch[1], 10) : 0,
+  };
+}
+
+function applyOffset(iso, minutes) {
+  const d = new Date(iso);
+  d.setUTCMinutes(d.getUTCMinutes() + minutes);
+  const yyyy = d.getUTCFullYear();
+  const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(d.getUTCDate()).padStart(2, '0');
+  const hh = String(d.getUTCHours()).padStart(2, '0');
+  const min = String(d.getUTCMinutes()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}T${hh}:${min}Z`;
+}
+
 async function main() {
   const filePath = path.join(__dirname, '..', 'races-data.js');
   if (!fs.existsSync(filePath)) {
@@ -108,13 +134,20 @@ async function main() {
     const apiSessions = raceMap.get(circuitId);
     if (!apiSessions) return line;
 
+    const note = extractRaceNote(line);
     let cur = line;
     for (const field of ALL_TIME_FIELDS) {
-      const newValue = apiSessions[field];
-      if (!newValue) continue;
+      const apiValue = apiSessions[field];
+      if (!apiValue) continue;
+      let newValue = apiValue;
+      let offsetSuffix = '';
+      if (note && note.offsetMinutes && note.session === field) {
+        newValue = applyOffset(apiValue, note.offsetMinutes);
+        offsetSuffix = ` (API ${apiValue} ${note.offsetMinutes >= 0 ? '+' : ''}${note.offsetMinutes}m)`;
+      }
       const result = replaceFieldInLine(cur, field, newValue);
       if (result.changed) {
-        console.log(`  ${circuitId} ${field}: ${result.oldValue} -> ${newValue}`);
+        console.log(`  ${circuitId} ${field}: ${result.oldValue} -> ${newValue}${offsetSuffix}`);
         totalChanges++;
       }
       cur = result.line;
