@@ -20,6 +20,7 @@ styles.css                       # Global styles and component styles
 races-data.js                    # Canonical race calendar/session data
 script.js                        # Client-side behavior and rendering
 scripts/update-standings.js      # Automated standings import from Ergast API
+scripts/update-races.js          # Automated race calendar/session time import from Ergast API
 screenshot.js                    # Playwright script for OG image generation
 research/                        # F1 research notes and 2026 grid info
 ```
@@ -117,6 +118,20 @@ const standingsLastUpdated = "2026-03-14T15:45:24.261Z";
 ### Team Name Mapping
 
 The update script maps API team names to the canonical names used on the site. Both constructor IDs and display names are mapped — see `CONSTRUCTOR_NAME_MAP` and `TEAM_NAME_MAP` in `scripts/update-standings.js`. If a new team joins or a team rebrands, update these maps.
+
+## Race Calendar Sync
+
+Session times in `races-data.js` are kept in sync with the FIA-published schedule via `scripts/update-races.js`, which runs alongside the standings script during Cloudflare deploys. It fetches the season from `api.jolpi.ca/ergast/f1/2026.json` and rewrites only the time strings (`fp1`, `fp2`, `fp3`, `sprintQualifying`, `sprint`, `qualifying`, `race`) for each round, matched by `round` number.
+
+The script is intentionally surgical: it preserves curated fields (`name`, `location`, `results`, `cancelled`, `isNew`, `raceRainAdjusted`, etc.), the `Summer Break`/`Winter Break` rows, and the file's hand-formatted single-line-per-race layout. It only touches time fields that already exist on a line, so a sprint↔regular weekend reclassification stays a manual change.
+
+If the API is unavailable, the script warns and leaves the file untouched.
+
+For local testing:
+
+```bash
+node scripts/update-races.js
+```
 
 ## Post-Race Update Workflow
 
