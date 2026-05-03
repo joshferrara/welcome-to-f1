@@ -2193,6 +2193,11 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   margin-left: 6px;
 }
 
+.schedule-item__badge--alert {
+  color: var(--accent-amber);
+  background: var(--accent-amber-soft);
+}
+
 .schedule-item--active {
   position: relative;
   background: rgba(225,6,0,0.04);
@@ -3077,6 +3082,19 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   letter-spacing: 0.06em;
   background: var(--accent-amber-soft);
   color: var(--accent-amber);
+}
+
+.timeline-header__tags {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.timeline-badge--alert {
+  background: rgba(225, 6, 0, 0.1);
+  color: var(--f1-red);
 }
 
 .timeline-row {
