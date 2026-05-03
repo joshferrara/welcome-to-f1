@@ -19,6 +19,7 @@ index.html                       # Page structure and content
 styles.css                       # Global styles and component styles
 races-data.js                    # Canonical race calendar/session data
 script.js                        # Client-side behavior and rendering
+scripts/update-data.js           # Build-time orchestrator that runs every updater below
 scripts/update-standings.js      # Automated standings import from Ergast API
 scripts/update-races.js          # Automated race calendar/session time import from Ergast API
 screenshot.js                    # Playwright script for OG image generation
@@ -87,7 +88,7 @@ Driver and constructor standings are stored in `script.js` between `// STANDINGS
 
 ### Automated Import (at Deploy Time)
 
-The standings update script runs automatically during Cloudflare deploys, which are triggered when `main` receives a push. The script fetches driver and constructor standings from `api.jolpi.ca/ergast`, maps team names to match the site's canonical names (e.g., `"Kick Sauber"` → `"Audi"`), and writes the data into `script.js` between the markers. A `standingsLastUpdated` timestamp is also set.
+The standings update script runs automatically during Cloudflare deploys (via the `scripts/update-data.js` orchestrator that the Cloudflare Pages Build command points at), which are triggered when `main` receives a push. The script fetches driver and constructor standings from `api.jolpi.ca/ergast`, maps team names to match the site's canonical names (e.g., `"Kick Sauber"` → `"Audi"`), and writes the data into `script.js` between the markers. A `standingsLastUpdated` timestamp is also set.
 
 If the API is unavailable, the script warns and leaves existing data untouched.
 
@@ -123,7 +124,15 @@ The update script maps API team names to the canonical names used on the site. B
 
 Session times in `races-data.js` are kept in sync with the FIA-published schedule via `scripts/update-races.js`, which runs alongside the standings script during Cloudflare deploys. It fetches the season from `api.jolpi.ca/ergast/f1/2026.json` and rewrites only the time strings (`fp1`, `fp2`, `fp3`, `sprintQualifying`, `sprint`, `qualifying`, `race`) for each round, matched by `round` number.
 
-The script is intentionally surgical: it preserves curated fields (`name`, `location`, `results`, `cancelled`, `isNew`, `raceRainAdjusted`, etc.), the `Summer Break`/`Winter Break` rows, and the file's hand-formatted single-line-per-race layout. It only touches time fields that already exist on a line, so a sprint↔regular weekend reclassification stays a manual change.
+The script is intentionally surgical: it preserves curated fields (`name`, `location`, `results`, `cancelled`, `isNew`, `raceNote`, etc.), the `Summer Break`/`Winter Break` rows, and the file's hand-formatted single-line-per-race layout. It only touches time fields that already exist on a line, so a sprint↔regular weekend reclassification stays a manual change.
+
+To flag a one-off schedule change on the Race row in the timeline (e.g. an early start due to forecasted rain), add a `raceNote` to that race in `races-data.js`:
+
+```javascript
+{ round: 6, name: 'Miami Grand Prix', /* ...session times... */, raceNote: { text: 'Moved earlier', title: 'Race start moved earlier due to forecasted rain' } }
+```
+
+`text` shows as a small badge next to "Race"; `title` is the hover tooltip.
 
 If the API is unavailable, the script warns and leaves the file untouched.
 

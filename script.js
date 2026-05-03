@@ -970,7 +970,7 @@ if (navigator.share) {
     if (!race) return;
     const isSprint = Boolean(race.sprintWeekend);
     const sprintTag = isSprint ? '<span class="timeline-badge">Sprint weekend</span>' : '';
-    const raceNote = race.raceRainAdjusted ? { text: 'Moved earlier', title: 'Race start moved earlier due to forecasted rain' } : null;
+    const raceNote = race.raceNote || null;
     const sessions = isSprint
       ? [
         ['FP1', race.fp1],
