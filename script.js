@@ -971,20 +971,22 @@ if (navigator.share) {
     const isSprint = Boolean(race.sprintWeekend);
     const sprintTag = isSprint ? '<span class="timeline-badge">Sprint weekend</span>' : '';
     const raceNote = race.raceNote || null;
+    const noteSessionKey = raceNote && (raceNote.session || 'race');
+    const noteFor = function(key) { return key === noteSessionKey ? raceNote : null; };
     const sessions = isSprint
       ? [
-        ['FP1', race.fp1],
-        ['Sprint Qualifying', race.sprintQualifying],
-        ['Sprint', race.sprint],
-        ['Qualifying', race.qualifying],
-        ['Race', race.race, raceNote]
+        ['FP1', race.fp1, noteFor('fp1')],
+        ['Sprint Qualifying', race.sprintQualifying, noteFor('sprintQualifying')],
+        ['Sprint', race.sprint, noteFor('sprint')],
+        ['Qualifying', race.qualifying, noteFor('qualifying')],
+        ['Race', race.race, noteFor('race')]
       ]
       : [
-        ['FP1', race.fp1],
-        ['FP2', race.fp2],
-        ['FP3', race.fp3],
-        ['Qualifying', race.qualifying],
-        ['Race', race.race, raceNote]
+        ['FP1', race.fp1, noteFor('fp1')],
+        ['FP2', race.fp2, noteFor('fp2')],
+        ['FP3', race.fp3, noteFor('fp3')],
+        ['Qualifying', race.qualifying, noteFor('qualifying')],
+        ['Race', race.race, noteFor('race')]
       ];
 
     timelinePanel.innerHTML = '<div class="timeline-header"><div><strong>' + race.name + '</strong><span>' + race.location + '</span></div>' + sprintTag + '</div>' +

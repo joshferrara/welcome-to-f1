@@ -126,13 +126,13 @@ Session times in `races-data.js` are kept in sync with the FIA-published schedul
 
 The script is intentionally surgical: it preserves curated fields (`name`, `location`, `results`, `cancelled`, `isNew`, `raceNote`, etc.), the `Summer Break`/`Winter Break` rows, and the file's hand-formatted single-line-per-race layout. It only touches time fields that already exist on a line, so a sprint↔regular weekend reclassification stays a manual change.
 
-To flag a one-off schedule change on the Race row in the timeline (e.g. an early start due to forecasted rain), add a `raceNote` to that race in `races-data.js`:
+To flag a one-off schedule change on a session row in the timeline (e.g. an early start due to forecasted rain), add a `raceNote` to that race in `races-data.js`:
 
 ```javascript
-{ round: 6, name: 'Miami Grand Prix', /* ...session times... */, raceNote: { text: 'Moved earlier', title: 'Race start moved earlier due to forecasted rain' } }
+{ round: 6, name: 'Miami Grand Prix', /* ...session times... */, raceNote: { session: 'race', text: 'Moved earlier', title: 'Race start moved earlier due to forecasted rain' } }
 ```
 
-`text` shows as a small badge next to "Race"; `title` is the hover tooltip.
+`session` picks which row the badge attaches to — one of `'fp1'`, `'fp2'`, `'fp3'`, `'sprintQualifying'`, `'sprint'`, `'qualifying'`, `'race'` (defaults to `'race'` if omitted). `text` shows as a small badge next to the session label; `title` is the hover tooltip.
 
 If the API is unavailable, the script warns and leaves the file untouched.
 
