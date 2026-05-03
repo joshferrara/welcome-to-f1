@@ -945,10 +945,11 @@ if (navigator.share) {
     }).join('');
   }
 
-  function formatSessionLine(label, iso) {
+  function formatSessionLine(label, iso, note) {
     const d = new Date(iso);
     const when = d.toLocaleString([], { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-    return '<div class="timeline-row"><span>' + label + '</span><strong>' + when + '</strong></div>';
+    const noteHtml = note ? '<span class="timeline-row__note" title="' + note.title + '">' + note.text + '</span>' : '';
+    return '<div class="timeline-row"><span>' + label + noteHtml + '</span><strong>' + when + '</strong></div>';
   }
 
   function getUserTimeZoneCode() {
@@ -969,25 +970,26 @@ if (navigator.share) {
     if (!race) return;
     const isSprint = Boolean(race.sprintWeekend);
     const sprintTag = isSprint ? '<span class="timeline-badge">Sprint weekend</span>' : '';
+    const raceNote = race.raceDelayedRain ? { text: 'Rain delay', title: 'Race start time adjusted due to rain' } : null;
     const sessions = isSprint
       ? [
         ['FP1', race.fp1],
         ['Sprint Qualifying', race.sprintQualifying],
         ['Sprint', race.sprint],
         ['Qualifying', race.qualifying],
-        ['Race', race.race]
+        ['Race', race.race, raceNote]
       ]
       : [
         ['FP1', race.fp1],
         ['FP2', race.fp2],
         ['FP3', race.fp3],
         ['Qualifying', race.qualifying],
-        ['Race', race.race]
+        ['Race', race.race, raceNote]
       ];
 
     timelinePanel.innerHTML = '<div class="timeline-header"><div><strong>' + race.name + '</strong><span>' + race.location + '</span></div>' + sprintTag + '</div>' +
       sessions.map(function(session) {
-        return formatSessionLine(session[0], session[1]);
+        return formatSessionLine(session[0], session[1], session[2]);
       }).join('');
   }
 
