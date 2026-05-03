@@ -10,7 +10,7 @@ Inspired by [A Newbie's Guide to Formula 1](https://nonchalant-trawler-767.notio
 
 ## Architecture
 
-The site is a single-page app built from static files — no build tools, no frameworks, no external dependencies. Structured data lives in small JS data files and is version-controlled via git.
+The site is a single-page app built from static files — no build tools, no frameworks, no external dependencies. Structured data lives in small JS data files and is version-controlled via git. At deploy time, a few small Node scripts refresh the standings and schedule data files in-place from the public Ergast API.
 
 Key files:
 
@@ -88,14 +88,17 @@ Driver and constructor standings are stored in `script.js` between `// STANDINGS
 
 ### Automated Import (at Deploy Time)
 
-The standings update script runs automatically during Cloudflare deploys (via the `scripts/update-data.js` orchestrator that the Cloudflare Pages Build command points at), which are triggered when `main` receives a push. The script fetches driver and constructor standings from `api.jolpi.ca/ergast`, maps team names to match the site's canonical names (e.g., `"Kick Sauber"` → `"Audi"`), and writes the data into `script.js` between the markers. A `standingsLastUpdated` timestamp is also set.
+Standings refresh on every Cloudflare deploy. The Cloudflare Pages **Build command** is `node scripts/update-data.js` — an orchestrator that runs each updater in `scripts/` in sequence (currently `update-standings.js` then `update-races.js`), streams their output through, and propagates a non-zero exit if any of them errors. Adding a new updater means appending to the `scripts` array in `update-data.js` rather than touching the dashboard.
+
+The standings step fetches driver and constructor standings from `api.jolpi.ca/ergast`, maps team names to match the site's canonical names (e.g., `"Kick Sauber"` → `"Audi"`), writes the data into `script.js` between the `STANDINGS_DATA_START`/`STANDINGS_DATA_END` markers, and sets a `standingsLastUpdated` timestamp.
 
 If the API is unavailable, the script warns and leaves existing data untouched.
 
-For local testing, you can run it manually:
+For local testing:
 
 ```bash
-node scripts/update-standings.js
+node scripts/update-standings.js   # standings only
+node scripts/update-data.js        # everything the deploy runs
 ```
 
 ### Manual Update
@@ -122,17 +125,13 @@ The update script maps API team names to the canonical names used on the site. B
 
 ## Race Calendar Sync
 
-Session times in `races-data.js` are kept in sync with the FIA-published schedule via `scripts/update-races.js`, which runs alongside the standings script during Cloudflare deploys. It fetches the season from `api.jolpi.ca/ergast/f1/2026.json` and rewrites only the time strings (`fp1`, `fp2`, `fp3`, `sprintQualifying`, `sprint`, `qualifying`, `race`) for each round, matched by `round` number.
+Session times in `races-data.js` are kept in sync with the FIA-published schedule by `scripts/update-races.js`, which runs at deploy time alongside `update-standings.js` via the `update-data.js` orchestrator.
 
-The script is intentionally surgical: it preserves curated fields (`name`, `location`, `results`, `cancelled`, `isNew`, `raceNote`, etc.), the `Summer Break`/`Winter Break` rows, and the file's hand-formatted single-line-per-race layout. It only touches time fields that already exist on a line, so a sprint↔regular weekend reclassification stays a manual change.
+### Automated Import (at Deploy Time)
 
-To flag a one-off schedule change on a session row in the timeline (e.g. an early start due to forecasted rain), add a `raceNote` to that race in `races-data.js`:
+The script fetches the season from `api.jolpi.ca/ergast/f1/2026.json` and rewrites only the time strings (`fp1`, `fp2`, `fp3`, `sprintQualifying`, `sprint`, `qualifying`, `race`) on each race line, matched by `round` number.
 
-```javascript
-{ round: 6, name: 'Miami Grand Prix', /* ...session times... */, raceNote: { session: 'race', text: 'Moved earlier', title: 'Race start moved earlier due to forecasted rain' } }
-```
-
-`session` picks which row the badge attaches to — one of `'fp1'`, `'fp2'`, `'fp3'`, `'sprintQualifying'`, `'sprint'`, `'qualifying'`, `'race'` (defaults to `'race'` if omitted). `text` shows as a small badge next to the session label; `title` is the hover tooltip.
+It is intentionally surgical: it preserves curated fields (`name`, `location`, `results`, `cancelled`, `isNew`, `raceNote`, etc.), the `Summer Break`/`Winter Break` rows, and the file's hand-formatted single-line-per-race layout. It only touches time fields that already exist on a line, so a sprint↔regular weekend reclassification stays a manual change.
 
 If the API is unavailable, the script warns and leaves the file untouched.
 
@@ -142,12 +141,28 @@ For local testing:
 node scripts/update-races.js
 ```
 
+### Flagging a Schedule Change (`raceNote`)
+
+To call out a one-off schedule change on a single session row in the race-week timeline (e.g. an early race start due to forecasted rain), add a `raceNote` to that race in `races-data.js`:
+
+```javascript
+{ round: 6, name: 'Miami Grand Prix', /* ...session times... */, raceNote: { session: 'race', text: 'Moved earlier', title: 'Race start moved earlier due to forecasted rain' } }
+```
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| `session` | Optional | Which row the badge attaches to: `'fp1'`, `'fp2'`, `'fp3'`, `'sprintQualifying'`, `'sprint'`, `'qualifying'`, or `'race'`. Defaults to `'race'`. If the key doesn't exist for that weekend (e.g. `'fp2'` on a sprint weekend), the badge silently doesn't render. |
+| `text` | Required | Short label shown as a small inline badge next to the session label (e.g. `Moved earlier`, `Curfew shift`). |
+| `title` | Optional | Tooltip shown on hover (e.g. `Race start moved earlier due to forecasted rain`). |
+
+The actual session time is updated by `update-races.js` on the next deploy once the new time is published to Ergast — the `raceNote` flag persists separately, so the badge stays put through the time refresh. Remove the `raceNote` field once the change is no longer noteworthy.
+
 ## Post-Race Update Workflow
 
 After each race:
 
-1. Add the top 3 results to the race's `results` array in `index.html`
-2. Commit and push to `main` — the standings update script runs automatically during the Cloudflare deploy
+1. Add the top 3 results to the race's `results` array in `races-data.js`
+2. Commit and push to `main` — the Cloudflare deploy runs `scripts/update-data.js`, which refreshes the standings and the calendar from Ergast
 
 ## Contributing
 
