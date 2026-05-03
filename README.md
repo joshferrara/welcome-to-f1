@@ -129,9 +129,9 @@ Session times in `races-data.js` are kept in sync with the FIA-published schedul
 
 ### Automated Import (at Deploy Time)
 
-The script fetches the season from `api.jolpi.ca/ergast/f1/2026.json` and rewrites only the time strings (`fp1`, `fp2`, `fp3`, `sprintQualifying`, `sprint`, `qualifying`, `race`) on each race line, matched by `round` number.
+The script fetches the season from `api.jolpi.ca/ergast/f1/2026.json` and rewrites only the time strings (`fp1`, `fp2`, `fp3`, `sprintQualifying`, `sprint`, `qualifying`, `race`) on each race line. Each race line carries a `circuitId` (e.g. `miami`, `albert_park`, `marina_bay`) that matches Ergast's `Circuit.circuitId` — that's the join key, not `round`. Round numbers can shift mid-season when races are cancelled or added, so they're not a stable identifier; circuit IDs are.
 
-It is intentionally surgical: it preserves curated fields (`name`, `location`, `results`, `cancelled`, `isNew`, `raceNote`, etc.), the `Summer Break`/`Winter Break` rows, and the file's hand-formatted single-line-per-race layout. It only touches time fields that already exist on a line, so a sprint↔regular weekend reclassification stays a manual change.
+The script is intentionally surgical: it preserves curated fields (`name`, `location`, `circuitId`, `results`, `cancelled`, `isNew`, `raceNote`, etc.), the `Summer Break`/`Winter Break` rows, and the file's hand-formatted single-line-per-race layout. It only touches time fields that already exist on a line, so a sprint↔regular weekend reclassification stays a manual change. Cancelled rounds whose `circuitId` no longer appears in Ergast's current season (e.g. `bahrain`, `jeddah` in 2026) are simply skipped.
 
 If the API is unavailable, the script warns and leaves the file untouched.
 

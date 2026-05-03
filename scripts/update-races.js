@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SCHEDULE_URL = 'http://api.jolpi.ca/ergast/f1/2026.json';
+const SCHEDULE_URL = 'https://api.jolpi.ca/ergast/f1/2026.json';
 
 // Maps the field name as used in races-data.js to the corresponding key
 // (or list of keys, for renamed sessions) on each Race object from Ergast.
@@ -46,8 +46,8 @@ function getSessionISO(race, apiKeys) {
 function buildRaceMap(races) {
   const map = new Map();
   for (const race of races) {
-    const round = parseInt(race.round, 10);
-    if (!round) continue;
+    const circuitId = race.Circuit?.circuitId;
+    if (!circuitId) continue;
     const sessions = {};
     for (const def of SESSION_FIELDS) {
       const iso = getSessionISO(race, def.apiKeys);
@@ -55,7 +55,7 @@ function buildRaceMap(races) {
     }
     const raceISO = formatISO(race.date, race.time);
     if (raceISO) sessions.race = raceISO;
-    map.set(round, sessions);
+    map.set(circuitId, sessions);
   }
   return map;
 }
@@ -90,7 +90,7 @@ async function main() {
       return;
     }
     raceMap = buildRaceMap(races);
-    console.log(`  Found ${raceMap.size} rounds in API`);
+    console.log(`  Found ${raceMap.size} circuits in API`);
   } catch (err) {
     console.warn('WARNING: Could not fetch schedule:', err.message);
     console.warn('  Leaving races-data.js untouched.');
@@ -102,10 +102,10 @@ async function main() {
   let totalChanges = 0;
 
   const updated = lines.map(line => {
-    const m = line.match(/\bround:\s*(\d+)\s*,/);
+    const m = line.match(/\bcircuitId:\s*'([^']+)'/);
     if (!m) return line;
-    const round = parseInt(m[1], 10);
-    const apiSessions = raceMap.get(round);
+    const circuitId = m[1];
+    const apiSessions = raceMap.get(circuitId);
     if (!apiSessions) return line;
 
     let cur = line;
@@ -114,7 +114,7 @@ async function main() {
       if (!newValue) continue;
       const result = replaceFieldInLine(cur, field, newValue);
       if (result.changed) {
-        console.log(`  R${round} ${field}: ${result.oldValue} -> ${newValue}`);
+        console.log(`  ${circuitId} ${field}: ${result.oldValue} -> ${newValue}`);
         totalChanges++;
       }
       cur = result.line;
