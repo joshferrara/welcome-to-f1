@@ -933,7 +933,9 @@ if (navigator.share) {
       }
 
       card.dataset.round = item.round;
-      card.innerHTML = '<span class="schedule-item__round">R' + item.round + '</span><div class="schedule-item__info"><span class="schedule-item__name">' + item.name + (item.isNew ? ' <span class="schedule-item__badge">NEW</span>' : '') + '</span><span class="schedule-item__detail">' + formatRaceDetail(item) + '</span></div>';
+      const raceTags = (item.isNew ? ' <span class="schedule-item__badge">NEW</span>' : '') +
+        (item.timeAdjustedReason ? ' <span class="schedule-item__badge schedule-item__badge--alert">TIME CHANGED</span>' : '');
+      card.innerHTML = '<span class="schedule-item__round">R' + item.round + '</span><div class="schedule-item__info"><span class="schedule-item__name">' + item.name + raceTags + '</span><span class="schedule-item__detail">' + formatRaceDetail(item) + '</span></div>';
       scheduleGrid.appendChild(card);
     });
   }
@@ -969,6 +971,7 @@ if (navigator.share) {
     if (!race) return;
     const isSprint = Boolean(race.sprintWeekend);
     const sprintTag = isSprint ? '<span class="timeline-badge">Sprint weekend</span>' : '';
+    const adjustedTag = race.timeAdjustedReason ? '<span class="timeline-badge timeline-badge--alert">Time adjusted: ' + race.timeAdjustedReason + '</span>' : '';
     const sessions = isSprint
       ? [
         ['FP1', race.fp1],
@@ -985,7 +988,7 @@ if (navigator.share) {
         ['Race', race.race]
       ];
 
-    timelinePanel.innerHTML = '<div class="timeline-header"><div><strong>' + race.name + '</strong><span>' + race.location + '</span></div>' + sprintTag + '</div>' +
+    timelinePanel.innerHTML = '<div class="timeline-header"><div><strong>' + race.name + '</strong><span>' + race.location + '</span></div><div class="timeline-header__tags">' + sprintTag + adjustedTag + '</div></div>' +
       sessions.map(function(session) {
         return formatSessionLine(session[0], session[1]);
       }).join('');
