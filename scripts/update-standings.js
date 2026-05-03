@@ -3,8 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const DRIVER_URL = 'http://api.jolpi.ca/ergast/f1/2026/driverStandings.json';
-const CONSTRUCTOR_URL = 'http://api.jolpi.ca/ergast/f1/2026/constructorStandings.json';
+const DRIVER_URL = 'https://api.jolpi.ca/ergast/f1/2026/driverStandings.json';
+const CONSTRUCTOR_URL = 'https://api.jolpi.ca/ergast/f1/2026/constructorStandings.json';
 
 const CONSTRUCTOR_NAME_MAP = {
   'red_bull': 'Red Bull Racing',
