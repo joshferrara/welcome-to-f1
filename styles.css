@@ -1322,6 +1322,11 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   height: 12px;
 }
 
+.wikipedia-mark {
+  width: 14px;
+  height: 14px;
+}
+
 /* Team color accents */
 .driver-card[data-team="red-bull"] { border-top: 3px solid #3671C6; }
 .driver-card[data-team="mclaren"] { border-top: 3px solid #FF8000; }

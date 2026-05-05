@@ -4,26 +4,26 @@
 const driverStandings = [
   {
     "pos": 1,
-    "code": "RUS",
-    "name": "George Russell",
-    "team": "Mercedes-AMG",
-    "points": 33,
-    "wins": 1
-  },
-  {
-    "pos": 2,
     "code": "ANT",
     "name": "Andrea Kimi Antonelli",
     "team": "Mercedes-AMG",
-    "points": 22,
-    "wins": 0
+    "points": 75,
+    "wins": 2
+  },
+  {
+    "pos": 2,
+    "code": "RUS",
+    "name": "George Russell",
+    "team": "Mercedes-AMG",
+    "points": 68,
+    "wins": 1
   },
   {
     "pos": 3,
     "code": "LEC",
     "name": "Charles Leclerc",
     "team": "Scuderia Ferrari",
-    "points": 22,
+    "points": 55,
     "wins": 0
   },
   {
@@ -31,7 +31,7 @@ const driverStandings = [
     "code": "HAM",
     "name": "Lewis Hamilton",
     "team": "Scuderia Ferrari",
-    "points": 18,
+    "points": 43,
     "wins": 0
   },
   {
@@ -39,15 +39,15 @@ const driverStandings = [
     "code": "NOR",
     "name": "Lando Norris",
     "team": "McLaren",
-    "points": 15,
+    "points": 33,
     "wins": 0
   },
   {
     "pos": 6,
-    "code": "VER",
-    "name": "Max Verstappen",
-    "team": "Red Bull Racing",
-    "points": 8,
+    "code": "PIA",
+    "name": "Oscar Piastri",
+    "team": "McLaren",
+    "points": 28,
     "wins": 0
   },
   {
@@ -55,11 +55,35 @@ const driverStandings = [
     "code": "BEA",
     "name": "Oliver Bearman",
     "team": "Haas",
-    "points": 7,
+    "points": 17,
     "wins": 0
   },
   {
     "pos": 8,
+    "code": "GAS",
+    "name": "Pierre Gasly",
+    "team": "Alpine",
+    "points": 16,
+    "wins": 0
+  },
+  {
+    "pos": 9,
+    "code": "VER",
+    "name": "Max Verstappen",
+    "team": "Red Bull Racing",
+    "points": 16,
+    "wins": 0
+  },
+  {
+    "pos": 10,
+    "code": "LAW",
+    "name": "Liam Lawson",
+    "team": "Racing Bulls",
+    "points": 10,
+    "wins": 0
+  },
+  {
+    "pos": 11,
     "code": "LIN",
     "name": "Arvid Lindblad",
     "team": "Racing Bulls",
@@ -67,7 +91,15 @@ const driverStandings = [
     "wins": 0
   },
   {
-    "pos": 10,
+    "pos": 12,
+    "code": "HAD",
+    "name": "Isack Hadjar",
+    "team": "Red Bull Racing",
+    "points": 4,
+    "wins": 0
+  },
+  {
+    "pos": 13,
     "code": "BOR",
     "name": "Gabriel Bortoleto",
     "team": "Audi",
@@ -75,31 +107,39 @@ const driverStandings = [
     "wins": 0
   },
   {
-    "pos": 11,
-    "code": "LAW",
-    "name": "Liam Lawson",
-    "team": "Racing Bulls",
+    "pos": 14,
+    "code": "SAI",
+    "name": "Carlos Sainz",
+    "team": "Williams",
     "points": 2,
     "wins": 0
   },
   {
-    "pos": 12,
-    "code": "GAS",
-    "name": "Pierre Gasly",
+    "pos": 15,
+    "code": "OCO",
+    "name": "Esteban Ocon",
+    "team": "Haas",
+    "points": 1,
+    "wins": 0
+  },
+  {
+    "pos": 16,
+    "code": "COL",
+    "name": "Franco Colapinto",
     "team": "Alpine",
     "points": 1,
     "wins": 0
   },
   {
-    "pos": 13,
-    "code": "OCO",
-    "name": "Esteban Ocon",
-    "team": "Haas",
+    "pos": 17,
+    "code": "HUL",
+    "name": "Nico Hülkenberg",
+    "team": "Audi",
     "points": 0,
     "wins": 0
   },
   {
-    "pos": 14,
+    "pos": 18,
     "code": "ALB",
     "name": "Alexander Albon",
     "team": "Williams",
@@ -107,55 +147,7 @@ const driverStandings = [
     "wins": 0
   },
   {
-    "pos": 15,
-    "code": "COL",
-    "name": "Franco Colapinto",
-    "team": "Alpine",
-    "points": 0,
-    "wins": 0
-  },
-  {
-    "pos": 16,
-    "code": "SAI",
-    "name": "Carlos Sainz",
-    "team": "Williams",
-    "points": 0,
-    "wins": 0
-  },
-  {
-    "pos": 17,
-    "code": "PER",
-    "name": "Sergio Pérez",
-    "team": "Cadillac F1 Team",
-    "points": 0,
-    "wins": 0
-  },
-  {
-    "pos": 17,
-    "code": "PIA",
-    "name": "Oscar Piastri",
-    "team": "McLaren",
-    "points": 3,
-    "wins": 0
-  },
-  {
-    "pos": 18,
-    "code": "STR",
-    "name": "Lance Stroll",
-    "team": "Aston Martin",
-    "points": 0,
-    "wins": 0
-  },
-  {
     "pos": 19,
-    "code": "ALO",
-    "name": "Fernando Alonso",
-    "team": "Aston Martin",
-    "points": 0,
-    "wins": 0
-  },
-  {
-    "pos": 20,
     "code": "BOT",
     "name": "Valtteri Bottas",
     "team": "Cadillac F1 Team",
@@ -163,18 +155,26 @@ const driverStandings = [
     "wins": 0
   },
   {
+    "pos": 20,
+    "code": "PER",
+    "name": "Sergio Pérez",
+    "team": "Cadillac F1 Team",
+    "points": 0,
+    "wins": 0
+  },
+  {
     "pos": 21,
-    "code": "HAD",
-    "name": "Isack Hadjar",
-    "team": "Red Bull Racing",
+    "code": "ALO",
+    "name": "Fernando Alonso",
+    "team": "Aston Martin",
     "points": 0,
     "wins": 0
   },
   {
     "pos": 22,
-    "code": "HUL",
-    "name": "Nico Hülkenberg",
-    "team": "Audi",
+    "code": "STR",
+    "name": "Lance Stroll",
+    "team": "Aston Martin",
     "points": 0,
     "wins": 0
   }
@@ -183,55 +183,55 @@ const constructorStandings = [
   {
     "pos": 1,
     "name": "Mercedes-AMG",
-    "points": 55,
-    "wins": 1
+    "points": 143,
+    "wins": 3
   },
   {
     "pos": 2,
     "name": "Scuderia Ferrari",
-    "points": 40,
+    "points": 98,
     "wins": 0
   },
   {
     "pos": 3,
     "name": "McLaren",
-    "points": 18,
+    "points": 61,
     "wins": 0
   },
   {
     "pos": 4,
     "name": "Red Bull Racing",
-    "points": 8,
+    "points": 20,
     "wins": 0
   },
   {
     "pos": 5,
     "name": "Haas",
-    "points": 7,
+    "points": 18,
     "wins": 0
   },
   {
     "pos": 6,
-    "name": "Racing Bulls",
-    "points": 6,
+    "name": "Alpine",
+    "points": 17,
     "wins": 0
   },
   {
     "pos": 7,
+    "name": "Racing Bulls",
+    "points": 14,
+    "wins": 0
+  },
+  {
+    "pos": 8,
     "name": "Audi",
     "points": 2,
     "wins": 0
   },
   {
-    "pos": 8,
-    "name": "Alpine",
-    "points": 1,
-    "wins": 0
-  },
-  {
     "pos": 9,
     "name": "Williams",
-    "points": 0,
+    "points": 2,
     "wins": 0
   },
   {
@@ -247,8 +247,47 @@ const constructorStandings = [
     "wins": 0
   }
 ];
-const standingsLastUpdated = "2026-03-14T15:45:24.261Z";
+const standingsLastUpdated = "2026-05-03T19:49:47.177Z";
 // STANDINGS_DATA_END
+
+const driverWikipediaLinks = {
+  ANT: 'https://en.wikipedia.org/wiki/Andrea_Kimi_Antonelli',
+  RUS: 'https://en.wikipedia.org/wiki/George_Russell_(racing_driver)',
+  LEC: 'https://en.wikipedia.org/wiki/Charles_Leclerc',
+  HAM: 'https://en.wikipedia.org/wiki/Lewis_Hamilton',
+  NOR: 'https://en.wikipedia.org/wiki/Lando_Norris',
+  PIA: 'https://en.wikipedia.org/wiki/Oscar_Piastri',
+  BEA: 'https://en.wikipedia.org/wiki/Oliver_Bearman',
+  GAS: 'https://en.wikipedia.org/wiki/Pierre_Gasly',
+  VER: 'https://en.wikipedia.org/wiki/Max_Verstappen',
+  LAW: 'https://en.wikipedia.org/wiki/Liam_Lawson',
+  LIN: 'https://en.wikipedia.org/wiki/Arvid_Lindblad',
+  HAD: 'https://en.wikipedia.org/wiki/Isack_Hadjar',
+  BOR: 'https://en.wikipedia.org/wiki/Gabriel_Bortoleto',
+  SAI: 'https://en.wikipedia.org/wiki/Carlos_Sainz_Jr.',
+  OCO: 'https://en.wikipedia.org/wiki/Esteban_Ocon',
+  COL: 'https://en.wikipedia.org/wiki/Franco_Colapinto',
+  HUL: 'https://en.wikipedia.org/wiki/Nico_H%C3%BClkenberg',
+  ALB: 'https://en.wikipedia.org/wiki/Alexander_Albon',
+  BOT: 'https://en.wikipedia.org/wiki/Valtteri_Bottas',
+  PER: 'https://en.wikipedia.org/wiki/Sergio_P%C3%A9rez',
+  ALO: 'https://en.wikipedia.org/wiki/Fernando_Alonso',
+  STR: 'https://en.wikipedia.org/wiki/Lance_Stroll'
+};
+
+const constructorWikipediaLinks = {
+  'Mercedes-AMG': 'https://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One',
+  'Scuderia Ferrari': 'https://en.wikipedia.org/wiki/Scuderia_Ferrari',
+  'McLaren': 'https://en.wikipedia.org/wiki/McLaren',
+  'Red Bull Racing': 'https://en.wikipedia.org/wiki/Red_Bull_Racing',
+  'Haas': 'https://en.wikipedia.org/wiki/Haas_F1_Team',
+  'Alpine': 'https://en.wikipedia.org/wiki/Alpine_F1_Team',
+  'Racing Bulls': 'https://en.wikipedia.org/wiki/Racing_Bulls',
+  'Audi': 'https://en.wikipedia.org/wiki/Audi_in_Formula_One',
+  'Williams': 'https://en.wikipedia.org/wiki/Williams_Racing',
+  'Cadillac': 'https://en.wikipedia.org/wiki/Cadillac_in_Formula_One',
+  'Aston Martin': 'https://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One'
+};
 
 // ── World Champions Data ──
 const championsData = [
@@ -1145,6 +1184,31 @@ if (navigator.share) {
     return '<div class="standings-updated">Updated ' + d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + '</div>';
   }
 
+  function wikipediaIcon() {
+    return '<svg class="wikipedia-mark" viewBox="0 0 128 128" fill="currentColor" aria-hidden="true"><path d="M120.85 29.21c0 .41-.13.78-.38 1.12-.26.33-.53.5-.84.5-2.49.24-4.54 1.04-6.12 2.41-1.59 1.36-3.22 3.97-4.91 7.81L82.8 99.19c-.17.54-.64.81-1.42.81-.61 0-1.08-.27-1.42-.81L65.49 68.93 48.85 99.19c-.34.54-.81.81-1.42.81-.74 0-1.23-.27-1.47-.81L20.61 41.05c-1.58-3.61-3.25-6.13-5.01-7.56-1.75-1.43-4.2-2.32-7.33-2.66-.27 0-.53-.14-.76-.43-.24-.28-.36-.61-.36-.98 0-.95.27-1.42.81-1.42 2.26 0 4.62.1 7.09.3 2.29.21 4.45.31 6.47.31 2.06 0 4.49-.1 7.29-.31 2.93-.2 5.53-.3 7.79-.3.54 0 .81.47.81 1.42 0 .94-.17 1.41-.5 1.41-2.26.17-4.04.75-5.34 1.72-1.3.98-1.95 2.26-1.95 3.85 0 .81.27 1.82.81 3.03l20.95 47.31 11.89-22.46-11.08-23.23c-1.99-4.14-3.63-6.82-4.91-8.02-1.28-1.19-3.22-1.93-5.82-2.2-.24 0-.46-.14-.68-.43-.22-.28-.33-.61-.33-.98 0-.95.23-1.42.71-1.42 2.26 0 4.33.1 6.22.3 1.82.21 3.76.31 5.82.31 2.02 0 4.16-.1 6.42-.31 2.33-.2 4.62-.3 6.88-.3.54 0 .81.47.81 1.42 0 .94-.16 1.41-.5 1.41-4.52.31-6.78 1.59-6.78 3.85 0 1.01.52 2.58 1.57 4.7l7.33 14.88 7.29-13.61c1.01-1.92 1.52-3.54 1.52-4.86 0-3.1-2.26-4.75-6.78-4.96-.41 0-.61-.47-.61-1.41 0-.34.1-.66.3-.96.21-.31.41-.46.61-.46 1.62 0 3.61.1 5.97.3 2.26.21 4.12.31 5.57.31 1.04 0 2.58-.09 4.6-.26 2.56-.23 4.71-.35 6.43-.35.4 0 .6.4.6 1.21 0 1.08-.37 1.62-1.11 1.62-2.63.27-4.75 1-6.35 2.18-1.6 1.18-3.6 3.86-5.99 8.04l-9.72 17.97 13.16 26.81 19.43-45.18c.67-1.65 1.01-3.17 1.01-4.55 0-3.31-2.26-5.06-6.78-5.27-.41 0-.61-.47-.61-1.41 0-.95.3-1.42.91-1.42 1.65 0 3.61.1 5.87.3 2.09.21 3.85.31 5.26.31 1.49 0 3.21-.1 5.16-.31 2.03-.2 3.85-.3 5.47-.3.47 0 .71.4.71 1.21Z"/></svg>';
+  }
+
+  function addWikipediaLink(social, url) {
+    if (!social || !url || social.querySelector('a[aria-label="Wikipedia"]')) return;
+    var link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.setAttribute('aria-label', 'Wikipedia');
+    link.innerHTML = wikipediaIcon();
+    social.appendChild(link);
+  }
+
+  function constructorMatches(cardName, standingName) {
+    if (cardName === standingName) return true;
+    var aliases = {
+      'Mercedes': 'Mercedes-AMG',
+      'Ferrari': 'Scuderia Ferrari',
+      'Cadillac': 'Cadillac F1 Team'
+    };
+    return aliases[cardName] === standingName || aliases[standingName] === cardName;
+  }
+
   // Driver standings table
   if (driverStandings.length) {
     var dEl = document.getElementById('driverStandingsTable');
@@ -1188,6 +1252,7 @@ if (navigator.share) {
         var social = info.querySelector('.social-links');
         if (social) info.insertBefore(ptsEl, social);
         else info.appendChild(ptsEl);
+        addWikipediaLink(social, driverWikipediaLinks[match.code]);
       }
     });
   }
@@ -1196,7 +1261,7 @@ if (navigator.share) {
   if (constructorStandings.length) {
     document.querySelectorAll('.team-card__name').forEach(function(nameEl) {
       var name = nameEl.textContent.trim();
-      var match = constructorStandings.find(function(c) { return c.name === name; });
+      var match = constructorStandings.find(function(c) { return constructorMatches(name, c.name); });
       if (match) {
         var ptsEl = document.createElement('div');
         ptsEl.className = 'team-card__points';
@@ -1205,6 +1270,7 @@ if (navigator.share) {
         var social = info.querySelector('.social-links');
         if (social) info.insertBefore(ptsEl, social);
         else info.appendChild(ptsEl);
+        addWikipediaLink(social, constructorWikipediaLinks[match.name]);
       }
     });
   }
