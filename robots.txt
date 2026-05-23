@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://welcometof1.com/sitemap.xml
+LLMs: https://welcometof1.com/llms.txt
