@@ -1,9 +1,11 @@
 .DS_Store
+node_modules/
 /.playwright-mcp
 /.superpowers
 /bo-*.png
 /.impeccable.md
 /basics-section.png
+/browser-smoke.png
 /cars-section.png
 /drivers-section.png
 /hero-viewport.png

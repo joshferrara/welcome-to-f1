@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "season": 2026,
+  "lastUpdated": "2026-06-30T16:46:00.197Z",
+  "drivers": [
+    {
+      "pos": 1,
+      "code": "ANT",
+      "name": "Andrea Kimi Antonelli",
+      "team": "Mercedes-AMG",
+      "points": 171,
+      "wins": 5
+    },
+    {
+      "pos": 2,
+      "code": "RUS",
+      "name": "George Russell",
+      "team": "Mercedes-AMG",
+      "points": 131,
+      "wins": 2
+    },
+    {
+      "pos": 3,
+      "code": "HAM",
+      "name": "Lewis Hamilton",
+      "team": "Scuderia Ferrari",
+      "points": 125,
+      "wins": 1
+    },
+    {
+      "pos": 4,
+      "code": "PIA",
+      "name": "Oscar Piastri",
+      "team": "McLaren",
+      "points": 80,
+      "wins": 0
+    },
+    {
+      "pos": 5,
+      "code": "NOR",
+      "name": "Lando Norris",
+      "team": "McLaren",
+      "points": 79,
+      "wins": 0
+    },
+    {
+      "pos": 6,
+      "code": "LEC",
+      "name": "Charles Leclerc",
+      "team": "Scuderia Ferrari",
+      "points": 79,
+      "wins": 0
+    },
+    {
+      "pos": 7,
+      "code": "VER",
+      "name": "Max Verstappen",
+      "team": "Red Bull Racing",
+      "points": 73,
+      "wins": 0
+    },
+    {
+      "pos": 8,
+      "code": "HAD",
+      "name": "Isack Hadjar",
+      "team": "Red Bull Racing",
+      "points": 42,
+      "wins": 0
+    },
+    {
+      "pos": 9,
+      "code": "GAS",
+      "name": "Pierre Gasly",
+      "team": "Alpine",
+      "points": 41,
+      "wins": 0
+    },
+    {
+      "pos": 10,
+      "code": "LAW",
+      "name": "Liam Lawson",
+      "team": "Racing Bulls",
+      "points": 30,
+      "wins": 0
+    },
+    {
+      "pos": 11,
+      "code": "BEA",
+      "name": "Oliver Bearman",
+      "team": "Haas",
+      "points": 18,
+      "wins": 0
+    },
+    {
+      "pos": 12,
+      "code": "COL",
+      "name": "Franco Colapinto",
+      "team": "Alpine",
+      "points": 16,
+      "wins": 0
+    },
+    {
+      "pos": 13,
+      "code": "LIN",
+      "name": "Arvid Lindblad",
+      "team": "Racing Bulls",
+      "points": 14,
+      "wins": 0
+    },
+    {
+      "pos": 14,
+      "code": "SAI",
+      "name": "Carlos Sainz",
+      "team": "Williams",
+      "points": 6,
+      "wins": 0
+    },
+    {
+      "pos": 15,
+      "code": "ALB",
+      "name": "Alexander Albon",
+      "team": "Williams",
+      "points": 5,
+      "wins": 0
+    },
+    {
+      "pos": 16,
+      "code": "OCO",
+      "name": "Esteban Ocon",
+      "team": "Haas",
+      "points": 3,
+      "wins": 0
+    },
+    {
+      "pos": 17,
+      "code": "BOR",
+      "name": "Gabriel Bortoleto",
+      "team": "Audi",
+      "points": 2,
+      "wins": 0
+    },
+    {
+      "pos": 18,
+      "code": "ALO",
+      "name": "Fernando Alonso",
+      "team": "Aston Martin",
+      "points": 1,
+      "wins": 0
+    },
+    {
+      "pos": 19,
+      "code": "HUL",
+      "name": "Nico Hülkenberg",
+      "team": "Audi",
+      "points": 0,
+      "wins": 0
+    },
+    {
+      "pos": 20,
+      "code": "BOT",
+      "name": "Valtteri Bottas",
+      "team": "Cadillac F1 Team",
+      "points": 0,
+      "wins": 0
+    },
+    {
+      "pos": 21,
+      "code": "PER",
+      "name": "Sergio Pérez",
+      "team": "Cadillac F1 Team",
+      "points": 0,
+      "wins": 0
+    },
+    {
+      "pos": 22,
+      "code": "STR",
+      "name": "Lance Stroll",
+      "team": "Aston Martin",
+      "points": 0,
+      "wins": 0
+    }
+  ],
+  "constructors": [
+    {
+      "pos": 1,
+      "name": "Mercedes-AMG",
+      "points": 302,
+      "wins": 7
+    },
+    {
+      "pos": 2,
+      "name": "Scuderia Ferrari",
+      "points": 204,
+      "wins": 1
+    },
+    {
+      "pos": 3,
+      "name": "McLaren",
+      "points": 159,
+      "wins": 0
+    },
+    {
+      "pos": 4,
+      "name": "Red Bull Racing",
+      "points": 115,
+      "wins": 0
+    },
+    {
+      "pos": 5,
+      "name": "Alpine",
+      "points": 57,
+      "wins": 0
+    },
+    {
+      "pos": 6,
+      "name": "Racing Bulls",
+      "points": 44,
+      "wins": 0
+    },
+    {
+      "pos": 7,
+      "name": "Haas",
+      "points": 21,
+      "wins": 0
+    },
+    {
+      "pos": 8,
+      "name": "Williams",
+      "points": 11,
+      "wins": 0
+    },
+    {
+      "pos": 9,
+      "name": "Audi",
+      "points": 2,
+      "wins": 0
+    },
+    {
+      "pos": 10,
+      "name": "Aston Martin",
+      "points": 1,
+      "wins": 0
+    },
+    {
+      "pos": 11,
+      "name": "Cadillac",
+      "points": 0,
+      "wins": 0
+    }
+  ]
+}

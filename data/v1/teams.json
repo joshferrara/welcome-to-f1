@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "season": 2026,
+  "teams": [
+    {
+      "id": "red-bull",
+      "name": "Red Bull Racing",
+      "color": "#3671C6",
+      "engine": "Red Bull / Ford PU",
+      "driverIds": [
+        "max-verstappen",
+        "isack-hadjar"
+      ],
+      "driverNames": [
+        "Max Verstappen",
+        "Isack Hadjar"
+      ],
+      "badge": "2022 & 2023 Constructors' Champs",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Red_Bull_Racing",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/redbullracing"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/redbullracing"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@redbullracing"
+          }
+        ]
+      },
+      "order": 1
+    },
+    {
+      "id": "mclaren",
+      "name": "McLaren",
+      "color": "#FF8000",
+      "engine": "Mercedes PU",
+      "driverIds": [
+        "lando-norris",
+        "oscar-piastri"
+      ],
+      "driverNames": [
+        "Lando Norris",
+        "Oscar Piastri"
+      ],
+      "badge": "2024 Constructors' Champs",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/McLaren",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/McLarenF1"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/mclarenf1"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@mclaren"
+          }
+        ]
+      },
+      "order": 2
+    },
+    {
+      "id": "ferrari",
+      "name": "Scuderia Ferrari",
+      "color": "#E8002D",
+      "engine": "Ferrari PU",
+      "driverIds": [
+        "lewis-hamilton",
+        "charles-leclerc"
+      ],
+      "driverNames": [
+        "Lewis Hamilton",
+        "Charles Leclerc"
+      ],
+      "badge": "16 Constructors' Titles",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Scuderia_Ferrari",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/ScuderiaFerrari"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/scuderiaferrari"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@ferrari"
+          }
+        ]
+      },
+      "order": 3
+    },
+    {
+      "id": "mercedes",
+      "name": "Mercedes-AMG",
+      "color": "#27F4D2",
+      "engine": "Mercedes PU",
+      "driverIds": [
+        "george-russell",
+        "andrea-kimi-antonelli"
+      ],
+      "driverNames": [
+        "George Russell",
+        "Kimi Antonelli"
+      ],
+      "badge": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/MercedesAMGF1"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/mercedesamgf1"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@mercedesamgf1"
+          }
+        ]
+      },
+      "order": 4
+    },
+    {
+      "id": "aston-martin",
+      "name": "Aston Martin",
+      "color": "#229971",
+      "engine": "Honda PU",
+      "driverIds": [
+        "fernando-alonso",
+        "lance-stroll"
+      ],
+      "driverNames": [
+        "Fernando Alonso",
+        "Lance Stroll"
+      ],
+      "badge": "Adrian Newey's new home",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/AstonMartinF1"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/astonmartinf1"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@astonmartinf1"
+          }
+        ]
+      },
+      "order": 5
+    },
+    {
+      "id": "alpine",
+      "name": "Alpine",
+      "color": "#FF87BC",
+      "engine": "Mercedes PU",
+      "driverIds": [
+        "pierre-gasly",
+        "franco-colapinto"
+      ],
+      "driverNames": [
+        "Pierre Gasly",
+        "Franco Colapinto"
+      ],
+      "badge": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Alpine_F1_Team",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/AlpineF1Team"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/alpinef1team"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@alpinef1team"
+          }
+        ]
+      },
+      "order": 6
+    },
+    {
+      "id": "williams",
+      "name": "Williams",
+      "color": "#64C4FF",
+      "engine": "Mercedes PU",
+      "driverIds": [
+        "alex-albon",
+        "carlos-sainz"
+      ],
+      "driverNames": [
+        "Alex Albon",
+        "Carlos Sainz"
+      ],
+      "badge": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Williams_Racing",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/WilliamsRacing"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/williamsf1official"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@williamsf1"
+          }
+        ]
+      },
+      "order": 7
+    },
+    {
+      "id": "racing-bulls",
+      "name": "Racing Bulls",
+      "color": "#6692FF",
+      "engine": "Red Bull / Ford PU",
+      "driverIds": [
+        "liam-lawson",
+        "arvid-lindblad"
+      ],
+      "driverNames": [
+        "Liam Lawson",
+        "Arvid Lindblad"
+      ],
+      "badge": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Racing_Bulls",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/visacashapprb"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/visacashapprb"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@visacashapprb"
+          }
+        ]
+      },
+      "order": 8
+    },
+    {
+      "id": "haas",
+      "name": "Haas",
+      "color": "#B6BABD",
+      "engine": "Ferrari PU",
+      "driverIds": [
+        "esteban-ocon",
+        "oliver-bearman"
+      ],
+      "driverNames": [
+        "Esteban Ocon",
+        "Oliver Bearman"
+      ],
+      "badge": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Haas_F1_Team",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/HaasF1Team"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/haasf1team"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@haasf1official"
+          }
+        ]
+      },
+      "order": 9
+    },
+    {
+      "id": "audi",
+      "name": "Audi",
+      "color": "#FF5733",
+      "engine": "Audi PU (own)",
+      "driverIds": [
+        "nico-hulkenberg",
+        "gabriel-bortoleto"
+      ],
+      "driverNames": [
+        "Nico Hülkenberg",
+        "Gabriel Bortoleto"
+      ],
+      "badge": "New works team",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Audi_in_Formula_One",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/audif1"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/audif1"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@audif1"
+          }
+        ]
+      },
+      "order": 10
+    },
+    {
+      "id": "cadillac",
+      "name": "Cadillac",
+      "color": "#C0C0C0",
+      "engine": "Ferrari PU (customer)",
+      "driverIds": [
+        "valtteri-bottas",
+        "sergio-perez"
+      ],
+      "driverNames": [
+        "Valtteri Bottas",
+        "Sergio Pérez"
+      ],
+      "badge": "NEW — 11th team",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Cadillac_in_Formula_One",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/Cadillac_F1"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/cadillacf1"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@cadillacf1"
+          }
+        ]
+      },
+      "order": 11
+    }
+  ]
+}

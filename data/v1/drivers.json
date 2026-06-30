@@ -1,0 +1,739 @@
+{
+  "schemaVersion": 1,
+  "season": 2026,
+  "drivers": [
+    {
+      "id": "lando-norris",
+      "code": "NOR",
+      "name": "Lando Norris",
+      "number": "1",
+      "teamId": "mclaren",
+      "displayTeam": "McLaren",
+      "countryCode": "GB",
+      "flag": "🇬🇧",
+      "image": "/images/drivers/lando-norris.webp",
+      "imageAlt": "Lando Norris",
+      "tag": "2025 Champion",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Lando_Norris",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/LandoNorris"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/lando"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@landonorris"
+          }
+        ]
+      },
+      "order": 1
+    },
+    {
+      "id": "oscar-piastri",
+      "code": "PIA",
+      "name": "Oscar Piastri",
+      "number": "81",
+      "teamId": "mclaren",
+      "displayTeam": "McLaren",
+      "countryCode": "AU",
+      "flag": "🇦🇺",
+      "image": "/images/drivers/oscar-piastri.webp",
+      "imageAlt": "Oscar Piastri",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Oscar_Piastri",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/OscarPiastri"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/oscarpiastri"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@oscarpiastri"
+          }
+        ]
+      },
+      "order": 2
+    },
+    {
+      "id": "george-russell",
+      "code": "RUS",
+      "name": "George Russell",
+      "number": "63",
+      "teamId": "mercedes",
+      "displayTeam": "Mercedes",
+      "countryCode": "GB",
+      "flag": "🇬🇧",
+      "image": "/images/drivers/george-russell.webp",
+      "imageAlt": "George Russell",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/George_Russell_(racing_driver)",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/GeorgeRussell63"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/georgerussell63"
+          }
+        ]
+      },
+      "order": 3
+    },
+    {
+      "id": "andrea-kimi-antonelli",
+      "code": "ANT",
+      "name": "Andrea Kimi Antonelli",
+      "number": "12",
+      "teamId": "mercedes",
+      "displayTeam": "Mercedes",
+      "countryCode": "IT",
+      "flag": "🇮🇹",
+      "image": "/images/drivers/andrea-kimi-antonelli.webp",
+      "imageAlt": "Andrea Kimi Antonelli",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Andrea_Kimi_Antonelli",
+        "social": [
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/kimi.antonelli"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@kimi.antonelli"
+          }
+        ]
+      },
+      "order": 4
+    },
+    {
+      "id": "max-verstappen",
+      "code": "VER",
+      "name": "Max Verstappen",
+      "number": "3",
+      "teamId": "red-bull",
+      "displayTeam": "Red Bull Racing",
+      "countryCode": "NL",
+      "flag": "🇳🇱",
+      "image": "/images/drivers/max-verstappen.webp",
+      "imageAlt": "Max Verstappen",
+      "tag": "4x Champion",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Max_Verstappen",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/Max33Verstappen"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/maxverstappen1"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@verstappen.com"
+          }
+        ]
+      },
+      "order": 5
+    },
+    {
+      "id": "isack-hadjar",
+      "code": "HAD",
+      "name": "Isack Hadjar",
+      "number": "6",
+      "teamId": "red-bull",
+      "displayTeam": "Red Bull Racing",
+      "countryCode": "FR",
+      "flag": "🇫🇷",
+      "image": "/images/drivers/isack-hadjar.webp",
+      "imageAlt": "Isack Hadjar",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Isack_Hadjar",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/Isack_Hadjar"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/isackhadjar"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@isack.hadjar"
+          }
+        ]
+      },
+      "order": 6
+    },
+    {
+      "id": "lewis-hamilton",
+      "code": "HAM",
+      "name": "Lewis Hamilton",
+      "number": "44",
+      "teamId": "ferrari",
+      "displayTeam": "Ferrari",
+      "countryCode": "GB",
+      "flag": "🇬🇧",
+      "image": "/images/drivers/lewis-hamilton.webp",
+      "imageAlt": "Lewis Hamilton",
+      "tag": "7x Champion",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Lewis_Hamilton",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/LewisHamilton"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/lewishamilton"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@lewishamilton"
+          }
+        ]
+      },
+      "order": 7
+    },
+    {
+      "id": "charles-leclerc",
+      "code": "LEC",
+      "name": "Charles Leclerc",
+      "number": "16",
+      "teamId": "ferrari",
+      "displayTeam": "Ferrari",
+      "countryCode": "MC",
+      "flag": "🇲🇨",
+      "image": "/images/drivers/charles-leclerc.webp",
+      "imageAlt": "Charles Leclerc",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Charles_Leclerc",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/Charles_Leclerc"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/charles_leclerc"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@charlesleclerc"
+          }
+        ]
+      },
+      "order": 8
+    },
+    {
+      "id": "alex-albon",
+      "code": "ALB",
+      "name": "Alex Albon",
+      "number": "23",
+      "teamId": "williams",
+      "displayTeam": "Williams",
+      "countryCode": "TH",
+      "flag": "🇹🇭",
+      "image": "/images/drivers/alex-albon.webp",
+      "imageAlt": "Alex Albon",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Alexander_Albon",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/alex_albon"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/alex_albon"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@alex_albon"
+          }
+        ]
+      },
+      "order": 9
+    },
+    {
+      "id": "carlos-sainz",
+      "code": "SAI",
+      "name": "Carlos Sainz",
+      "number": "55",
+      "teamId": "williams",
+      "displayTeam": "Williams",
+      "countryCode": "ES",
+      "flag": "🇪🇸",
+      "image": "/images/drivers/carlos-sainz.webp",
+      "imageAlt": "Carlos Sainz",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Carlos_Sainz_Jr.",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/Carlossainz55"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/carlossainz55"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@carlossainz55"
+          }
+        ]
+      },
+      "order": 10
+    },
+    {
+      "id": "liam-lawson",
+      "code": "LAW",
+      "name": "Liam Lawson",
+      "number": "30",
+      "teamId": "racing-bulls",
+      "displayTeam": "Racing Bulls",
+      "countryCode": "NZ",
+      "flag": "🇳🇿",
+      "image": "/images/drivers/liam-lawson.webp",
+      "imageAlt": "Liam Lawson",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Liam_Lawson",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/LiamLawson30"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/liamlawson30"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@liam_lawson30"
+          }
+        ]
+      },
+      "order": 11
+    },
+    {
+      "id": "arvid-lindblad",
+      "code": "LIN",
+      "name": "Arvid Lindblad",
+      "number": "41",
+      "teamId": "racing-bulls",
+      "displayTeam": "Racing Bulls",
+      "countryCode": "GB",
+      "flag": "🇬🇧",
+      "image": "/images/drivers/arvid-lindblad.webp",
+      "imageAlt": "Arvid Lindblad",
+      "tag": "Rookie",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Arvid_Lindblad",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/ArvidRacing"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/arvid.lindblad"
+          }
+        ]
+      },
+      "order": 12
+    },
+    {
+      "id": "fernando-alonso",
+      "code": "ALO",
+      "name": "Fernando Alonso",
+      "number": "14",
+      "teamId": "aston-martin",
+      "displayTeam": "Aston Martin",
+      "countryCode": "ES",
+      "flag": "🇪🇸",
+      "image": "/images/drivers/fernando-alonso.webp",
+      "imageAlt": "Fernando Alonso",
+      "tag": "2x Champion",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Fernando_Alonso",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/alo_oficial"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/fernandoalo_oficial"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@fernandoalonso"
+          }
+        ]
+      },
+      "order": 13
+    },
+    {
+      "id": "lance-stroll",
+      "code": "STR",
+      "name": "Lance Stroll",
+      "number": "18",
+      "teamId": "aston-martin",
+      "displayTeam": "Aston Martin",
+      "countryCode": "CA",
+      "flag": "🇨🇦",
+      "image": "/images/drivers/lance-stroll.webp",
+      "imageAlt": "Lance Stroll",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Lance_Stroll",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/lance_stroll"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/lance_stroll"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@lancestroll"
+          }
+        ]
+      },
+      "order": 14
+    },
+    {
+      "id": "esteban-ocon",
+      "code": "OCO",
+      "name": "Esteban Ocon",
+      "number": "31",
+      "teamId": "haas",
+      "displayTeam": "Haas",
+      "countryCode": "ES",
+      "flag": "🇪🇸",
+      "image": "/images/drivers/esteban-ocon.webp",
+      "imageAlt": "Esteban Ocon",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Esteban_Ocon",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/OconEsteban"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/estebanocon"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@estebanocon"
+          }
+        ]
+      },
+      "order": 15
+    },
+    {
+      "id": "oliver-bearman",
+      "code": "BEA",
+      "name": "Oliver Bearman",
+      "number": "87",
+      "teamId": "haas",
+      "displayTeam": "Haas",
+      "countryCode": "BR",
+      "flag": "🇧🇷",
+      "image": "/images/drivers/oliver-bearman.webp",
+      "imageAlt": "Oliver Bearman",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Oliver_Bearman",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/OllieBearman"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/olliebearman"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@olliebearman"
+          }
+        ]
+      },
+      "order": 16
+    },
+    {
+      "id": "nico-hulkenberg",
+      "code": "HUL",
+      "name": "Nico Hülkenberg",
+      "number": "27",
+      "teamId": "audi",
+      "displayTeam": "Audi",
+      "countryCode": "DE",
+      "flag": "🇩🇪",
+      "image": "/images/drivers/nico-hulkenberg.webp",
+      "imageAlt": "Nico Hülkenberg",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Nico_H%C3%BClkenberg",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/HulkHulkenberg"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/hulkhulkenberg"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@hulk_hulkenberg"
+          }
+        ]
+      },
+      "order": 17
+    },
+    {
+      "id": "gabriel-bortoleto",
+      "code": "BOR",
+      "name": "Gabriel Bortoleto",
+      "number": "5",
+      "teamId": "audi",
+      "displayTeam": "Audi",
+      "countryCode": "BR",
+      "flag": "🇧🇷",
+      "image": "/images/drivers/gabriel-bortoleto.webp",
+      "imageAlt": "Gabriel Bortoleto",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Gabriel_Bortoleto",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/gabortoleto85"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/gabrielbortoleto_"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@gabrielbortoleto"
+          }
+        ]
+      },
+      "order": 18
+    },
+    {
+      "id": "pierre-gasly",
+      "code": "GAS",
+      "name": "Pierre Gasly",
+      "number": "10",
+      "teamId": "alpine",
+      "displayTeam": "Alpine",
+      "countryCode": "FR",
+      "flag": "🇫🇷",
+      "image": "/images/drivers/pierre-gasly.webp",
+      "imageAlt": "Pierre Gasly",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Pierre_Gasly",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/PierreGASLY"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/pierregasly"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@pierregasly"
+          }
+        ]
+      },
+      "order": 19
+    },
+    {
+      "id": "franco-colapinto",
+      "code": "COL",
+      "name": "Franco Colapinto",
+      "number": "43",
+      "teamId": "alpine",
+      "displayTeam": "Alpine",
+      "countryCode": "AR",
+      "flag": "🇦🇷",
+      "image": "/images/drivers/franco-colapinto.webp",
+      "imageAlt": "Franco Colapinto",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Franco_Colapinto",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/FranColapinto"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/francolapinto"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@francolapinto"
+          }
+        ]
+      },
+      "order": 20
+    },
+    {
+      "id": "valtteri-bottas",
+      "code": "BOT",
+      "name": "Valtteri Bottas",
+      "number": "77",
+      "teamId": "cadillac",
+      "displayTeam": "Cadillac",
+      "countryCode": "FI",
+      "flag": "🇫🇮",
+      "image": "/images/drivers/valtteri-bottas.webp",
+      "imageAlt": "Valtteri Bottas",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Valtteri_Bottas",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/ValtteriBottas"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/valtteribottas"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@valtteribottas"
+          }
+        ]
+      },
+      "order": 21
+    },
+    {
+      "id": "sergio-perez",
+      "code": "PER",
+      "name": "Sergio Pérez",
+      "number": "11",
+      "teamId": "cadillac",
+      "displayTeam": "Cadillac",
+      "countryCode": "MX",
+      "flag": "🇲🇽",
+      "image": "/images/drivers/sergio-perez.webp",
+      "imageAlt": "Sergio Pérez",
+      "tag": null,
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Sergio_P%C3%A9rez",
+        "social": [
+          {
+            "platform": "x",
+            "label": "X profile",
+            "url": "https://x.com/SChecoPerez"
+          },
+          {
+            "platform": "instagram",
+            "label": "Instagram",
+            "url": "https://instagram.com/schecoperez"
+          },
+          {
+            "platform": "tiktok",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@checoperez"
+          }
+        ]
+      },
+      "order": 22
+    }
+  ]
+}

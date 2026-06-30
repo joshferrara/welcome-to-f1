@@ -5,38 +5,39 @@ const path = require('path');
 
 const DRIVER_URL = 'https://api.jolpi.ca/ergast/f1/2026/driverStandings.json';
 const CONSTRUCTOR_URL = 'https://api.jolpi.ca/ergast/f1/2026/constructorStandings.json';
+const DATA_PATH = path.join(__dirname, '..', 'data', 'v1', 'standings.json');
 
 const CONSTRUCTOR_NAME_MAP = {
-  'red_bull': 'Red Bull Racing',
-  'mclaren': 'McLaren',
-  'ferrari': 'Scuderia Ferrari',
-  'mercedes': 'Mercedes-AMG',
-  'aston_martin': 'Aston Martin',
-  'alpine': 'Alpine',
-  'williams': 'Williams',
-  'rb': 'Racing Bulls',
-  'haas': 'Haas',
-  'sauber': 'Audi',
-  'kick_sauber': 'Audi',
-  'audi': 'Audi',
-  'cadillac': 'Cadillac',
+  red_bull: 'Red Bull Racing',
+  mclaren: 'McLaren',
+  ferrari: 'Scuderia Ferrari',
+  mercedes: 'Mercedes-AMG',
+  aston_martin: 'Aston Martin',
+  alpine: 'Alpine',
+  williams: 'Williams',
+  rb: 'Racing Bulls',
+  haas: 'Haas',
+  sauber: 'Audi',
+  kick_sauber: 'Audi',
+  audi: 'Audi',
+  cadillac: 'Cadillac',
 };
 
 const TEAM_NAME_MAP = {
   'Red Bull': 'Red Bull Racing',
-  'McLaren': 'McLaren',
-  'Ferrari': 'Scuderia Ferrari',
-  'Mercedes': 'Mercedes-AMG',
+  McLaren: 'McLaren',
+  Ferrari: 'Scuderia Ferrari',
+  Mercedes: 'Mercedes-AMG',
   'Aston Martin': 'Aston Martin',
   'Alpine F1 Team': 'Alpine',
-  'Williams': 'Williams',
+  Williams: 'Williams',
   'RB F1 Team': 'Racing Bulls',
   'Racing Bulls': 'Racing Bulls',
   'Haas F1 Team': 'Haas',
   'Kick Sauber': 'Audi',
-  'Sauber': 'Audi',
-  'Audi': 'Audi',
-  'Cadillac': 'Cadillac',
+  Sauber: 'Audi',
+  Audi: 'Audi',
+  Cadillac: 'Cadillac',
 };
 
 async function fetchJSON(url) {
@@ -53,89 +54,92 @@ function mapConstructorName(constructorId, apiFallback) {
   return CONSTRUCTOR_NAME_MAP[constructorId] || apiFallback;
 }
 
+async function fetchDriverStandings() {
+  console.log('Fetching driver standings...');
+  const driverData = await fetchJSON(DRIVER_URL);
+  const driverList = driverData?.MRData?.StandingsTable?.StandingsLists?.[0]?.DriverStandings || [];
+
+  const driverStandings = driverList.map((driver) => ({
+    pos: parseInt(driver.position, 10) || null,
+    code: driver.Driver.code,
+    name: `${driver.Driver.givenName} ${driver.Driver.familyName}`,
+    team: mapTeamName(driver.Constructors?.[0]?.name || ''),
+    points: parseFloat(driver.points),
+    wins: parseInt(driver.wins, 10),
+  }));
+
+  let nextDriverPos = driverStandings.filter((driver) => driver.pos !== null).length + 1;
+  driverStandings.forEach((driver) => {
+    if (driver.pos === null) driver.pos = nextDriverPos++;
+  });
+
+  console.log(`  Found ${driverStandings.length} drivers`);
+  return driverStandings;
+}
+
+async function fetchConstructorStandings() {
+  console.log('Fetching constructor standings...');
+  const constructorData = await fetchJSON(CONSTRUCTOR_URL);
+  const constructorList = constructorData?.MRData?.StandingsTable?.StandingsLists?.[0]?.ConstructorStandings || [];
+
+  const constructorStandings = constructorList.map((constructor) => ({
+    pos: parseInt(constructor.position, 10) || null,
+    name: mapConstructorName(constructor.Constructor.constructorId, constructor.Constructor.name),
+    points: parseFloat(constructor.points),
+    wins: parseInt(constructor.wins, 10),
+  }));
+
+  let nextConstructorPos = constructorStandings.filter((constructor) => constructor.pos !== null).length + 1;
+  constructorStandings.forEach((constructor) => {
+    if (constructor.pos === null) constructor.pos = nextConstructorPos++;
+  });
+
+  console.log(`  Found ${constructorStandings.length} constructors`);
+  return constructorStandings;
+}
+
 async function main() {
-  const jsPath = path.join(__dirname, '..', 'script.js');
-  let js = fs.readFileSync(jsPath, 'utf-8');
-
-  const startMarker = '// STANDINGS_DATA_START';
-  const endMarker = '// STANDINGS_DATA_END';
-
-  if (!js.includes(startMarker) || !js.includes(endMarker)) {
-    console.error('Could not find STANDINGS_DATA markers in script.js');
+  if (!fs.existsSync(DATA_PATH)) {
+    console.error(`Could not find ${DATA_PATH}`);
     process.exit(1);
   }
 
-  let driverStandings = [];
-  let constructorStandings = [];
+  const current = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'));
+  let drivers = current.drivers || [];
+  let constructors = current.constructors || [];
+  let changed = false;
 
   try {
-    console.log('Fetching driver standings...');
-    const driverData = await fetchJSON(DRIVER_URL);
-    const driverList = driverData?.MRData?.StandingsTable?.StandingsLists?.[0]?.DriverStandings || [];
-
-    driverStandings = driverList.map(d => ({
-      pos: parseInt(d.position, 10) || null,
-      code: d.Driver.code,
-      name: `${d.Driver.givenName} ${d.Driver.familyName}`,
-      team: mapTeamName(d.Constructors?.[0]?.name || ''),
-      points: parseFloat(d.points),
-      wins: parseInt(d.wins, 10),
-    }));
-
-    // Assign positions to unclassified drivers (API returns "-" for those without a position)
-    let nextDriverPos = driverStandings.filter(d => d.pos !== null).length + 1;
-    driverStandings.forEach(d => {
-      if (d.pos === null) d.pos = nextDriverPos++;
-    });
-
-    console.log(`  Found ${driverStandings.length} drivers`);
+    drivers = await fetchDriverStandings();
+    changed = true;
   } catch (err) {
     console.warn('WARNING: Could not fetch driver standings:', err.message);
-    console.warn('  Leaving existing data untouched.');
+    console.warn('  Keeping existing driver standings.');
   }
 
   try {
-    console.log('Fetching constructor standings...');
-    const constructorData = await fetchJSON(CONSTRUCTOR_URL);
-    const constructorList = constructorData?.MRData?.StandingsTable?.StandingsLists?.[0]?.ConstructorStandings || [];
-
-    constructorStandings = constructorList.map(c => ({
-      pos: parseInt(c.position, 10) || null,
-      name: mapConstructorName(c.Constructor.constructorId, c.Constructor.name),
-      points: parseFloat(c.points),
-      wins: parseInt(c.wins, 10),
-    }));
-
-    // Assign positions to unclassified constructors (API returns "-" for those without a position)
-    let nextConstructorPos = constructorStandings.filter(c => c.pos !== null).length + 1;
-    constructorStandings.forEach(c => {
-      if (c.pos === null) c.pos = nextConstructorPos++;
-    });
-
-    console.log(`  Found ${constructorStandings.length} constructors`);
+    constructors = await fetchConstructorStandings();
+    changed = true;
   } catch (err) {
     console.warn('WARNING: Could not fetch constructor standings:', err.message);
-    console.warn('  Leaving existing data untouched.');
+    console.warn('  Keeping existing constructor standings.');
   }
 
-  if (driverStandings.length === 0 && constructorStandings.length === 0) {
-    console.log('No data fetched. Leaving script.js unchanged.');
+  if (!changed) {
+    console.log('No standings data fetched. Leaving data/v1/standings.json unchanged.');
     return;
   }
 
-  const now = new Date().toISOString();
-  const dataBlock = `${startMarker}
-const driverStandings = ${JSON.stringify(driverStandings, null, 2)};
-const constructorStandings = ${JSON.stringify(constructorStandings, null, 2)};
-const standingsLastUpdated = "${now}";
-${endMarker}`;
+  const next = {
+    schemaVersion: current.schemaVersion || 1,
+    season: current.season || 2026,
+    lastUpdated: new Date().toISOString(),
+    drivers,
+    constructors,
+  };
 
-  const startIdx = js.indexOf(startMarker);
-  const endIdx = js.indexOf(endMarker) + endMarker.length;
-  js = js.slice(0, startIdx) + dataBlock + js.slice(endIdx);
-
-  fs.writeFileSync(jsPath, js, 'utf-8');
-  console.log('Successfully updated standings in script.js');
+  fs.writeFileSync(DATA_PATH, `${JSON.stringify(next, null, 2)}\n`, 'utf8');
+  console.log('Successfully updated data/v1/standings.json');
 }
 
 main();

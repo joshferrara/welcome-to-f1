@@ -1,0 +1,14 @@
+{
+  "name": "welcome-to-f1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static beginner guide to Formula 1 with shared JSON content for web and mobile clients.",
+  "scripts": {
+    "validate:data": "node scripts/validate-data.js",
+    "update:data": "node scripts/update-data.js",
+    "build": "npm run validate:data && node scripts/build-site.js",
+    "build:deploy": "npm run update:data && npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

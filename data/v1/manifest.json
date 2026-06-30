@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "season": 2026,
+  "generatedAt": "2026-06-30T21:57:29.041Z",
+  "baseUrl": "https://welcometof1.com",
+  "resources": {
+    "guide": "/data/v1/guide.json",
+    "drivers": "/data/v1/drivers.json",
+    "teams": "/data/v1/teams.json",
+    "races": "/data/v1/races.json",
+    "standings": "/data/v1/standings.json",
+    "champions": "/data/v1/champions.json"
+  }
+}
