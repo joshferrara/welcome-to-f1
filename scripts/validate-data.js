@@ -154,6 +154,8 @@ function validateRaces(racesData, driverCodes) {
     assertString(item.name, `races.round${item.round}.name`);
     assertString(item.location, `races.round${item.round}.location`);
     assertString(item.circuitId, `races.round${item.round}.circuitId`);
+    assertRootAsset(item.image, `races.round${item.round}.image`);
+    if (item.image && item.imageAlt) assertString(item.imageAlt, `races.round${item.round}.imageAlt`);
     for (const field of SESSION_FIELDS) {
       if (item[field]) assertISODate(item[field], `races.round${item.round}.${field}`);
     }

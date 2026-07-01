@@ -1,0 +1,10 @@
+import { Stack } from "expo-router";
+
+export default function LearnLayout() {
+  return (
+    <Stack>
+      <Stack.Screen name="index" options={{ title: "Learn", headerLargeTitle: true }} />
+      <Stack.Screen name="[topicId]" options={{ title: "Topic" }} />
+    </Stack>
+  );
+}

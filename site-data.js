@@ -2,7 +2,7 @@ window.siteData = {
   "manifest": {
     "schemaVersion": 1,
     "season": 2026,
-    "generatedAt": "2026-06-30T21:57:29.041Z",
+    "generatedAt": "2026-07-01T01:23:26.414Z",
     "baseUrl": "https://welcometof1.com",
     "resources": {
       "guide": "/data/v1/guide.json",
@@ -1165,7 +1165,9 @@ window.siteData = {
           "RUS",
           "ANT",
           "LEC"
-        ]
+        ],
+        "image": "/images/cars/f1-action-1.jpeg",
+        "imageAlt": "Formula 1 cars racing on track"
       },
       {
         "round": 2,
@@ -1182,7 +1184,9 @@ window.siteData = {
           "ANT",
           "RUS",
           "HAM"
-        ]
+        ],
+        "image": "/images/races/pit-crew.webp",
+        "imageAlt": "Formula 1 pit crew preparing a car"
       },
       {
         "round": 3,
@@ -1198,7 +1202,9 @@ window.siteData = {
           "ANT",
           "PIA",
           "LEC"
-        ]
+        ],
+        "image": "/images/races/japan.webp",
+        "imageAlt": "Formula 1 cars racing at Suzuka"
       },
       {
         "round": 4,
@@ -1210,7 +1216,9 @@ window.siteData = {
         "fp3": "2026-04-11T12:30Z",
         "qualifying": "2026-04-11T16:00Z",
         "race": "2026-04-12T15:00Z",
-        "cancelled": true
+        "cancelled": true,
+        "image": "/images/cars/f1-action-2.jpeg",
+        "imageAlt": "Formula 1 car at speed"
       },
       {
         "round": 5,
@@ -1222,7 +1230,9 @@ window.siteData = {
         "fp3": "2026-04-18T13:30Z",
         "qualifying": "2026-04-18T17:00Z",
         "race": "2026-04-19T17:00Z",
-        "cancelled": true
+        "cancelled": true,
+        "image": "/images/cars/f1-action-1.jpeg",
+        "imageAlt": "Formula 1 cars racing on track"
       },
       {
         "round": 6,
@@ -1245,7 +1255,9 @@ window.siteData = {
           "ANT",
           "NOR",
           "PIA"
-        ]
+        ],
+        "image": "/images/races/pit-crew.webp",
+        "imageAlt": "Formula 1 pit crew working in the garage"
       },
       {
         "round": 7,
@@ -1261,7 +1273,9 @@ window.siteData = {
           "ANT",
           "HAM",
           "VER"
-        ]
+        ],
+        "image": "/images/cars/f1-action-1.jpeg",
+        "imageAlt": "Formula 1 cars racing on track"
       },
       {
         "round": 8,
@@ -1277,7 +1291,9 @@ window.siteData = {
           "ANT",
           "HAM",
           "HAD"
-        ]
+        ],
+        "image": "/images/races/monaco.webp",
+        "imageAlt": "Formula 1 car racing through Monaco"
       },
       {
         "round": 9,
@@ -1293,7 +1309,9 @@ window.siteData = {
           "HAM",
           "RUS",
           "NOR"
-        ]
+        ],
+        "image": "/images/cars/f1-action-2.jpeg",
+        "imageAlt": "Formula 1 car at speed"
       },
       {
         "round": 10,
@@ -1309,7 +1327,9 @@ window.siteData = {
           "RUS",
           "VER",
           "ANT"
-        ]
+        ],
+        "image": "/images/cars/f1-action-1.jpeg",
+        "imageAlt": "Formula 1 cars racing on track"
       },
       {
         "round": 11,
@@ -1320,7 +1340,9 @@ window.siteData = {
         "fp2": "2026-07-03T15:00Z",
         "fp3": "2026-07-04T10:30Z",
         "qualifying": "2026-07-04T15:00Z",
-        "race": "2026-07-05T14:00Z"
+        "race": "2026-07-05T14:00Z",
+        "image": "/images/races/great-britain.webp",
+        "imageAlt": "Formula 1 cars racing at Silverstone"
       },
       {
         "round": 12,
@@ -1332,7 +1354,9 @@ window.siteData = {
         "sprintQualifying": "2026-07-17T15:30Z",
         "sprint": "2026-07-18T10:00Z",
         "qualifying": "2026-07-18T14:00Z",
-        "race": "2026-07-19T13:00Z"
+        "race": "2026-07-19T13:00Z",
+        "image": "/images/races/belgium.webp",
+        "imageAlt": "Formula 1 cars racing at Spa-Francorchamps"
       },
       {
         "round": 13,
@@ -1343,7 +1367,9 @@ window.siteData = {
         "fp2": "2026-07-24T15:00Z",
         "fp3": "2026-07-25T10:30Z",
         "qualifying": "2026-07-25T14:00Z",
-        "race": "2026-07-26T13:00Z"
+        "race": "2026-07-26T13:00Z",
+        "image": "/images/cars/f1-action-2.jpeg",
+        "imageAlt": "Formula 1 car at speed"
       },
       {
         "type": "break",
@@ -1359,7 +1385,9 @@ window.siteData = {
         "fp2": "2026-08-21T14:00Z",
         "fp3": "2026-08-22T09:30Z",
         "qualifying": "2026-08-22T14:00Z",
-        "race": "2026-08-23T13:00Z"
+        "race": "2026-08-23T13:00Z",
+        "image": "/images/cars/f1-action-1.jpeg",
+        "imageAlt": "Formula 1 cars racing on track"
       },
       {
         "round": 15,
@@ -1370,7 +1398,9 @@ window.siteData = {
         "fp2": "2026-09-04T14:00Z",
         "fp3": "2026-09-05T10:30Z",
         "qualifying": "2026-09-05T14:00Z",
-        "race": "2026-09-06T13:00Z"
+        "race": "2026-09-06T13:00Z",
+        "image": "/images/races/italy.webp",
+        "imageAlt": "Formula 1 cars racing at Monza"
       },
       {
         "round": 16,
@@ -1382,7 +1412,9 @@ window.siteData = {
         "fp3": "2026-09-12T10:30Z",
         "qualifying": "2026-09-12T14:00Z",
         "race": "2026-09-13T13:00Z",
-        "isNew": true
+        "isNew": true,
+        "image": "/images/cars/f1-action-2.jpeg",
+        "imageAlt": "Formula 1 car at speed"
       },
       {
         "round": 17,
@@ -1393,7 +1425,9 @@ window.siteData = {
         "fp2": "2026-09-24T12:00Z",
         "fp3": "2026-09-25T08:30Z",
         "qualifying": "2026-09-25T12:00Z",
-        "race": "2026-09-26T11:00Z"
+        "race": "2026-09-26T11:00Z",
+        "image": "/images/cars/f1-action-1.jpeg",
+        "imageAlt": "Formula 1 cars racing on track"
       },
       {
         "round": 18,
@@ -1404,7 +1438,9 @@ window.siteData = {
         "fp2": "2026-10-09T12:00Z",
         "fp3": "2026-10-10T08:30Z",
         "qualifying": "2026-10-10T13:00Z",
-        "race": "2026-10-11T12:00Z"
+        "race": "2026-10-11T12:00Z",
+        "image": "/images/cars/f1-action-2.jpeg",
+        "imageAlt": "Formula 1 car at speed"
       },
       {
         "round": 19,
@@ -1416,7 +1452,9 @@ window.siteData = {
         "sprintQualifying": "2026-10-23T21:30Z",
         "sprint": "2026-10-24T17:00Z",
         "qualifying": "2026-10-24T21:00Z",
-        "race": "2026-10-25T20:00Z"
+        "race": "2026-10-25T20:00Z",
+        "image": "/images/races/pit-crew.webp",
+        "imageAlt": "Formula 1 pit crew preparing for a race"
       },
       {
         "round": 20,
@@ -1427,7 +1465,9 @@ window.siteData = {
         "fp2": "2026-10-30T22:00Z",
         "fp3": "2026-10-31T17:30Z",
         "qualifying": "2026-10-31T21:00Z",
-        "race": "2026-11-01T20:00Z"
+        "race": "2026-11-01T20:00Z",
+        "image": "/images/cars/f1-action-1.jpeg",
+        "imageAlt": "Formula 1 cars racing on track"
       },
       {
         "round": 21,
@@ -1438,7 +1478,9 @@ window.siteData = {
         "fp2": "2026-11-06T19:00Z",
         "fp3": "2026-11-07T14:30Z",
         "qualifying": "2026-11-07T18:00Z",
-        "race": "2026-11-08T17:00Z"
+        "race": "2026-11-08T17:00Z",
+        "image": "/images/cars/f1-action-2.jpeg",
+        "imageAlt": "Formula 1 car at speed"
       },
       {
         "round": 22,
@@ -1450,7 +1492,9 @@ window.siteData = {
         "sprintQualifying": "2026-11-20T04:30Z",
         "sprint": "2026-11-21T00:00Z",
         "qualifying": "2026-11-21T04:00Z",
-        "race": "2026-11-22T04:00Z"
+        "race": "2026-11-22T04:00Z",
+        "image": "/images/races/las-vegas.jpg",
+        "imageAlt": "Formula 1 car racing in Las Vegas"
       },
       {
         "round": 23,
@@ -1462,7 +1506,9 @@ window.siteData = {
         "sprintQualifying": "2026-11-27T17:30Z",
         "sprint": "2026-11-28T13:00Z",
         "qualifying": "2026-11-28T18:00Z",
-        "race": "2026-11-29T16:00Z"
+        "race": "2026-11-29T16:00Z",
+        "image": "/images/cars/f1-action-1.jpeg",
+        "imageAlt": "Formula 1 cars racing on track"
       },
       {
         "round": 24,
@@ -1473,7 +1519,9 @@ window.siteData = {
         "fp2": "2026-12-04T13:00Z",
         "fp3": "2026-12-05T10:30Z",
         "qualifying": "2026-12-05T14:00Z",
-        "race": "2026-12-06T13:00Z"
+        "race": "2026-12-06T13:00Z",
+        "image": "/images/cars/f1-action-2.jpeg",
+        "imageAlt": "Formula 1 car at speed"
       },
       {
         "type": "break",

@@ -19,7 +19,7 @@ Public JSON contract:
 /data/v1/guide.json       # page metadata, navigation, hero, guide body, FAQ, JSON-LD
 /data/v1/drivers.json     # driver IDs, codes, numbers, countries, images, links
 /data/v1/teams.json       # team IDs, colors, engines, driver references, links
-/data/v1/races.json       # calendar, session times, sprint flags, results, cancellations
+/data/v1/races.json       # calendar, session times, sprint flags, results, cancellations, images
 /data/v1/standings.json   # driver and constructor standings plus lastUpdated
 /data/v1/champions.json   # champion history and display metadata
 ```
@@ -85,8 +85,9 @@ The mobile app should start at `/data/v1/manifest.json`, then resolve the listed
 
 Contract rules:
 
-- Asset paths in JSON are root-relative, for example `/images/drivers/lando-norris.webp`.
+- Asset paths in JSON are root-relative, for example `/images/drivers/lando-norris.webp` or `/images/races/great-britain.webp`.
 - Consumers compute time-sensitive states, such as race week, from UTC session fields in `races.json`.
+- Race consumers should prefer each race's optional `image` and `imageAlt` fields, falling back to generic app imagery only when omitted.
 - `/data/v1/` is additive-only. Breaking changes should publish a new `/data/v2/` contract.
 - `_headers` exposes `/data/v1/*` with `Access-Control-Allow-Origin: *` and a short cache window.
 
@@ -135,7 +136,7 @@ To flag a one-off session change, add `raceNote` to the race:
 }
 ```
 
-`scripts/update-races.js` preserves curated fields such as `results`, `cancelled`, `isNew`, and `raceNote`.
+Race imagery is curated in the same file with optional root-relative `image` and `imageAlt` fields. `scripts/update-races.js` preserves curated fields such as `results`, `cancelled`, `isNew`, `raceNote`, `image`, and `imageAlt`.
 
 ## Standings
 
