@@ -162,9 +162,11 @@ function setUnits(unit) {
 
 // ── Navbar scroll effect ──
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 80);
-});
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 80);
+  });
+}
 
 // ── Scroll reveal ──
 const revealElements = document.querySelectorAll('.reveal');
@@ -182,6 +184,7 @@ revealElements.forEach(el => revealObserver.observe(el));
 // ── Hero lights animation ──
 (function animateLights() {
   const lights = document.querySelectorAll('.hero__light');
+  if (!lights.length) return;
   let i = 0;
 
   function lightUp() {
@@ -212,7 +215,7 @@ const pitstopObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 
-pitstopObserver.observe(pitstopTimer);
+if (pitstopTimer) pitstopObserver.observe(pitstopTimer);
 
 function animatePitstop() {
   const target = 1.80;
@@ -437,13 +440,16 @@ document.querySelectorAll('.navbar__links a, .mobile-nav__toc-link, .toc__link')
 function toggleMobileNav() {
   const nav = document.getElementById('mobileNav');
   const btn = document.getElementById('hamburgerBtn');
+  if (!nav || !btn) return;
   nav.classList.toggle('open');
   btn.classList.toggle('active');
 }
 
 function closeMobileNav() {
-  document.getElementById('mobileNav').classList.remove('open');
-  document.getElementById('hamburgerBtn').classList.remove('active');
+  const nav = document.getElementById('mobileNav');
+  const btn = document.getElementById('hamburgerBtn');
+  if (nav) nav.classList.remove('open');
+  if (btn) btn.classList.remove('active');
 }
 
 // Close mobile nav on resize to desktop
@@ -530,8 +536,9 @@ function nativeShare() {
 }
 
 // Show native share button if supported
-if (navigator.share) {
-  document.getElementById('nativeShareBtn').style.display = 'flex';
+const nativeShareBtn = document.getElementById('nativeShareBtn');
+if (navigator.share && nativeShareBtn) {
+  nativeShareBtn.style.display = 'flex';
 }
 
 // ── Race week banner + schedule rendering ──
@@ -701,12 +708,15 @@ if (navigator.share) {
       const tzAbbr = Intl.DateTimeFormat('en-US', { timeZoneName: 'short' })
         .formatToParts(now).find(function(p) { return p.type === 'timeZoneName'; })?.value || '';
 
-      document.getElementById('raceWeekName').textContent = r.name;
-      document.getElementById('raceWeekMeta').innerHTML =
-        'Round ' + r.round + ' \u00B7 ' + r.location + ' \u00B7 ' + dateStr +
-        ' <span class="race-week-banner__tz">' + tzAbbr + '</span>';
-
-      banner.classList.add('active');
+      const raceWeekName = document.getElementById('raceWeekName');
+      const raceWeekMeta = document.getElementById('raceWeekMeta');
+      if (banner && raceWeekName && raceWeekMeta) {
+        raceWeekName.textContent = r.name;
+        raceWeekMeta.innerHTML =
+          'Round ' + r.round + ' \u00B7 ' + r.location + ' \u00B7 ' + dateStr +
+          ' <span class="race-week-banner__tz">' + tzAbbr + '</span>';
+        banner.classList.add('active');
+      }
 
       // Highlight matching race in the calendar grid
       var calItem = document.querySelector('.schedule-item[data-round="' + r.round + '"]');

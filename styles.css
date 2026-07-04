@@ -62,7 +62,7 @@
    RESET & BASE
    ═══════════════════════════════════════════════════ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 body {
   font-family: var(--font-body);
   background: var(--bg-primary);
@@ -3177,4 +3177,119 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   .tool-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ═══════════════════════════════════════════════════
+   SECTION ANCHOR ALIASES (legacy deep-link targets)
+   ═══════════════════════════════════════════════════ */
+/* Empty, zero-height, but fully rendered — a reliable fragment-navigation
+   target for legacy deep-links (#pitstops, #tyres, #schedule, etc.). Not
+   visibility:hidden, which some engines refuse to scroll to. */
+.section-anchor {
+  display: block;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE NAV — CHAPTER GROUPS
+   ═══════════════════════════════════════════════════ */
+.mobile-nav__group {
+  margin-bottom: 20px;
+}
+.mobile-nav__group:last-child {
+  margin-bottom: 0;
+}
+.mobile-nav__group-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--f1-red);
+  padding: 0 0 8px;
+}
+
+/* ═══════════════════════════════════════════════════
+   SATELLITE PAGES (/calendar, /standings, /champions)
+   ═══════════════════════════════════════════════════ */
+.subnav {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
+}
+.subnav__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+}
+.subnav__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.subnav__links {
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+}
+.subnav__links a {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.subnav__links a:hover,
+.subnav__links a.active {
+  color: var(--f1-red);
+}
+.subnav__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-satellite .section-header {
+  margin-top: 24px;
+}
+.page-backlink {
+  margin-top: 56px;
+}
+.page-backlink a,
+.subnav__back {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.page-backlink a:hover,
+.subnav__back:hover {
+  color: var(--f1-red);
+}
+
+@media (max-width: 640px) {
+  .subnav__inner { gap: 14px; padding: 0 16px; }
+  .subnav__logo { font-size: 0; gap: 0; }
+  .subnav__logo .navbar__logo-mark { font-size: 14px; }
+  .subnav__links { gap: 16px; }
 }

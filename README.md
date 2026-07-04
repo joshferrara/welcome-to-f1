@@ -10,13 +10,13 @@ Inspired by [A Newbie's Guide to Formula 1](https://nonchalant-trawler-767.notio
 
 ## Architecture
 
-The site is still deployed as static files, but content is now shared through versioned JSON under `data/v1/`. The website is generated at build time from the same JSON files that a mobile app can fetch directly.
+The site is deployed as static files, but content is shared through versioned JSON under `data/v1/`. The website is generated at build time from the same JSON files that a mobile app can fetch directly.
 
 Public JSON contract:
 
 ```text
 /data/v1/manifest.json    # schema version, generated timestamp, base URL, resource URLs
-/data/v1/guide.json       # page metadata, navigation, hero, guide body, FAQ, JSON-LD
+/data/v1/guide.json       # site metadata, chapters, sections (with body), hero, footer, FAQ, JSON-LD, llms facts
 /data/v1/drivers.json     # driver IDs, codes, numbers, countries, images, links
 /data/v1/teams.json       # team IDs, colors, engines, driver references, links
 /data/v1/races.json       # calendar, session times, sprint flags, results, cancellations, images
@@ -24,26 +24,59 @@ Public JSON contract:
 /data/v1/champions.json   # champion history and display metadata
 ```
 
-Generated files:
+### Content model (`guide.json`)
+
+The guide is authored as **structured sections grouped into chapters**, not one HTML blob:
+
+- `chapters[]` — ordered chapters (`sport`, `machine`, `people`, `season`, `lore`, and a `finale` group). Chapters drive the three navigation surfaces.
+- `sections[]` — each has `id`, `chapter`, `navLabel`, optional `eyebrowLabel`, `className`, optional `aliases` (legacy anchor ids), `numbered` (false for finale sections), a `header` (`title` + `subtitle`), and an HTML `body`. Section numbers (01–10) are assigned at build time from order, so reordering never means hand-renumbering.
+- `hero` / `footer` — page chrome as HTML.
+- `faq[]` — the single source for both the on-page FAQ and the JSON-LD `FAQPage`.
+- `llms` — `summary` + `keyFacts` used to generate `llms.txt`.
+
+`scripts/build-site.js` generates the navbar, mobile drawer (grouped by chapter), and floating rail from `chapters`/`sections` — the nav can never drift from the section list. It also injects `{{DRIVER_GRID}}` / `{{TEAM_GRID}}`.
+
+### Count tokens (single source of truth)
+
+Prose uses build-time tokens so season counts never drift as races are cancelled or teams change:
 
 ```text
-index.html                # generated static page
-site-data.js              # generated runtime data for interactive widgets
+{{SEASON}} {{DRIVER_COUNT}} {{TEAM_COUNT}} {{RACE_COUNT}}
+{{ACTIVE_RACE_COUNT}} {{CANCELLED_COUNT}} {{SPRINT_COUNT}} {{CONTINENTS}}
 ```
 
-Source/editing files:
+These are computed from `drivers.json` / `teams.json` / `races.json`. `validate-data.js` fails the build if a section hardcodes a count (`\d+ drivers|teams|Grands Prix`) that disagrees with the data (the `history` section is exempt for historical figures). `{{ASSET_VERSION}}` cache-busts CSS/JS on every build.
+
+### Generated files
 
 ```text
-templates/index.html      # HTML shell around generated body/scripts
+index.html                # generated single-page guide
+calendar/index.html       # generated /calendar satellite page
+standings/index.html      # generated /standings satellite page
+champions/index.html      # generated /champions satellite page
+site-data.js              # generated runtime data for interactive widgets
+llms.txt                  # generated from guide.json + live data
+sitemap.xml               # generated (all four page routes, build-date lastmod)
+```
+
+### Source/editing files
+
+```text
+templates/index.html      # HTML shell for the guide (head + {{BODY}})
+templates/page.html       # HTML shell for satellite pages
 data/v1/*.json            # canonical web/mobile content
-script.js                 # client-side behavior only
+script.js                 # client-side behavior (guard-safe; reused on all pages)
 styles.css                # global styles and component styles
-scripts/build-site.js     # renders index.html and site-data.js
-scripts/validate-data.js  # validates JSON contract, references, dates, assets
+scripts/build-site.js     # renders pages, site-data.js, llms.txt, sitemap.xml
+scripts/validate-data.js  # validates JSON contract, references, dates, assets, count drift
 scripts/update-data.js    # deploy-time updater orchestrator
 scripts/update-races.js   # refreshes data/v1/races.json from Ergast/Jolpica
 scripts/update-standings.js # refreshes data/v1/standings.json from Ergast/Jolpica
 ```
+
+### Satellite pages
+
+`/calendar`, `/standings`, and `/champions` are standalone pages generated from the same JSON, sharing `styles.css` and the guard-safe `script.js`. They give returning fans and search engines deep-linkable, always-fresh views of the live data. The guide's `#tracks`, `#schedule`, `#pitstops`, `#tyres`, `#drama`, `#champions`, and `#rules` anchors are preserved as aliases so existing inbound links keep working after the section reorganization.
 
 ## Commands
 
@@ -100,7 +133,9 @@ npm run validate:data
 npm run build
 ```
 
-Driver and team cards are generated from `drivers.json` and `teams.json`. The guide page body lives in `guide.json` as a Markdown-compatible HTML body with `{{DRIVER_GRID}}` and `{{TEAM_GRID}}` placeholders. Those placeholders are filled by `scripts/build-site.js`.
+Driver and team cards are generated from `drivers.json` and `teams.json`. Guide prose lives in `guide.json` as per-section HTML `body` fields; edit the relevant section's `body`. The `drivers` section body carries `{{DRIVER_GRID}}` and the `teams` section body carries `{{TEAM_GRID}}`; `scripts/build-site.js` fills those and all count tokens. To add, remove, or reorder a section, edit `chapters`/`sections` in `guide.json` — numbering and every navigation surface update automatically.
+
+Note on the `/data/v1/` contract: reshaping `guide.json`'s internal content model (chapters + per-section bodies) is an authoring change, not a break to the published *resource URLs or asset-path conventions* that mobile clients depend on — those are unchanged. `guide.json` carries `schemaVersion: 2` to mark the new internal shape.
 
 ## Race Calendar & Results
 

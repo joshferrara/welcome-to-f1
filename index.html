@@ -40,13 +40,10 @@
 <link rel="preconnect" href="https://images.pexels.com">
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=mr5pfacr">
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════
-     NAVBAR
-     ══════════════════════════════════════════════════════ -->
 <nav class="navbar" id="navbar">
   <div class="navbar__inner">
     <a href="#top" class="navbar__logo">
@@ -54,11 +51,11 @@
       Welcome to Formula 1
     </a>
     <ul class="navbar__links">
-      <li><a href="#basics">Basics</a></li>
-      <li><a href="#weekend">Race Day</a></li>
-      <li><a href="#cars">Cars</a></li>
-      <li><a href="#drivers">Drivers</a></li>
-      <li><a href="#history">History</a></li>
+      <li><a href="#basics">Sport</a></li>
+      <li><a href="#cars">Machine</a></li>
+      <li><a href="#drivers">People</a></li>
+      <li><a href="#season">Season</a></li>
+      <li><a href="#history">Lore</a></li>
       <li><a href="#start">Get Started</a></li>
     </ul>
     <div class="navbar__actions">
@@ -79,28 +76,51 @@
   </div>
 </nav>
 
-<!-- Mobile Nav Drawer -->
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav__inner">
     <div class="mobile-nav__toc-label">Contents</div>
-    <ul class="mobile-nav__toc-list">
-      <li><a href="#basics" class="mobile-nav__toc-link" data-section="basics" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">01</span><span class="mobile-nav__toc-name">The Basics</span></a></li>
-      <li><a href="#weekend" class="mobile-nav__toc-link" data-section="weekend" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">02</span><span class="mobile-nav__toc-name">Race Weekend</span></a></li>
-      <li><a href="#championships" class="mobile-nav__toc-link" data-section="championships" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">03</span><span class="mobile-nav__toc-name">Championships</span></a></li>
-      <li><a href="#cars" class="mobile-nav__toc-link" data-section="cars" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">04</span><span class="mobile-nav__toc-name">The Cars</span></a></li>
-      <li><a href="#pitstops" class="mobile-nav__toc-link" data-section="pitstops" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">05</span><span class="mobile-nav__toc-name">Pit Stops</span></a></li>
-      <li><a href="#tyres" class="mobile-nav__toc-link" data-section="tyres" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">06</span><span class="mobile-nav__toc-name">Tyres</span></a></li>
-      <li><a href="#drivers" class="mobile-nav__toc-link" data-section="drivers" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">07</span><span class="mobile-nav__toc-name">The Drivers</span></a></li>
-      <li><a href="#teams" class="mobile-nav__toc-link" data-section="teams" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">08</span><span class="mobile-nav__toc-name">The Teams</span></a></li>
-      <li><a href="#champions" class="mobile-nav__toc-link" data-section="champions" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">09</span><span class="mobile-nav__toc-name">World Champions</span></a></li>
-      <li><a href="#history" class="mobile-nav__toc-link" data-section="history" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">10</span><span class="mobile-nav__toc-name">Recent History</span></a></li>
-      <li><a href="#drama" class="mobile-nav__toc-link" data-section="drama" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">11</span><span class="mobile-nav__toc-name">The Drama</span></a></li>
-      <li><a href="#tracks" class="mobile-nav__toc-link" data-section="tracks" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">12</span><span class="mobile-nav__toc-name">The Tracks</span></a></li>
-      <li><a href="#schedule" class="mobile-nav__toc-link" data-section="schedule" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">13</span><span class="mobile-nav__toc-name">The Calendar</span></a></li>
-      <li><a href="#rules" class="mobile-nav__toc-link" data-section="rules" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">14</span><span class="mobile-nav__toc-name">Good to Know</span></a></li>
-      <li><a href="#faq" class="mobile-nav__toc-link" data-section="faq" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">15</span><span class="mobile-nav__toc-name">FAQ</span></a></li>
-      <li><a href="#start" class="mobile-nav__toc-link" data-section="start" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">16</span><span class="mobile-nav__toc-name">Get Started</span></a></li>
-    </ul>
+      <div class="mobile-nav__group">
+        <div class="mobile-nav__group-label">The Sport</div>
+        <ul class="mobile-nav__toc-list">
+        <li><a href="#basics" class="mobile-nav__toc-link" data-section="basics" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">01</span><span class="mobile-nav__toc-name">The Basics</span></a></li>
+        <li><a href="#weekend" class="mobile-nav__toc-link" data-section="weekend" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">02</span><span class="mobile-nav__toc-name">Race Weekend</span></a></li>
+        <li><a href="#championships" class="mobile-nav__toc-link" data-section="championships" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">03</span><span class="mobile-nav__toc-name">Championship</span></a></li>
+        </ul>
+      </div>
+      <div class="mobile-nav__group">
+        <div class="mobile-nav__group-label">The Machine</div>
+        <ul class="mobile-nav__toc-list">
+        <li><a href="#cars" class="mobile-nav__toc-link" data-section="cars" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">04</span><span class="mobile-nav__toc-name">The Cars</span></a></li>
+        <li><a href="#strategy" class="mobile-nav__toc-link" data-section="strategy" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">05</span><span class="mobile-nav__toc-name">Pits &amp; Tyres</span></a></li>
+        </ul>
+      </div>
+      <div class="mobile-nav__group">
+        <div class="mobile-nav__group-label">The People</div>
+        <ul class="mobile-nav__toc-list">
+        <li><a href="#drivers" class="mobile-nav__toc-link" data-section="drivers" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">06</span><span class="mobile-nav__toc-name">The Drivers</span></a></li>
+        <li><a href="#teams" class="mobile-nav__toc-link" data-section="teams" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">07</span><span class="mobile-nav__toc-name">The Teams</span></a></li>
+        </ul>
+      </div>
+      <div class="mobile-nav__group">
+        <div class="mobile-nav__group-label">The Season</div>
+        <ul class="mobile-nav__toc-list">
+        <li><a href="#season" class="mobile-nav__toc-link" data-section="season" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">08</span><span class="mobile-nav__toc-name">The Season</span></a></li>
+        <li><a href="#calendar" class="mobile-nav__toc-link" data-section="calendar" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">09</span><span class="mobile-nav__toc-name">Tracks &amp; Calendar</span></a></li>
+        </ul>
+      </div>
+      <div class="mobile-nav__group">
+        <div class="mobile-nav__group-label">The Lore</div>
+        <ul class="mobile-nav__toc-list">
+        <li><a href="#history" class="mobile-nav__toc-link" data-section="history" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">10</span><span class="mobile-nav__toc-name">History &amp; Drama</span></a></li>
+        </ul>
+      </div>
+      <div class="mobile-nav__group">
+        <div class="mobile-nav__group-label">More</div>
+        <ul class="mobile-nav__toc-list">
+        <li><a href="#faq" class="mobile-nav__toc-link" data-section="faq" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">·</span><span class="mobile-nav__toc-name">FAQ</span></a></li>
+        <li><a href="#start" class="mobile-nav__toc-link" data-section="start" data-action="close-mobile-nav"><span class="mobile-nav__toc-number">·</span><span class="mobile-nav__toc-name">Get Started</span></a></li>
+        </ul>
+      </div>
   </div>
   <div class="mobile-nav__actions">
     <div class="unit-toggle" role="radiogroup" aria-label="Unit system">
@@ -110,36 +130,24 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     FLOATING TABLE OF CONTENTS
-     ══════════════════════════════════════════════════════ -->
 <nav class="toc" id="toc" aria-label="Table of contents">
   <div class="toc__inner">
     <div class="toc__label">Contents</div>
     <ul class="toc__list">
       <li><a href="#basics" class="toc__link" data-section="basics"><span class="toc__number">01</span><span class="toc__name">The Basics</span></a></li>
       <li><a href="#weekend" class="toc__link" data-section="weekend"><span class="toc__number">02</span><span class="toc__name">Race Weekend</span></a></li>
-      <li><a href="#championships" class="toc__link" data-section="championships"><span class="toc__number">03</span><span class="toc__name">Championships</span></a></li>
+      <li><a href="#championships" class="toc__link" data-section="championships"><span class="toc__number">03</span><span class="toc__name">Championship</span></a></li>
       <li><a href="#cars" class="toc__link" data-section="cars"><span class="toc__number">04</span><span class="toc__name">The Cars</span></a></li>
-      <li><a href="#pitstops" class="toc__link" data-section="pitstops"><span class="toc__number">05</span><span class="toc__name">Pit Stops</span></a></li>
-      <li><a href="#tyres" class="toc__link" data-section="tyres"><span class="toc__number">06</span><span class="toc__name">Tyres</span></a></li>
-      <li><a href="#drivers" class="toc__link" data-section="drivers"><span class="toc__number">07</span><span class="toc__name">The Drivers</span></a></li>
-      <li><a href="#teams" class="toc__link" data-section="teams"><span class="toc__number">08</span><span class="toc__name">The Teams</span></a></li>
-      <li><a href="#champions" class="toc__link" data-section="champions"><span class="toc__number">09</span><span class="toc__name">World Champions</span></a></li>
-      <li><a href="#history" class="toc__link" data-section="history"><span class="toc__number">10</span><span class="toc__name">Recent History</span></a></li>
-      <li><a href="#drama" class="toc__link" data-section="drama"><span class="toc__number">11</span><span class="toc__name">The Drama</span></a></li>
-      <li><a href="#tracks" class="toc__link" data-section="tracks"><span class="toc__number">12</span><span class="toc__name">The Tracks</span></a></li>
-      <li><a href="#schedule" class="toc__link" data-section="schedule"><span class="toc__number">13</span><span class="toc__name">The Calendar</span></a></li>
-      <li><a href="#rules" class="toc__link" data-section="rules"><span class="toc__number">14</span><span class="toc__name">Good to Know</span></a></li>
-      <li><a href="#faq" class="toc__link" data-section="faq"><span class="toc__number">15</span><span class="toc__name">FAQ</span></a></li>
-      <li><a href="#start" class="toc__link" data-section="start"><span class="toc__number">16</span><span class="toc__name">Get Started</span></a></li>
+      <li><a href="#strategy" class="toc__link" data-section="strategy"><span class="toc__number">05</span><span class="toc__name">Pits &amp; Tyres</span></a></li>
+      <li><a href="#drivers" class="toc__link" data-section="drivers"><span class="toc__number">06</span><span class="toc__name">The Drivers</span></a></li>
+      <li><a href="#teams" class="toc__link" data-section="teams"><span class="toc__number">07</span><span class="toc__name">The Teams</span></a></li>
+      <li><a href="#season" class="toc__link" data-section="season"><span class="toc__number">08</span><span class="toc__name">The Season</span></a></li>
+      <li><a href="#calendar" class="toc__link" data-section="calendar"><span class="toc__number">09</span><span class="toc__name">Tracks &amp; Calendar</span></a></li>
+      <li><a href="#history" class="toc__link" data-section="history"><span class="toc__number">10</span><span class="toc__name">History &amp; Drama</span></a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════════════════
-     HERO
-     ══════════════════════════════════════════════════════ -->
 <section class="hero" id="top">
   <div class="hero__lines">
     <div class="hero__line"></div>
@@ -188,9 +196,8 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 1: MIND-BLOWING FACTS
-     ══════════════════════════════════════════════════════ -->
+<hr class="section-divider">
+
 <section class="section-space" id="basics">
   <div class="container">
     <div class="section-header reveal">
@@ -200,7 +207,7 @@
     </div>
 
     <div class="definition-block reveal">
-      <p><strong>Formula 1 is the highest class of international single-seater auto racing</strong>, sanctioned by the Fédération Internationale de l'Automobile (FIA). Twenty-two drivers representing 11 constructor teams compete across 22 Grands Prix on 5 continents, racing open-wheel cars capable of exceeding <span class="unit" data-imperial="230 mph" data-metric="370 km/h">230 mph</span>.</p>
+      <p><strong>Formula 1 is the highest class of international single-seater auto racing</strong>, sanctioned by the Fédération Internationale de l'Automobile (FIA). A field of 22 drivers representing 11 constructor teams competes across 22 Grands Prix on 5 continents, racing open-wheel cars capable of exceeding <span class="unit" data-imperial="230 mph" data-metric="370 km/h">230 mph</span>.</p>
     </div>
 
     <div class="stats-grid">
@@ -208,7 +215,7 @@
         <span class="stat-card__icon">⚡</span>
         <div class="stat-card__value"><span class="unit" data-imperial="230+ mph" data-metric="370+ km/h">230+ mph</span></div>
         <div class="stat-card__label">Top Speed</div>
-        <p class="stat-card__desc">F1 cars hit speeds faster than a commercial airplane at takeoff. Mercedes predicts 2026 cars could reach <span class="unit" data-imperial="248 mph" data-metric="399 km/h">248 mph</span> thanks to new active aerodynamics.</p>
+        <p class="stat-card__desc">F1 cars hit speeds faster than a commercial airplane at takeoff. The 2026 cars are projected to reach around <span class="unit" data-imperial="248 mph" data-metric="399 km/h">248 mph</span> thanks to new active aerodynamics.</p>
       </div>
       <div class="stat-card reveal reveal-delay-1">
         <span class="stat-card__icon">💨</span>
@@ -238,7 +245,7 @@
         <span class="stat-card__icon">🌏</span>
         <div class="stat-card__value">827M</div>
         <div class="stat-card__label">Global Fans</div>
-        <p class="stat-card__desc">Broadcast in 188+ countries. 24 races across five continents. 70 million viewers per race weekend. It's a lot of people waking up at weird hours.</p>
+        <p class="stat-card__desc">Broadcast in 188+ countries. 22 races across five continents. 70 million viewers per race weekend. It's a lot of people waking up at weird hours.</p>
       </div>
     </div>
 
@@ -249,16 +256,14 @@
     <div class="content-block reveal">
       <p>Here's the thing about Formula 1: it sounds almost made up until you see it. <strong>Cars that go from <span class="unit" data-imperial="200 mph to 80 mph" data-metric="322 km/h to 129 km/h">200 mph to 80 mph</span> in two seconds.</strong> Drivers whose heart rates hit 200 bpm at the start and stay at marathon-runner levels for the entire race. Athletes who lose <span class="unit" data-imperial="8.8 lbs" data-metric="4 kg">8.8 lbs</span> of body weight through sweat in a single race while the cockpit reaches <span class="unit" data-imperial="140°F" data-metric="60°C">140°F</span>.</p>
       <p>Each car generates <strong>1.5 terabytes of data per weekend</strong> from 300+ sensors. Each team brings its own weather station to every track. Drivers react in 100 milliseconds, less than half the time of a normal human. And the power units? 52% thermal efficiency, 1,000+ horsepower from just 1.6 liters. No production car engine comes close.</p>
-      <p>Oh, and there are only <strong>11 teams, 22 drivers, and 24 races</strong>. That's it. F1 had 10 teams for nearly a decade before Cadillac joined as the 11th in 2026, and the rules allow up to 12. Small enough to learn in a weekend, deep enough to obsess over for a lifetime.</p>
+      <p>Oh, and there are only <strong>11 teams, 22 drivers, and 22 races</strong> this season. That's it. F1 ran with ten teams for nearly a decade before Cadillac joined as the 11th this year, and the rules allow up to 12. Small enough to learn in a weekend, deep enough to obsess over for a lifetime.</p>
     </div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 2: RACE WEEKEND
-     ══════════════════════════════════════════════════════ -->
+<span class="section-anchor" id="rules" aria-hidden="true"></span>
 <section class="section-space section-space--warm" id="weekend">
   <div class="container">
     <div class="section-header reveal">
@@ -353,17 +358,35 @@
         <p><strong>Sprint Weekends:</strong> Six races in 2026 use a compressed format that reshuffles the usual schedule. Friday has just one practice session followed by Sprint Qualifying (which sets the grid for the Sprint). Saturday morning is the Sprint Race, a quick, no-pit-stop <span class="unit" data-imperial="~62 mile" data-metric="~100 km">~62 mile</span> dash where the top 8 score extra championship points. Regular Qualifying follows in the afternoon to set the grid for Sunday's full Grand Prix.</p>
       </div>
   </div>
-</div></section>
+
+<div class="content-block">
+      <h3 class="reveal">Safety car &amp; virtual safety car</h3>
+      <p class="reveal">When there's a crash or debris on track, a <strong>Safety Car</strong> leads the field at reduced speed while marshals clear the hazard. This bunches all the cars together, erasing any gaps, which can completely shake up the race. Teams scramble to decide whether to pit for tyres or stay out. Chaos often follows the restart.</p>
+      <p class="reveal">A <strong>Virtual Safety Car (VSC)</strong> is used for less severe situations. Drivers slow down by ~30%, but the gaps between cars are maintained. Less dramatic but still strategic.</p>
+
+      <h3 class="reveal">Common penalties</h3>
+      <p class="reveal">You'll hear these regularly during broadcasts:</p>
+      <ul style="color: var(--text-secondary); margin: 16px 0 16px 24px; display: flex; flex-direction: column; gap: 8px;">
+        <li class="reveal"><strong>5-second penalty</strong> — Minor infraction (causing contact, track limits). Added to pit stop or final time.</li>
+        <li class="reveal"><strong>10-second penalty</strong> — More serious. Same application.</li>
+        <li class="reveal"><strong>Drive-through</strong> — Must drive through the entire pit lane without stopping. Costs ~20 seconds.</li>
+        <li class="reveal"><strong>Grid penalties</strong> — Applied before the race, usually for using too many engine components. Drivers start further back.</li>
+        <li class="reveal"><strong>Black &amp; white flag</strong> — A warning. "Do that again and you'll get a proper penalty."</li>
+      </ul>
+
+      <div class="callout reveal">
+        <p><strong>The 12-point ban:</strong> Drivers accumulate penalty points for infractions over a rolling 12-month period. Hit 12 points and you're banned for a race. It keeps things in check.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 3: POINTS & CHAMPIONSHIPS
-     ══════════════════════════════════════════════════════ -->
 <section class="section-space" id="championships">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-header__number">03 — Championships</span>
+      <span class="section-header__number">03 — Championship</span>
       <h2 class="section-header__title">How the championship works</h2>
       <p class="section-header__subtitle">Two championships run simultaneously: one for drivers, one for constructors (teams). Points make the world go round.</p>
     </div>
@@ -399,18 +422,12 @@
       <div class="callout reveal">
         <p><strong>Sprint points:</strong> The top 8 in Sprint Races earn bonus points (8–7–6–5–4–3–2–1). These count toward both championships, and across 6 sprint weekends, they can make a real difference in a tight title fight.</p>
       </div>
-
-      <div class="standings-wrapper reveal" id="driverStandingsTable"></div>
-      <div class="standings-wrapper reveal" id="constructorStandingsTable"></div>
     </div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 4: THE CARS
-     ══════════════════════════════════════════════════════ -->
 <section class="section-space section-space--warm" id="cars">
   <div class="container">
     <div class="section-header reveal">
@@ -551,15 +568,14 @@
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 5: PIT STOPS
-     ══════════════════════════════════════════════════════ -->
-<section class="section-space" id="pitstops">
+<span class="section-anchor" id="pitstops" aria-hidden="true"></span>
+<span class="section-anchor" id="tyres" aria-hidden="true"></span>
+<section class="section-space" id="strategy">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-header__number">05 — Pit Stops</span>
-      <h2 class="section-header__title">Pit stops: 1.80 seconds flat</h2>
-      <p class="section-header__subtitle">Twenty people. Four tyres. Zero room for error.</p>
+      <span class="section-header__number">05 — Pit Stops, Tyres &amp; Strategy</span>
+      <h2 class="section-header__title">Pit stops, tyres & strategy</h2>
+      <p class="section-header__subtitle">Twenty people, four tyres, and the calls that win races. This is where Sundays are decided.</p>
     </div>
 
     <div class="pitstop-visual reveal">
@@ -610,23 +626,8 @@
         <img src="/images/races/pit-crew.webp" alt="Overhead view of F1 pit stop crew changing tires" width="1200" height="800" loading="lazy">
       </div>
     </div>
-  </div>
-</section>
 
-<hr class="section-divider">
-
-<!-- ══════════════════════════════════════════════════════
-     SECTION 6: TYRES
-     ══════════════════════════════════════════════════════ -->
-<section class="section-space section-space--warm" id="tyres">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-header__number">06 — Tyres</span>
-      <h2 class="section-header__title">Tyres &amp; strategy</h2>
-      <p class="section-header__subtitle">Yes, the British spelling. Welcome to your new life as an F1 fan.</p>
-    </div>
-
-    <div class="content-block">
+<div class="content-block">
       <p class="reveal">Tyres sound boring until you watch a race won or lost by a single pit stop. Tyre strategy decides more races than raw speed does. <strong>Pirelli</strong>, the sole tyre supplier, makes five dry compounds ranging from ultra-grippy but fragile to durable but slow.</p>
       <p class="reveal">At each race, Pirelli selects three compounds and labels them simply:</p>
     </div>
@@ -672,13 +673,10 @@
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 7: THE DRIVERS
-     ══════════════════════════════════════════════════════ -->
 <section class="section-space" id="drivers">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-header__number">07 — The Drivers</span>
+      <span class="section-header__number">06 — The Drivers</span>
       <h2 class="section-header__title">2026 F1 drivers: meet the grid</h2>
       <p class="section-header__subtitle">22 drivers who got here by being faster than everyone else.</p>
     </div>
@@ -1002,31 +1000,30 @@
 
     <div class="content-block content-block--spaced">
       <h3 class="reveal">The ones to watch</h3>
-      <p class="reveal"><strong>Lando Norris</strong> wears the #1 as the reigning 2025 World Champion. Charismatic, quick-witted, and a Twitch streamer with a massive following. He won the title by just 2 points over Verstappen in a three-way final-race battle, capping a journey from McLaren's midfield years to the top.</p>
-      <p class="reveal"><strong>Max Verstappen</strong> is a four-time champion (2021–2024) who won 19 of 22 races in 2023. He's aggressive and utterly relentless. Lost his title to Norris by 2 points but still won more races than anyone in 2025. Now runs #3 after losing the champion's #1.</p>
-      <p class="reveal"><strong>Lewis Hamilton</strong> has 7 championships (tied with Michael Schumacher), more wins than anyone in history. In 2025, he moved to Ferrari, the winningest driver ever joining F1's most famous team. The results haven't quite matched the hype yet.</p>
-      <p class="reveal"><strong>Charles Leclerc</strong> is Ferrari's homegrown star who grew up in Monaco and finally won his home Grand Prix in 2024. Brilliant on his day and plays concert piano in his spare time.</p>
-      <p class="reveal"><strong>Oscar Piastri</strong> is the cool, understated Australian at McLaren who lets his driving do the talking. Already a Grand Prix winner, he was part of the 2025 title fight.</p>
+      <p class="reveal">The 2026 season flipped the script. After a three-way 2025 title fight between McLaren and Red Bull, it's Mercedes who arrived flying — and a young Italian who's leading the whole thing.</p>
+      <p class="reveal"><strong>Kimi Antonelli</strong> is the story of the year. In only his second season, the Mercedes driver has turned into the championship leader, winning five of the opening rounds and heading a Mercedes one-two. The hype was enormous when he arrived; he's outrunning all of it.</p>
+      <p class="reveal"><strong>George Russell</strong> anchors the resurgent Mercedes alongside Antonelli, with wins already this season and a car that looks like the class of the field. He's the experienced head in the title fight.</p>
+      <p class="reveal"><strong>Lewis Hamilton</strong> has 7 championships (tied with Michael Schumacher) and more wins than anyone in history. Year two at Ferrari is clicking: his breakthrough win in red has him third in the standings and rebuilding momentum after a rocky first season with the team.</p>
+      <p class="reveal"><strong>Lando Norris</strong> wears the #1 as the reigning 2025 World Champion, but the title defense has been a grind — McLaren slipped behind Mercedes and Ferrari early, and the fight is as much with his own teammate as with the front. Still charismatic, quick-witted, and a Twitch streamer with a massive following.</p>
+      <p class="reveal"><strong>Max Verstappen</strong> is a four-time champion (2021–2024) and still ferociously fast, but Red Bull have dropped off the ultimate pace, and podiums have been harder to come by. Never, ever count him out.</p>
+      <p class="reveal"><strong>Charles Leclerc</strong> is Ferrari's homegrown star who grew up in Monaco and plays concert piano in his spare time. Brilliant on his day, and right in the mix as Ferrari climb back toward the front.</p>
     </div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 8: THE TEAMS
-     ══════════════════════════════════════════════════════ -->
 <section class="section-space section-space--warm" id="teams">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-header__number">08 — The Teams</span>
+      <span class="section-header__number">07 — The Teams</span>
       <h2 class="section-header__title">The 2026 F1 teams</h2>
       <p class="section-header__subtitle">F1 is a team sport. The driver's the closer. Behind them: hundreds of engineers, designers, and strategists.</p>
     </div>
 
     <div class="content-block">
       <p class="reveal">Think of F1 teams like tech companies. The best teams produce the best technology faster than the competition. They invest in next year's car early, make clever bets on design, and hire the best engineers in the world. Then they hand the keys to their drivers and hope they bring the magic on race day.</p>
-      <p class="reveal">In 2026, <strong>Cadillac joins as the 11th team</strong>, the first new team since 2016, backed by General Motors. That means 22 cars on the grid instead of 20.</p>
+      <p class="reveal">This season, <strong>Cadillac joined as the 11th team</strong>, the first new team since 2016, backed by General Motors. That means 22 cars on the grid instead of 20.</p>
     </div>
 
     <div class="team-grid reveal">
@@ -1191,125 +1188,27 @@
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 9: WORLD CHAMPIONS
-     ══════════════════════════════════════════════════════ -->
-<section class="section-space" id="champions">
+<section class="section-space" id="season">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-header__number">09 — World Champions</span>
-      <h2 class="section-header__title">Every World Champion</h2>
-      <p class="section-header__subtitle">75 years of drivers and constructors who reached the top.</p>
-    </div>
-
-    <div class="champions-tabs reveal" role="tablist" aria-label="Championship decades">
-      <button class="champions-tab active" role="tab" aria-selected="true" data-decade="2020" tabindex="0">2020s</button>
-      <button class="champions-tab" role="tab" aria-selected="false" data-decade="2010" tabindex="-1">2010s</button>
-      <button class="champions-tab" role="tab" aria-selected="false" data-decade="2000" tabindex="-1">2000s</button>
-      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1990" tabindex="-1">1990s</button>
-      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1980" tabindex="-1">1980s</button>
-      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1970" tabindex="-1">1970s</button>
-      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1960" tabindex="-1">1960s</button>
-      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1950" tabindex="-1">1950s</button>
-    </div>
-
-    <div class="champions-table-wrapper reveal" id="championsTable" role="tabpanel" aria-label="Championship winners">
-      <!-- JS renders table rows here -->
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- ══════════════════════════════════════════════════════
-     SECTION 10: RECENT HISTORY
-     ══════════════════════════════════════════════════════ -->
-<section class="section-space section-space--warm" id="history">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-header__number">10 — Recent History</span>
-      <h2 class="section-header__title">Recent F1 history: what you missed</h2>
-      <p class="section-header__subtitle">The last few years have been wild, even by F1 standards. Here's the speed-run.</p>
+      <span class="section-header__number">08 — The Season</span>
+      <h2 class="section-header__title">The 2026 season so far</h2>
+      <p class="section-header__subtitle">Standings, the title picture, and how the year is unfolding.</p>
     </div>
 
     <div class="content-block">
-      <div class="timeline reveal">
-        <div class="timeline-item">
-          <div class="timeline-item__year">2020</div>
-          <div class="timeline-item__title">Hamilton Equals the Legend</div>
-          <p class="timeline-item__desc">A pandemic-shortened season saw Hamilton equal Michael Schumacher's record of 7 World Championships. Pierre Gasly won at Monza for AlphaTauri just a year after being demoted from Red Bull. Nobody saw it coming.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item__year">2021</div>
-          <div class="timeline-item__title">The Greatest Season</div>
-          <p class="timeline-item__desc">Hamilton vs. Verstappen. The entire 22-race season came down to the final lap. They arrived at Abu Dhabi level on points. A controversial Safety Car decision allowed Verstappen to overtake Hamilton on the final lap to steal the title. The race director was removed. People are still arguing about it. Along the way: a 51G crash at Silverstone, a car literally on top of another at Monza (saved by the Halo), and a Brazilian Grand Prix comeback that has to be seen to be believed.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item__year">2022</div>
-          <div class="timeline-item__title">New Rules, New Era</div>
-          <p class="timeline-item__desc">Major regulation changes introduced ground-effect aerodynamics. Ferrari led early but collapsed through strategy blunders and reliability failures. "Ferrari strategists" became a meme. Verstappen won 15 of 22 races.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item__year">2023</div>
-          <div class="timeline-item__title">Verstappen's Total Domination</div>
-          <p class="timeline-item__desc">Verstappen won 19 of 22 races. Red Bull won 21 of 22. Only Carlos Sainz's Singapore win broke their streak. It was the most dominant season anyone had ever seen. Impressive, but also kind of boring if you weren't a Red Bull fan.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item__year">2024</div>
-          <div class="timeline-item__title">The Balance Shifts</div>
-          <p class="timeline-item__desc">McLaren's resurgence saw Norris and Piastri become genuine title contenders. McLaren won its first Constructors' title in 26 years. Hamilton won at Silverstone, his first win in over two years, with tears on the podium. Leclerc finally won at Monaco. Then the bombshell: Hamilton announced his move to Ferrari. Adrian Newey, the most successful car designer in F1 history, left Red Bull for Aston Martin.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item__year">2025</div>
-          <div class="timeline-item__title">Norris is Crowned Champion</div>
-          <p class="timeline-item__desc">A three-way title fight went to the final race. Norris, Verstappen, and Piastri all had a shot. Lando Norris won his first World Championship at Abu Dhabi. Hamilton's first year at Ferrari was rocky, often outpaced by Leclerc.</p>
-        </div>
-      </div>
+      <p class="reveal">Two championships run in parallel all year — one for drivers, one for constructors — and this is where you can see exactly how they stand. The tables update through the season as results come in.</p>
     </div>
 
-    <div class="big-quote reveal">
-      "Abu Dhabi 2021 is the 'Hand of God' of Formula 1. Everyone has an opinion. No one has forgotten."
-    </div>
-  </div>
-</section>
+    <div class="standings-wrapper reveal" id="driverStandingsTable"></div>
+    <div class="standings-wrapper reveal" id="constructorStandingsTable"></div>
 
-<hr class="section-divider">
-
-<!-- ══════════════════════════════════════════════════════
-     SECTION 11: LEGENDARY RIVALRIES
-     ══════════════════════════════════════════════════════ -->
-<section class="section-space" id="drama">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-header__number">11 — The Drama</span>
-      <h2 class="section-header__title">Why people get hooked</h2>
-      <p class="section-header__subtitle">Speed gets you in the door. The rivalries and the drama are what keep you.</p>
-    </div>
-
-    <div class="content-block">
-      <h3 class="reveal">Drive to Survive changed everything</h3>
-      <p class="reveal">Netflix's <em>Drive to Survive</em> (2019–present) probably did more for F1's popularity than anything since color television. U.S. viewership jumped 54%. Over half of current F1 fans say the show played a role in getting them into the sport. It turned F1 from a niche European thing into something your coworkers talk about on Monday mornings.</p>
-      <p class="reveal">The show turned drivers from faceless helmets into actual people you could root for (or against). If you haven't seen it, start there.</p>
-    </div>
-
-    <img class="section-hero-image reveal" src="/images/races/las-vegas.jpg" alt="Las Vegas Grand Prix night race on the Strip" width="1440" height="617" loading="lazy">
-
-    <div class="content-block">
-      <h3 class="reveal">The rivalries</h3>
-      <p class="reveal"><strong>Senna vs. Prost (1988–1993)</strong> — The one that defined an era. The passionate Brazilian vs. the calculated Frenchman. They deliberately crashed into each other at Suzuka in consecutive years. Senna's death in 1994 turned it into something bigger than sport.</p>
-      <p class="reveal"><strong>Hamilton vs. Rosberg (2013–2016)</strong> — Childhood karting friends who became bitter enemies as Mercedes teammates. Rosberg won the 2016 title by 5 points, then retired five days later. He walked away at the absolute peak.</p>
-      <p class="reveal"><strong>Hamilton vs. Verstappen (2021)</strong> — The seven-time champion vs. the fearless young challenger. They collided at Silverstone (51G crash), Monza (car on top of car, saved by the Halo), and battled at Saudi Arabia. It went to the final lap of the final race. Still debated to this day.</p>
-
-      <h3 class="reveal">Team radio moments</h3>
-      <p class="reveal">You hear drivers talk to their engineers over the radio during every race. It's unfiltered, and frequently hilarious:</p>
+    <div class="content-block content-block--spaced">
+      <h3 class="reveal">How the title fight looks</h3>
+      <p class="reveal">The big surprise of 2026 is Mercedes. After a couple of quieter years, they arrived from the winter with the fastest car and have led both championships from the front, with Kimi Antonelli and George Russell trading wins at the top of the order.</p>
+      <p class="reveal">Behind them, Ferrari have climbed back into the fight — Lewis Hamilton's first win in red was a genuine milestone — while McLaren, who took the title fight to the wire in 2025, and Red Bull have spent the first half of the year chasing rather than setting the pace. There is still a long way to go.</p>
       <div class="callout reveal">
-        <p><strong>Kimi Räikkönen:</strong> "Leave me alone, I know what I'm doing." (He won the race.)</p>
-      </div>
-      <div class="callout reveal">
-        <p><strong>Fernando Alonso:</strong> "GP2 engine! GP2!" (Peak frustration with McLaren-Honda's terrible engine.)</p>
-      </div>
-      <div class="callout reveal">
-        <p><strong>Mark Webber:</strong> "Not bad for a number two driver." (After Red Bull gave his teammate preferential treatment, then he won anyway.)</p>
+        <p><strong>Want the detail?</strong> The <a href="/standings">full standings</a> and the <a href="/calendar">race calendar</a> have every position and result, updated through the season.</p>
       </div>
     </div>
   </div>
@@ -1317,15 +1216,13 @@
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 12: ICONIC TRACKS
-     ══════════════════════════════════════════════════════ -->
-<section class="section-space" id="tracks">
+<span class="section-anchor" id="tracks" aria-hidden="true"></span>
+<section class="section-space section-space--warm" id="calendar">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-header__number">12 — The Tracks</span>
-      <h2 class="section-header__title">F1 circuits around the world</h2>
-      <p class="section-header__subtitle">24 races in 2026, spread across five continents. No two tracks race the same.</p>
+      <span class="section-header__number">09 — Tracks &amp; Calendar</span>
+      <h2 class="section-header__title">Circuits & the 2026 calendar</h2>
+      <p class="section-header__subtitle">The tracks every fan should know, then every round of the season.</p>
     </div>
 
     <div class="content-block">
@@ -1376,16 +1273,9 @@
       </div>
     </div>
 
-  </div>
-</section>
+<span class="section-anchor" id="schedule" aria-hidden="true"></span>
 
-<section class="section-space" id="schedule">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-header__number">13 — The Calendar</span>
-      <h2 class="section-header__title">2026 F1 race schedule</h2>
-      <p class="section-header__subtitle">24 races. March to December. Five continents.</p>
-    </div>
+    <h3 class="schedule-heading reveal">The 2026 calendar</h3>
 
     <div class="section-meta reveal">Last updated: <span id="calendarLastUpdated">Loading…</span></div>
 
@@ -1406,48 +1296,109 @@
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 14: SAFETY & PENALTIES (Quick Hits)
-     ══════════════════════════════════════════════════════ -->
-<section class="section-space section-space--warm" id="rules">
+<span class="section-anchor" id="drama" aria-hidden="true"></span>
+<section class="section-space" id="history">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-header__number">14 — Good to Know</span>
-      <h2 class="section-header__title">F1 rules &amp; regulations</h2>
-      <p class="section-header__subtitle">A few things that'll help you follow the action without getting lost.</p>
+      <span class="section-header__number">10 — History, Rivalries &amp; Drama</span>
+      <h2 class="section-header__title">History, rivalries & drama</h2>
+      <p class="section-header__subtitle">The recent seasons, the great rivalries, and why people never leave.</p>
     </div>
 
     <div class="content-block">
-      <h3 class="reveal">Safety car &amp; virtual safety car</h3>
-      <p class="reveal">When there's a crash or debris on track, a <strong>Safety Car</strong> leads the field at reduced speed while marshals clear the hazard. This bunches all the cars together, erasing any gaps, which can completely shake up the race. Teams scramble to decide whether to pit for tyres or stay out. Chaos often follows the restart.</p>
-      <p class="reveal">A <strong>Virtual Safety Car (VSC)</strong> is used for less severe situations. Drivers slow down by ~30%, but the gaps between cars are maintained. Less dramatic but still strategic.</p>
-
-      <h3 class="reveal">Common penalties</h3>
-      <p class="reveal">You'll hear these regularly during broadcasts:</p>
-      <ul style="color: var(--text-secondary); margin: 16px 0 16px 24px; display: flex; flex-direction: column; gap: 8px;">
-        <li class="reveal"><strong>5-second penalty</strong> — Minor infraction (causing contact, track limits). Added to pit stop or final time.</li>
-        <li class="reveal"><strong>10-second penalty</strong> — More serious. Same application.</li>
-        <li class="reveal"><strong>Drive-through</strong> — Must drive through the entire pit lane without stopping. Costs ~20 seconds.</li>
-        <li class="reveal"><strong>Grid penalties</strong> — Applied before the race, usually for using too many engine components. Drivers start further back.</li>
-        <li class="reveal"><strong>Black &amp; white flag</strong> — A warning. "Do that again and you'll get a proper penalty."</li>
-      </ul>
-
-      <div class="callout reveal">
-        <p><strong>The 12-point ban:</strong> Drivers accumulate penalty points for infractions over a rolling 12-month period. Hit 12 points and you're banned for a race. It keeps things in check.</p>
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-item__year">2020</div>
+          <div class="timeline-item__title">Hamilton Equals the Legend</div>
+          <p class="timeline-item__desc">A pandemic-shortened season saw Hamilton equal Michael Schumacher's record of 7 World Championships. Pierre Gasly won at Monza for AlphaTauri just a year after being demoted from Red Bull. Nobody saw it coming.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2021</div>
+          <div class="timeline-item__title">The Greatest Season</div>
+          <p class="timeline-item__desc">Hamilton vs. Verstappen. The entire 22-race season came down to the final lap. They arrived at Abu Dhabi level on points. A controversial Safety Car decision allowed Verstappen to overtake Hamilton on the final lap to steal the title. The race director was removed. People are still arguing about it. Along the way: a 51G crash at Silverstone, a car literally on top of another at Monza (saved by the Halo), and a Brazilian Grand Prix comeback that has to be seen to be believed.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2022</div>
+          <div class="timeline-item__title">New Rules, New Era</div>
+          <p class="timeline-item__desc">Major regulation changes introduced ground-effect aerodynamics. Ferrari led early but collapsed through strategy blunders and reliability failures. "Ferrari strategists" became a meme. Verstappen won 15 of 22 races.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2023</div>
+          <div class="timeline-item__title">Verstappen's Total Domination</div>
+          <p class="timeline-item__desc">Verstappen won 19 of 22 races. Red Bull won 21 of 22. Only Carlos Sainz's Singapore win broke their streak. It was the most dominant season anyone had ever seen. Impressive, but also kind of boring if you weren't a Red Bull fan.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2024</div>
+          <div class="timeline-item__title">The Balance Shifts</div>
+          <p class="timeline-item__desc">McLaren's resurgence saw Norris and Piastri become genuine title contenders. McLaren won its first Constructors' title in 26 years. Hamilton won at Silverstone, his first win in over two years, with tears on the podium. Leclerc finally won at Monaco. Then the bombshell: Hamilton announced his move to Ferrari. Adrian Newey, the most successful car designer in F1 history, left Red Bull for Aston Martin.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2025</div>
+          <div class="timeline-item__title">Norris is Crowned Champion</div>
+          <p class="timeline-item__desc">A three-way title fight went to the final race. Norris, Verstappen, and Piastri all had a shot. Lando Norris won his first World Championship at Abu Dhabi. Hamilton's first year at Ferrari was rocky, often outpaced by Leclerc.</p>
+        </div>
       </div>
+    </div>
+
+    <div class="big-quote reveal">
+      "Abu Dhabi 2021 is the 'Hand of God' of Formula 1. Everyone has an opinion. No one has forgotten."
+    </div>
+
+<div class="content-block">
+      <h3 class="reveal">Drive to Survive changed everything</h3>
+      <p class="reveal">Netflix's <em>Drive to Survive</em> (2019–present) probably did more for F1's popularity than anything since color television. U.S. viewership jumped 54%. Over half of current F1 fans say the show played a role in getting them into the sport. It turned F1 from a niche European thing into something your coworkers talk about on Monday mornings.</p>
+      <p class="reveal">The show turned drivers from faceless helmets into actual people you could root for (or against). If you haven't seen it, start there.</p>
+    </div>
+
+    <img class="section-hero-image reveal" src="/images/races/las-vegas.jpg" alt="Las Vegas Grand Prix night race on the Strip" width="1440" height="617" loading="lazy">
+
+    <div class="content-block">
+      <h3 class="reveal">The rivalries</h3>
+      <p class="reveal"><strong>Senna vs. Prost (1988–1993)</strong> — The one that defined an era. The passionate Brazilian vs. the calculated Frenchman. They deliberately crashed into each other at Suzuka in consecutive years. Senna's death in 1994 turned it into something bigger than sport.</p>
+      <p class="reveal"><strong>Hamilton vs. Rosberg (2013–2016)</strong> — Childhood karting friends who became bitter enemies as Mercedes teammates. Rosberg won the 2016 title by 5 points, then retired five days later. He walked away at the absolute peak.</p>
+      <p class="reveal"><strong>Hamilton vs. Verstappen (2021)</strong> — The seven-time champion vs. the fearless young challenger. They collided at Silverstone (51G crash), Monza (car on top of car, saved by the Halo), and battled at Saudi Arabia. It went to the final lap of the final race. Still debated to this day.</p>
+
+      <h3 class="reveal">Team radio moments</h3>
+      <p class="reveal">You hear drivers talk to their engineers over the radio during every race. It's unfiltered, and frequently hilarious:</p>
+      <div class="callout reveal">
+        <p><strong>Kimi Räikkönen:</strong> "Leave me alone, I know what I'm doing." (He won the race.)</p>
+      </div>
+      <div class="callout reveal">
+        <p><strong>Fernando Alonso:</strong> "GP2 engine! GP2!" (Peak frustration with McLaren-Honda's terrible engine.)</p>
+      </div>
+      <div class="callout reveal">
+        <p><strong>Mark Webber:</strong> "Not bad for a number two driver." (After Red Bull gave his teammate preferential treatment, then he won anyway.)</p>
+      </div>
+    </div>
+
+<span class="section-anchor" id="champions" aria-hidden="true"></span>
+
+    <h3 class="reveal">Every World Champion</h3>
+    <p class="reveal">Seventy-five years of drivers and constructors who reached the very top.</p>
+
+    <div class="champions-tabs reveal" role="tablist" aria-label="Championship decades">
+      <button class="champions-tab active" role="tab" aria-selected="true" data-decade="2020" tabindex="0">2020s</button>
+      <button class="champions-tab" role="tab" aria-selected="false" data-decade="2010" tabindex="-1">2010s</button>
+      <button class="champions-tab" role="tab" aria-selected="false" data-decade="2000" tabindex="-1">2000s</button>
+      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1990" tabindex="-1">1990s</button>
+      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1980" tabindex="-1">1980s</button>
+      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1970" tabindex="-1">1970s</button>
+      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1960" tabindex="-1">1960s</button>
+      <button class="champions-tab" role="tab" aria-selected="false" data-decade="1950" tabindex="-1">1950s</button>
+    </div>
+
+    <div class="champions-table-wrapper reveal" id="championsTable" role="tabpanel" aria-label="Championship winners">
+      <!-- JS renders table rows here -->
     </div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 15: FREQUENTLY ASKED QUESTIONS
-     ══════════════════════════════════════════════════════ -->
 <section class="section-space" id="faq">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-header__number">15 — FAQ</span>
+      <span class="section-header__number">FAQ</span>
       <h2 class="section-header__title">Frequently asked questions</h2>
       <p class="section-header__subtitle">The stuff everyone asks when they're starting out.</p>
     </div>
@@ -1456,21 +1407,21 @@
       <details class="faq-item reveal">
         <summary class="faq-item__question">How long is a Formula 1 race?</summary>
         <div class="faq-item__answer">
-          <p>Most races last around <strong>2 hours</strong>, though the clock can stretch if there are safety car periods or red flags. Races are run over a set distance of roughly <strong>305 km (190 miles)</strong> rather than a fixed time, so the number of laps varies by circuit. The Monaco Grand Prix, for example, is 78 laps while Spa is 44. There's a hard cutoff at 2 hours if the distance hasn't been completed.</p>
+          <p>Most races take about <strong>90 minutes</strong>. A Grand Prix is run over a set distance of roughly <strong>305 km (190 miles)</strong> rather than a fixed time, so the number of laps varies by circuit — the Monaco Grand Prix is 78 laps while Spa is 44. There's a hard <strong>two-hour</strong> limit if the distance hasn't been completed, and safety cars or red flags can push a long race close to it.</p>
         </div>
       </details>
 
       <details class="faq-item reveal">
         <summary class="faq-item__question">How many races are in the 2026 F1 season?</summary>
         <div class="faq-item__answer">
-          <p>The 2026 calendar originally had 24 races, but the Bahrain and Saudi Arabian Grands Prix were canceled, bringing the total to <strong>22 races</strong>. The season runs from March to December, spanning five continents. It's a grueling schedule for teams who have to ship equipment around the world every couple of weeks.</p>
+          <p>The 2026 calendar originally had 24 rounds, but the Bahrain and Saudi Arabian Grands Prix were canceled, bringing the total to <strong>22 races</strong>. The season runs from March to December, spanning five continents. It's a grueling schedule for teams who have to ship equipment around the world every couple of weeks.</p>
         </div>
       </details>
 
       <details class="faq-item reveal">
         <summary class="faq-item__question">What is a sprint race in F1?</summary>
         <div class="faq-item__answer">
-          <p>A sprint race is a shorter race held on Saturday morning at select events (six in 2026). It's roughly <strong>100 km (about 30 minutes)</strong> with no mandatory pit stops, and the top 8 finishers earn points (8-7-6-5-4-3-2-1). The sprint weekend schedule is different from a normal weekend: Friday has one practice session plus Sprint Qualifying (which sets the sprint grid), Saturday has the Sprint Race in the morning and regular Qualifying in the afternoon (which sets the grid for Sunday), and Sunday is the full Grand Prix as normal.</p>
+          <p>A sprint is a short Saturday race — roughly <strong>100 km (about 30 minutes)</strong> with no mandatory pit stops — held at 6 events in 2026, with the top 8 finishers scoring points (8-7-6-5-4-3-2-1). It runs on a reshuffled weekend schedule. <a href="#weekend">See Race Weekend</a> for the full breakdown.</p>
         </div>
       </details>
 
@@ -1491,14 +1442,14 @@
       <details class="faq-item reveal">
         <summary class="faq-item__question">Where can I watch F1 in the United States?</summary>
         <div class="faq-item__answer">
-          <p>Starting in 2026, <strong>Apple TV</strong> is the exclusive home of Formula 1 in the United States. Apple's deal covers all practice sessions, qualifying, sprint races, and main races. This replaces the previous arrangement with ESPN. Check Apple TV for subscription details and scheduling.</p>
+          <p>Starting in 2026, <strong>Apple TV</strong> is the exclusive U.S. home of Formula 1, covering every practice, qualifying, sprint, and race. It replaces the previous ESPN arrangement. <a href="#start">See How to watch</a> for the full rundown of where to follow the sport.</p>
         </div>
       </details>
 
       <details class="faq-item reveal">
         <summary class="faq-item__question">What is the cost cap in F1?</summary>
         <div class="faq-item__answer">
-          <p>The cost cap limits how much each team can spend per season on performance-related activities. For 2026, the cap is roughly <strong>$215 million</strong>, up from $135 million previously. It jumped because the 2026 car is a clean-sheet design and everything had to be built from scratch. Driver salaries, top executive pay, and marketing don't count toward the cap. The FIA audits the books, and teams that go over face fines or points deductions.</p>
+          <p>The cost cap limits performance-related spending to roughly <strong>$215 million</strong> per team for 2026 — driver salaries, top executive pay, and marketing are excluded. The FIA audits the books, and teams that go over face fines or points deductions. <a href="#teams">See The Teams</a> for why it matters so much.</p>
         </div>
       </details>
     </div>
@@ -1507,13 +1458,10 @@
 
 <hr class="section-divider">
 
-<!-- ══════════════════════════════════════════════════════
-     SECTION 16: HOW TO GET INTO IT
-     ══════════════════════════════════════════════════════ -->
 <section class="section-space section-space--warm" id="start">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-header__number">16 — Join the Party</span>
+      <span class="section-header__number">Join the Party</span>
       <h2 class="section-header__title">How to watch &amp; follow F1</h2>
       <p class="section-header__subtitle">Now you have the basics. Here's how to go deeper.</p>
     </div>
@@ -1558,13 +1506,13 @@
       <a href="https://www.ea.com/en/games/f1/f1-25" target="_blank" rel="noopener" class="resource-card resource-card--play reveal reveal-delay-1">
         <div class="resource-card__icon">🎮</div>
         <div class="resource-card__title">F1 25 Video Game</div>
-        <p class="resource-card__desc">EA Sports' F1 game with a 2026 DLC coming. Time trial each track before real races to learn the circuits. Trust us, it transforms how you watch.</p>
+        <p class="resource-card__desc">EA Sports' official F1 game. Time trial each track before the real race weekend to learn the circuits. Trust us, it transforms how you watch.</p>
         <span class="resource-card__tag">Gaming →</span>
       </a>
       <a href="https://fantasy.formula1.com/" target="_blank" rel="noopener" class="resource-card resource-card--play reveal reveal-delay-2">
         <div class="resource-card__icon">⚽</div>
         <div class="resource-card__title">F1 Fantasy</div>
-        <p class="resource-card__desc">Free to play. Build a team of 5 drivers and 2 constructors with a $100M virtual budget. Score points from real race results. The fastest way to care about every position.</p>
+        <p class="resource-card__desc">Free to play. Build a team of five drivers and two constructors with a $100M virtual budget. Score points from real race results. The fastest way to care about every position.</p>
         <span class="resource-card__tag">Free →</span>
       </a>
       <a href="https://www.formula1.com/" target="_blank" rel="noopener" class="resource-card resource-card--read reveal">
@@ -1601,9 +1549,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════
-     FOOTER
-     ══════════════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="container">
     <p class="footer__tagline reveal">Lights out and away we go.</p>
@@ -1627,12 +1572,8 @@
 <!-- ══════════════════════════════════════════════════════
      JAVASCRIPT
      ══════════════════════════════════════════════════════ -->
-
-<!-- ══════════════════════════════════════════════════════
-     JAVASCRIPT
-     ══════════════════════════════════════════════════════ -->
-<script src="site-data.js"></script>
-<script src="script.js"></script>
+<script src="site-data.js?v=mr5pfacr"></script>
+<script src="script.js?v=mr5pfacr"></script>
 
 <script type="application/ld+json">
 {
@@ -1662,7 +1603,7 @@
         "url": "https://www.formula1.com/",
         "sport": "Auto Racing"
       },
-      "dateModified": "2026-05-23",
+      "dateModified": "2026-07-04",
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://welcometof1.com/og-image.png",
@@ -1691,7 +1632,7 @@
         "url": "https://welcometof1.com/"
       },
       "datePublished": "2025-01-01",
-      "dateModified": "2026-05-23",
+      "dateModified": "2026-07-04",
       "image": {
         "@type": "ImageObject",
         "url": "https://welcometof1.com/og-image.png",
@@ -1707,19 +1648,16 @@
       "articleSection": [
         "The Basics",
         "Race Weekend",
-        "Championships",
+        "Championship",
         "The Cars",
-        "Pit Stops",
-        "Tyres",
+        "Pits & Tyres",
         "The Drivers",
         "The Teams",
-        "Recent History",
-        "The Drama",
-        "The Tracks",
-        "The Calendar",
-        "Rules",
+        "The Season",
+        "Tracks & Calendar",
+        "History & Drama",
         "FAQ",
-        "How to Watch"
+        "Get Started"
       ]
     },
     {
@@ -1730,7 +1668,7 @@
           "name": "How long is a Formula 1 race?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most races last around 2 hours. Races are run over a set distance of roughly 305 km (190 miles) rather than a fixed time, so the number of laps varies by circuit. There's a hard cutoff at 2 hours if the distance hasn't been completed."
+            "text": "Most races take about 90 minutes. A Grand Prix is run over a set distance of roughly 305 km (190 miles) rather than a fixed time, so the number of laps varies by circuit. There is a hard two-hour limit if the distance has not been completed."
           }
         },
         {
@@ -1738,7 +1676,7 @@
           "name": "How many races are in the 2026 F1 season?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The 2026 calendar originally had 24 races, but the Bahrain and Saudi Arabian Grands Prix were canceled, bringing the total to 22 races. The season runs from March to December, spanning five continents."
+            "text": "The 2026 calendar originally had 24 rounds, but the Bahrain and Saudi Arabian Grands Prix were canceled, bringing the total to 22 races. The season runs from March to December, spanning five continents."
           }
         },
         {
@@ -1746,7 +1684,7 @@
           "name": "What is a sprint race in F1?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A sprint race is a shorter race held on Saturday morning at select events (six in 2026). It's roughly 100 km (about 30 minutes) with no mandatory pit stops, and the top 8 finishers earn points. Sprint weekends run on a different schedule: Friday has one practice session plus Sprint Qualifying, Saturday has the Sprint Race morning and regular Qualifying afternoon, and Sunday is the full Grand Prix."
+            "text": "A sprint race is a shorter race held on Saturday morning at select events (6 in 2026). It's roughly 100 km (about 30 minutes) with no mandatory pit stops, and the top 8 finishers earn points. Sprint weekends run on a different schedule: Friday has one practice session plus Sprint Qualifying, Saturday has the Sprint Race in the morning and regular Qualifying in the afternoon, and Sunday is the full Grand Prix."
           }
         },
         {
@@ -1778,7 +1716,7 @@
           "name": "What is the cost cap in F1?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The cost cap limits how much each team can spend per season on performance-related activities. For 2026, the cap is roughly $215 million, up from $135 million previously, because the 2026 car is a clean-sheet design requiring significant R&D investment."
+            "text": "The cost cap limits how much each team can spend per season on performance-related activities. For 2026 the cap is roughly $215 million. Driver salaries, top executive pay, and marketing are excluded, and the FIA audits the books; teams that go over face fines or points deductions."
           }
         }
       ]

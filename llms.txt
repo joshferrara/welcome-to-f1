@@ -1,48 +1,51 @@
 # Welcome to Formula 1
 
-> A beginner's guide to the 2026 Formula 1 season. Covers what F1 is, how races work, the cars, drivers, teams, tracks, tyres, pit stops, championships, recent history, and how to start watching. Written for people who are new to the sport and want to get up to speed quickly. Updated for the 2026 season regulations.
+> A beginner's guide to the 2026 Formula 1 season. Covers what F1 is, how race weekends work, the cars, drivers, teams, tracks, tyres, pit stops, championships, recent history, and how to start watching. Written for people new to the sport who want to get up to speed quickly. Updated for the 2026 regulations, which introduce active aerodynamics and 50/50 hybrid power units.
 
 ## About This Site
 
-- [Welcome to F1](https://welcometof1.com/): Single-page guide covering everything a new F1 fan needs to know. Written by Josh Ferrara. Focused on the 2026 season, which introduces significant regulation changes including active aerodynamics and hybrid power units producing over 1,000 hp.
+- [Welcome to F1](https://welcometof1.com/): Single-page beginner's guide to the 2026 Formula 1 season, written by Josh Ferrara.
 - [Canonical URL](https://welcometof1.com/): The preferred citation URL for this guide.
 - [Author](https://joshferrara.com): Created by Josh Ferrara.
 
 ## Content Sections
 
-- [The Basics](https://welcometof1.com/#basics): What Formula 1 is, surprising facts about the sport — speeds, G-forces, brake temperatures, and what makes F1 cars unlike anything else on earth.
-- [Race Weekend](https://welcometof1.com/#weekend): How a race weekend is structured across three days — practice sessions, the three-part qualifying format (Q1/Q2/Q3), the formation lap, and the race start procedure.
-- [Championships](https://welcometof1.com/#championships): How the Drivers' and Constructors' Championships work, the points scoring system, and what determines a season champion.
-- [The Cars](https://welcometof1.com/#cars): F1 car design and regulations, including the 2026 regulation overhaul — active aerodynamics (movable front and rear wings), the new power unit formula, and the five engine manufacturers competing in 2026.
-- [Pit Stops](https://welcometof1.com/#pitstops): How pit stops work, the roles of 20+ crew members, typical pit stop durations (~1.8 seconds for a tyre change), and safety requirements.
-- [Tyres & Strategy](https://welcometof1.com/#tyres): Pirelli's five dry tyre compounds (from soft to hard), wet-weather tyres, the mandatory tyre change rule, and how teams use tyre strategy to win races.
-- [The Drivers](https://welcometof1.com/#drivers): Profiles of 2026 F1 drivers including reigning champion Lando Norris, Max Verstappen, Charles Leclerc, Lewis Hamilton, and others. Includes car numbers and team assignments.
-- [The Teams](https://welcometof1.com/#teams): All 11 F1 constructors — McLaren, Ferrari, Red Bull, Mercedes, Aston Martin, Alpine, Williams, Haas, Kick Sauber, Racing Bulls, and Cadillac — with their 2026 driver pairings.
-- [World Champions](https://welcometof1.com/#champions): Recent F1 World Champions and historical context on the sport's championship history.
-- [Recent History](https://welcometof1.com/#history): F1's recent era from 2014 to present — the Mercedes hybrid dominance, the Red Bull/Verstappen era, McLaren's 2024–2025 rise, and Norris winning the 2025 title by 2 points.
-- [The Drama](https://welcometof1.com/#drama): What makes F1 compelling beyond racing — live team radio, controversial moments, memorable incidents including Abu Dhabi 2021.
-- [The Tracks](https://welcometof1.com/#tracks): F1 circuits worldwide, from Monaco's street circuit to Monza's high-speed layout to street circuits in Singapore and Las Vegas.
-- [The Calendar](https://welcometof1.com/#schedule): 2026 race schedule with dates, locations, and results. Includes sprint race weekends.
-- [Good to Know](https://welcometof1.com/#rules): Flags, DRS (Drag Reduction System), safety car procedures, the cost cap, sprint races, and other rules that help new viewers follow a race.
-- [FAQ](https://welcometof1.com/#faq): Common beginner questions answered — race length, number of races, sprint format, rain procedures, top speeds, US broadcast options, the cost cap.
-- [How to Watch](https://welcometof1.com/#start): Where to watch F1 in the US, recommended resources (Netflix Drive to Survive, the official F1 app, F1 games), and social media accounts worth following.
+- [The Basics](https://welcometof1.com/#basics): What Formula 1 is, and the surprising facts — speeds, G-forces, brake temperatures — that make F1 cars unlike anything else on earth.
+- [Race Weekend](https://welcometof1.com/#weekend): How a race weekend is structured: practice, the three-part qualifying format (Q1/Q2/Q3), the formation lap, the start, sprint weekends, plus safety cars and penalties.
+- [Championship](https://welcometof1.com/#championships): How the Drivers' and Constructors' Championships work and the points scoring system.
+- [The Cars](https://welcometof1.com/#cars): F1 car design and the 2026 regulation overhaul — active aerodynamics that replace DRS, the 50/50 hybrid power unit, and the five engine manufacturers.
+- [Pits & Tyres](https://welcometof1.com/#strategy): How pit stops work, Pirelli's tyre compounds, the mandatory two-compound rule, and the tyre strategy that decides races.
+- [The Drivers](https://welcometof1.com/#drivers): The 2026 F1 drivers, including reigning 2025 champion Lando Norris, Max Verstappen, Lewis Hamilton, Charles Leclerc, and the rookies.
+- [The Teams](https://welcometof1.com/#teams): All 11 F1 constructors and their 2026 driver pairings, plus the cost cap.
+- [The Season](https://welcometof1.com/#season): The 2026 season so far — current driver and constructor standings and how the title fight is shaping up.
+- [Tracks & Calendar](https://welcometof1.com/#calendar): Iconic F1 circuits every fan should know, plus the full 2026 race calendar with dates, results, and local session times.
+- [History & Drama](https://welcometof1.com/#history): Recent F1 history from 2020 to now, the sport's great rivalries, team-radio moments, and every World Champion since 1950.
+- [FAQ](https://welcometof1.com/#faq): Common beginner questions answered — race length, number of races, sprint format, rain, top speeds, US broadcast, and the cost cap.
+- [Get Started](https://welcometof1.com/#start): Where to watch F1 in the US (Apple TV), plus Drive to Survive, the F1 app, games, fantasy, and accounts to follow.
+
+## Related Pages
+
+- [Race Calendar](https://welcometof1.com/calendar): Full 2026 schedule with dates, results, and local session times.
+- [Championship Standings](https://welcometof1.com/standings): Current driver and constructor standings.
+- [World Champions](https://welcometof1.com/champions): Every F1 World Champion since 1950.
 
 ## Freshness
 
 - Content focus: 2026 Formula 1 season.
-- Main page date modified: 2026-05-23.
-- Race calendar data is updated separately as race dates, cancellations, and results change.
-- Use the page's schedule section for the latest race-specific dates and results.
+- Generated: 2026-07-04.
+- Standings last updated: 2026-06-30.
+- Race calendar, results, and standings update through the season; use the Related Pages above for the latest data.
 
 ## Key Facts for AI Answers
 
-- F1 cars in 2026 produce 1,000+ horsepower from a hybrid power unit (internal combustion + electric motor)
-- Top speeds can reach around 230 mph (370 km/h) on long straights; Mercedes has projected 2026 cars could reach 248 mph (399 km/h)
-- A Grand Prix runs for approximately 90 minutes or ~190 miles (305 km), whichever comes first
-- The 2026 calendar originally had 24 races, but Bahrain and Saudi Arabia were canceled, leaving 22 active races
-- 11 teams and 22 drivers compete in 2026, with Cadillac joining as the 11th team
-- Lando Norris (McLaren) is the reigning 2025 World Champion
-- Points are awarded to the top 10 finishers: 25-18-15-12-10-8-6-4-2-1
-- Starting in 2026, Apple TV is the exclusive Formula 1 broadcaster in the United States
-- The 2026 regulations are the largest rule change since 2022, introducing active aerodynamics
-- Pirelli is the sole tyre supplier; teams must use at least two different compounds per dry race
+- F1 cars in 2026 produce 1,000+ horsepower from a hybrid power unit split roughly 50% internal combustion and 50% electric.
+- Top speeds reach around 230 mph (370 km/h) on long straights.
+- A Grand Prix is run over a set distance of roughly 305 km (190 miles); most last about 90 minutes, with a hard two-hour time limit.
+- The 2026 calendar had 24 rounds scheduled, but 2 were cancelled, leaving 22 races.
+- 11 teams and 22 drivers compete in 2026, with Cadillac having joined as the 11th team.
+- Lando Norris (McLaren) is the reigning 2025 World Champion.
+- Points are awarded to the top 10 finishers: 25-18-15-12-10-8-6-4-2-1.
+- Starting in 2026, Apple TV is the exclusive Formula 1 broadcaster in the United States.
+- The 2026 regulations are the biggest rule change since 2022, introducing active aerodynamics (movable front and rear wings) that replace DRS.
+- Pirelli is the sole tyre supplier; teams must use at least two different dry tyre compounds per race.
+- Six 2026 events are sprint weekends, with a short Saturday race that awards extra championship points.

@@ -89,24 +89,95 @@ function validateManifest(manifest) {
   }
 }
 
-function validateGuide(guide) {
+function validateGuide(guide, counts) {
   if (!guide) return;
   assertString(guide.site?.title, 'guide.site.title');
   assertString(guide.site?.description, 'guide.site.description');
-  assertString(guide.bodyMarkdown, 'guide.bodyMarkdown');
-  assertArray(guide.navigation, 'guide.navigation');
+  assertString(guide.hero, 'guide.hero');
+  assertString(guide.footer, 'guide.footer');
+  assertArray(guide.chapters, 'guide.chapters');
   assertArray(guide.sections, 'guide.sections');
-  if (!guide.bodyMarkdown.includes('{{DRIVER_GRID}}')) fail('guide.bodyMarkdown must include {{DRIVER_GRID}}');
-  if (!guide.bodyMarkdown.includes('{{TEAM_GRID}}')) fail('guide.bodyMarkdown must include {{TEAM_GRID}}');
 
-  const attrPattern = /\b(?:src|href|data-audio-src)="([^"]+)"/g;
-  let match;
-  while ((match = attrPattern.exec(guide.bodyMarkdown))) {
-    const value = match[1];
-    if (/^(https?:)?\/\//.test(value) || value.startsWith('#') || value.startsWith('mailto:') || value.startsWith('tel:')) {
-      continue;
+  const chapterIds = new Set((guide.chapters || []).map((c) => c.id));
+  for (const chapter of guide.chapters || []) {
+    assertString(chapter.id, 'guide.chapters[].id');
+    assertString(chapter.label, `guide.chapters.${chapter.id}.label`);
+    assertString(chapter.navLabel, `guide.chapters.${chapter.id}.navLabel`);
+  }
+
+  const seenIds = new Set();
+  const seenAnchors = new Set();
+  let driverGrids = 0;
+  let teamGrids = 0;
+
+  for (const section of guide.sections || []) {
+    assertString(section.id, 'guide.sections[].id');
+    if (seenIds.has(section.id)) fail(`guide.sections has duplicate id: ${section.id}`);
+    seenIds.add(section.id);
+    seenAnchors.add(section.id);
+    if (!chapterIds.has(section.chapter)) fail(`guide.sections.${section.id}.chapter references unknown chapter: ${section.chapter}`);
+    assertString(section.navLabel, `guide.sections.${section.id}.navLabel`);
+    assertString(section.body, `guide.sections.${section.id}.body`);
+    if (section.header) {
+      assertString(section.header.title, `guide.sections.${section.id}.header.title`);
+      assertString(section.header.subtitle, `guide.sections.${section.id}.header.subtitle`);
     }
-    assertRootAsset(value, `guide asset reference`);
+    for (const alias of section.aliases || []) {
+      if (seenAnchors.has(alias)) fail(`guide.sections.${section.id} alias collides with an existing id/alias: ${alias}`);
+      seenAnchors.add(alias);
+    }
+    if (section.body.includes('{{DRIVER_GRID}}')) driverGrids += 1;
+    if (section.body.includes('{{TEAM_GRID}}')) teamGrids += 1;
+
+    // asset references must resolve
+    const attrPattern = /\b(src|href|data-audio-src)="([^"]+)"/g;
+    let match;
+    while ((match = attrPattern.exec(section.body))) {
+      const attr = match[1];
+      const value = match[2];
+      if (/^(https?:)?\/\//.test(value) || value.startsWith('#') || value.startsWith('mailto:') || value.startsWith('tel:') || value.includes('{{')) {
+        continue;
+      }
+      // extensionless root-relative hrefs are internal page routes (e.g. /calendar), not files
+      if (attr === 'href' && value.startsWith('/') && !/\.[a-z0-9]+$/i.test(value)) {
+        continue;
+      }
+      assertRootAsset(value, `guide.sections.${section.id} asset reference`);
+    }
+
+    validateCountDrift(section, counts);
+  }
+
+  if (driverGrids !== 1) fail(`exactly one section must contain {{DRIVER_GRID}} (found ${driverGrids})`);
+  if (teamGrids !== 1) fail(`exactly one section must contain {{TEAM_GRID}} (found ${teamGrids})`);
+
+  // every navbar/first-section target must exist
+  for (const chapter of (guide.chapters || []).filter((c) => !c.finale)) {
+    if (!(guide.sections || []).some((s) => s.chapter === chapter.id)) {
+      fail(`chapter ${chapter.id} has no sections`);
+    }
+  }
+}
+
+// Phase 3 drift guard: current-season counts must live in {{TOKENS}}, not hardcoded
+// prose. The lore/history section legitimately cites historical counts, so it is exempt.
+function validateCountDrift(section, counts) {
+  if (!counts) return;
+  if (section.id === 'history') return;
+  // Negative lookbehind avoids capturing the "1" in tokens like "F1 drivers".
+  const checks = [
+    { re: /(?<![A-Za-z0-9])(\d+)\s+drivers\b/gi, expected: counts.drivers, label: 'drivers' },
+    { re: /(?<![A-Za-z0-9])(\d+)\s+(?:constructor )?teams\b/gi, expected: counts.teams, label: 'teams' },
+    { re: /(?<![A-Za-z0-9])(\d+)\s+Grands Prix\b/g, expected: counts.activeRaces, label: 'Grands Prix' },
+  ];
+  for (const { re, expected, label } of checks) {
+    let match;
+    while ((match = re.exec(section.body))) {
+      const found = Number(match[1]);
+      if (found !== expected) {
+        fail(`guide.sections.${section.id} hardcodes "${match[0].trim()}" but season has ${expected} ${label}; use a {{TOKEN}} instead`);
+      }
+    }
   }
 }
 
@@ -194,10 +265,22 @@ function validateChampions(champions) {
   }
 }
 
+function computeCounts(data) {
+  const raceRows = (data.races?.races || []).filter((r) => !r.type);
+  const scheduled = raceRows.length;
+  const cancelled = raceRows.filter((r) => r.cancelled).length;
+  return {
+    drivers: (data.drivers?.drivers || []).length,
+    teams: (data.teams?.teams || []).length,
+    races: scheduled,
+    activeRaces: scheduled - cancelled,
+  };
+}
+
 function main() {
   const data = Object.fromEntries(REQUIRED_FILES.map((name) => [name, readJSON(name)]));
   validateManifest(data.manifest);
-  validateGuide(data.guide);
+  validateGuide(data.guide, computeCounts(data));
   const driverIds = validateDrivers(data.drivers);
   const driverCodes = new Set((data.drivers?.drivers || []).map((driver) => driver.code).filter(Boolean));
   const teamIds = validateTeams(data.teams, driverIds);
