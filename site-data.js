@@ -2,7 +2,7 @@ window.siteData = {
   "manifest": {
     "schemaVersion": 1,
     "season": 2026,
-    "generatedAt": "2026-07-04T01:49:27.721Z",
+    "generatedAt": "2026-07-05T20:20:05.323Z",
     "baseUrl": "https://welcometof1.com",
     "resources": {
       "guide": "/data/v1/guide.json",
@@ -1149,7 +1149,7 @@ window.siteData = {
   "races": {
     "schemaVersion": 1,
     "season": 2026,
-    "lastUpdated": "2026-06-30T16:46:00.606Z",
+    "lastUpdated": "2026-07-05T20:20:04.636Z",
     "races": [
       {
         "round": 1,
@@ -1208,34 +1208,6 @@ window.siteData = {
       },
       {
         "round": 4,
-        "name": "Bahrain Grand Prix",
-        "location": "Sakhir",
-        "circuitId": "bahrain",
-        "fp1": "2026-04-10T11:30Z",
-        "fp2": "2026-04-10T15:00Z",
-        "fp3": "2026-04-11T12:30Z",
-        "qualifying": "2026-04-11T16:00Z",
-        "race": "2026-04-12T15:00Z",
-        "cancelled": true,
-        "image": "/images/cars/f1-action-2.jpeg",
-        "imageAlt": "Formula 1 car at speed"
-      },
-      {
-        "round": 5,
-        "name": "Saudi Arabian Grand Prix",
-        "location": "Jeddah",
-        "circuitId": "jeddah",
-        "fp1": "2026-04-17T13:30Z",
-        "fp2": "2026-04-17T17:00Z",
-        "fp3": "2026-04-18T13:30Z",
-        "qualifying": "2026-04-18T17:00Z",
-        "race": "2026-04-19T17:00Z",
-        "cancelled": true,
-        "image": "/images/cars/f1-action-1.jpeg",
-        "imageAlt": "Formula 1 cars racing on track"
-      },
-      {
-        "round": 6,
         "name": "Miami Grand Prix",
         "location": "Miami",
         "circuitId": "miami",
@@ -1260,13 +1232,11 @@ window.siteData = {
         "imageAlt": "Formula 1 pit crew working in the garage"
       },
       {
-        "round": 7,
+        "round": 5,
         "name": "Canadian Grand Prix",
         "location": "Montreal",
         "circuitId": "villeneuve",
         "fp1": "2026-05-22T16:30Z",
-        "fp2": "2026-05-22T20:00Z",
-        "fp3": "2026-05-23T16:30Z",
         "qualifying": "2026-05-23T20:00Z",
         "race": "2026-05-24T20:00Z",
         "results": [
@@ -1275,10 +1245,13 @@ window.siteData = {
           "VER"
         ],
         "image": "/images/cars/f1-action-1.jpeg",
-        "imageAlt": "Formula 1 cars racing on track"
+        "imageAlt": "Formula 1 cars racing on track",
+        "sprintWeekend": true,
+        "sprintQualifying": "2026-05-22T20:30Z",
+        "sprint": "2026-05-23T16:00Z"
       },
       {
-        "round": 8,
+        "round": 6,
         "name": "Monaco Grand Prix",
         "location": "Monte Carlo",
         "circuitId": "monaco",
@@ -1290,13 +1263,13 @@ window.siteData = {
         "results": [
           "ANT",
           "HAM",
-          "HAD"
+          "GAS"
         ],
         "image": "/images/races/monaco.webp",
         "imageAlt": "Formula 1 car racing through Monaco"
       },
       {
-        "round": 9,
+        "round": 7,
         "name": "Barcelona-Catalunya Grand Prix",
         "location": "Barcelona",
         "circuitId": "catalunya",
@@ -1314,7 +1287,7 @@ window.siteData = {
         "imageAlt": "Formula 1 car at speed"
       },
       {
-        "round": 10,
+        "round": 8,
         "name": "Austrian Grand Prix",
         "location": "Spielberg",
         "circuitId": "red_bull_ring",
@@ -1332,34 +1305,39 @@ window.siteData = {
         "imageAlt": "Formula 1 cars racing on track"
       },
       {
-        "round": 11,
+        "round": 9,
         "name": "British Grand Prix",
         "location": "Silverstone",
         "circuitId": "silverstone",
         "fp1": "2026-07-03T11:30Z",
-        "fp2": "2026-07-03T15:00Z",
-        "fp3": "2026-07-04T10:30Z",
         "qualifying": "2026-07-04T15:00Z",
         "race": "2026-07-05T14:00Z",
         "image": "/images/races/great-britain.webp",
-        "imageAlt": "Formula 1 cars racing at Silverstone"
+        "imageAlt": "Formula 1 cars racing at Silverstone",
+        "sprintWeekend": true,
+        "sprintQualifying": "2026-07-03T15:30Z",
+        "sprint": "2026-07-04T11:00Z",
+        "results": [
+          "LEC",
+          "RUS",
+          "HAM"
+        ]
       },
       {
-        "round": 12,
+        "round": 10,
         "name": "Belgian Grand Prix",
         "location": "Spa",
         "circuitId": "spa",
-        "sprintWeekend": true,
         "fp1": "2026-07-17T11:30Z",
-        "sprintQualifying": "2026-07-17T15:30Z",
-        "sprint": "2026-07-18T10:00Z",
         "qualifying": "2026-07-18T14:00Z",
         "race": "2026-07-19T13:00Z",
         "image": "/images/races/belgium.webp",
-        "imageAlt": "Formula 1 cars racing at Spa-Francorchamps"
+        "imageAlt": "Formula 1 cars racing at Spa-Francorchamps",
+        "fp2": "2026-07-17T15:00Z",
+        "fp3": "2026-07-18T10:30Z"
       },
       {
-        "round": 13,
+        "round": 11,
         "name": "Hungarian Grand Prix",
         "location": "Budapest",
         "circuitId": "hungaroring",
@@ -1377,20 +1355,21 @@ window.siteData = {
         "detail": "Aug 1–20"
       },
       {
-        "round": 14,
+        "round": 12,
         "name": "Dutch Grand Prix",
         "location": "Zandvoort",
         "circuitId": "zandvoort",
         "fp1": "2026-08-21T10:30Z",
-        "fp2": "2026-08-21T14:00Z",
-        "fp3": "2026-08-22T09:30Z",
         "qualifying": "2026-08-22T14:00Z",
         "race": "2026-08-23T13:00Z",
         "image": "/images/cars/f1-action-1.jpeg",
-        "imageAlt": "Formula 1 cars racing on track"
+        "imageAlt": "Formula 1 cars racing on track",
+        "sprintWeekend": true,
+        "sprintQualifying": "2026-08-21T14:30Z",
+        "sprint": "2026-08-22T10:00Z"
       },
       {
-        "round": 15,
+        "round": 13,
         "name": "Italian Grand Prix",
         "location": "Monza",
         "circuitId": "monza",
@@ -1403,7 +1382,7 @@ window.siteData = {
         "imageAlt": "Formula 1 cars racing at Monza"
       },
       {
-        "round": 16,
+        "round": 14,
         "name": "Spanish Grand Prix",
         "location": "Madrid",
         "circuitId": "madring",
@@ -1417,7 +1396,7 @@ window.siteData = {
         "imageAlt": "Formula 1 car at speed"
       },
       {
-        "round": 17,
+        "round": 15,
         "name": "Azerbaijan Grand Prix",
         "location": "Baku",
         "circuitId": "baku",
@@ -1430,34 +1409,34 @@ window.siteData = {
         "imageAlt": "Formula 1 cars racing on track"
       },
       {
-        "round": 18,
+        "round": 16,
         "name": "Singapore Grand Prix",
         "location": "Singapore",
         "circuitId": "marina_bay",
         "fp1": "2026-10-09T08:30Z",
-        "fp2": "2026-10-09T12:00Z",
-        "fp3": "2026-10-10T08:30Z",
         "qualifying": "2026-10-10T13:00Z",
         "race": "2026-10-11T12:00Z",
         "image": "/images/cars/f1-action-2.jpeg",
-        "imageAlt": "Formula 1 car at speed"
+        "imageAlt": "Formula 1 car at speed",
+        "sprintWeekend": true,
+        "sprintQualifying": "2026-10-09T13:30Z",
+        "sprint": "2026-10-10T09:00Z"
       },
       {
-        "round": 19,
+        "round": 17,
         "name": "United States Grand Prix",
         "location": "Austin",
         "circuitId": "americas",
-        "sprintWeekend": true,
         "fp1": "2026-10-23T17:30Z",
-        "sprintQualifying": "2026-10-23T21:30Z",
-        "sprint": "2026-10-24T17:00Z",
         "qualifying": "2026-10-24T21:00Z",
         "race": "2026-10-25T20:00Z",
         "image": "/images/races/pit-crew.webp",
-        "imageAlt": "Formula 1 pit crew preparing for a race"
+        "imageAlt": "Formula 1 pit crew preparing for a race",
+        "fp2": "2026-10-23T21:00Z",
+        "fp3": "2026-10-24T17:30Z"
       },
       {
-        "round": 20,
+        "round": 18,
         "name": "Mexico City Grand Prix",
         "location": "Mexico City",
         "circuitId": "rodriguez",
@@ -1470,7 +1449,7 @@ window.siteData = {
         "imageAlt": "Formula 1 cars racing on track"
       },
       {
-        "round": 21,
+        "round": 19,
         "name": "São Paulo Grand Prix",
         "location": "São Paulo",
         "circuitId": "interlagos",
@@ -1483,35 +1462,33 @@ window.siteData = {
         "imageAlt": "Formula 1 car at speed"
       },
       {
-        "round": 22,
+        "round": 20,
         "name": "Las Vegas Grand Prix",
         "location": "Las Vegas",
         "circuitId": "vegas",
-        "sprintWeekend": true,
         "fp1": "2026-11-20T00:30Z",
-        "sprintQualifying": "2026-11-20T04:30Z",
-        "sprint": "2026-11-21T00:00Z",
         "qualifying": "2026-11-21T04:00Z",
         "race": "2026-11-22T04:00Z",
         "image": "/images/races/las-vegas.jpg",
-        "imageAlt": "Formula 1 car racing in Las Vegas"
+        "imageAlt": "Formula 1 car racing in Las Vegas",
+        "fp2": "2026-11-20T04:00Z",
+        "fp3": "2026-11-21T00:30Z"
       },
       {
-        "round": 23,
+        "round": 21,
         "name": "Qatar Grand Prix",
         "location": "Lusail",
         "circuitId": "losail",
-        "sprintWeekend": true,
         "fp1": "2026-11-27T13:30Z",
-        "sprintQualifying": "2026-11-27T17:30Z",
-        "sprint": "2026-11-28T13:00Z",
         "qualifying": "2026-11-28T18:00Z",
         "race": "2026-11-29T16:00Z",
         "image": "/images/cars/f1-action-1.jpeg",
-        "imageAlt": "Formula 1 cars racing on track"
+        "imageAlt": "Formula 1 cars racing on track",
+        "fp2": "2026-11-27T17:00Z",
+        "fp3": "2026-11-28T13:30Z"
       },
       {
-        "round": 24,
+        "round": 22,
         "name": "Abu Dhabi Grand Prix",
         "location": "Abu Dhabi",
         "circuitId": "yas_marina",
