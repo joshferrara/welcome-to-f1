@@ -2,7 +2,7 @@ window.siteData = {
   "manifest": {
     "schemaVersion": 1,
     "season": 2026,
-    "generatedAt": "2026-07-05T20:20:05.323Z",
+    "generatedAt": "2026-07-05T20:22:35.192Z",
     "baseUrl": "https://welcometof1.com",
     "resources": {
       "guide": "/data/v1/guide.json",
@@ -1149,7 +1149,7 @@ window.siteData = {
   "races": {
     "schemaVersion": 1,
     "season": 2026,
-    "lastUpdated": "2026-07-05T20:20:04.636Z",
+    "lastUpdated": "2026-07-05T20:22:34.591Z",
     "races": [
       {
         "round": 1,
@@ -1208,6 +1208,34 @@ window.siteData = {
       },
       {
         "round": 4,
+        "name": "Bahrain Grand Prix",
+        "location": "Sakhir",
+        "circuitId": "bahrain",
+        "fp1": "2026-04-10T11:30Z",
+        "fp2": "2026-04-10T15:00Z",
+        "fp3": "2026-04-11T12:30Z",
+        "qualifying": "2026-04-11T16:00Z",
+        "race": "2026-04-12T15:00Z",
+        "cancelled": true,
+        "image": "/images/cars/f1-action-2.jpeg",
+        "imageAlt": "Formula 1 car at speed"
+      },
+      {
+        "round": 5,
+        "name": "Saudi Arabian Grand Prix",
+        "location": "Jeddah",
+        "circuitId": "jeddah",
+        "fp1": "2026-04-17T13:30Z",
+        "fp2": "2026-04-17T17:00Z",
+        "fp3": "2026-04-18T13:30Z",
+        "qualifying": "2026-04-18T17:00Z",
+        "race": "2026-04-19T17:00Z",
+        "cancelled": true,
+        "image": "/images/cars/f1-action-1.jpeg",
+        "imageAlt": "Formula 1 cars racing on track"
+      },
+      {
+        "round": 6,
         "name": "Miami Grand Prix",
         "location": "Miami",
         "circuitId": "miami",
@@ -1232,7 +1260,7 @@ window.siteData = {
         "imageAlt": "Formula 1 pit crew working in the garage"
       },
       {
-        "round": 5,
+        "round": 7,
         "name": "Canadian Grand Prix",
         "location": "Montreal",
         "circuitId": "villeneuve",
@@ -1251,7 +1279,7 @@ window.siteData = {
         "sprint": "2026-05-23T16:00Z"
       },
       {
-        "round": 6,
+        "round": 8,
         "name": "Monaco Grand Prix",
         "location": "Monte Carlo",
         "circuitId": "monaco",
@@ -1269,7 +1297,7 @@ window.siteData = {
         "imageAlt": "Formula 1 car racing through Monaco"
       },
       {
-        "round": 7,
+        "round": 9,
         "name": "Barcelona-Catalunya Grand Prix",
         "location": "Barcelona",
         "circuitId": "catalunya",
@@ -1287,7 +1315,7 @@ window.siteData = {
         "imageAlt": "Formula 1 car at speed"
       },
       {
-        "round": 8,
+        "round": 10,
         "name": "Austrian Grand Prix",
         "location": "Spielberg",
         "circuitId": "red_bull_ring",
@@ -1305,7 +1333,7 @@ window.siteData = {
         "imageAlt": "Formula 1 cars racing on track"
       },
       {
-        "round": 9,
+        "round": 11,
         "name": "British Grand Prix",
         "location": "Silverstone",
         "circuitId": "silverstone",
@@ -1324,7 +1352,7 @@ window.siteData = {
         ]
       },
       {
-        "round": 10,
+        "round": 12,
         "name": "Belgian Grand Prix",
         "location": "Spa",
         "circuitId": "spa",
@@ -1337,7 +1365,7 @@ window.siteData = {
         "fp3": "2026-07-18T10:30Z"
       },
       {
-        "round": 11,
+        "round": 13,
         "name": "Hungarian Grand Prix",
         "location": "Budapest",
         "circuitId": "hungaroring",
@@ -1355,7 +1383,7 @@ window.siteData = {
         "detail": "Aug 1–20"
       },
       {
-        "round": 12,
+        "round": 14,
         "name": "Dutch Grand Prix",
         "location": "Zandvoort",
         "circuitId": "zandvoort",
@@ -1369,7 +1397,7 @@ window.siteData = {
         "sprint": "2026-08-22T10:00Z"
       },
       {
-        "round": 13,
+        "round": 15,
         "name": "Italian Grand Prix",
         "location": "Monza",
         "circuitId": "monza",
@@ -1382,7 +1410,7 @@ window.siteData = {
         "imageAlt": "Formula 1 cars racing at Monza"
       },
       {
-        "round": 14,
+        "round": 16,
         "name": "Spanish Grand Prix",
         "location": "Madrid",
         "circuitId": "madring",
@@ -1396,7 +1424,7 @@ window.siteData = {
         "imageAlt": "Formula 1 car at speed"
       },
       {
-        "round": 15,
+        "round": 17,
         "name": "Azerbaijan Grand Prix",
         "location": "Baku",
         "circuitId": "baku",
@@ -1409,7 +1437,7 @@ window.siteData = {
         "imageAlt": "Formula 1 cars racing on track"
       },
       {
-        "round": 16,
+        "round": 18,
         "name": "Singapore Grand Prix",
         "location": "Singapore",
         "circuitId": "marina_bay",
@@ -1423,7 +1451,7 @@ window.siteData = {
         "sprint": "2026-10-10T09:00Z"
       },
       {
-        "round": 17,
+        "round": 19,
         "name": "United States Grand Prix",
         "location": "Austin",
         "circuitId": "americas",
@@ -1436,7 +1464,7 @@ window.siteData = {
         "fp3": "2026-10-24T17:30Z"
       },
       {
-        "round": 18,
+        "round": 20,
         "name": "Mexico City Grand Prix",
         "location": "Mexico City",
         "circuitId": "rodriguez",
@@ -1449,7 +1477,7 @@ window.siteData = {
         "imageAlt": "Formula 1 cars racing on track"
       },
       {
-        "round": 19,
+        "round": 21,
         "name": "São Paulo Grand Prix",
         "location": "São Paulo",
         "circuitId": "interlagos",
@@ -1462,7 +1490,7 @@ window.siteData = {
         "imageAlt": "Formula 1 car at speed"
       },
       {
-        "round": 20,
+        "round": 22,
         "name": "Las Vegas Grand Prix",
         "location": "Las Vegas",
         "circuitId": "vegas",
@@ -1475,7 +1503,7 @@ window.siteData = {
         "fp3": "2026-11-21T00:30Z"
       },
       {
-        "round": 21,
+        "round": 23,
         "name": "Qatar Grand Prix",
         "location": "Lusail",
         "circuitId": "losail",
@@ -1488,7 +1516,7 @@ window.siteData = {
         "fp3": "2026-11-28T13:30Z"
       },
       {
-        "round": 22,
+        "round": 24,
         "name": "Abu Dhabi Grand Prix",
         "location": "Abu Dhabi",
         "circuitId": "yas_marina",
