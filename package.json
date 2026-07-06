@@ -6,8 +6,9 @@
   "scripts": {
     "validate:data": "node scripts/validate-data.js",
     "update:data": "node scripts/update-data.js",
-    "build": "npm run validate:data && node scripts/build-site.js",
-    "build:deploy": "npm run update:data && npm run build"
+    "build:static": "npm run validate:data && node scripts/build-site.js",
+    "build": "npm run update:data && npm run build:static",
+    "build:deploy": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {}

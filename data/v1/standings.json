@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "season": 2026,
-  "lastUpdated": "2026-06-30T16:46:00.197Z",
+  "lastUpdated": "2026-07-06T03:35:54.907Z",
   "drivers": [
     {
       "pos": 1,
       "code": "ANT",
       "name": "Andrea Kimi Antonelli",
       "team": "Mercedes-AMG",
-      "points": 171,
+      "points": 179,
       "wins": 5
     },
     {
@@ -16,7 +16,7 @@
       "code": "RUS",
       "name": "George Russell",
       "team": "Mercedes-AMG",
-      "points": 131,
+      "points": 154,
       "wins": 2
     },
     {
@@ -24,31 +24,31 @@
       "code": "HAM",
       "name": "Lewis Hamilton",
       "team": "Scuderia Ferrari",
-      "points": 125,
+      "points": 147,
       "wins": 1
     },
     {
       "pos": 4,
-      "code": "PIA",
-      "name": "Oscar Piastri",
-      "team": "McLaren",
-      "points": 80,
-      "wins": 0
+      "code": "LEC",
+      "name": "Charles Leclerc",
+      "team": "Scuderia Ferrari",
+      "points": 108,
+      "wins": 1
     },
     {
       "pos": 5,
       "code": "NOR",
       "name": "Lando Norris",
       "team": "McLaren",
-      "points": 79,
+      "points": 97,
       "wins": 0
     },
     {
       "pos": 6,
-      "code": "LEC",
-      "name": "Charles Leclerc",
-      "team": "Scuderia Ferrari",
-      "points": 79,
+      "code": "PIA",
+      "name": "Oscar Piastri",
+      "team": "McLaren",
+      "points": 82,
       "wins": 0
     },
     {
@@ -56,7 +56,7 @@
       "code": "VER",
       "name": "Max Verstappen",
       "team": "Red Bull Racing",
-      "points": 73,
+      "points": 76,
       "wins": 0
     },
     {
@@ -64,7 +64,7 @@
       "code": "HAD",
       "name": "Isack Hadjar",
       "team": "Red Bull Racing",
-      "points": 42,
+      "points": 52,
       "wins": 0
     },
     {
@@ -72,7 +72,7 @@
       "code": "GAS",
       "name": "Pierre Gasly",
       "team": "Alpine",
-      "points": 41,
+      "points": 42,
       "wins": 0
     },
     {
@@ -80,11 +80,19 @@
       "code": "LAW",
       "name": "Liam Lawson",
       "team": "Racing Bulls",
-      "points": 30,
+      "points": 39,
       "wins": 0
     },
     {
       "pos": 11,
+      "code": "LIN",
+      "name": "Arvid Lindblad",
+      "team": "Racing Bulls",
+      "points": 20,
+      "wins": 0
+    },
+    {
+      "pos": 12,
       "code": "BEA",
       "name": "Oliver Bearman",
       "team": "Haas",
@@ -92,23 +100,23 @@
       "wins": 0
     },
     {
-      "pos": 12,
+      "pos": 13,
       "code": "COL",
       "name": "Franco Colapinto",
       "team": "Alpine",
-      "points": 16,
-      "wins": 0
-    },
-    {
-      "pos": 13,
-      "code": "LIN",
-      "name": "Arvid Lindblad",
-      "team": "Racing Bulls",
-      "points": 14,
+      "points": 18,
       "wins": 0
     },
     {
       "pos": 14,
+      "code": "BOR",
+      "name": "Gabriel Bortoleto",
+      "team": "Audi",
+      "points": 6,
+      "wins": 0
+    },
+    {
+      "pos": 15,
       "code": "SAI",
       "name": "Carlos Sainz",
       "team": "Williams",
@@ -116,7 +124,7 @@
       "wins": 0
     },
     {
-      "pos": 15,
+      "pos": 16,
       "code": "ALB",
       "name": "Alexander Albon",
       "team": "Williams",
@@ -124,19 +132,11 @@
       "wins": 0
     },
     {
-      "pos": 16,
+      "pos": 17,
       "code": "OCO",
       "name": "Esteban Ocon",
       "team": "Haas",
       "points": 3,
-      "wins": 0
-    },
-    {
-      "pos": 17,
-      "code": "BOR",
-      "name": "Gabriel Bortoleto",
-      "team": "Audi",
-      "points": 2,
       "wins": 0
     },
     {
@@ -184,37 +184,37 @@
     {
       "pos": 1,
       "name": "Mercedes-AMG",
-      "points": 302,
+      "points": 333,
       "wins": 7
     },
     {
       "pos": 2,
       "name": "Scuderia Ferrari",
-      "points": 204,
-      "wins": 1
+      "points": 255,
+      "wins": 2
     },
     {
       "pos": 3,
       "name": "McLaren",
-      "points": 159,
+      "points": 179,
       "wins": 0
     },
     {
       "pos": 4,
       "name": "Red Bull Racing",
-      "points": 115,
+      "points": 128,
       "wins": 0
     },
     {
       "pos": 5,
       "name": "Alpine",
-      "points": 57,
+      "points": 60,
       "wins": 0
     },
     {
       "pos": 6,
       "name": "Racing Bulls",
-      "points": 44,
+      "points": 59,
       "wins": 0
     },
     {
@@ -232,7 +232,7 @@
     {
       "pos": 9,
       "name": "Audi",
-      "points": 2,
+      "points": 6,
       "wins": 0
     },
     {

@@ -92,10 +92,16 @@ Validate the public data contract:
 npm run validate:data
 ```
 
-Build the static website from JSON:
+Refresh external race/standings data, then build the static website from JSON:
 
 ```bash
 npm run build
+```
+
+Build from the checked-in JSON without external API calls:
+
+```bash
+npm run build:static
 ```
 
 Refresh external race/standings data:
@@ -104,13 +110,13 @@ Refresh external race/standings data:
 npm run update:data
 ```
 
-Cloudflare Pages should use:
+Cloudflare Pages can use either build command:
 
 ```bash
 npm run build:deploy
 ```
 
-That command refreshes external data first, then validates and rebuilds the generated static files.
+Both `build` and `build:deploy` refresh external data first, then validate and rebuild the generated static files.
 
 ## Mobile Data Contract
 

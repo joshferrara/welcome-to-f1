@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2026,
-  "lastUpdated": "2026-07-05T20:22:34.591Z",
+  "lastUpdated": "2026-07-06T03:35:30.771Z",
   "races": [
     {
       "round": 1,
@@ -299,7 +299,7 @@
       "image": "/images/cars/f1-action-2.jpeg",
       "imageAlt": "Formula 1 car at speed",
       "sprintWeekend": true,
-      "sprintQualifying": "2026-10-09T13:30Z",
+      "sprintQualifying": "2026-10-09T12:30Z",
       "sprint": "2026-10-10T09:00Z"
     },
     {
@@ -365,7 +365,7 @@
       "image": "/images/cars/f1-action-1.jpeg",
       "imageAlt": "Formula 1 cars racing on track",
       "fp2": "2026-11-27T17:00Z",
-      "fp3": "2026-11-28T13:30Z"
+      "fp3": "2026-11-28T14:30Z"
     },
     {
       "round": 24,
