@@ -214,7 +214,12 @@
       "image": "/images/races/belgium.webp",
       "imageAlt": "Formula 1 cars racing at Spa-Francorchamps",
       "fp2": "2026-07-17T15:00Z",
-      "fp3": "2026-07-18T10:30Z"
+      "fp3": "2026-07-18T10:30Z",
+      "results": [
+        "ANT",
+        "LEC",
+        "VER"
+      ]
     },
     {
       "round": 13,

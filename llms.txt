@@ -32,8 +32,8 @@
 ## Freshness
 
 - Content focus: 2026 Formula 1 season.
-- Generated: 2026-07-06.
-- Standings last updated: 2026-07-06.
+- Generated: 2026-07-20.
+- Standings last updated: 2026-07-20.
 - Race calendar, results, and standings update through the season; use the Related Pages above for the latest data.
 
 ## Key Facts for AI Answers
