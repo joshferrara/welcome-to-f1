@@ -82,9 +82,10 @@ function updateRaceTimes(calendar, raceMap) {
 
     const note = race.raceNote || null;
     const noteSession = note && (note.session || 'race');
+    const wasSessionsTbc = race.sessionsTbc === true;
 
     for (const field of ALL_TIME_FIELDS) {
-      if (!Object.prototype.hasOwnProperty.call(race, field)) continue;
+      if (!Object.prototype.hasOwnProperty.call(race, field) && !wasSessionsTbc) continue;
       const apiValue = apiSessions[field];
       if (!apiValue) continue;
 
@@ -100,6 +101,12 @@ function updateRaceTimes(calendar, raceMap) {
         race[field] = newValue;
         totalChanges++;
       }
+    }
+
+    if (wasSessionsTbc && race.fp1 && race.qualifying && race.race) {
+      delete race.sessionsTbc;
+      console.log(`  ${race.circuitId}: official session times are now available`);
+      totalChanges++;
     }
   }
 

@@ -74,6 +74,15 @@ function assertISODate(value, label) {
   if (Number.isNaN(parsed.getTime())) fail(`${label} is not a valid date: ${value}`);
 }
 
+function assertDateOnly(value, label) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    fail(`${label} must use date format YYYY-MM-DD`);
+    return;
+  }
+  const parsed = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(parsed.getTime())) fail(`${label} is not a valid date: ${value}`);
+}
+
 function validateManifest(manifest) {
   if (!manifest) return;
   assertString(manifest.baseUrl, 'manifest.baseUrl');
@@ -227,6 +236,10 @@ function validateRaces(racesData, driverCodes) {
     assertString(item.circuitId, `races.round${item.round}.circuitId`);
     assertRootAsset(item.image, `races.round${item.round}.image`);
     if (item.image && item.imageAlt) assertString(item.imageAlt, `races.round${item.round}.imageAlt`);
+    if (item.sessionsTbc) {
+      assertDateOnly(item.weekendStart, `races.round${item.round}.weekendStart`);
+      assertDateOnly(item.weekendEnd, `races.round${item.round}.weekendEnd`);
+    }
     for (const field of SESSION_FIELDS) {
       if (item[field]) assertISODate(item[field], `races.round${item.round}.${field}`);
     }

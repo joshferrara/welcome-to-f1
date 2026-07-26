@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2026,
-  "lastUpdated": "2026-07-06T03:35:30.771Z",
+  "lastUpdated": "2026-07-26T18:00:00.000Z",
   "races": [
     {
       "round": 1,
@@ -232,7 +232,12 @@
       "qualifying": "2026-07-25T14:00Z",
       "race": "2026-07-26T13:00Z",
       "image": "/images/cars/f1-action-2.jpeg",
-      "imageAlt": "Formula 1 car at speed"
+      "imageAlt": "Formula 1 car at speed",
+      "results": [
+        "NOR",
+        "VER",
+        "ANT"
+      ]
     },
     {
       "type": "break",
@@ -295,6 +300,18 @@
     },
     {
       "round": 18,
+      "name": "Bahrain Grand Prix in Malaysia",
+      "location": "Sepang",
+      "circuitId": "sepang",
+      "weekendStart": "2026-10-02",
+      "weekendEnd": "2026-10-04",
+      "sessionsTbc": true,
+      "isNew": true,
+      "image": "/images/cars/f1-action-1.jpeg",
+      "imageAlt": "Formula 1 cars racing on track"
+    },
+    {
+      "round": 19,
       "name": "Singapore Grand Prix",
       "location": "Singapore",
       "circuitId": "marina_bay",
@@ -308,7 +325,7 @@
       "sprint": "2026-10-10T09:00Z"
     },
     {
-      "round": 19,
+      "round": 20,
       "name": "United States Grand Prix",
       "location": "Austin",
       "circuitId": "americas",
@@ -321,7 +338,7 @@
       "fp3": "2026-10-24T17:30Z"
     },
     {
-      "round": 20,
+      "round": 21,
       "name": "Mexico City Grand Prix",
       "location": "Mexico City",
       "circuitId": "rodriguez",
@@ -334,7 +351,7 @@
       "imageAlt": "Formula 1 cars racing on track"
     },
     {
-      "round": 21,
+      "round": 22,
       "name": "São Paulo Grand Prix",
       "location": "São Paulo",
       "circuitId": "interlagos",
@@ -347,7 +364,7 @@
       "imageAlt": "Formula 1 car at speed"
     },
     {
-      "round": 22,
+      "round": 23,
       "name": "Las Vegas Grand Prix",
       "location": "Las Vegas",
       "circuitId": "vegas",
@@ -360,7 +377,7 @@
       "fp3": "2026-11-21T00:30Z"
     },
     {
-      "round": 23,
+      "round": 24,
       "name": "Qatar Grand Prix",
       "location": "Lusail",
       "circuitId": "losail",
@@ -373,7 +390,7 @@
       "fp3": "2026-11-28T14:30Z"
     },
     {
-      "round": 24,
+      "round": 25,
       "name": "Abu Dhabi Grand Prix",
       "location": "Abu Dhabi",
       "circuitId": "yas_marina",

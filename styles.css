@@ -700,6 +700,23 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   white-space: nowrap;
 }
 
+.race-week-banner--break .race-week-banner__inner {
+  border-color: color-mix(in srgb, var(--accent-amber) 40%, var(--border-color));
+}
+
+.race-week-banner--break:hover .race-week-banner__inner {
+  border-color: var(--accent-amber);
+}
+
+.race-week-banner--break .race-week-banner__dot {
+  background: var(--accent-amber);
+  animation: none;
+}
+
+.race-week-banner--break .race-week-banner__label {
+  color: var(--accent-amber);
+}
+
 @media (max-width: 480px) {
   .race-week-banner__inner {
     padding: 12px 16px;
@@ -2351,6 +2368,14 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   font-weight: 500;
 }
 
+.schedule-item--break-active {
+  background: color-mix(in srgb, var(--accent-amber) 8%, var(--bg-secondary));
+}
+
+.schedule-item--break-active .schedule-item__name {
+  color: var(--accent-amber);
+}
+
 @media (max-width: 1024px) {
   .schedule-grid {
     grid-template-columns: 1fr;
@@ -3141,6 +3166,17 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 700; }
   letter-spacing: 0.06em;
   background: var(--accent-amber-soft);
   color: var(--accent-amber);
+}
+
+.timeline-badge--tbc {
+  color: var(--accent-amber);
+  background: var(--accent-amber-soft);
+}
+
+.timeline-tbc {
+  padding: 18px 0 4px;
+  color: var(--text-secondary);
+  font-size: 14px;
 }
 
 .timeline-row {

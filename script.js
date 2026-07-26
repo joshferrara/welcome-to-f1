@@ -551,24 +551,46 @@ if (navigator.share && nativeShareBtn) {
   const timelineTimezoneCode = document.getElementById('timelineTimezoneCode');
   const calendarLastUpdated = document.getElementById('calendarLastUpdated');
 
+  function dateOnly(value, endOfDay) {
+    return new Date(value + (endOfDay ? 'T23:59:59' : 'T00:00:00'));
+  }
+
+  function getWeekendStart(r) {
+    return r.fp1 ? new Date(r.fp1) : dateOnly(r.weekendStart, false);
+  }
+
+  function getRaceEnd(r) {
+    if (r.race) return new Date(new Date(r.race).getTime() + 3 * 3600000);
+    return dateOnly(r.weekendEnd, true);
+  }
+
+  function formatWeekendDates(r, longMonth) {
+    const startDay = r.weekendStart ? dateOnly(r.weekendStart, false) : new Date(r.fp1);
+    const endDay = r.weekendEnd ? dateOnly(r.weekendEnd, false) : new Date(r.race);
+    const monthStyle = longMonth ? 'long' : 'short';
+    if (startDay.getMonth() === endDay.getMonth()) {
+      return startDay.toLocaleDateString('en-US', { month: monthStyle, day: 'numeric' }) + '\u2013' + endDay.getDate();
+    }
+    return startDay.toLocaleDateString('en-US', { month: monthStyle, day: 'numeric' }) + ' \u2013 ' +
+      endDay.toLocaleDateString('en-US', { month: monthStyle, day: 'numeric' });
+  }
+
   function formatRaceDetail(r) {
-    const fp1 = new Date(r.fp1);
-    const race = new Date(r.race);
-    const start = fp1.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    const end = race.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    return r.location + ' \u2022 ' + start + '\u2013' + end;
+    const tbc = r.sessionsTbc ? ' \u2022 Times TBC' : '';
+    return r.location + ' \u2022 ' + formatWeekendDates(r, false) + tbc;
   }
 
   function renderSchedule() {
     if (!scheduleGrid) return;
     scheduleGrid.innerHTML = '';
 
-    races.forEach(function(item) {
+    races.forEach(function(item, index) {
       const card = document.createElement('div');
       card.className = 'schedule-item';
 
       if (item.type === 'break') {
         card.classList.add('schedule-item--break');
+        card.dataset.breakIndex = index;
         card.innerHTML = '<span class="schedule-item__round">\u2014</span><div class="schedule-item__info"><span class="schedule-item__name">' + item.label + '</span><span class="schedule-item__detail">' + item.detail + '</span></div>';
         scheduleGrid.appendChild(card);
         return;
@@ -612,6 +634,12 @@ if (navigator.share && nativeShareBtn) {
     if (!race) return;
     const isSprint = Boolean(race.sprintWeekend);
     const sprintTag = isSprint ? '<span class="timeline-badge">Sprint weekend</span>' : '';
+    const tbcTag = race.sessionsTbc ? '<span class="timeline-badge timeline-badge--tbc">Times TBC</span>' : '';
+    if (race.sessionsTbc) {
+      timelinePanel.innerHTML = '<div class="timeline-header"><div><strong>' + race.name + '</strong><span>' + race.location + ' \u00B7 ' + formatWeekendDates(race, true) + '</span></div>' + tbcTag + '</div>' +
+        '<div class="timeline-tbc">Individual session start times have not been announced.</div>';
+      return;
+    }
     const raceNote = race.raceNote || null;
     const noteSessionKey = raceNote && (raceNote.session || 'race');
     const noteFor = function(key) { return key === noteSessionKey ? raceNote : null; };
@@ -641,9 +669,8 @@ if (navigator.share && nativeShareBtn) {
     // 1) Prefer current race week (window opens 4 days before FP1 and closes 3h after race start)
     for (const race of raceRows) {
       if (race.cancelled) continue;
-      const fp1 = new Date(race.fp1);
-      const raceStart = new Date(race.race);
-      const raceEnd = new Date(raceStart.getTime() + 3 * 3600000);
+      const fp1 = getWeekendStart(race);
+      const raceEnd = getRaceEnd(race);
       const windowStart = new Date(fp1);
       windowStart.setDate(windowStart.getDate() - 4);
       windowStart.setHours(0, 0, 0, 0);
@@ -655,7 +682,7 @@ if (navigator.share && nativeShareBtn) {
     // 2) Otherwise pick next upcoming race
     const nextUpcoming = raceRows.find(function(race) {
       if (race.cancelled || race.results) return false;
-      return new Date(race.race) > currentTime;
+      return getRaceEnd(race) > currentTime;
     });
     if (nextUpcoming) return nextUpcoming.round;
 
@@ -680,10 +707,10 @@ if (navigator.share && nativeShareBtn) {
   }
   renderTimeline(defaultTimelineRound);
 
+  let bannerActive = false;
   for (const r of raceRows) {
-    const fp1 = new Date(r.fp1);
-    const race = new Date(r.race);
-    const raceEnd = new Date(race.getTime() + 3 * 3600000);
+    const fp1 = getWeekendStart(r);
+    const raceEnd = getRaceEnd(r);
 
     // Show banner from 4 days before FP1 through end of race
     const windowStart = new Date(fp1);
@@ -693,16 +720,7 @@ if (navigator.share && nativeShareBtn) {
     if (now >= windowStart && now <= raceEnd && !r.results && !r.cancelled) {
       const banner = document.getElementById('raceWeekBanner');
 
-      // Derive the visitor's local calendar dates from the UTC session times
-      const startDay = new Date(fp1.getFullYear(), fp1.getMonth(), fp1.getDate());
-      const endDay = new Date(race.getFullYear(), race.getMonth(), race.getDate());
-
-      let dateStr;
-      if (startDay.getMonth() === endDay.getMonth()) {
-        dateStr = startDay.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) + '–' + endDay.getDate();
-      } else {
-        dateStr = startDay.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) + ' – ' + endDay.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
-      }
+      const dateStr = formatWeekendDates(r, true);
 
       // Detect visitor's timezone abbreviation (e.g. "EST", "CDT", "PST")
       const tzAbbr = Intl.DateTimeFormat('en-US', { timeZoneName: 'short' })
@@ -716,6 +734,7 @@ if (navigator.share && nativeShareBtn) {
           'Round ' + r.round + ' \u00B7 ' + r.location + ' \u00B7 ' + dateStr +
           ' <span class="race-week-banner__tz">' + tzAbbr + '</span>';
         banner.classList.add('active');
+        bannerActive = true;
       }
 
       // Highlight matching race in the calendar grid
@@ -724,6 +743,35 @@ if (navigator.share && nativeShareBtn) {
 
       break;
     }
+  }
+
+  if (!bannerActive) {
+    races.forEach(function(item, index) {
+      if (bannerActive || item.type !== 'break' || item.label !== 'Summer Break') return;
+      const previousRace = races.slice(0, index).reverse().find(function(entry) { return !entry.type && !entry.cancelled; });
+      const nextRace = races.slice(index + 1).find(function(entry) { return !entry.type && !entry.cancelled; });
+      if (!previousRace || !nextRace) return;
+
+      const breakStart = getRaceEnd(previousRace);
+      const nextRaceWeek = getWeekendStart(nextRace);
+      nextRaceWeek.setDate(nextRaceWeek.getDate() - 4);
+      nextRaceWeek.setHours(0, 0, 0, 0);
+      if (now <= breakStart || now >= nextRaceWeek) return;
+
+      const banner = document.getElementById('raceWeekBanner');
+      const bannerLabel = banner && banner.querySelector('.race-week-banner__label');
+      const raceWeekName = document.getElementById('raceWeekName');
+      const raceWeekMeta = document.getElementById('raceWeekMeta');
+      if (!banner || !bannerLabel || !raceWeekName || !raceWeekMeta) return;
+
+      bannerLabel.textContent = item.label;
+      raceWeekName.textContent = 'Formula 1 is on summer break';
+      raceWeekMeta.textContent = 'Racing returns \u00B7 ' + nextRace.name + ' \u00B7 ' + formatWeekendDates(nextRace, true);
+      banner.classList.add('active', 'race-week-banner--break');
+      const breakCard = document.querySelector('.schedule-item[data-break-index="' + index + '"]');
+      if (breakCard) breakCard.classList.add('schedule-item--break-active');
+      bannerActive = true;
+    });
   }
 
   // Mark cancelled races
@@ -741,8 +789,7 @@ if (navigator.share && nativeShareBtn) {
   // Mark completed races
   for (const r of raceRows) {
     if (r.cancelled) continue;
-    const race = new Date(r.race);
-    const raceEnd = new Date(race.getTime() + 3 * 3600000);
+    const raceEnd = getRaceEnd(r);
 
     if (now > raceEnd || r.results) {
       var calItem = document.querySelector('.schedule-item[data-round="' + r.round + '"]');

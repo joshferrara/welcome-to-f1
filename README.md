@@ -145,7 +145,7 @@ Note on the `/data/v1/` contract: reshaping `guide.json`'s internal content mode
 
 ## Race Calendar & Results
 
-Race data lives in `data/v1/races.json`. Each race can be in one of four states:
+Race data lives in `data/v1/races.json`. Each race can be in one of five states:
 
 | State | Condition |
 |-------|-----------|
@@ -153,6 +153,7 @@ Race data lives in `data/v1/races.json`. Each race can be in one of four states:
 | Race Week | Within the race-week window |
 | Completed | Past race end time or `results` is set |
 | Cancelled | `cancelled: true` |
+| Dates announced | `sessionsTbc: true` with `weekendStart` and `weekendEnd` |
 
 After each race, add the top 3 finishers to the race's `results` array:
 
@@ -165,6 +166,16 @@ To cancel a race, add:
 ```json
 "cancelled": true
 ```
+
+When a weekend is confirmed before individual session times are published, use:
+
+```json
+"weekendStart": "2026-10-02",
+"weekendEnd": "2026-10-04",
+"sessionsTbc": true
+```
+
+The calendar updater replaces this state with exact session timestamps when the schedule API publishes them.
 
 To flag a one-off session change, add `raceNote` to the race:
 
