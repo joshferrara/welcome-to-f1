@@ -283,7 +283,7 @@ function computeCounts(data) {
   const scheduled = raceRows.length;
   const cancelled = raceRows.filter((r) => r.cancelled).length;
   return {
-    drivers: (data.drivers?.drivers || []).length,
+    drivers: (data.drivers?.drivers || []).filter((driver) => !driver.reserve).length,
     teams: (data.teams?.teams || []).length,
     races: scheduled,
     activeRaces: scheduled - cancelled,

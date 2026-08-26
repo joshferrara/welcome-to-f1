@@ -32,7 +32,7 @@ function computeFacts({ drivers, teams, races }) {
   const sprints = raceRows.filter((r) => r.sprintWeekend).length;
   return {
     SEASON: String(SEASON),
-    DRIVER_COUNT: String(drivers.drivers.length),
+    DRIVER_COUNT: String(drivers.drivers.filter((driver) => !driver.reserve).length),
     TEAM_COUNT: String(teams.teams.length),
     RACE_COUNT: String(scheduled),
     ACTIVE_RACE_COUNT: String(scheduled - cancelled),
@@ -69,6 +69,7 @@ ${links.map((link) => {
 
 function renderDriverGrid(drivers) {
   return drivers
+    .filter((driver) => !driver.reserve)
     .slice()
     .sort((a, b) => a.order - b.order)
     .map((driver) => {

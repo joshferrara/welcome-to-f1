@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2026,
-  "lastUpdated": "2026-07-26T18:00:00.000Z",
+  "lastUpdated": "2026-08-23T19:07:31.813Z",
   "races": [
     {
       "round": 1,
@@ -256,7 +256,12 @@
       "imageAlt": "Formula 1 cars racing on track",
       "sprintWeekend": true,
       "sprintQualifying": "2026-08-21T14:30Z",
-      "sprint": "2026-08-22T10:00Z"
+      "sprint": "2026-08-22T10:00Z",
+      "results": [
+        "NOR",
+        "ANT",
+        "RUS"
+      ]
     },
     {
       "round": 15,
@@ -305,10 +310,14 @@
       "circuitId": "sepang",
       "weekendStart": "2026-10-02",
       "weekendEnd": "2026-10-04",
-      "sessionsTbc": true,
       "isNew": true,
       "image": "/images/cars/f1-action-1.jpeg",
-      "imageAlt": "Formula 1 cars racing on track"
+      "imageAlt": "Formula 1 cars racing on track",
+      "fp1": "2026-10-02T04:30Z",
+      "fp2": "2026-10-02T08:00Z",
+      "fp3": "2026-10-03T04:30Z",
+      "qualifying": "2026-10-03T08:00Z",
+      "race": "2026-10-04T07:00Z"
     },
     {
       "round": 19,

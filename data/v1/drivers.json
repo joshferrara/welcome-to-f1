@@ -734,6 +734,25 @@
         ]
       },
       "order": 22
+    },
+    {
+      "id": "yuki-tsunoda",
+      "code": "TSU",
+      "name": "Yuki Tsunoda",
+      "number": "22",
+      "teamId": "racing-bulls",
+      "displayTeam": "Racing Bulls",
+      "countryCode": "JP",
+      "flag": "🇯🇵",
+      "image": "/images/drivers/yuki-tsunoda.webp",
+      "imageAlt": "Yuki Tsunoda",
+      "reserve": true,
+      "tag": "Dutch GP Substitute",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Yuki_Tsunoda",
+        "social": []
+      },
+      "order": 23
     }
   ]
 }

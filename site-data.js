@@ -2,7 +2,7 @@ window.siteData = {
   "manifest": {
     "schemaVersion": 1,
     "season": 2026,
-    "generatedAt": "2026-07-26T21:53:02.384Z",
+    "generatedAt": "2026-08-23T19:10:56.848Z",
     "baseUrl": "https://welcometof1.com",
     "resources": {
       "guide": "/data/v1/guide.json",
@@ -746,6 +746,25 @@ window.siteData = {
         ]
       },
       "order": 22
+    },
+    {
+      "id": "yuki-tsunoda",
+      "code": "TSU",
+      "name": "Yuki Tsunoda",
+      "number": "22",
+      "teamId": "racing-bulls",
+      "displayTeam": "Racing Bulls",
+      "countryCode": "JP",
+      "flag": "🇯🇵",
+      "image": "/images/drivers/yuki-tsunoda.webp",
+      "imageAlt": "Yuki Tsunoda",
+      "reserve": true,
+      "tag": "Dutch GP Substitute",
+      "links": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Yuki_Tsunoda",
+        "social": []
+      },
+      "order": 23
     }
   ],
   "teams": [
@@ -1149,7 +1168,7 @@ window.siteData = {
   "races": {
     "schemaVersion": 1,
     "season": 2026,
-    "lastUpdated": "2026-07-26T18:00:00.000Z",
+    "lastUpdated": "2026-08-23T19:07:31.813Z",
     "races": [
       {
         "round": 1,
@@ -1404,7 +1423,12 @@ window.siteData = {
         "imageAlt": "Formula 1 cars racing on track",
         "sprintWeekend": true,
         "sprintQualifying": "2026-08-21T14:30Z",
-        "sprint": "2026-08-22T10:00Z"
+        "sprint": "2026-08-22T10:00Z",
+        "results": [
+          "NOR",
+          "ANT",
+          "RUS"
+        ]
       },
       {
         "round": 15,
@@ -1453,10 +1477,14 @@ window.siteData = {
         "circuitId": "sepang",
         "weekendStart": "2026-10-02",
         "weekendEnd": "2026-10-04",
-        "sessionsTbc": true,
         "isNew": true,
         "image": "/images/cars/f1-action-1.jpeg",
-        "imageAlt": "Formula 1 cars racing on track"
+        "imageAlt": "Formula 1 cars racing on track",
+        "fp1": "2026-10-02T04:30Z",
+        "fp2": "2026-10-02T08:00Z",
+        "fp3": "2026-10-03T04:30Z",
+        "qualifying": "2026-10-03T08:00Z",
+        "race": "2026-10-04T07:00Z"
       },
       {
         "round": 19,
@@ -1560,46 +1588,46 @@ window.siteData = {
   "standings": {
     "schemaVersion": 1,
     "season": 2026,
-    "lastUpdated": "2026-07-26T21:51:59.737Z",
+    "lastUpdated": "2026-08-23T19:07:31.566Z",
     "drivers": [
       {
         "pos": 1,
         "code": "ANT",
         "name": "Andrea Kimi Antonelli",
         "team": "Mercedes-AMG",
-        "points": 219,
+        "points": 242,
         "wins": 6
       },
       {
         "pos": 2,
-        "code": "HAM",
-        "name": "Lewis Hamilton",
-        "team": "Scuderia Ferrari",
-        "points": 169,
-        "wins": 1
-      },
-      {
-        "pos": 3,
         "code": "RUS",
         "name": "George Russell",
         "team": "Mercedes-AMG",
-        "points": 160,
+        "points": 183,
         "wins": 2
       },
       {
-        "pos": 4,
-        "code": "LEC",
-        "name": "Charles Leclerc",
+        "pos": 3,
+        "code": "HAM",
+        "name": "Lewis Hamilton",
         "team": "Scuderia Ferrari",
-        "points": 138,
+        "points": 183,
         "wins": 1
       },
       {
-        "pos": 5,
+        "pos": 4,
         "code": "NOR",
         "name": "Lando Norris",
         "team": "McLaren",
-        "points": 128,
+        "points": 159,
+        "wins": 2
+      },
+      {
+        "pos": 5,
+        "code": "LEC",
+        "name": "Charles Leclerc",
+        "team": "Scuderia Ferrari",
+        "points": 155,
         "wins": 1
       },
       {
@@ -1607,7 +1635,7 @@ window.siteData = {
         "code": "VER",
         "name": "Max Verstappen",
         "team": "Red Bull Racing",
-        "points": 109,
+        "points": 112,
         "wins": 0
       },
       {
@@ -1615,7 +1643,7 @@ window.siteData = {
         "code": "PIA",
         "name": "Oscar Piastri",
         "team": "McLaren",
-        "points": 92,
+        "points": 104,
         "wins": 0
       },
       {
@@ -1631,7 +1659,7 @@ window.siteData = {
         "code": "LAW",
         "name": "Liam Lawson",
         "team": "Racing Bulls",
-        "points": 43,
+        "points": 49,
         "wins": 0
       },
       {
@@ -1639,7 +1667,7 @@ window.siteData = {
         "code": "GAS",
         "name": "Pierre Gasly",
         "team": "Alpine",
-        "points": 42,
+        "points": 44,
         "wins": 0
       },
       {
@@ -1676,6 +1704,14 @@ window.siteData = {
       },
       {
         "pos": 15,
+        "code": "HUL",
+        "name": "Nico Hülkenberg",
+        "team": "Audi",
+        "points": 6,
+        "wins": 0
+      },
+      {
+        "pos": 16,
         "code": "SAI",
         "name": "Carlos Sainz",
         "team": "Williams",
@@ -1683,7 +1719,7 @@ window.siteData = {
         "wins": 0
       },
       {
-        "pos": 16,
+        "pos": 17,
         "code": "ALB",
         "name": "Alexander Albon",
         "team": "Williams",
@@ -1691,7 +1727,7 @@ window.siteData = {
         "wins": 0
       },
       {
-        "pos": 17,
+        "pos": 18,
         "code": "OCO",
         "name": "Esteban Ocon",
         "team": "Haas",
@@ -1699,23 +1735,23 @@ window.siteData = {
         "wins": 0
       },
       {
-        "pos": 18,
-        "code": "HUL",
-        "name": "Nico Hülkenberg",
-        "team": "Audi",
-        "points": 2,
-        "wins": 0
-      },
-      {
         "pos": 19,
         "code": "ALO",
         "name": "Fernando Alonso",
         "team": "Aston Martin",
-        "points": 1,
+        "points": 3,
         "wins": 0
       },
       {
         "pos": 20,
+        "code": "TSU",
+        "name": "Yuki Tsunoda",
+        "team": "Racing Bulls",
+        "points": 0,
+        "wins": 0
+      },
+      {
+        "pos": 21,
         "code": "STR",
         "name": "Lance Stroll",
         "team": "Aston Martin",
@@ -1723,7 +1759,7 @@ window.siteData = {
         "wins": 0
       },
       {
-        "pos": 21,
+        "pos": 22,
         "code": "BOT",
         "name": "Valtteri Bottas",
         "team": "Cadillac F1 Team",
@@ -1731,7 +1767,7 @@ window.siteData = {
         "wins": 0
       },
       {
-        "pos": 22,
+        "pos": 23,
         "code": "PER",
         "name": "Sergio Pérez",
         "team": "Cadillac F1 Team",
@@ -1743,25 +1779,25 @@ window.siteData = {
       {
         "pos": 1,
         "name": "Mercedes-AMG",
-        "points": 379,
+        "points": 425,
         "wins": 8
       },
       {
         "pos": 2,
         "name": "Scuderia Ferrari",
-        "points": 307,
+        "points": 338,
         "wins": 2
       },
       {
         "pos": 3,
         "name": "McLaren",
-        "points": 220,
-        "wins": 1
+        "points": 263,
+        "wins": 2
       },
       {
         "pos": 4,
         "name": "Red Bull Racing",
-        "points": 177,
+        "points": 186,
         "wins": 0
       },
       {
@@ -1773,7 +1809,7 @@ window.siteData = {
       {
         "pos": 6,
         "name": "Alpine",
-        "points": 61,
+        "points": 63,
         "wins": 0
       },
       {
@@ -1785,7 +1821,7 @@ window.siteData = {
       {
         "pos": 8,
         "name": "Audi",
-        "points": 12,
+        "points": 16,
         "wins": 0
       },
       {
@@ -1797,7 +1833,7 @@ window.siteData = {
       {
         "pos": 10,
         "name": "Aston Martin",
-        "points": 1,
+        "points": 3,
         "wins": 0
       },
       {
