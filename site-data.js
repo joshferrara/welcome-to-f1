@@ -2,7 +2,7 @@ window.siteData = {
   "manifest": {
     "schemaVersion": 1,
     "season": 2026,
-    "generatedAt": "2026-08-23T19:10:56.848Z",
+    "generatedAt": "2026-10-03T22:40:29.127Z",
     "baseUrl": "https://welcometof1.com",
     "resources": {
       "guide": "/data/v1/guide.json",
@@ -1168,7 +1168,7 @@ window.siteData = {
   "races": {
     "schemaVersion": 1,
     "season": 2026,
-    "lastUpdated": "2026-08-23T19:07:31.813Z",
+    "lastUpdated": "2026-10-03T22:40:28.146Z",
     "races": [
       {
         "round": 1,
@@ -1310,7 +1310,7 @@ window.siteData = {
         "results": [
           "ANT",
           "HAM",
-          "GAS"
+          "HAD"
         ],
         "image": "/images/races/monaco.webp",
         "imageAlt": "Formula 1 car racing through Monaco"
@@ -1441,7 +1441,12 @@ window.siteData = {
         "qualifying": "2026-09-05T14:00Z",
         "race": "2026-09-06T13:00Z",
         "image": "/images/races/italy.webp",
-        "imageAlt": "Formula 1 cars racing at Monza"
+        "imageAlt": "Formula 1 cars racing at Monza",
+        "results": [
+          "ANT",
+          "RUS",
+          "VER"
+        ]
       },
       {
         "round": 16,
@@ -1455,7 +1460,12 @@ window.siteData = {
         "race": "2026-09-13T13:00Z",
         "isNew": true,
         "image": "/images/cars/f1-action-2.jpeg",
-        "imageAlt": "Formula 1 car at speed"
+        "imageAlt": "Formula 1 car at speed",
+        "results": [
+          "ANT",
+          "VER",
+          "NOR"
+        ]
       },
       {
         "round": 17,
@@ -1468,7 +1478,12 @@ window.siteData = {
         "qualifying": "2026-09-25T12:00Z",
         "race": "2026-09-26T11:00Z",
         "image": "/images/cars/f1-action-1.jpeg",
-        "imageAlt": "Formula 1 cars racing on track"
+        "imageAlt": "Formula 1 cars racing on track",
+        "results": [
+          "RUS",
+          "VER",
+          "HAD"
+        ]
       },
       {
         "round": 18,
@@ -1588,30 +1603,30 @@ window.siteData = {
   "standings": {
     "schemaVersion": 1,
     "season": 2026,
-    "lastUpdated": "2026-08-23T19:07:31.566Z",
+    "lastUpdated": "2026-10-03T22:38:42.912Z",
     "drivers": [
       {
         "pos": 1,
         "code": "ANT",
         "name": "Andrea Kimi Antonelli",
         "team": "Mercedes-AMG",
-        "points": 242,
-        "wins": 6
+        "points": 302,
+        "wins": 8
       },
       {
         "pos": 2,
         "code": "RUS",
         "name": "George Russell",
         "team": "Mercedes-AMG",
-        "points": 183,
-        "wins": 2
+        "points": 236,
+        "wins": 3
       },
       {
         "pos": 3,
         "code": "HAM",
         "name": "Lewis Hamilton",
         "team": "Scuderia Ferrari",
-        "points": 183,
+        "points": 199,
         "wins": 1
       },
       {
@@ -1619,7 +1634,7 @@ window.siteData = {
         "code": "NOR",
         "name": "Lando Norris",
         "team": "McLaren",
-        "points": 159,
+        "points": 186,
         "wins": 2
       },
       {
@@ -1627,7 +1642,7 @@ window.siteData = {
         "code": "LEC",
         "name": "Charles Leclerc",
         "team": "Scuderia Ferrari",
-        "points": 155,
+        "points": 179,
         "wins": 1
       },
       {
@@ -1635,7 +1650,7 @@ window.siteData = {
         "code": "VER",
         "name": "Max Verstappen",
         "team": "Red Bull Racing",
-        "points": 112,
+        "points": 163,
         "wins": 0
       },
       {
@@ -1643,7 +1658,7 @@ window.siteData = {
         "code": "PIA",
         "name": "Oscar Piastri",
         "team": "McLaren",
-        "points": 104,
+        "points": 120,
         "wins": 0
       },
       {
@@ -1651,7 +1666,7 @@ window.siteData = {
         "code": "HAD",
         "name": "Isack Hadjar",
         "team": "Red Bull Racing",
-        "points": 68,
+        "points": 86,
         "wins": 0
       },
       {
@@ -1659,7 +1674,7 @@ window.siteData = {
         "code": "LAW",
         "name": "Liam Lawson",
         "team": "Racing Bulls",
-        "points": 49,
+        "points": 59,
         "wins": 0
       },
       {
@@ -1667,7 +1682,7 @@ window.siteData = {
         "code": "GAS",
         "name": "Pierre Gasly",
         "team": "Alpine",
-        "points": 44,
+        "points": 41,
         "wins": 0
       },
       {
@@ -1675,7 +1690,7 @@ window.siteData = {
         "code": "LIN",
         "name": "Arvid Lindblad",
         "team": "Racing Bulls",
-        "points": 23,
+        "points": 37,
         "wins": 0
       },
       {
@@ -1683,7 +1698,7 @@ window.siteData = {
         "code": "COL",
         "name": "Franco Colapinto",
         "team": "Alpine",
-        "points": 19,
+        "points": 27,
         "wins": 0
       },
       {
@@ -1691,7 +1706,7 @@ window.siteData = {
         "code": "BEA",
         "name": "Oliver Bearman",
         "team": "Haas",
-        "points": 18,
+        "points": 20,
         "wins": 0
       },
       {
@@ -1707,31 +1722,31 @@ window.siteData = {
         "code": "HUL",
         "name": "Nico Hülkenberg",
         "team": "Audi",
-        "points": 6,
+        "points": 7,
         "wins": 0
       },
       {
         "pos": 16,
-        "code": "SAI",
-        "name": "Carlos Sainz",
-        "team": "Williams",
-        "points": 6,
+        "code": "OCO",
+        "name": "Esteban Ocon",
+        "team": "Haas",
+        "points": 7,
         "wins": 0
       },
       {
         "pos": 17,
-        "code": "ALB",
-        "name": "Alexander Albon",
+        "code": "SAI",
+        "name": "Carlos Sainz",
         "team": "Williams",
-        "points": 5,
+        "points": 7,
         "wins": 0
       },
       {
         "pos": 18,
-        "code": "OCO",
-        "name": "Esteban Ocon",
-        "team": "Haas",
-        "points": 3,
+        "code": "ALB",
+        "name": "Alexander Albon",
+        "team": "Williams",
+        "points": 5,
         "wins": 0
       },
       {
@@ -1747,7 +1762,7 @@ window.siteData = {
         "code": "TSU",
         "name": "Yuki Tsunoda",
         "team": "Racing Bulls",
-        "points": 0,
+        "points": 1,
         "wins": 0
       },
       {
@@ -1779,55 +1794,55 @@ window.siteData = {
       {
         "pos": 1,
         "name": "Mercedes-AMG",
-        "points": 425,
-        "wins": 8
+        "points": 538,
+        "wins": 11
       },
       {
         "pos": 2,
         "name": "Scuderia Ferrari",
-        "points": 338,
+        "points": 378,
         "wins": 2
       },
       {
         "pos": 3,
         "name": "McLaren",
-        "points": 263,
+        "points": 306,
         "wins": 2
       },
       {
         "pos": 4,
         "name": "Red Bull Racing",
-        "points": 186,
+        "points": 263,
         "wins": 0
       },
       {
         "pos": 5,
         "name": "Racing Bulls",
-        "points": 66,
+        "points": 83,
         "wins": 0
       },
       {
         "pos": 6,
         "name": "Alpine",
-        "points": 63,
+        "points": 68,
         "wins": 0
       },
       {
         "pos": 7,
         "name": "Haas",
-        "points": 21,
+        "points": 27,
         "wins": 0
       },
       {
         "pos": 8,
         "name": "Audi",
-        "points": 16,
+        "points": 17,
         "wins": 0
       },
       {
         "pos": 9,
         "name": "Williams",
-        "points": 11,
+        "points": 12,
         "wins": 0
       },
       {
