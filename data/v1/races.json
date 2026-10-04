@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2026,
-  "lastUpdated": "2026-10-03T22:40:28.146Z",
+  "lastUpdated": "2026-10-04T20:32:46.163Z",
   "races": [
     {
       "round": 1,
@@ -332,7 +332,12 @@
       "fp2": "2026-10-02T08:00Z",
       "fp3": "2026-10-03T04:30Z",
       "qualifying": "2026-10-03T08:00Z",
-      "race": "2026-10-04T07:00Z"
+      "race": "2026-10-04T07:00Z",
+      "results": [
+        "VER",
+        "ANT",
+        "HAM"
+      ]
     },
     {
       "round": 19,
